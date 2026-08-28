@@ -24,8 +24,10 @@ env/
 logs/
 
 # Skill runtime / scratch (local-only transient outputs)
-skills/*/backups/
+skills/*/backups/*
 !skills/*/backups/.gitkeep
+skills/*/staging/*
+!skills/*/staging/.gitkeep
 
 # Local secrets / env
 .env
