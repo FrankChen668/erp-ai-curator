@@ -1,0 +1,139 @@
+{
+  "eval_set": "erp-ai-curator",
+  "version": "0.1.0-pilot",
+  "skill_under_test": "skills/erp-ai-curator",
+  "source": "docs/phase-03-skill-architecture/EVAL_PLAN.md",
+  "notes": "Eval，不是 Skill 规则样本。实现不得针对具体资源名写死答案；资源会变化，因此不设固定正确 URL 或仓库名。首轮 Pilot 只运行 E01 / E03 / E08。",
+  "evals": [
+    {
+      "id": "E01",
+      "title": "可编辑业务流程图",
+      "pilot_round_1": true,
+      "prompt": "我想给 SAP/Oracle 实施顾问找能用 Claude Code 或类似 Agent 生成可编辑 draw.io 业务流程图的 AI Skill/实操资源。少而精，中文有高质量的可以优先。",
+      "expected_behavior": "先判断用户要的是“可编辑业务流程图”，而不是 BPM 引擎部署、Mermaid 代码或纯展示图。搜索应覆盖真实 Skill / 可用方案与实操教程，打开原始内容确认它确实产出可编辑 .drawio。最终只输出少量强候选，并说明每个资源能让人得到什么产出物。",
+      "human_review_focus": [
+        "是否理解了“可编辑业务流程图”而不是 BPM 引擎部署",
+        "是否发现真正的 Skill / 可用方案，而不是泛泛盘点文章",
+        "是否输出少量强候选，而不是堆链接",
+        "中文优先是否被用作质量豁免"
+      ]
+    },
+    {
+      "id": "E02",
+      "title": "原型设计",
+      "pilot_round_1": false,
+      "prompt": "我们顾问经常要快速做需求原型。帮我找现在值得用的 AI 原型 Skill、Tool 或实操教程，最好能直接产出可评审的交互原型。",
+      "expected_behavior": "默认允许不同类型资源竞争（Skill / Tool / 教程），不预设白名单。类型只是结果标签，需要如实标注，不得把 Tool 冒充 Skill。比较时更关注实际可用输出，尤其是能否产出可评审的交互原型。",
+      "human_review_focus": [
+        "是否默认允许不同资源类型竞争",
+        "是否把 Tool 冒充为 Skill",
+        "是否更关注实际可用输出而非概念介绍",
+        "推荐是否控制在 0–2 个"
+      ]
+    },
+    {
+      "id": "E03",
+      "title": "Claude Code 第三方模型配置",
+      "pilot_round_1": true,
+      "prompt": "Claude Code 接 OpenRouter 或其他第三方模型，现在有没有靠谱的配置方法？给我当前还有效的资源，不要旧教程。",
+      "expected_behavior": "必须触发风险触发式事实核验：关键环境变量、endpoint、模型兼容范围需回到当前官方 / 原始来源确认。当前官方配置优先；第三方教程与官方冲突，或已被官方变更推翻的旧变量 / endpoint，不得推荐。无法确认当前有效时应明说，不包装成“当前可用”。",
+      "human_review_focus": [
+        "是否真正触发了强事实核验",
+        "当前官方 / 原始配置是否被优先采用",
+        "是否存在旧变量或 endpoint 冲突仍被推荐",
+        "是否出现“曾经有效但现已失效”的内容被当成当前可用"
+      ]
+    },
+    {
+      "id": "E04",
+      "title": "Codex 低成本模型",
+      "pilot_round_1": false,
+      "prompt": "Codex CLI 有没有比较靠谱的第三方模型或低成本模型接入方案？我希望是当前还能用的，不要只给泛泛介绍。",
+      "expected_behavior": "明确当前版本与兼容范围。不得把 Claude Code 的配置方案直接泛化套用到 Codex CLI。能区分官方文档、第三方 wrapper、实践教程三类来源，并按当前有效性取舍。",
+      "human_review_focus": [
+        "当前版本与兼容范围是否清楚",
+        "是否把旧 Claude Code 方案泛化给 Codex",
+        "是否能区分官方、第三方 wrapper、实践教程",
+        "是否只给了泛泛介绍"
+      ]
+    },
+    {
+      "id": "E05",
+      "title": "SAP Fit-to-Standard",
+      "pilot_round_1": false,
+      "prompt": "找一些 SAP 顾问用 AI 做需求调研、Fit-to-Standard 或 Fit-Gap 的实战方法、案例或工具。不要泛 AI use-case workshop。",
+      "expected_behavior": "候选必须真正进入需求调研 / Fit-Gap / Fit-to-Standard 工作本身。不因为资源出自 SAP 官方就推荐错题内容；泛 AI use-case ideation、泛数字化 Workshop 不应占位。厂商案例中的效果数字若被引用，必须注明是厂商声称。",
+      "human_review_focus": [
+        "task fit：是否真的落在需求调研 / Fit-Gap / Fit-to-Standard",
+        "是否因 SAP 官方身份而推荐错题资源",
+        "vendor claim 是否只作为来源声称呈现",
+        "是否混入了泛 AI use-case workshop"
+      ]
+    },
+    {
+      "id": "E06",
+      "title": "Oracle 需求分析",
+      "pilot_round_1": false,
+      "prompt": "Oracle 实施项目需求调研、solution design 这块，有没有真正可借鉴的 AI 实战资源？最好是顾问能直接照着思路用的。",
+      "expected_behavior": "不得拿 SAP 资源硬填 Oracle 任务。允许返回 0 推荐。若推荐通用高质量方法，必须说明它迁移到 Oracle 需求调研 / solution design 的边界。",
+      "human_review_focus": [
+        "是否拿 SAP 资源硬填 Oracle",
+        "0 推荐是否被正确使用",
+        "通用方法是否说明了迁移边界",
+        "是否为了凑数降低标准"
+      ]
+    },
+    {
+      "id": "E07",
+      "title": "SAP 陌生模块学习",
+      "pilot_round_1": false,
+      "prompt": "我临时要接触一个不熟的 SAP 模块，想找用 AI 快速理解业务流程、配置链路和关键对象的方法或 prompt framework。给真正有结构的方法，不要“问 Joule 就行”这种泛建议。",
+      "expected_behavior": "推荐的方法必须真正支持陌生模块学习：业务流程、配置链路、关键对象。不得把 Joule custom Skill 开发文档当成模块学习方法。不接受被夸大的标准产品原生能力；自定义扩展能实现的能力不得写成产品原生能力。",
+      "human_review_focus": [
+        "方法是否真正支持模块学习",
+        "是否把 Joule custom Skill 开发文档当学习方法",
+        "是否接受或放大了夸大的标准产品能力",
+        "是否混淆 custom extension 与 standard product"
+      ]
+    },
+    {
+      "id": "E08",
+      "title": "Oracle 陌生模块学习",
+      "pilot_round_1": true,
+      "prompt": "Oracle Fusion SCM 我不熟，想找 AI 辅助快速学习模块的高质量方法、教程或 prompt framework。没有好的就明确说没有。",
+      "expected_behavior": "允许并保持 0 推荐：若没有真正支持 Oracle Fusion SCM 模块学习的高质量方法，应明确说明没有，而不是拿普通 prompt list 或泛 AI 学习建议凑数。英文优质资源可以优先于明显较弱的中文资源，但需用中文说明为什么值得看。",
+      "human_review_focus": [
+        "0 推荐能力：是否敢于保持空缺",
+        "是否拿普通 prompt list 凑数",
+        "英文优质资源是否被正确优先于弱中文资源",
+        "凑数或过度 abstain 的边界判断"
+      ]
+    },
+    {
+      "id": "E09",
+      "title": "明确只要 Skill",
+      "pilot_round_1": false,
+      "prompt": "只帮我找 Agent Skill：能够读取代码仓库并辅助生成架构图或系统关系图。不要普通桌面 Tool，也不要纯教程。",
+      "expected_behavior": "用户明确限定后，资源类型成为硬条件：只返回 Agent Skill。不得用桌面 Tool、MCP server、代码仓库工具或纯教程冒充 Skill。若确实找不到符合条件的 Skill，应返回 0 推荐并说明。",
+      "human_review_focus": [
+        "resource type 是否被当作硬条件执行",
+        "是否把 Tool / MCP / repo 工具冒充为 Skill",
+        "是否夹带了纯教程",
+        "找不到时是否正确返回 0 推荐"
+      ]
+    },
+    {
+      "id": "E10",
+      "title": "稀缺主题 / Abstain",
+      "pilot_round_1": false,
+      "prompt": "帮我找一个专门针对 Oracle EBS 老版本实施顾问、用 AI 自动做 Fit-Gap 的成熟开源 Skill。只要真正成熟、可以落地的；没有就不要推荐。",
+      "expected_behavior": "正确保持空缺。不因为题目提出了明确需求就硬找一个近似项，不把泛 Fit-Gap 方法、通用 AI 工具或 SAP 侧资源包装成“Oracle EBS 专用成熟开源 Skill”。可简要说明这个方向目前缺什么。",
+      "human_review_focus": [
+        "是否能正确保持空缺",
+        "是否硬找近似项来凑数",
+        "是否把通用资源包装成专用成熟方案",
+        "是否说明了搜索方向仍缺什么"
+      ]
+    }
+  ]
+}
