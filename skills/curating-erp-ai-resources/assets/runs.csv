@@ -1,1 +1,0 @@
-run_id,mode,topic_id,started_at,finished_at,query_count,fetch_count,source_coverage,blocked_sources,candidates_found,proposed_changes,commit_status,notes
