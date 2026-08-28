@@ -1,0 +1,21 @@
+{
+  "slot": "practical",
+  "requested_resource_types": ["skill","tutorial"],
+  "resource_type": "tutorial",
+  "verification_level": "content_checked",
+  "gate_topic_fit": "pass",
+  "gate_output_fit": "pass",
+  "gate_resource_type_fit": "pass",
+  "gate_provenance": "pass",
+  "gate_claims": "pass",
+  "gate_practicality": "pass",
+  "gate_freshness": "pass",
+  "gate_result": "pass",
+  "human_review": false,
+  "critical_claim_conflicts": 0,
+  "fit_sentence": "The article records from-to how the author refitted a prototype-generation Claude Code SKILL.md file, including trigger conditions, design tokens, menu sync, and post-generation checklist; it teaches building a compliant team prototype skill.",
+  "deliverable_artifact": "Opinionated SKILL.md skeleton + design-token table + completion checklist for prototype agents (not static screenshots).",
+  "resource_type_reason": "Juejin blog with inline code blocks, prompt skeletons, and anti-patterns; not a repo or desktop tool.",
+  "why_recommended": "正文给出原型 SKILL.md 的触发条件、design-tokens、公共样式与菜单同步规则，并附生成后人工校验清单，可改写成团队规范。",
+  "material_claims": []
+}

@@ -1,0 +1,22 @@
+{
+  "slot": "practical",
+  "requested_resource_types": ["skill","tutorial"],
+  "resource_type": "skill",
+  "verification_level": "cross_checked",
+  "gate_topic_fit": "pass",
+  "gate_output_fit": "pass",
+  "gate_resource_type_fit": "pass",
+  "gate_provenance": "pass",
+  "gate_claims": "pass",
+  "gate_practicality": "pass",
+  "gate_freshness": "pass",
+  "gate_result": "pass",
+  "human_review": false,
+  "critical_claim_conflicts": 0,
+  "repo": {"name":"Agents365-ai/drawio-skill","is_fork":false,"upstream_checked":true,"stars":8083,"last_pushed":"2026-08-27"},
+  "fit_sentence": "The skill teaches Claude Code to turn natural-language process descriptions into editable .drawio files and PNG/SVG/PDF exports, matching the BPMN deliverable need.",
+  "deliverable_artifact": ".drawio XML + PNG/SVG/PDF export (editable)",
+  "resource_type_reason": "Repo root contains SKILL.md; installation target is `~/.claude/skills/`; README explicitly labels Claude Code skill, not a standalone desktop tool.",
+  "why_recommended": "含 BPMN、swimlane 等 11 类绘图预设；产出可编辑 .drawio 及 PNG/SVG/PDF；Claude Code、Codex、Cursor 可用；最近一日仍有提交。",
+  "material_claims": []
+}

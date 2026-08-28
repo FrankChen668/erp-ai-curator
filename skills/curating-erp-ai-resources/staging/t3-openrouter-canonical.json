@@ -1,0 +1,24 @@
+{
+  "slot": "canonical",
+  "requested_resource_types": ["tutorial","official_doc"],
+  "resource_type": "official_doc",
+  "verification_level": "cross_checked",
+  "gate_topic_fit": "pass",
+  "gate_output_fit": "pass",
+  "gate_resource_type_fit": "pass",
+  "gate_provenance": "pass",
+  "gate_claims": "pass",
+  "gate_practicality": "not_applicable",
+  "gate_freshness": "pass",
+  "gate_result": "pass",
+  "human_review": false,
+  "critical_claim_conflicts": 0,
+  "fit_sentence": "Official OpenRouter guide lists current env vars, BASE_URL format, auth token usage, required empty-key guard, model mappings, troubleshooting and companion Codex CLI page; matches the Claude Code third-party-model config task.",
+  "deliverable_artifact": "Config-ready env vars and endpoint anchors (no code), plus model aliases table and troubleshooter checklist.",
+  "resource_type_reason": "Provider-hosted docs under openrouter.ai/docs/guides; canonical source, not a blog or tool.",
+  "why_recommended": "OpenRouter 官方当前指南：逐项给出 BASE_URL 与鉴权变量、冲突防错空值、模型别名表、GitHub Actions 示例与常见故障排查。",
+  "material_claims": [
+    {"criticality":"critical","claim":"BASE_URL=https://openrouter.ai/api","claim_type":"integration_config","verdict":"supported","anchor_url":"https://openrouter.ai/docs/guides/coding-agents/claude-code-integration"},
+    {"criticality":"critical","claim":"Use ANTHROPIC_AUTH_TOKEN; ANTHROPIC_API_KEY must be explicitly empty","claim_type":"integration_config","verdict":"supported","anchor_url":"https://openrouter.ai/docs/guides/coding-agents/claude-code-integration"}
+  ]
+}

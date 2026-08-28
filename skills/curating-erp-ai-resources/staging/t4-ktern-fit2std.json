@@ -1,0 +1,24 @@
+{
+  "slot": "practical",
+  "requested_resource_types": ["case","official_doc","skill","tutorial"],
+  "resource_type": "case",
+  "verification_level": "content_checked",
+  "gate_topic_fit": "pass",
+  "gate_output_fit": "pass",
+  "gate_resource_type_fit": "pass",
+  "gate_provenance": "pass",
+  "gate_claims": "pass",
+  "gate_practicality": "pass",
+  "gate_freshness": "pass",
+  "gate_result": "pass",
+  "human_review": false,
+  "critical_claim_conflicts": 0,
+  "fit_sentence": "KTern KB article describes a concrete 6-stage Fit-to-Standard AI agent pipeline for SAP implementation requirement analysis (artifact parse, standard library mapping, dependency graphing, fix classification, roadmapping), matching the Fit-Gap requirement task.",
+  "deliverable_artifact": "Per-object fit report (fit score + gap list + remediation classification + release roadmap), aligned with SAP Activate Fit-to-Standard deliverables.",
+  "resource_type_reason": "Vendor-hosted knowledge-base article describing the product AI pipeline; not a general overview or a non-method automation case.",
+  "why_recommended": "正文把 Fit-to-Standard AI 工作流拆成 6 层管线（工件解析→标准库映射→依赖图→修复分级→路线图），结构可对照 Activate Fit-Gap 交付物检查。",
+  "material_claims": [
+    {"criticality":"non_critical","claim":"6-stage pipeline structure (artifact parse -> standard mapping -> dependency graph -> fit classification -> remediation -> roadmap)","claim_type":"process_design","verdict":"supported","anchor_url":"https://support.ktern.com/portal/en/kb/articles/fit-to-standard-ai-agent-how-it-works"},
+    {"criticality":"vendor_claim","claim":"3-6 weeks reduced to 2 hours per object; average 85% fit score","claim_type":"vendor_quantity","verdict":"claimed_as_published","anchor_url":"https://support.ktern.com/portal/en/kb/articles/fit-to-standard-ai-agent-how-it-works","note":"Vendor-stated performance number retained as source claim only; not used as primary recommendation evidence."}
+  ]
+}

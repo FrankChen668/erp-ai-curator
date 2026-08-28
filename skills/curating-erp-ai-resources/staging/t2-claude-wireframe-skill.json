@@ -1,0 +1,22 @@
+{
+  "slot": "practical",
+  "requested_resource_types": ["skill","tutorial"],
+  "resource_type": "skill",
+  "verification_level": "cross_checked",
+  "gate_topic_fit": "pass",
+  "gate_output_fit": "pass",
+  "gate_resource_type_fit": "pass",
+  "gate_provenance": "pass",
+  "gate_claims": "pass",
+  "gate_practicality": "pass",
+  "gate_freshness": "pass",
+  "gate_result": "pass",
+  "human_review": false,
+  "critical_claim_conflicts": 0,
+  "repo": {"name":"Magdoub/claude-wireframe-skill","is_fork":false,"upstream_checked":true,"stars":70,"last_pushed":"2026-03-01"},
+  "fit_sentence": "The Claude Code skill generates 5 interactive HTML prototypes (B&W wireframe + Clean + Polished variants) as browser-openable files, fitting the stakeholder-review deliverable task.",
+  "deliverable_artifact": "A folder with shared index.html + option CSS files; Wireframe/Clean/Polished 3 tabs inside browser; interactive hover states and tabs.",
+  "resource_type_reason": "README explicitly writes 'A Claude Code skill'; installation target is `~/.claude/skills/wireframe/SKILL.md`; SKILL.md exists. Not a standalone app/plugin.",
+  "why_recommended": "仓库名即 claude-wireframe-skill，README 写明安装到 `~/.claude/skills/wireframe/`；一次生成 5 版交互 HTML 原型（线框 / 单色 / 精饰三种形态）并复用设计上下文。",
+  "material_claims": []
+}

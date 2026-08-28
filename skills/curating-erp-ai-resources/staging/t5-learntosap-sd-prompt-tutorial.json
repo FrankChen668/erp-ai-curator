@@ -1,0 +1,25 @@
+{
+  "slot": "practical",
+  "requested_resource_types": ["prompt_framework","tutorial","official_doc"],
+  "resource_type": "tutorial",
+  "verification_level": "content_checked",
+  "gate_topic_fit": "pass",
+  "gate_output_fit": "pass",
+  "gate_resource_type_fit": "pass",
+  "gate_provenance": "pass",
+  "gate_claims": "pass",
+  "gate_practicality": "pass",
+  "gate_freshness": "pass",
+  "gate_result": "pass",
+  "human_review": false,
+  "critical_claim_conflicts": 0,
+  "fit_sentence": "LearnToSAP SD tutorial walks the reader through S/4HANA Cloud SD 150+ SPRO configuration nodes with natural-language prompts: sales org -> distribution channel -> pricing procedure -> output determination -> partner functions, as a module-learning prompt workflow for the unfamiliar-module task.",
+  "deliverable_artifact": "Prompt templates per config chain (enterprise structure assignments, pricing, output, partners), dependency check descriptions, and prerequisite-required sequencing notes; all usable as a module-learning SOP copy-paste.",
+  "resource_type_reason": "A standalone, long-form 2026-27 tutorial article; not a tool.",
+  "why_recommended": "以 SD 150+ SPRO 节点为例，按配置链给自然语言提示词模板、依赖顺序与前提检查；适用 S/4HANA Cloud，事务执行类动作需对应 OData 已启用。",
+  "material_claims": [
+    {"criticality":"critical","claim":"Joule availability: S/4HANA Cloud (not on-prem ECC)","claim_type":"product_capability","verdict":"supported","anchor_url":"https://architecture.learning.sap.com/docs/ref-arch/ebe268","claim_capability_mode":"standard_product","anchor_capability_mode":"standard_product","scope_match":true},
+    {"criticality":"critical","claim":"Joule navigates to the correct SPRO path and opens the config screen","claim_type":"product_capability","verdict":"supported","anchor_url":"https://architecture.learning.sap.com/docs/ref-arch/ebe268","claim_capability_mode":"standard_product","anchor_capability_mode":"standard_product","scope_match":true},
+    {"criticality":"non_critical","claim":"Joule validates and saves the configuration automatically","claim_type":"product_capability","verdict":"unclear","anchor_url":"https://architecture.learning.sap.com/docs/ref-arch/ebe268","claim_capability_mode":"standard_product","anchor_capability_mode":"standard_product","scope_match":false,"note":"Transactional save depends on specific OData backend being active, which the SAP ref arch does not assert as globally enabled for every SPRO node; scope mismatch marked non_critical and written in why_recommended."}
+  ]
+}

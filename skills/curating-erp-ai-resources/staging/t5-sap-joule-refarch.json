@@ -1,0 +1,23 @@
+{
+  "slot": "canonical",
+  "requested_resource_types": ["prompt_framework","tutorial","official_doc"],
+  "resource_type": "official_doc",
+  "verification_level": "cross_checked",
+  "gate_topic_fit": "pass",
+  "gate_output_fit": "pass",
+  "gate_resource_type_fit": "pass",
+  "gate_provenance": "pass",
+  "gate_claims": "pass",
+  "gate_practicality": "not_applicable",
+  "gate_freshness": "pass",
+  "gate_result": "pass",
+  "human_review": false,
+  "critical_claim_conflicts": 0,
+  "fit_sentence": "SAP Architecture Reference page for Joule in S/4HANA Cloud (Public & Private Edition) lists the standard capability modes, activation prerequisites, OData backend, supported scenarios and architecture, defining the capability boundary used in T5 practical recommendations.",
+  "deliverable_artifact": "Architecture + capability matrix (Conversational AI, Transactional Execution, Navigational patterns, Help enablement) and UI5/Release prerequisites table.",
+  "resource_type_reason": "SAP official architecture.learning.sap.com reference page; canonical, not a community post or extension how-to.",
+  "why_recommended": "SAP 官方参考架构：明确 Joule 在 S/4HANA Cloud 公私两版的标准能力（对话、事务执行、导航、帮助）与后端 OData、UI5、Release 前置条件，可作为能力边界锚点。",
+  "material_claims": [
+    {"criticality":"critical","claim":"Transactional execution support (e.g., PO creation) depends on active OData backend services","claim_type":"product_capability","verdict":"supported","anchor_url":"https://architecture.learning.sap.com/docs/ref-arch/ebe268","claim_capability_mode":"standard_product","anchor_capability_mode":"standard_product","scope_match":true}
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "slot": "practical",
+  "requested_resource_types": ["skill","tutorial"],
+  "resource_type": "tutorial",
+  "verification_level": "content_checked",
+  "gate_topic_fit": "pass",
+  "gate_output_fit": "pass",
+  "gate_resource_type_fit": "pass",
+  "gate_provenance": "pass",
+  "gate_claims": "pass",
+  "gate_practicality": "pass",
+  "gate_freshness": "pass",
+  "gate_result": "pass",
+  "human_review": false,
+  "critical_claim_conflicts": 0,
+  "fit_sentence": "The tutorial teaches installing the official draw.io MCP server across 5 paths and issuing natural-language prompts to produce .drawio diagrams, matching the drawing deliverable task.",
+  "deliverable_artifact": "Editable .drawio / .drawio.png / .drawio.svg / .drawio.pdf files with embedded XML.",
+  "resource_type_reason": "A how-to blog with step-by-step installation + screenshots + prompt examples; not a tool/repo.",
+  "why_recommended": "正文覆盖 draw.io 官方 MCP 服务器 5 种接入路径（网页版 / Desktop / Claude Code 等），附配置片段与 Prompt 示例，产出可编辑 .drawio 及多种内嵌 XML 的导出格式。",
+  "material_claims": []
+}
