@@ -10,7 +10,11 @@ Skill 负责稳定执行一个判断：
 
 > **面对当前泛 ERP / 企业信息化任务，最合适的 AI 工作方式是什么？是否真的需要引入专门能力？**
 
-它是一个薄的 decision navigator。
+随着来源采编测试推进，它还出现了一个有限的第二职责：
+
+> **当外部资源发现确实需要某个平台专门读取能力时，判断是否应调用已经安装且已批准的来源 Skill / MCP，并把获取到的证据重新交回 Curator 判断。**
+
+因此它更接近一个 **bounded orchestration / curator Skill**，而不是任意发现、安装和执行第三方 Skill 的“万能元 Skill”。
 
 ## 2. Trigger
 
@@ -41,9 +45,10 @@ Skill 负责稳定执行一个判断：
 2. Run the AI leverage test against the user's current stack
 3. Choose Mode A / B / C
 4. If Mode B needs discovery, search narrowly
-5. Compare only serious candidates
-6. Verify volatile facts only when needed
-7. Return an actionable working recommendation
+5. If normal Web/GitHub cannot acquire needed evidence, route to an approved installed source adapter when useful
+6. Compare only serious candidates
+7. Verify volatile facts only when needed
+8. Return an actionable working recommendation
 ```
 
 第 1 步的 hard constraints 只抓真正会决定方案可用性的条件，例如：
@@ -86,7 +91,8 @@ Skill 负责稳定执行一个判断：
 - 专有产品知识库；
 - 企业内部知识源；
 - 当前系统真实数据；
-- 通用 Web 模型拿不到的权限内容。
+- 通用 Web 模型拿不到的权限内容；
+- 普通 Web 路径难以稳定读取的平台原文或字幕。
 
 如果这种访问直接决定质量，专门方案可能有明显价值。
 
@@ -202,7 +208,64 @@ Fast path 的意思是减少流程，不是无条件接受用户预设解法。
 - 历史 Starter Pack 只作为先验，不作为答案；
 - 结论稳定就停。
 
-## 9. Candidate comparison
+当普通 Web/GitHub 已足够时，不因为已经安装了平台适配器就额外调用它们。
+
+## 9. Source-adapter orchestration
+
+### 9.1 Runtime principle
+
+未来 Curator Skill 可以调用**已经安装、已经资格审查、与当前证据缺口匹配**的来源 Skill / MCP。
+
+主 Skill 只需要知道能力，例如：
+
+- `wechat_discover_public_articles`
+- `wechat_read_public_article`
+- `bilibili_search_public_videos`
+- `bilibili_read_transcript`
+- `xiaohongshu_search_public_notes`
+- `xiaohongshu_read_public_note`
+
+不要把产品逻辑绑定到具体仓库名。
+
+### 9.2 Runtime 不安装、不更新
+
+普通资源采编任务中：
+
+- 可以检测已安装能力；
+- 可以按需调用；
+- 缺失时优先降级到普通 Web/GitHub；
+- 仍然缺证据时明确 Coverage gap。
+
+默认禁止：
+
+- 在用户当前采编任务中临时发现并安装任意第三方 Skill；
+- 运行中自动升级到 `latest`；
+- 因为第三方 MCP 暴露了写操作就启用发布、点赞、评论等能力。
+
+安装和更新是单独的维护任务。
+
+### 9.3 安装 / 更新 / 调用契约
+
+详细规则放在：
+
+- `docs/SOURCE_ADAPTER_ARCHITECTURE_V3.md`
+- `docs/SOURCE_ADAPTER_LIFECYCLE_V3.md`
+
+未来正式 Skill 采用 progressive disclosure，把这些内容压缩为 `references/source-adapter-routing.md`。
+
+其中需要说明：
+
+- capability → provider 映射；
+- 固定 commit/release；
+- 安装前资格检查；
+- read-only 权限；
+- credential 本地边界；
+- 显式更新流程；
+- invocation 条件；
+- failure / fallback；
+- remove / deprecate。
+
+## 10. Candidate comparison
 
 不做分数表。
 
@@ -218,7 +281,7 @@ Fast path 的意思是减少流程，不是无条件接受用户预设解法。
 
 如果第 3 条说不清，默认不推荐专门方案。
 
-## 10. Output contract
+## 11. Output contract
 
 ### Mode A
 
@@ -250,9 +313,9 @@ Fast path 的意思是减少流程，不是无条件接受用户预设解法。
 升级条件：如果出现 X，再考虑 Y 类方案
 ```
 
-## 11. Proposed skill structure
+## 12. Proposed skill structure
 
-如果未来实现，第一版建议仍然非常小：
+如果未来实现，第一版建议仍然很小：
 
 ```text
 skills/erp-ai-curator/
@@ -260,6 +323,7 @@ skills/erp-ai-curator/
 └── references/
     ├── leverage-diagnosis.md
     ├── discovery-and-selection.md
+    ├── source-adapter-routing.md
     └── volatile-fact-check.md
 ```
 
@@ -270,7 +334,8 @@ skills/erp-ai-curator/
 - trigger / non-trigger；
 - 主流程；
 - A/B/C；
-- 何时读取三个 references；
+- 何时读取 references；
+- 来源适配器的最小调用原则；
 - 输出契约。
 
 ### leverage-diagnosis.md
@@ -281,13 +346,30 @@ skills/erp-ai-curator/
 
 只在 Mode B 需要搜索时加载。
 
+### source-adapter-routing.md
+
+只在普通 Web/GitHub 无法稳定取得所需来源证据时加载。
+
+负责：
+
+- 支持的来源能力；
+- 已批准/试点 provider 与 pin；
+- 安装与更新维护说明；
+- read-only 边界；
+- 调用示例；
+- fallback / removal。
+
+不要把所有第三方 Skill 的完整 README 复制进来。
+
 ### volatile-fact-check.md
 
 只在高波动事实出现时加载。
 
-第一版：**0 scripts**。
+第一版仍默认 **0 custom scripts**。
 
-## 12. Explicit non-goals
+只有当真实 Pilot 反复证明“检查已安装 adapter / pin / 可用状态”容易出错时，才考虑一个 deterministic `adapter-doctor`。不要提前造 package manager 或 updater。
+
+## 13. Explicit non-goals
 
 第一版不要：
 
@@ -300,14 +382,17 @@ skills/erp-ai-curator/
 - candidate JSON；
 - automated Gate；
 - multi-agent pipeline；
-- automatic refresh crawler。
+- automatic refresh crawler；
+- 自动 Skill 商店；
+- 运行时自动安装第三方依赖；
+- 自动跟随第三方 `latest`。
 
-## 13. Skill 是否值得存在仍需证伪
+## 14. Skill 是否值得存在仍需证伪
 
 V3 只是一个更合理的工作模型，不代表一定要封装成 Skill。
 
-真正需要验证的是：
+现在还多了一项需要验证的价值假设：
 
-> **普通 AI 对话是否经常忽略“现有工具链已足够 / 先试再装 / 专门能力增量价值”这些判断，而 Skill 能稳定改善？**
+> **普通 AI 是否能稳定判断何时需要来源适配器、正确组合多个已安装 Skill/MCP，并在调用后回到统一的 Curator 证据判断，而不是平台各自为政？**
 
-如果普通模型自然就能稳定完成，不继续为了形式开发 Skill。
+如果普通模型自然就能稳定完成，或者来源适配器只是增加链接数量而不提升推荐质量，不继续为了形式增加架构。
