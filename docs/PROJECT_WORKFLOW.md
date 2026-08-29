@@ -1,6 +1,16 @@
 # ERP AI Curator — 项目协作与阶段协议
 
-> 状态：工作协议草案。用于约束云端设计、业务裁决与本地 Agent 执行之间的边界。
+> **⚠️ SUPERSEDED / 历史协议（2026-08-29）**  
+> 本文件记录 Phase 1–3 时形成的原始阶段协议，**不再作为当前执行路线**。特别是下文的 `Phase 4 — Local Agent Implementation` 已被实际执行失败证明不适合作为当前关键路径，请勿继续按该阶段自动推进。
+>
+> 当前权威入口按优先级为：
+> 1. `docs/PROJECT_NORTH_STAR.md`
+> 2. `docs/validation/PROTOCOL_V2.md`
+> 3. `docs/validation/REAL_TASK_INTAKE.md`
+> 4. `docs/validation/SURVEY_BRIDGE.md`
+> 5. 根目录 `README.md`
+>
+> 若本文件与上述文档冲突，**以上述当前文档为准**。本文件保留仅用于理解项目如何演化和为什么放弃“本地 Agent 先实现 + A/B 先行”的旧路线。
 
 ## 1. 第一性目标
 
@@ -130,6 +140,8 @@
 - Implementation SPEC
 
 ### Phase 4 — Local Agent Implementation
+
+> **历史路线，当前已停止。** 参见文件顶部 SUPERSEDED 说明。
 
 目的：由本地 Agent 严格按 SPEC 实现。
 
