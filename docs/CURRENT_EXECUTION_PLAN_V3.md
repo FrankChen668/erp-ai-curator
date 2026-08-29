@@ -4,55 +4,52 @@
 
 ## 1. Product direction
 
-ERP AI Curator is a **bounded Curator / Orchestrator hypothesis** for泛 ERP / 企业信息化项目工作。
+ERP AI Curator is a bounded Curator / Orchestrator for **real ERP / enterprise-information-system delivery work**.
 
 Its job is:
 
-> **Given a real project-delivery problem, help the user choose a useful AI working approach; when external resources are needed, find and curate a small number of resources worth learning, trying or sharing.**
+> **Given a real project job with actual inputs and an expected deliverable, help the practitioner choose a useful AI working approach; when external resources are needed, find and curate a small number of resources worth learning, trying or sharing.**
 
-Current flow:
+The basic unit is not a capability label such as `requirements analysis`, `PPT` or `data processing`.
+
+The basic unit is:
 
 ```text
-real delivery problem
-→ understand expected output + constraints
-→ compare current AI/tool baseline when needed
-→ decide whether external discovery is needed
-→ normal Web/GitHub first
-→ approved read-only source adapters only when a material evidence gap exists
-→ compare original evidence + practitioner value
-→ small actionable recommendation package
+real project situation
++ actual input artifacts
++ next required deliverable
++ review / time / privacy constraints
+→ decide how AI can help
+→ find only the external resources that materially improve that job
+→ practical, share-worthy recommendation
 ```
 
 Curator owns judgement. Source adapters only acquire evidence.
 
 Curator-created usage guidance must be labelled as synthesis, not presented as a discovered external resource.
 
-## 2. Current validation focus
+## 2. Practical grounding
 
-The mainline is **project delivery**, not ERP knowledge learning for its own sake.
+Current validation authority for real delivery jobs:
 
-Primary scenario families:
+- `docs/validation/DELIVERY_JOB_MAP_V3.md`
 
-### Delivery-output work
+It covers recurring work such as:
 
-- requirements analysis;
-- solution design;
-- data processing / reconciliation;
-- PPT / project communication;
+- workshop preparation;
+- post-workshop requirement package;
+- solution / blueprint design;
+- Excel/CSV cleaning, mapping and reconciliation;
+- customer / steering PPT;
 - interactive prototype;
-- testing / issue analysis when supported by real tasks.
+- test/UAT/defect analysis;
+- weekly issue/action closure;
+- training / handover;
+- Codex / WorkBuddy adoption for delivery.
 
-### Tool onboarding for delivery
+This is **not** a permanent product taxonomy and must not become one Skill per job.
 
-- Codex;
-- WorkBuddy;
-- other AI/Agent tools only when they materially support delivery work.
-
-Current scenario authority:
-
-`docs/validation/DELIVERY_SCENARIO_VALIDATION_V3.md`
-
-The previously proposed SAP EWM standard-module diagnostic is **deferred / secondary**, not the current next task.
+The priority is practical project delivery, not ERP knowledge learning for its own sake.
 
 ## 3. What is already supported
 
@@ -61,46 +58,28 @@ The previously proposed SAP EWM standard-module diagnostic is **deferred / secon
 - official/original sources are fact anchors, not automatic recommendation winners;
 - T01 exposed discovery-recall risk;
 - T02 exposed task-fit vs dependency-maturity risk;
-- practical companion content must add real workflow/example/failure/adoption evidence;
-- Chinese practitioner coverage mixes access gap, index bias and true quality/scarcity;
-- Curator synthesis must be separated from external resources.
+- practical content must add real workflow/example/failure/adoption evidence;
+- Chinese practitioner coverage mixes access, indexing and true quality/scarcity;
+- Curator synthesis must be separated from discovered resources.
 
-### Source-adapter lifecycle
+### Source adapters
 
-Local qualification produced real provider decisions:
+Local qualification:
 
-- WeChat discovery: **CONDITIONAL**;
-- WeChat public article reader: **KEEP FOR PILOT**;
-- first Bilibili provider: **CONDITIONAL / credential blocked**;
-- first Xiaohongshu provider: **REMOVE**.
+- WeChat discovery: `CONDITIONAL`;
+- WeChat public article reader: `KEEP FOR PILOT`;
+- first Bilibili provider: `CONDITIONAL / credential blocked`;
+- first Xiaohongshu provider: `REMOVE`.
 
-### Bounded composition
+WeChat Search → Reader multi-Skill routing: `PASS` for this bounded chain only.
 
-WeChat multi-Skill routing: **PASS** for this chain only.
+This proves composition feasibility, not user-value uplift.
 
-```text
-Curator evidence need
-→ WeChat Search
-→ mp.weixin.qq.com candidate
-→ WeChat Reader
-→ original body + metadata
-→ Curator judgement
-→ stop
-```
+### Uplift test
 
-This proves bounded composition, not arbitrary Skill orchestration or user-value uplift.
+The first mixed-task A/B produced `NO MATERIAL UPLIFT` because the treatment was not used and the task mixed standard-module learning with codebase archaeology.
 
-### First uplift test
-
-`CURATION_UPLIFT_AB_TEST_01` produced **NO MATERIAL UPLIFT for that exact mixed task** because Run B did not invoke WeChat.
-
-Useful finding:
-
-- conditional routing discipline held;
-- pairwise search/model variance is real;
-- the mixed standard-ERP/custom-codebase task was a poor validation surface.
-
-Do not repeat that test.
+Do not repeat that mixed-task design.
 
 ## 4. Current provider state
 
@@ -120,70 +99,77 @@ xiaohongshu
   replacement → none approved
 ```
 
-Do not expand adapter footprint until a delivery task demonstrates a material source-access gap.
+Do not expand adapter footprint until a real delivery job demonstrates a material source-access gap.
 
-## 5. Next phase — Delivery Scenario Validation
+## 5. Current validation strategy
 
-Status: **NEXT / LOCAL**
+Stop validating broad categories.
 
-Do not test all scenarios at once.
+Use concrete delivery jobs with real inputs and outputs.
 
-Priority:
+Current high-value set:
 
-1. **D01 Requirements analysis**
-2. **D03 Data processing / reconciliation**
-3. **T01 Codex for project delivery**
-4. **T02 WorkBuddy for project delivery**
-5. D02 Solution design
-6. D04 PPT/project communication
-7. D05 prototype only when a fresh question remains after historical T01 evidence
+1. `J02` — after a customer workshop, create a reviewable requirements package;
+2. `J04` — clean/reconcile Excel/CSV/project data and produce an auditable exception result;
+3. `J05` — turn project material into an editable customer/steering deck;
+4. `J06` — turn confirmed requirements into a reviewable interactive prototype; historical evidence already exists, so only revisit when there is a fresh question;
+5. `J10` — learn Codex / WorkBuddy through actual delivery jobs rather than feature tours.
 
-Real survey/user problems should replace representative prompts when available.
+`J03` solution design follows when J02 is stable because it consumes requirement outputs.
 
-## 6. Immediate next local task — D01 Requirements Analysis
+Real survey/user problems should replace representative prompts whenever available.
 
-Question:
+Do not mechanically run every job.
 
-> Can Curator find a small, genuinely useful resource package for AI-assisted requirements analysis in project delivery without collapsing into generic prompt lists, official-only references, or self-invented methods?
+## 6. Immediate next local task — J02 Post-Workshop Requirements Package
 
-Raw scenario:
+Protocol:
 
-> 一个实施顾问拿到了客户访谈纪要、现状流程、RFP/需求清单和若干附件，希望借助 AI 更快形成结构化需求、待澄清问题、冲突/遗漏、As-Is/To-Be、Fit-Gap/Fit-to-Standard 和可追溯的需求文档。请寻找少量真正值得采用或学习的 AI Skill、Tool、方法、教程和实战资源，重点看如何基于真实材料工作、如何避免模型脑补、如何保留来源和待确认项。
+- `docs/validation/DELIVERY_J02_POST_WORKSHOP_REQUIREMENTS.md`
 
-This is a **curation-quality test first**, not another adapter A/B.
+Real job:
 
-Normal Web/GitHub and current accessible sources may be used. The qualified WeChat chain may be used only when a concrete practitioner-evidence gap matters.
+> A consultant finishes a two-hour customer requirements workshop today. They have a transcript/notes, an As-Is process diagram, an RFP/requirement list, several Excel/Word attachments and screenshots. Tomorrow morning they must deliver a first reviewable package containing structured requirements, source/quote/owner, open questions, conflicts/assumptions, As-Is→To-Be changes, preliminary Fit/Partial/Gap with verification boundary, and a traceability foundation.
 
-Do not force source-adapter use.
+The test asks:
 
-## 7. D01 success evidence
+> **Can Curator find a small set of external resources that a real consultant could learn tonight and use on tomorrow's project material?**
 
-A useful result should show:
+This is a curation-quality test, not another routing/A-B test.
 
-- at least one serious external resource/method worth trying;
-- source-grounded handling of real project material;
-- explicit treatment of assumptions/open questions/conflicts;
-- traceability from input material to requirements/decisions;
-- practical adoption guidance based on original/practitioner evidence;
-- honest limitations and maturity uncertainty.
+Normal Web/GitHub/current public sources may be used. WeChat Search → Reader is optional only when a real Chinese-practice evidence gap matters.
 
-It should not rely on:
+Do not force adapter use.
 
-- generic “AI can write BRD” claims;
-- prompt collections with no real workflow;
-- vendor marketing alone;
-- Curator-invented frameworks disguised as discovered resources;
-- platform/link volume.
+## 7. J02 success evidence
+
+A useful result must make it possible to answer:
+
+- What real project inputs can I give the method/tool?
+- What concrete workflow/output does it provide?
+- Which part of tomorrow's deliverable becomes easier?
+- What still requires consultant/customer/system verification?
+- What setup/privacy/learning cost exists?
+- Why is this better than simply asking a generic chatbot to summarize the meeting?
+
+The result should fail if it is mainly:
+
+- generic prompt lists;
+- feature tours;
+- vendor marketing;
+- abstract BA theory;
+- self-invented Curator frameworks disguised as resources;
+- links with no input→workflow→output path.
 
 ## 8. Cloud / local / Owner split
 
 ### Cloud / ChatGPT
 
-Owns product direction, first-principles/adversarial review, source/provider research, evidence interpretation, GitHub docs/PRs and final KEEP/REMOVE/package decisions.
+Owns product direction, first-principles/adversarial review, source/provider research, evidence interpretation, GitHub maintenance and final KEEP/REMOVE/product decisions.
 
 ### Local Codex
 
-Owns local runtime execution, installed Skill/MCP use, isolated search/curation runs and observable evidence.
+Owns local-runtime execution, installed Skill/MCP use, fresh curation runs and observable evidence.
 
 Local Codex does not redefine V3 or install unassigned adapters.
 
@@ -191,17 +177,31 @@ Local Codex does not redefine V3 or install unassigned adapters.
 
 Only unavoidable login/privacy/business-semantics decisions and final human usefulness judgement.
 
-## 9. Non-blocking tracks
+## 9. What happens after J02
 
-Bilibili replacement, Xiaohongshu provider research and standard-module learning are deferred.
+Cloud reviews the actual package first.
 
-Do not install more source adapters before delivery-scenario evidence justifies them.
+Do **not** automatically run the next scenario.
 
-## 10. Anti-drift checks
+If J02 output is genuinely practical:
+
+- preserve the useful resources;
+- identify what discovery behaviour produced them;
+- then move to a different artifact type such as J04 data reconciliation or J10 Codex/WorkBuddy onboarding.
+
+If J02 is still abstract:
+
+- fix the resource-search / output contract;
+- do not create more test machinery.
+
+The project goal is to start accumulating a small number of **actually useful delivery resources**, not to maximize validation documents.
+
+## 10. Anti-drift
 
 Stop if work turns into:
 
 - generic ERP knowledge learning as the mainline;
+- capability labels detached from actual artifacts;
 - a tool/resource catalog;
 - one test per software product;
 - mandatory platform coverage;
@@ -209,6 +209,7 @@ Stop if work turns into:
 - link-count scoring;
 - source adapters making final recommendations;
 - Curator synthesis presented as external resources;
-- local PASS treated as independent-user validation.
+- local PASS treated as independent-user validation;
+- more validation documents without a better delivery package.
 
-The project advances only when the next action reduces uncertainty about **real project-delivery usefulness**.
+The project advances only when the next action helps a real ERP colleague do real project work better.
