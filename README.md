@@ -32,9 +32,10 @@
 - 旧 Phase 2/3 把产品逐渐收窄成“资源搜索 + 0–2 推荐”，这一假设已被 V3 工作模型修正；
 - 新模型以 **AI Leverage Discovery** 为核心：先判断是否值得引入专门 AI 工作方式，再决定要不要搜索资源；
 - 对明确的资源发现任务，不再把“官方资料”当天然主推荐：官方/原始资料主要承担事实锚点，GitHub、社区实战、中文教程、视频和独立测评可以承担实践价值；
+- T01/T02 暴露出中国实践平台的获取覆盖问题，当前正在验证一种更轻的方案：**Curator 负责判断，Codex 按证据需要调用已安装的微信/小红书/B站来源 Skill/MCP 做只读采集**；这仍是 Pilot，不是已确认永久架构；
 - 不通过提前罗列 SAP / Oracle / 财务 / 供应链 / 开发场景来获得泛化；
 - 企业数据、源码、本地/云端、权限和合规限制属于真实可用性约束；
-- 云端负责产品判断、研究、文档和 GitHub；低能力本地 Agent 不进入关键决策链路。
+- 云端负责产品判断、研究、文档和 GitHub；本地 Agent 仅在必须访问本地环境、安装/运行具体工具或做机械验证时参与，不承担最终产品判断。
 
 ## 三种合法结果
 
@@ -50,11 +51,15 @@
 - `docs/PROJECT_NORTH_STAR.md`：当前项目 North Star
 - `docs/SKILL_BLUEPRINT_V3.md`：未来 Skill 的最小设计蓝图，**尚未实现**
 - `docs/SOURCE_STRATEGY_V3.md`：当前资源发现与来源组合策略
+- `docs/SOURCE_ADAPTER_ARCHITECTURE_V3.md`：微信/小红书/B站等来源能力的条件式组合 Pilot 架构
 - `docs/ADVERSARIAL_REVIEW_V3.md`：V3 对抗性审查
 - `docs/validation/ADVERSARIAL_REVIEW_SOURCE_STRATEGY_V3.md`：来源策略专项对抗性审查
+- `docs/validation/ADVERSARIAL_REVIEW_SOURCE_ADAPTER_V3.md`：来源适配器架构专项对抗性审查
 - `docs/validation/PROTOCOL_V3.md`：当前真实任务验证协议
 - `docs/validation/V3_SYSTEMATIC_TEST_PLAN.md`：V3 判断与增量价值系统测试方案
 - `docs/validation/RESOURCE_CURATION_PILOT_V3.md`：当前资源采编专项测试方案
+- `docs/validation/SOURCE_COVERAGE_FINDING_01.md`：中国实践来源覆盖问题的证据记录
+- `docs/validation/SOURCE_ADAPTER_PILOT_V3.md`：来源 Skill/MCP 的本地资格审查、只读验证与增量测试方案
 - `docs/validation/REAL_TASK_INTAKE.md`：真实问题进入项目的方法
 - `docs/validation/REAL_TASK_BANK_V0.md`：真实来源任务与证据缺口
 - `docs/validation/V3_OWNER_REAL_REPLAY_01.md`：V3 对现有 OWNER_REAL 问题的反证回放
@@ -81,7 +86,8 @@
 - Gate / candidate JSON；
 - 固定搜索次数；
 - 多 Agent 编排；
-- 固定平台覆盖配额。
+- 固定平台覆盖配额；
+- 默认安装/调用所有平台适配器。
 
 任何机制进入主线前都必须回答：
 
