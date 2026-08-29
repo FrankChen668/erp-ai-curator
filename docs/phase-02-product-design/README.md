@@ -1,5 +1,17 @@
 # Phase 2 — Product Design
 
+> **SUPERSEDED FOR CURRENT PRODUCT DECISIONS (2026-08-29).**
+>
+> This phase is preserved as historical design evidence. Its central “resource decision compressor / search → 0–2 resources” model was later found to be too narrow.
+>
+> Current authority:
+> - `docs/AI_LEVERAGE_MODEL_V3.md`
+> - `docs/PROJECT_NORTH_STAR.md`
+> - `docs/SKILL_BLUEPRINT_V3.md`
+> - `docs/validation/PROTOCOL_V3.md`
+>
+> Keep the useful lessons below, but do not use this phase to override V3.
+
 ## Problem
 
 V0.2–V0.4 已证明：如果过早把资源采编写成 Gate、JSON、评分和 Validator，Agent 会逐渐优化“怎样通过规则”，而不是“怎样找到真正值得分享的资源”。
@@ -55,14 +67,14 @@ Phase 2 只有满足以下条件才结束：
 7. 对核心方案完成压力测试并记录保留/修改/否决；
 8. 形成可以直接交给 Phase 3 做 Skill Architecture 的产品契约。
 
-## Current Decision
+## Historical Decision
 
-Phase 2 的核心假设是：
+Phase 2 当时的核心假设是：
 
 > **ERP AI Curator 不是资源数据库，也不是事实审计器；它是一个面向 ERP 真实工作任务的资源决策压缩器。它替操作者完成搜索、阅读、比较和取舍，输出极少量可直接分享给同事的原始资源。**
 
-该假设在本阶段被进一步约束，并将在 Phase 5 通过真实任务和 baseline 对比验证。
+后续 V3 认为这个假设仍保留“判断优于治理”的价值，但把产品起点从“资源选择”进一步上移到 **AI 工作方式 / leverage 诊断**。
 
 ## Handoff
 
-Phase 3 可以依赖本目录中的产品契约和决策，但不能默认继承 V0.4 的工程结构。任何旧资产都必须重新证明它对产品结果有必要性。
+Do not hand this phase directly to a new implementation Agent. For current work, start from V3 authority documents listed at the top.
