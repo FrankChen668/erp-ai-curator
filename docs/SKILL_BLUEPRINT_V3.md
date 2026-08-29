@@ -38,7 +38,7 @@ Skill 负责稳定执行一个判断：
 
 ```text
 1. Understand the real work outcome and hard constraints
-2. Run the AI leverage test
+2. Run the AI leverage test against the user's current stack
 3. Choose Mode A / B / C
 4. If Mode B needs discovery, search narrowly
 5. Compare only serious candidates
@@ -57,7 +57,16 @@ Skill 负责稳定执行一个判断：
 
 ## 4. AI Leverage Test — 核心判断
 
-专门 Tool / Skill / Method 是否值得引入，主要看有没有一个**通用模型本身不擅长或无法提供的能力缺口**。
+专门 Tool / Skill / Method 是否值得引入，主要看有没有一个**用户当前工具链无法很好提供的能力缺口**。
+
+这里的 baseline 不是“裸模型”，而是用户已经拥有并可以使用的：
+
+- 通用 AI / coding Agent；
+- 企业已批准工具；
+- 内部 exporter / pipeline；
+- 现有知识库、IDE、ALM、测试或自动化能力。
+
+新方案必须相对这个真实 baseline 有足够增量价值。
 
 ### Signal 1 — Special output / protocol constraint
 
@@ -122,17 +131,18 @@ Skill 负责稳定执行一个判断：
 
 这类通常需要当前专门资料和事实核验。
 
-## 5. General-AI Sufficiency Test
+## 5. Current-stack Sufficiency Test
 
 以下特征越多，越应该优先 Mode A：
 
 - 一次性任务；
 - 输入材料已经齐全；
 - 主要是理解、分析、改写、总结、规划或生成草稿；
+- 用户现有 Agent / 工具已经可以完成；
 - 没有真实系统操作；
 - 没有特殊可编辑 / 协议格式；
 - 输出可以由用户快速人工判断；
-- 专门 Tool 只是“可能更方便”，没有明显质量 / 时间增益。
+- 新 Tool 只是“可能更方便”，没有明显质量 / 时间增益。
 
 但 Mode A 不等于“凭模型记忆直接回答”。
 
@@ -145,13 +155,13 @@ Skill 负责稳定执行一个判断：
 当以下情况出现时，不要强行 A 或 B：
 
 - 不知道这是一次性还是高频工作；
-- 不知道通用 Agent 当前已经能做到什么水平；
+- 不知道用户当前 Agent / 工具已经能做到什么水平；
 - 专门方案需要较高安装 / 配置 / 迁移成本；
 - 理论上有优势，但缺少真实使用证据。
 
 此时给最小试验：
 
-> “先用现有 Agent 完成一个真实样本。如果出现 X 问题，再升级到 Y 类专门能力。”
+> “先用现有 Agent / 工具完成一个真实样本。如果出现 X 问题，再升级到 Y 类专门能力。”
 
 Mode C 必须包含：
 
@@ -176,7 +186,7 @@ Mode C 必须包含：
 
 如果需求明显是一次性简单任务、专门 Skill 没有可解释的增量价值，仍可以回答：
 
-> “这个任务不值得额外装 Skill，现有通用 AI 已够。”
+> “这个任务不值得额外装 Skill，现有工具链已经够。”
 
 Fast path 的意思是减少流程，不是无条件接受用户预设解法。
 
@@ -200,7 +210,7 @@ Fast path 的意思是减少流程，不是无条件接受用户预设解法。
 
 1. 能否解决完整任务？
 2. 用户实际会得到什么？
-3. 相比现有通用 AI，它的增量价值是什么？
+3. 相比用户**当前 AI + 当前工具链**，它的增量价值是什么？
 4. 启动 / 安装 / 迁移 / 学习成本是否值得？
 5. 是否符合数据、源码、企业环境和权限边界？
 6. 当前是否可用？
@@ -213,9 +223,9 @@ Fast path 的意思是减少流程，不是无条件接受用户预设解法。
 ### Mode A
 
 ```text
-判断：不需要专门 Tool / Skill
+判断：不需要新增专门 Tool / Skill
 原因：...
-建议做法：...
+建议用现有方式这样做：...
 ```
 
 ### Mode B
@@ -298,6 +308,6 @@ V3 只是一个更合理的工作模型，不代表一定要封装成 Skill。
 
 真正需要验证的是：
 
-> **普通 AI 对话是否经常忽略“通用 AI 已足够 / 先试再装 / 专门能力增量价值”这些判断，而 Skill 能稳定改善？**
+> **普通 AI 对话是否经常忽略“现有工具链已足够 / 先试再装 / 专门能力增量价值”这些判断，而 Skill 能稳定改善？**
 
 如果普通模型自然就能稳定完成，不继续为了形式开发 Skill。
