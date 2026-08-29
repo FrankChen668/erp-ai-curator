@@ -76,28 +76,66 @@ T01/T02 的本地 Codex 路径对 Bilibili / Xiaohongshu / WeChat practitioner c
 - discovery/index bias；
 - true domain scarcity / quality mismatch。
 
-因此当前正在验证条件式来源 Adapter，而不是建立中国内容爬虫数据库。
+因此当前验证的是条件式来源 Adapter，而不是建立中国内容爬虫数据库。
 
-## 2. Current source-adapter hypothesis
+### H. First local source-adapter qualification produced real provider decisions
 
-当前假设：
+The first controlled Windows + Codex run demonstrated:
 
-> Curator 负责判断；普通 Web/GitHub 先行；只有当具体来源能力缺口会影响推荐时，Codex 才调用已安装、已审查、只读的来源 Skill/MCP。
+- **WeChat discovery works conditionally**: keyword search returned real candidates and direct original URLs, but Sogou anti-bot/dependency/cookie-path caveats remain.
+- **WeChat original-article reading works**: the public reader obtained meaningful article body + metadata under the intended exact-host GET-only/no-cookie boundary.
+- **The first Bilibili provider is credential-blocked**: build/stdio worked, but real search returned `COOKIE_EXPIRED`; search→transcript remains unproven.
+- **The first Xiaohongshu provider failed the read-only provider test** and was rejected before installation because broad social write/account operations are part of the exposed MCP surface.
 
-当前 Pilot 候选：
+This is evidence that the adapter lifecycle itself is useful: it can keep a broad/high-risk provider out without weakening the product boundary.
 
-- WeChat discovery: `zjp1997720/wechat-article-search`
-- WeChat reader: `Githun1314/agent-wechat-reader`
-- Bilibili: `XZXZZX-Ai/bilibili-mcp`
-- Xiaohongshu: `xpzouying/xiaohongshu-mcp`
+The complete record is `SOURCE_ADAPTER_QUALIFICATION_RESULT_01.md`.
 
-云端已完成候选研究和部分静态安全审查，但以下内容**仍未被证明**：
+## 2. Current source-adapter state
 
-- Windows 本地实际安装是否稳定；
-- read-only 边界是否实际可控；
-- 登录/凭证流程是否可接受；
-- Codex 是否能可靠组合 Curator + 多个 Skill/MCP；
-- Adapter 是否会实际提升最终推荐质量，而不只是增加链接数量。
+Current hypothesis:
+
+> Curator owns judgement; normal Web/GitHub remains the default path; only a concrete material acquisition gap can trigger an already-qualified source adapter.
+
+Provider state:
+
+```text
+WeChat discovery
+  zjp1997720/wechat-article-search
+  status: CONDITIONAL
+
+WeChat original article reader
+  Githun1314/agent-wechat-reader
+  status: KEEP FOR PILOT
+
+Bilibili
+  XZXZZX-Ai/bilibili-mcp
+  status: CONDITIONAL — credential blocked
+
+  sandraschi/bilibili-mcp
+  status: candidate under cloud review, not locally approved yet
+
+Xiaohongshu
+  xpzouying/xiaohongshu-mcp
+  status: REMOVED
+
+  replacement
+  status: none approved
+```
+
+What is now proven:
+
+- at least one source-specific two-Skill chain can acquire original practitioner content;
+- read-only/provider qualification can reject an unsuitable provider;
+- full platform coverage is not required before testing orchestration.
+
+Still unproven:
+
+- Codex can reliably route Curator intent through the two WeChat Skills in one task;
+- source adapter evidence materially improves final ERP curation;
+- a lower-friction Bilibili provider works in the local environment;
+- a sufficiently safe/maintainable Xiaohongshu provider exists;
+- full Curator Skill packaging is justified.
 
 ## 3. REAL_USER evidence
 
@@ -136,8 +174,9 @@ T01/T02 的本地 Codex 路径对 Bilibili / Xiaohongshu / WeChat practitioner c
 | V3 owner/boundary replay | design falsification | useful, not independent validation |
 | T01 prototype curation | OWNER_REAL curation behaviour | useful; exposed recall issue |
 | T02 requirements/Fit-Gap curation | OWNER_REAL curation behaviour | useful; exposed fit-vs-maturity issue |
-| Source coverage finding | acquisition evidence | active hypothesis |
-| Source Adapter architecture/lifecycle | design hypothesis | awaiting local qualification |
+| Source coverage finding | acquisition evidence | confirmed as mixed access/index/quality issue |
+| Source Adapter architecture/lifecycle | design hypothesis | partially supported by first qualification |
+| Source Adapter Qualification 01 | local runtime evidence | WeChat qualified enough for routing pilot; Bilibili conditional; XHS provider removed |
 | Independent REAL_USER results | primary validation | insufficient |
 
 ## 6. What remains unproven
@@ -145,24 +184,25 @@ T01/T02 的本地 Codex 路径对 Bilibili / Xiaohongshu / WeChat practitioner c
 - V3 is consistently better for independent real users;
 - V3 should ultimately be packaged as a Skill;
 - native Codex multi-Skill/MCP orchestration is reliable enough;
-- WeChat/Xiaohongshu/Bilibili adapters materially improve final curation;
-- all current adapter candidates are safe/stable enough to keep;
+- WeChat practitioner evidence materially improves final curation;
+- Bilibili/Xiaohongshu can be covered with sufficiently low-friction qualified providers;
 - an adapter registry needs software rather than a small reference file;
 - resource caching/database/automatic refresh is needed;
 - scenario taxonomy is needed.
 
 ## 7. Current mainline
 
-**Status: V3 product validation + source-adapter qualification pilot. Not production Skill implementation.**
+**Status: V3 product validation + focused source-adapter routing pilot. Not production Skill implementation.**
 
 Immediate sequence:
 
-1. local qualification of pinned source adapters;
-2. read-only smoke tests;
-3. explicit multi-Skill/MCP routing test;
-4. fresh curation A/B uplift test;
-5. repeat only if uplift is material;
-6. then decide whether to package a minimal Curator Skill.
+1. **Phase 3A:** local WeChat discovery → reader multi-Skill routing test;
+2. cloud review of the routing evidence;
+3. cloud/static review then local qualification of a lower-friction Bilibili candidate if justified;
+4. keep Xiaohongshu as a coverage gap until an acceptable provider exists;
+5. **Phase 4:** fresh curation A/B uplift test using only qualified adapters;
+6. repeat only if uplift is material;
+7. then decide whether to package a minimal Curator Skill.
 
 See `docs/CURRENT_EXECUTION_PLAN_V3.md` for ownership and stop conditions.
 
@@ -182,7 +222,7 @@ See `docs/CURRENT_EXECUTION_PLAN_V3.md` for ownership and stop conditions.
 
 ### Platform checklist drift
 
-因为已经安装微信/小红书/B站 Adapter，就每个主题全部搜索一遍。
+因为已经安装来源 Adapter，就每个主题全部搜索一遍。
 
 ### Resource gravity
 
@@ -191,6 +231,10 @@ See `docs/CURRENT_EXECUTION_PLAN_V3.md` for ownership and stop conditions.
 ### Official-document gravity
 
 因为官网容易核验，就忽略真正能降低同事上手成本的实战资源。
+
+### Permission erosion
+
+为了恢复某个平台覆盖，就接受包含大量写操作或高风险自动化的 provider。
 
 ### Self-validation
 
