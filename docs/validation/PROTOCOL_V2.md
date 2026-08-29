@@ -1,5 +1,9 @@
 # Validation Protocol V2 — Real-task first
 
+> **HISTORICAL / SUPERSEDED (2026-08-29).**
+>
+> V2 belongs to the resource-first phase and remains only as historical evidence. New validation must use `docs/validation/PROTOCOL_V3.md`, which starts from AI-leverage diagnosis and compares new options against the user's existing AI + toolchain.
+
 ## 1. 为什么重写验证协议
 
 之前两种验证都不够可靠：
