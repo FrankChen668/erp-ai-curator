@@ -156,7 +156,41 @@ If P01 remains abstract:
 
 The project should now start accumulating **useful resources and practical recipes**, not more scenario documents.
 
-## 8. Source adapters
+## 8. Creator-prior discovery
+
+For practical resource discovery, Curator may maintain a **small, evidence-based creator seed set** across Bilibili, Xiaohongshu, WeChat, GitHub and other practitioner channels.
+
+Good seed creators may include people who repeatedly publish useful material about:
+
+- AI enterprise consulting;
+- AI product management / PM workflows;
+- Agent/Codex/WorkBuddy usage;
+- requirements / PRD / prototypes;
+- process diagrams;
+- PPT/documentation;
+- data/spreadsheet workflows;
+- practical prompt/workflow design.
+
+The seed set affects **where to inspect first**, not what to recommend.
+
+Creator popularity is not a hard weight.
+
+Use engagement as weak platform-specific discovery evidence only:
+
+- Xiaohongshu: saves and substantive comments normally carry more practical-use signal than likes/followers;
+- Bilibili: saves/coins/substantive comments normally carry more tutorial-use signal than raw views/followers;
+- WeChat: repeated original practical output and topic consistency matter more because comparable engagement is incomplete;
+- GitHub: actual capability, examples, maintenance and issues matter more than stars/forks.
+
+Always read the specific original content. Always allow niche creators outside the seed set to win.
+
+Authority:
+
+- `docs/CREATOR_PRIOR_STRATEGY_V3.md`
+
+Do not build a large influencer database or a numeric creator ranking.
+
+## 9. Source adapters
 
 Current state:
 
@@ -173,7 +207,7 @@ Adapters are evidence acquisition capabilities, not product goals.
 
 Do not expand adapter footprint unless a survey-derived problem exposes a material source-access gap that changes the recommendation package.
 
-## 9. Cloud / local / Owner split
+## 10. Cloud / local / Owner split
 
 ### Cloud / ChatGPT
 
@@ -183,6 +217,7 @@ Owns:
 - first-principles/adversarial review;
 - survey interpretation;
 - source/provider research;
+- creator-prior research and maintenance;
 - evidence interpretation;
 - GitHub maintenance;
 - final KEEP/REMOVE/product decisions.
@@ -202,7 +237,7 @@ It does not redefine V3 or install arbitrary adapters.
 
 Only unavoidable login/privacy/business semantics and final human usefulness judgement.
 
-## 10. Anti-drift
+## 11. Anti-drift
 
 Stop if work turns into:
 
@@ -211,6 +246,8 @@ Stop if work turns into:
 - generic ERP knowledge learning as mainline;
 - one test per software product;
 - mandatory platform coverage;
+- influencer popularity ranking;
+- a closed creator whitelist;
 - endless A/B machinery;
 - link-count scoring;
 - Curator synthesis presented as external resources;
