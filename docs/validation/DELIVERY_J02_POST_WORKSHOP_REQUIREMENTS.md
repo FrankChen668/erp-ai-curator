@@ -1,10 +1,10 @@
 # J02 — Post-Workshop Requirements Package Curation Test
 
-Date: 2026-08-29
+Date: 2026-08-30
 
 ## 1. Real job
 
-This test is anchored to a common implementation-consultant delivery job:
+This test is anchored to a common implementation-consultant delivery job and to survey-derived Problem Card `P01`:
 
 > **客户需求访谈/Workshop 已经结束。顾问手里有真实材料，第二天需要产出可给客户和项目组继续评审的需求包。**
 
@@ -12,7 +12,7 @@ The question is not “what is requirements analysis?”.
 
 The question is:
 
-> **What external AI Skill / Tool / tutorial / method can materially help the consultant turn real project evidence into a better, faster, reviewable delivery package?**
+> **What external AI Skill / Tool / tutorial / method / practitioner resource can materially help the consultant turn real project evidence into a better, faster, reviewable delivery package?**
 
 ## 2. Raw task
 
@@ -45,39 +45,89 @@ Weak candidates include:
 - meeting summarizers with no evidence trace;
 - marketing claims without a reusable workflow;
 - resources that encourage the model to decide ERP standard capability from memory;
-- broad BA textbooks with no AI-enabled practical path.
+- broad BA textbooks with no AI-enabled practical path;
+- high-popularity creator posts that lack reproducible steps or real artifacts.
 
-## 4. Research behaviour
+## 4. Session discipline
 
 Use a fresh local Codex session.
 
 Before searching read only current authority:
 
-- `docs/PROJECT_NORTH_STAR.md`
-- `docs/SOURCE_STRATEGY_V3.md`
-- `docs/CURRENT_EXECUTION_PLAN_V3.md`
-- `docs/validation/DELIVERY_JOB_MAP_V3.md`
-- this file
+1. `docs/PROJECT_NORTH_STAR.md`
+2. `docs/SOURCE_STRATEGY_V3.md`
+3. `docs/CREATOR_PRIOR_STRATEGY_V3.md`
+4. `docs/CURRENT_EXECUTION_PLAN_V3.md`
+5. `docs/validation/SURVEY_DERIVED_PROBLEM_CARDS_01.md` — only P01 and evidence-boundary sections are needed
+6. this file
 
-Do not read old T02 requirements/Fit-Gap outputs, Starter Pack or historical candidates before final recommendation.
+Do not read old T02 requirements/Fit-Gap outputs, Starter Pack or historical candidate lists before final recommendation.
+
+Do not read previous recommendation answers as discovery hints.
+
+## 5. Research behaviour
 
 Search serious current resources across:
 
 - original/official documentation;
 - GitHub Skills/Agents/Tools;
-- practitioner guides / consulting / BA workflows;
+- practitioner guides / AI consulting / BA / PM workflows;
 - workshops / templates;
 - high-quality videos/articles;
 - Chinese practitioner content when it offers real steps/examples.
 
-Current WeChat Search → Reader can be used only when a concrete Chinese-practice evidence gap matters.
+### Creator-prior lane
+
+For practitioner discovery, do **not** rank creators by popularity.
+
+You may inspect creators/accounts earlier when there is evidence that they repeatedly publish practical material on:
+
+- AI enterprise consulting;
+- AI product management / PM workflows;
+- requirements / PRD / functional design;
+- Agent / Codex / WorkBuddy workflows;
+- practical prompts / Skills / reusable delivery methods.
+
+Use creator reputation and engagement only to decide **what to inspect first**.
+
+The specific article/video/post must still stand on its own after opening the original content.
+
+When platform metrics are visible, treat them only as weak discovery signals:
+
+- Xiaohongshu: saves/substantive comments usually tell more than likes/followers;
+- Bilibili: saves/coins/substantive comments usually tell more than raw views/followers;
+- WeChat: repeated original practical output/topic consistency matters more than incomplete engagement data;
+- GitHub: capability/examples/maintenance/issues matter more than stars/forks.
+
+Do not create a creator leaderboard or whitelist during this test.
+
+If a creator proves useful only because of reputation but the specific content is weak, reject it.
+
+### Source-adapter boundary
+
+Current WeChat Search → Reader may be used only when a concrete Chinese-practice evidence gap matters.
 
 Do not call it merely because it is installed.
 
-Do not use Bilibili/Xiaohongshu adapters in this run.
 Do not install anything.
+Do not use Bilibili/Xiaohongshu adapters in this run.
+Normal public Web discovery of articles/videos is allowed when accessible.
 
-## 5. Practicality test
+## 6. Original-content requirement
+
+No practitioner resource can be recommended based only on:
+
+- search result/snippet;
+- creator profile/reputation;
+- follower/like/save/view counts;
+- repost/aggregation summary;
+- AI-generated summary of unseen content.
+
+Actually read/open the original article, video transcript/notes, repo, tutorial or sufficiently complete primary material.
+
+If the original cannot be acquired, mark it as a coverage gap or discovery lead, not a recommendation.
+
+## 7. Practicality test
 
 For each finalist, answer from the actual source:
 
@@ -86,10 +136,12 @@ For each finalist, answer from the actual source:
 3. What part of tomorrow's deliverable does it improve?
 4. What human/system verification is still required?
 5. What setup/learning/privacy cost exists?
+6. Could a consultant plausibly learn enough tonight to try it tomorrow?
+7. Does it reduce likely correction/rework compared with generic chat prompting?
 
 If these cannot be answered, the resource is too abstract for this test.
 
-## 6. Falsification
+## 8. Falsification
 
 Check the failure mode most likely to break real use:
 
@@ -101,11 +153,12 @@ Check the failure mode most likely to break real use:
 - stale/unmaintained dependency;
 - too heavy for a one-day consulting workflow;
 - polished article but no reproducible steps;
-- generic software-product BA workflow that does not transfer to ERP delivery.
+- generic software-product BA workflow that does not transfer to ERP delivery;
+- creator popularity masking recycled/promotional content.
 
 No numeric scoring.
 
-## 7. Output
+## 9. Output
 
 ### Main recommendation
 
@@ -160,16 +213,25 @@ Answer:
 
 Keep separate.
 
-### Acquisition trace
+### Discovery / acquisition trace
 
-Observable sources/actions only.
+Observable sources/actions only:
 
-## 8. Stop condition
+- source types actually searched/read;
+- original content actually opened;
+- whether a creator-prior path was used and why;
+- creator/engagement signals observed, if any, only as discovery context;
+- whether WeChat adapter was invoked;
+- where search stopped.
+
+Do not output hidden reasoning.
+
+## 10. Stop condition
 
 Stop when there is a small, stable, directly usable package.
 
-Do not continue into solution design/data/PPT/Codex/WorkBuddy tests.
+Do not continue into PRD/prototype/process/PPT/data/Codex/WorkBuddy tests.
 Do not modify the repository.
-Do not install candidates.
-Do not create new frameworks.
+Do not install candidates or new adapters.
+Do not create creator databases, scoring models or new validation frameworks.
 Do not declare ERP AI Curator PASS.
