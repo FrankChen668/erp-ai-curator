@@ -10,11 +10,12 @@ This file is intentionally small. It only records tasks that have already appear
 
 | ID | Role | Real work problem | Curator need | Current evidence |
 |---|---|---|---|---|
-| OR01 | implementation / product consultant | Need an AI/Agent approach that can generate **editable draw.io business process diagrams**, not only static images | find current Skill/Tool worth using | strong discovery candidates exist: jgraph/drawio-mcp, Agents365 drawio-skill |
-| OR02 | consultant / product manager | Need to rapidly create a **reviewable interactive prototype** from requirements for stakeholder discussion | find practical Skill/Tool, preferably low-friction | candidate set exists; baoyu-design is high-confidence discovery candidate; claude-prototype remains candidate pending comparison |
-| OR03 | developer / advanced Agent user | Need a **current low-cost / third-party model path** for Claude Code / Codex without following stale configuration tutorials | find current official/primary setup resources and distinguish supported vs merely workable paths | strong evidence; volatile and must be rechecked at run time; OpenRouter Ori is a newer official entry point than older manual guides |
-| OR04 | implementation consultant | Need AI to improve **requirements analysis / Fit-to-Standard / Fit-Gap** work, with something more concrete than generic AI workshop material | find directly applicable methods/tools/cases | SAP side has concrete current official capabilities; Oracle side remains weak/empty in public sources |
-| OR05 | implementation consultant | Need a structured AI-assisted way to **learn an unfamiliar SAP/Oracle module**: business process, configuration chain, key objects, not generic “ask AI” advice | find method/prompt framework/tool that actually supports module learning | SAP has partial official candidates; Oracle public method remains weak; 0 recommendation may be correct for the narrow AI-learning-method request |
+| OR01 | implementation / product consultant | Need an AI/Agent approach that can generate **editable draw.io business process diagrams**, not only static images | find current Skill/Tool worth using | jgraph/drawio-mcp is the default high-confidence option; Agents365 drawio-skill is differentiated for advanced extraction / diagram workflows |
+| OR02 | consultant / product manager | Need to rapidly create a **reviewable interactive prototype** from requirements for stakeholder discussion | find practical Skill/Tool, preferably low-friction | baoyu-design and claude-prototype represent differentiated broad-vs-lightweight prototype workflows |
+| OR03 | product manager / advanced Agent user (developer-adjacent) | Need a **current low-cost / third-party model path** for Claude Code / Codex without following stale configuration tutorials | find current official/primary setup resources and distinguish supported vs merely workable paths | strong current evidence; OpenRouter Ori is now the preferred setup entry; volatile facts must be rechecked at run time |
+| OR04 | implementation consultant | Need AI to improve **requirements analysis / Fit-to-Standard / Fit-Gap** work, with something more concrete than generic AI workshop material | find directly applicable methods/tools/cases | SAP has concrete current official capabilities; Oracle deep scan found one high-task-fit but medium-trust practitioner course for requirements/design/UAT |
+| OR05 | implementation consultant | Need a structured AI-assisted way to **learn an unfamiliar SAP/Oracle module**: business process, configuration chain, key objects, not generic “ask AI” advice | find method/prompt framework/tool that actually supports module learning | SAP has partial official candidates; Oracle AI-assisted module-learning method remains a public gap after deeper search |
+| OR06 | product manager / Agent project owner (developer-adjacent) | Need to understand an existing Vibe-Coded Agent project's architecture / execution graph and determine whether “Graph Engineering” is passive visualization or an invasive workflow change | find the right class of tool: static map vs runtime tracing vs workflow graph | strong task-understanding evidence: codebase-map/drawio for static understanding, observability for runtime traces, agent-graph only for governed workflow design |
 
 ## What these tasks prove
 
@@ -31,13 +32,25 @@ They do **not** yet prove:
 
 ### Project manager
 
-We do not yet have enough independently recorded real-origin PM tasks in this repository to claim PM validation.
+There are now several OWNER_REAL problems with product-manager context, but they come from the Product Owner rather than independent project-manager respondents.
 
-Potential areas such as meeting/action tracking, risk/issue management, status reporting and change impact are **hypotheses until actual PM demand is captured**.
+This is useful demand evidence, **not independent PM validation**.
+
+Potential areas such as meeting/action tracking, risk/issue management, status reporting and change impact remain hypotheses until actual PM demand is captured.
 
 ### Developer
 
-OR03 provides one real developer/advanced-Agent need. Architecture/codebase visualization is currently strong discovery evidence but should not automatically be counted as real-origin developer validation unless it came from an actual developer request.
+We still do **not** have enough independent `REAL_USER` developer-origin tasks to claim developer validation.
+
+OR03 and OR06 are developer-adjacent owner needs; they must not be relabeled as developer-user evidence just because they concern coding agents or codebases.
+
+## Trigger-negative evidence
+
+Real owner questions also show that many ERP/AI tasks should **not** activate the Curator at all. Examples and reasoning are recorded in:
+
+`docs/validation/OWNER_REAL_TRIGGER_NEGATIVES_01.md`
+
+This evidence is part of product validation because avoiding unnecessary resource search is a core product behavior.
 
 ## Intake rule going forward
 
