@@ -2,161 +2,202 @@
 
 Date: 2026-08-29
 
-> Current product model is `AI_LEVERAGE_MODEL_V3.md`. Evidence created under the older resource-first model must not be silently treated as V3 validation.
+> Current product model is `AI_LEVERAGE_MODEL_V3.md`. Current execution authority is `CURRENT_EXECUTION_PLAN_V3.md`. Historical resource-first evidence must not be silently treated as V3 validation.
 
-## 1. 当前已经确认的事实
+## 1. What is currently supported by evidence
 
-### A. 泛 ERP / 企业信息化工作里确实存在“AI 工作方式选择”问题
+### A. The real product problem exists
 
-现有 OWNER_REAL 问题覆盖：
+泛 ERP / 企业信息化从业者确实存在两类相邻问题：
 
-- editable 业务流程 / 架构图；
-- 交互原型；
-- Claude Code / Codex 模型路由；
-- Fit-to-Standard / 需求分析；
-- 陌生模块学习；
-- 现有 Agent 项目的静态架构、运行链路与 workflow governance 区分。
+1. 当前工作到底应该怎样用 AI；
+2. 当需要外部能力时，哪些 Skill / Tool / 方法 / 教程真正值得采用。
 
-这些问题不只属于 SAP / Oracle，也可以映射到定制供应链、财务、Java 企业系统和 Agent 开发工作。
+OWNER_REAL 问题已经覆盖 editable diagram、interactive prototype、model routing、Fit-to-Standard / requirements、陌生模块学习、Agent architecture 等真实工作。
 
-### B. 后续偏航的根因已经找到
+### B. Resource-first was too narrow
 
-Phase 2 把产品定义成：
+旧 Phase 2/3 把产品收窄成：
 
-> 真实任务 → 从互联网筛 0–2 个资源。
+`真实任务 → 搜索互联网 → 0–2 推荐`
 
-Phase 3 又把触发条件进一步锁成：
+V3 已改成：
 
-> 用户必须明确在找 / 比较资源。
+`真实任务 → AI leverage diagnosis → Mode A/B/C → 必要时定向发现`
 
-两层叠加后，产品自然滑向：
+当前 baseline 是用户已有 AI + Agent + 工具链，而不是裸模型。
 
-`resource search + official verification + 0–2 links`
-
-这比最初目标更窄。
-
-V3 已把核心改成：
-
-`真实任务 → AI leverage diagnosis → Mode A/B/C → 必要时才定向发现`
-
-### C. 判断层比搜索层更重要
-
-过去反复出现的失败包括：
-
-- 完整任务没理解，只匹配资源标签；
-- 本来通用 AI 足够，却默认开始搜工具；
-- 把官方材料自动当推荐位；
-- 用相邻工具填空；
-- 过早 abstain；
-- 配置事实过时；
-- 把 static map、runtime tracing、workflow graph 混为一谈。
-
-这些都说明真正价值首先是“诊断哪种 AI 工作方式适合当前任务”。
-
-### D. 重治理仍不是答案
+### C. Heavy governance is a demonstrated failure mode
 
 V0.2–V0.4 已证明：Gate、评分、candidate JSON、validator 可以结构正确但产品判断错误。
 
 V3 不恢复这些机制。
 
-## 2. 现有 OWNER_REAL 证据如何重新解释
+### D. Resource curation itself remains a core capability
 
-OR01–OR06 的**原始工作问题**仍然有效，因为它们来自真实工作需要。
+当用户明确需要寻找外部方案时，Curator 必须能从高噪声互联网中找出少量真正值得使用/学习/分享的资源。
 
-但旧的推荐结果主要是在 resource-first 模型下产生，因此：
+T01/T02 已提供以下证据：
 
-- 可以作为 discovery history；
-- 可以作为 V3 replay 的输入；
-- **不能直接算 V3 已验证通过。**
+- 官方资料适合承担事实锚点，但不应该自动占据主推荐位；
+- GitHub / practitioner / community 内容可以提供更强的实操价值；
+- `Practical Companion` 必须真的增加操作步骤、案例、Prompt、失败经验或采用判断，而不是为了结构完整凑一个社区链接；
+- `内容适配度高` 与 `项目成熟度高` 是不同判断。
 
-V3 必须重新回答一个更前置的问题：
+### E. T01 exposed discovery recall risk
 
-> 这个任务到底需要专门 AI 方案吗，还是通用 AI / 低成本试验已经够？
+T01 第一次搜索偏向成熟 SaaS/官方结果，补测后才发现更贴近本地 Agent / 可运行 HTML 原型的方法。
 
-## 3. REAL_USER 证据
+因此当前已知风险是：
 
-**目前仍不足。**
+> Selection 可以合理，但 Discovery Recall 仍可能受搜索入口和来源可访问性影响。
 
-已经找到内部 AI 培训需求问卷设计，并已建立问卷 → Real Task Intake 的桥接规则；但当前 File Library 没有实际答卷 / 汇总结果。
+这只是观察，不建立固定平台搜索配额。
+
+### F. T02 showed better task-fit reasoning, but maturity uncertainty remains
+
+T02 已经能围绕：
+
+`调研材料 → 未决事项 → Fit/Gap → 决策 → 需求 → 方案 → 测试追溯`
+
+来选择资源，而不是只搜索“AI 写 BRD”。
+
+但主候选的维护度、真实项目采用度仍弱，因此当前正确定位是：
+
+> strong-fit candidate / worth piloting, not proven enterprise standard.
+
+### G. Chinese practitioner coverage is a real acquisition uncertainty
+
+T01/T02 的本地 Codex 路径对 Bilibili / Xiaohongshu / WeChat practitioner content 的发现和正文读取覆盖较弱。
+
+当前不能得出“中国高质量内容很少”的简单结论，因为至少混合了：
+
+- acquisition/access gap；
+- discovery/index bias；
+- true domain scarcity / quality mismatch。
+
+因此当前正在验证条件式来源 Adapter，而不是建立中国内容爬虫数据库。
+
+## 2. Current source-adapter hypothesis
+
+当前假设：
+
+> Curator 负责判断；普通 Web/GitHub 先行；只有当具体来源能力缺口会影响推荐时，Codex 才调用已安装、已审查、只读的来源 Skill/MCP。
+
+当前 Pilot 候选：
+
+- WeChat discovery: `zjp1997720/wechat-article-search`
+- WeChat reader: `Githun1314/agent-wechat-reader`
+- Bilibili: `XZXZZX-Ai/bilibili-mcp`
+- Xiaohongshu: `xpzouying/xiaohongshu-mcp`
+
+云端已完成候选研究和部分静态安全审查，但以下内容**仍未被证明**：
+
+- Windows 本地实际安装是否稳定；
+- read-only 边界是否实际可控；
+- 登录/凭证流程是否可接受；
+- Codex 是否能可靠组合 Curator + 多个 Skill/MCP；
+- Adapter 是否会实际提升最终推荐质量，而不只是增加链接数量。
+
+## 3. REAL_USER evidence
+
+**仍不足。**
+
+当前已经有问卷设计和 Survey Bridge，但没有实际独立用户答卷数据进入项目。
 
 因此：
 
-- 不伪造独立顾问 / PM / 开发人员需求；
-- 不为了角色覆盖人为补题；
-- 当前主要使用 OWNER_REAL 做产品模型回放与反证。
+- 不伪造角色需求；
+- 不用 OWNER_REAL 自测冒充独立 REAL_USER 验证；
+- Source Adapter pilot 主要验证运行可行性与采编增量，不证明最终市场/组织价值。
 
-## 4. 角色范围的当前定义
+## 4. Role scope
 
-不再局限于“SAP / Oracle 顾问”。
-
-目标是泛 ERP / 企业信息化从业者，包括：
+目标用户是泛 ERP / 企业信息化从业者，包括：
 
 - 实施 / 业务顾问；
 - 项目经理；
 - 产品经理 / 解决方案人员；
 - 开发人员；
-- 标准 ERP、二开、集成、Java / .NET 定制企业系统等环境。
+- SAP / Oracle 标准实施、二开和集成；
+- Java / .NET 等定制供应链、财务、采购、制造和其他企业系统。
 
-角色用于理解上下文，不建立人为配额。
+角色用于理解上下文，不建立配额。
 
-## 5. 当前资产证据等级
+## 5. Asset evidence level
 
 | Asset | Evidence type | Current status |
 |---|---|---|
-| Phase 1 — 21 Skill study | design research | keep; many principles still valid |
-| Phase 2 Product Vision | historical product hypothesis | partially superseded by V3 |
-| Phase 3 Skill Architecture | historical implementation hypothesis | trigger/core-flow superseded by V3 |
+| Phase 1 — representative Skill study | design research | keep |
+| Phase 2/3 resource-first design | historical hypothesis | superseded for current decisions |
 | V0.2–V0.4 | failure evidence | archive only |
-| PR #4 Phase 4 pilot | execution/failure evidence | closed, not merged |
-| Starter Pack V0 | discovery inventory | candidate memory only, not fixed answers |
-| OR01–OR06 original problems | OWNER_REAL input evidence | keep; replay under V3 |
-| old OR01–OR06 recommendations | resource-first discovery evidence | do not treat as V3 validation |
-| Trigger-negative cases | intent-boundary evidence | keep, reinterpret as execution vs AI-work-method boundary |
-| Independent REAL_USER results | primary validation | insufficient today |
+| Starter Pack V0 | discovery memory | search prior only |
+| OR01–OR06 original problems | OWNER_REAL input | keep |
+| V3 owner/boundary replay | design falsification | useful, not independent validation |
+| T01 prototype curation | OWNER_REAL curation behaviour | useful; exposed recall issue |
+| T02 requirements/Fit-Gap curation | OWNER_REAL curation behaviour | useful; exposed fit-vs-maturity issue |
+| Source coverage finding | acquisition evidence | active hypothesis |
+| Source Adapter architecture/lifecycle | design hypothesis | awaiting local qualification |
+| Independent REAL_USER results | primary validation | insufficient |
 
-## 6. 目前还没有证明什么
+## 6. What remains unproven
 
-- V3 工作模型在独立真实用户上稳定有效；
-- V3 应该最终封装成 Skill；
-- 固定资源缓存能明显提高效果；
-- PM / developer 等角色已经被独立验证；
-- 资源推荐应该永远是 0–2；
-- 自动 refresh / 数据库有必要；
-- 场景 taxonomy 有必要。
+- V3 is consistently better for independent real users;
+- V3 should ultimately be packaged as a Skill;
+- native Codex multi-Skill/MCP orchestration is reliable enough;
+- WeChat/Xiaohongshu/Bilibili adapters materially improve final curation;
+- all current adapter candidates are safe/stable enough to keep;
+- an adapter registry needs software rather than a small reference file;
+- resource caching/database/automatic refresh is needed;
+- scenario taxonomy is needed.
 
-## 7. 当前主线
+## 7. Current mainline
 
-**Status: product-model reset + OWNER_REAL replay + real-user intake preparation. Not Skill implementation.**
+**Status: V3 product validation + source-adapter qualification pilot. Not production Skill implementation.**
 
-当前工作：
+Immediate sequence:
 
-1. 使用 V3 重新判断现有真实问题；
-2. 优先识别 Mode A（通用 AI 足够），防止 over-tooling；
-3. Mode B 才做定向发现；
-4. Mode C 给低成本试验，不把不确定性包装成成熟方案；
-5. 真实问卷答卷出现后，直接按 V3 处理；
-6. 只有 V3 本身被证明有价值，再讨论 Skill 封装。
+1. local qualification of pinned source adapters;
+2. read-only smoke tests;
+3. explicit multi-Skill/MCP routing test;
+4. fresh curation A/B uplift test;
+5. repeat only if uplift is material;
+6. then decide whether to package a minimal Curator Skill.
 
-## 8. 当前主要风险
+See `docs/CURRENT_EXECUTION_PLAN_V3.md` for ownership and stop conditions.
+
+## 8. Current main risks
 
 ### Over-tooling
 
-把所有“怎么用 AI”都回答成“装一个 Skill / Tool”。
+把所有问题回答成“再装一个 Tool/Skill”。
+
+### Adapter sprawl
+
+因为一个平台访问失败就永久增加一个 Adapter。
+
+### Runtime/install mixing
+
+让 Curator 在正常采编任务中自动发现、安装或更新第三方 Skill。
+
+### Platform checklist drift
+
+因为已经安装微信/小红书/B站 Adapter，就每个主题全部搜索一遍。
 
 ### Resource gravity
 
-因为仓库已经有 Starter Pack，就优先往已有资源上靠。
+因为已有候选或 Starter Pack，就优先往旧答案靠。
 
 ### Official-document gravity
 
-因为官方容易核验，就花大量时间在官网，而不是先判断用户是否需要那个能力。
+因为官网容易核验，就忽略真正能降低同事上手成本的实战资源。
 
-### Scenario explosion
+### Self-validation
 
-为了覆盖泛 ERP，开始罗列 SAP / Oracle / 财务 / 供应链 / 项目管理 / 开发的几百个场景。
+把本地 Agent 的 PASS、测试数量或 OWNER_REAL replay 当成独立用户证明。
 
 ### Rebuilding governance
 
-因为一次错误又新增一条 Gate、评分、字段或脚本。
+因为一次失败就增加新的 Gate、评分、数据库或自动化。
 
-出现以上趋势时应回到 `AI_LEVERAGE_MODEL_V3.md`。
+出现以上趋势时，应回到 `AI_LEVERAGE_MODEL_V3.md` 与 `CURRENT_EXECUTION_PLAN_V3.md`。

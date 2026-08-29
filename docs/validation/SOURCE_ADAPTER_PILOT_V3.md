@@ -15,7 +15,7 @@ The pilot must answer four questions:
 
 ## 2. Candidate set
 
-### WeChat
+### WeChat discovery
 
 Candidate:
 
@@ -27,9 +27,33 @@ Pinned pilot commit:
 
 Purpose:
 
-- keyword discovery of public-account articles;
-- return metadata and links;
-- not assumed to guarantee full article reading.
+- keyword discovery of public-account articles via Sogou WeChat Search;
+- return title/account/time/summary/link;
+- resolve direct `mp.weixin.qq.com` URL when possible.
+
+This is a **discovery** capability, not sufficient proof that the original article body was read.
+
+### WeChat public-article reader
+
+Candidate:
+
+`Githun1314/agent-wechat-reader`
+
+Pinned pilot commit:
+
+`0d5b167239f135934dced0411b0fb887d35bf9be`
+
+Skill:
+
+`skills/wechat-article-reader`
+
+Purpose:
+
+- read public exact-host `https://mp.weixin.qq.com/...` article URLs;
+- extract clean article content + metadata + trace;
+- no Cookie, credentials, browser control or third-party mirror service.
+
+Cloud static review found the implementation intentionally narrow: HTTPS exact host, GET-only, bounded redirects/size, verification-page detection, and stop-on-verification behaviour. Local smoke test is still required.
 
 ### Xiaohongshu
 
@@ -49,7 +73,7 @@ Purpose:
 
 Use only read/search capabilities during this pilot.
 
-If a Skill wrapper is used, it must be reviewed separately and pinned too.
+This candidate is higher-risk because login/browser automation and write/social actions exist in the wider MCP. The local pilot must verify whether research use can remain read-only in practice.
 
 ### Bilibili
 
@@ -68,6 +92,8 @@ Purpose:
 - evidence links.
 
 Use only read/search/transcript capabilities.
+
+Current upstream includes fallback handling for some Bilibili HTTP 412 subtitle failures, but local reliability must be proven rather than inferred from documentation.
 
 ## 3. Phase A — Qualification before installation
 
@@ -105,27 +131,44 @@ Rules:
 - record installed path;
 - record exact commit/hash;
 - do not auto-update during pilot;
-- do not modify ERP AI Curator project code;
+- do not modify ERP AI Curator product code/docs;
 - do not commit credentials/cookies;
 - do not enable publishing/interactions for research use.
 
-For dependencies that require login, pause only when a human authentication action is genuinely unavoidable (for example QR scan). That is a legitimate Product Owner/local-user action.
+For dependencies that require login, pause only when a human authentication action is genuinely unavoidable (for example QR scan).
+
+Do not use a login-requiring Adapter as the sole route to a useful Curator answer.
 
 ## 5. Phase C — Read-only smoke tests
 
-Use a harmless generic topic such as:
+Use harmless generic topics such as:
 
 `AI 原型` or `AI 需求分析`
 
 Do not use customer confidential data.
 
-### WeChat smoke test
+### WeChat end-to-end smoke test
+
+This must test **two capabilities in one chain**:
+
+```text
+keyword
+→ wechat-article-search
+→ real candidate metadata
+→ direct mp.weixin.qq.com URL
+→ wechat-article-reader
+→ original article body + metadata
+```
 
 Expected evidence:
 
-- keyword search returns real public-account candidate metadata;
-- original URL can be resolved for at least some results or unresolved status is explicit;
-- no write/account mutation occurs.
+- discovery returns real public-account candidates;
+- at least one direct original article URL is obtained when available;
+- reader actually extracts meaningful body text and metadata;
+- search summary and original body can be distinguished;
+- no login/write/account mutation occurs.
+
+If discovery cannot resolve a direct URL, report that limitation; do not pretend the summary is full-text evidence.
 
 ### Xiaohongshu smoke test
 
@@ -135,36 +178,43 @@ Expected evidence:
 - at least one result can be opened/read with title, author and meaningful body/detail;
 - no like/favorite/comment/follow/publish action occurs.
 
+If login is required, stop at the unavoidable human authentication step and report it rather than requesting Cookie/password values in chat.
+
 ### Bilibili smoke test
 
 Expected evidence:
 
 - topic search returns real videos;
 - at least one candidate yields transcript or sufficiently complete text context;
-- source URL/video ID remains traceable.
+- source URL/video ID remains traceable;
+- actual fallback behaviour is recorded if a 412/risk-control path appears.
 
 Record failure as capability evidence. Do not hide anti-bot/login failures.
 
-## 6. Phase D — Explicit multi-Skill routing test
+## 6. Phase D — Explicit multi-Skill/MCP routing test
 
-After the adapters are healthy, use a fresh Codex session.
+After healthy adapters exist, use a fresh Codex session.
 
-Give Codex this intent:
-
-> Find practitioner evidence about a topic. Normal Web search has weak coverage for a specific platform. Use the installed source-specific capability to obtain original evidence, then return to Curator-style evaluation.
+Give a practitioner-evidence task where normal Web coverage is known to be incomplete, but do not instruct the Agent to query every adapter.
 
 Check:
 
-- did Codex select the correct adapter?
+- did Codex select the capability that matches the evidence gap?
 - did it avoid unrelated adapters?
-- did it return evidence rather than platform-specific recommendations?
-- did it stop after obtaining enough evidence?
+- for WeChat, can it move discovery → original article reader without manual copy/paste masquerading as orchestration?
+- did it return acquired evidence to Curator judgement?
+- did it preserve read-only boundaries?
+- did it stop after enough evidence was obtained?
 
-This verifies the practical meaning of Curator → adapter orchestration.
+Record:
+
+`Multi-skill routing: PASS / PARTIAL / FAIL`
+
+Do not treat installed files alone as orchestration proof.
 
 ## 7. Phase E — Fresh curation uplift test
 
-Only after qualification/smoke tests.
+Only after qualification/smoke/routing tests.
 
 Use a new topic, not T01/T02 answers.
 
@@ -172,26 +222,29 @@ Recommended first topic:
 
 > Find strong AI methods / Skills / practical guides that help an ERP consultant quickly understand an unfamiliar ERP module or custom enterprise system: business process, key objects/data, configuration/logic chain, integrations, common issues and how to verify understanding.
 
-### Run 1 — normal path
+### Run A — normal path
 
-Fresh session with current Curator authority docs, but do not explicitly request platform adapters.
+Fresh session with current Curator authority docs. Adapter acquisition is unavailable/disabled for the comparison.
 
-Record the final recommendation package.
+Freeze the final package.
 
-### Run 2 — adapters available
+### Run B — qualified adapters available
 
-Fresh session, same task and same current authority docs, with installed adapters available and the routing rule from `SOURCE_ADAPTER_ARCHITECTURE_V3.md`.
+Fresh session, same task and current authority docs, with only qualified adapters available and conditional routing rules enabled.
 
-The Agent decides whether adapters are needed.
+The Agent decides whether any adapter is actually needed.
 
 Compare:
 
 - new serious candidates;
+- original/full practitioner content gained;
 - practical Chinese evidence gained;
-- recommendation changed or strengthened;
-- confidence improved;
-- user adoption cost reduced;
-- research overhead added.
+- recommendation changed or materially strengthened;
+- confidence improved because evidence is better;
+- user adoption/learning cost reduced;
+- research/setup overhead added.
+
+The question is not `did we get more links?` but `did the final package become more worth sharing?`.
 
 ## 8. Success evidence
 
@@ -212,22 +265,21 @@ Not useful:
 - scraped content the Curator cannot trust or act on;
 - large setup burden for negligible curation improvement.
 
-## 9. Evidence file
-
-Local Agent may create one local pilot report in ERP AI Curator only if explicitly instructed after the run.
+## 9. Evidence reporting
 
 During qualification, prefer reporting in chat first so installation problems do not create noisy project commits.
 
-Suggested report fields:
+Required fields:
 
 ```text
-Adapter
+Adapter / capability
 Pinned commit
 Qualification: OK / RISK / REJECT
 Installed: yes/no
+Installed/configured path
 Read-only enforceable: yes/no/partial
 Smoke test: PASS / PARTIAL / FAIL
-Evidence acquired
+Evidence actually acquired
 Known limitation
 Human action required
 Recommendation: KEEP FOR PILOT / CONDITIONAL / REMOVE
@@ -246,6 +298,8 @@ Stop and report rather than improvising when:
 - platform blocks access persistently;
 - source project's documented behavior materially differs from inspected code/runtime.
 
+Do not install a replacement candidate during this same task unless cloud review explicitly assigns it.
+
 ## 11. Pilot decisions
 
 After Phase E choose one:
@@ -260,7 +314,7 @@ Only one or two adapters provide useful uplift; retain only those.
 
 ### USE EXTERNAL ACQUISITION BACKEND
 
-Native Codex adapters are unreliable/unsafe, but a separate tool such as WorkBuddy proves stronger for acquisition.
+Native Codex adapters are unreliable/unsafe, but a separate acquisition tool proves stronger.
 
 ### DROP EXTRA ACQUISITION
 
