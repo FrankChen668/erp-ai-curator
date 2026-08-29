@@ -48,7 +48,25 @@ Therefore the main problem is not “what is AI?” but:
 - T02 exposed task-fit vs dependency-maturity risk;
 - practical/community content is useful only when it adds real workflow/example/failure/adoption evidence;
 - Chinese practitioner coverage must distinguish access, indexing and true quality/scarcity;
-- Curator-created synthesis must not be presented as an external resource.
+- Curator-created synthesis must not be presented as an external resource;
+- creator reputation/engagement may improve discovery order but cannot determine the recommendation.
+
+### Creator-prior boundary
+
+The project now has a bounded creator-prior strategy for practitioner discovery.
+
+Supported principle:
+
+> **Creator prior affects what to inspect first; specific original content determines whether to recommend.**
+
+The strategy deliberately rejects:
+
+- numeric influencer ranking;
+- closed creator whitelists;
+- follower/like/save counts as direct quality scores;
+- recommendation based on creator reputation without reading the specific content.
+
+Platform engagement is only a weak discovery hint. See `docs/CREATOR_PRIOR_STRATEGY_V3.md`.
 
 ### Adapter lifecycle / routing
 
@@ -119,6 +137,7 @@ No adapter expansion is justified merely by platform coverage.
 
 - Curator consistently produces strong, share-worthy resource packages for survey-derived concrete problems;
 - a colleague can actually apply the recommended resource on real project materials with lower rework;
+- creator-prior discovery materially improves recall without creating popularity bias;
 - WeChat practitioner evidence materially improves one of those packages;
 - source-adapter value generalizes;
 - Codex/WorkBuddy/PM-Skill onboarding can be curated around real jobs rather than feature tours;
@@ -130,15 +149,27 @@ Important distinction:
 
 We know the problems are real. We do not yet know that Curator recommendations solve them well.
 
-## 5. Immediate validation
+## 5. Immediate validation — READY TO TEST
 
-Use **P01 / J02: workshop → reviewable requirement package** as the next concrete problem because it is highly repeated and has clear input/output boundaries.
+**Status: P01 / J02 READY TO TEST.**
+
+The design is sufficiently stable for the first survey-driven practical pilot. No additional framework is required before running it.
+
+Use **P01 / J02: workshop → reviewable requirement package**.
 
 The question is not “can AI do requirements analysis?”.
 
 The question is:
 
 > A consultant has a customer workshop transcript/notes, As-Is process material, RFP/requirement list and attachments. By tomorrow morning they need structured requirements, open questions, conflicts/assumptions and traceable evidence. What external Skills/Tools/tutorials/practitioner methods are worth learning tonight and applying tomorrow?
+
+Protocol:
+
+- `DELIVERY_J02_POST_WORKSHOP_REQUIREMENTS.md`
+
+Readiness boundary:
+
+- `P01_TEST_READINESS_NOTE.md`
 
 Run one curation test, then stop for cloud review.
 
@@ -150,6 +181,8 @@ Do not automatically run the rest of the problem-card queue.
 |---|---|---|
 | Survey export 2026-08 | REAL_USER demand evidence | strong, current |
 | Survey-derived Problem Cards 01 | normalized demand evidence | current |
+| Creator Prior Strategy V3 | discovery design | current; value not yet empirically proven |
+| P01 Test Readiness Note | execution freeze | READY TO TEST |
 | T01 prototype curation | OWNER_REAL behaviour evidence | recall issue exposed |
 | T02 requirements/Fit-Gap curation | OWNER_REAL behaviour evidence | fit-vs-maturity issue exposed |
 | Source Adapter Qualification 01 | local runtime evidence | provider decisions proven |
@@ -164,6 +197,7 @@ Do not automatically run the rest of the problem-card queue.
 - over-tooling;
 - adapter sprawl/platform checklist drift;
 - Chinese-content halo;
+- popularity/creator echo chamber;
 - Curator synthesis mistaken for discovered resources;
 - local PASS mistaken for user outcome validation;
 - building more validation machinery instead of accumulating genuinely useful resources.
