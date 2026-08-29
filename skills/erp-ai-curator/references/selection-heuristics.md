@@ -39,6 +39,10 @@
 - 作者是否有实际经验，而不是泛泛盘点？
 - 原始仓库是否还活着、是否还在维护？（不维护不等于不可用，但要结合时效性判断）
 
+## Whole-resource check
+
+在声称资源 B 填补资源 A 的缺口之前，先检查 A 正常工作流程中链接 / 从属的 materials（references、assets、子文档等）；A 已覆盖的缺口不得作为推荐重叠 B 的理由。
+
 ## Differentiation
 
 - 相比其他候选，它多了什么别人没有的价值？
@@ -62,6 +66,10 @@
 0 推荐时简要说明最接近的候选差在哪，以及搜索方向仍缺什么。
 
 不需要输出完整淘汰清单，除非操作者明确要求审计过程。
+
+## Adjacent-option discipline
+
+用户显式限定资源形式或表达"没有好的就说没有"时，有用的相邻 Tool / Case 可单独提及，但除非用户允许替换，否则不得占推荐位。
 
 ## Official user resource vs evidence anchor
 
