@@ -31,6 +31,7 @@
 - 新模型以 **AI Leverage Discovery** 为核心：先判断是否值得引入专门 AI 工作方式，再决定要不要搜索资源；
 - 不通过提前罗列 SAP / Oracle / 财务 / 供应链 / 开发场景来获得泛化；
 - 官方资料只在它本身最有用，或需要核验高风险动态事实时重点使用；
+- 企业数据、源码、本地/云端、权限和合规限制属于真实可用性约束；
 - 云端负责产品判断、研究、文档和 GitHub；低能力本地 Agent 不进入关键决策链路。
 
 ## 三种合法结果
@@ -43,11 +44,14 @@
 
 ## 当前权威文档
 
-- `docs/AI_LEVERAGE_MODEL_V3.md`：当前 Skill / 产品工作模型
+- `docs/AI_LEVERAGE_MODEL_V3.md`：当前产品工作模型
 - `docs/PROJECT_NORTH_STAR.md`：当前项目 North Star
-- `docs/validation/PROTOCOL_V2.md`：真实任务优先的验证协议（后续将按 V3 继续校准）
+- `docs/SKILL_BLUEPRINT_V3.md`：未来 Skill 的最小设计蓝图，**尚未实现**
+- `docs/ADVERSARIAL_REVIEW_V3.md`：V3 对抗性审查
+- `docs/validation/PROTOCOL_V3.md`：当前真实任务验证协议
 - `docs/validation/REAL_TASK_INTAKE.md`：真实问题进入项目的方法
 - `docs/validation/REAL_TASK_BANK_V0.md`：真实来源任务与证据缺口
+- `docs/validation/V3_OWNER_REAL_REPLAY_01.md`：V3 对现有 OWNER_REAL 问题的反证回放
 - `docs/validation/EVIDENCE_STATUS.md`：当前已证明 / 未证明内容
 - `docs/history/`：V0.2–V0.4 历史设计与审查记录
 - `archive/`：冻结的早期设计资产
@@ -58,7 +62,7 @@
 
 新的正式 Skill 尚未实现。
 
-过去的 Phase 2/3 设计文档继续保留用于追溯，但若与 V3 冲突，以 `AI_LEVERAGE_MODEL_V3.md` 和当前 North Star 为准。
+过去的 Phase 2/3 设计文档继续保留用于追溯，但若与 V3 冲突，以当前 V3 文档和 North Star 为准。
 
 ## 当前反偏航原则
 
