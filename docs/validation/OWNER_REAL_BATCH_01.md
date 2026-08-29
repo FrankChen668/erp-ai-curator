@@ -133,7 +133,7 @@ OpenRouter 在 2026-08-04 发布 Ori Harness，当前明确支持：
 - `ori opencode`
 - `ori hermes`
 
-它的价值不是“又一个教程”，而是把不同 harness 的配置差异和部分模型兼容设置收进一个官方 setup path。对于“我要尽快可用”比手写多组变量更合理。
+它把不同 harness 的配置差异和部分模型兼容设置收进一个官方 setup path。对于“我要尽快可用”比手写多组变量更合理。
 
 ### Manual evidence anchors — 不默认占第二推荐位
 
@@ -143,12 +143,7 @@ https://openrouter.ai/docs/cookbook/coding-agents/claude-code-integration
 Codex CLI 官方 OpenRouter 指南：
 https://openrouter.ai/blog/tutorials/codex-cli-openrouter/
 
-这些用于：
-
-- 需要手工控制配置；
-- 排错；
-- 明确 CLI provider / Responses API；
-- 理解 Claude Code gateway 的兼容边界。
+这些用于需要手工控制配置、排错或理解兼容边界时。
 
 ### Critical limitations
 
@@ -158,7 +153,7 @@ https://openrouter.ai/blog/tutorials/codex-cli-openrouter/
 
 ### Cloud judgement
 
-High confidence。策略也发生变化：**当前默认先推 Ori，而不是继续维护一批旧的“低成本模型手工配置教程”。**
+High confidence。**当前默认先推 Ori，而不是继续维护一批旧的“低成本模型手工配置教程”。**
 
 **Owner judgement:** pending  
 **Observed use:** pending
@@ -197,21 +192,28 @@ https://learning.sap.com/courses/introducing-sap-joule-for-consultants/applying-
 - Explore 阶段直接讨论 fit-gap analysis；
 - 覆盖标准流程、配置选项、设计依据等典型顾问问题。
 
-### Oracle result
+### Oracle Recommendation — Oracle Fusion + AI: Functional Consultant Crash Course
 
-**0 个正式推荐。**
+https://www.udemy.com/course/oracle-fusion-cloud-chatgpt-functional-consultant/
 
-当前 Oracle 公开资料已经有很多 Fusion AI Agent Studio / 内置 AI agent 的产品实现资料，但没有找到一个同样直接面向：
+**Why it now enters the candidate set**
 
-> Oracle 实施顾问如何用 AI 做需求调研 / Fit-Gap / Solution Design
+- 2026-05 更新，明确面向 Oracle Fusion functional / implementation consultant；
+- 不是泛 Prompt 课，课程直接覆盖：workshop notes → requirement summary、BRD / MD050 / functional design、UAT scenarios、troubleshooting、client communication；
+- 使用一个五元素框架：Role / Context / Task / Format / Constraints；
+- 作者公开经历中可看到 Oracle Cloud Fusion implementation / go-live 项目经验。
 
-的成熟公开方法、Skill 或实操课程。
+**Critical limitation**
 
-不要用“如何在 Oracle 里开发 AI Agent”冒充“AI 如何帮助 Oracle 顾问做实施分析”。
+- 非 Oracle 官方；
+- 课程很短（约 40 分钟），更像实战入门框架而不是完整 methodology；
+- 当前公开可见的课程口碑样本较少，因此**任务匹配高，但可信度只给 medium**；
+- 不把课程自述的效率数字当独立事实。
 
 ### Cloud judgement
 
-SAP：high confidence；Oracle：correct abstain with current public evidence。
+SAP：high confidence。  
+Oracle：**从“0 推荐”修正为“1 个 medium-confidence、高任务匹配候选”**。这次纠正说明：对资源稀缺主题不能过早 abstain，需要至少一次更深的跨源搜索。
 
 **Owner judgement:** pending  
 **Observed use:** pending
@@ -253,21 +255,21 @@ https://learning.sap.com/courses/introducing-sap-joule-for-consultants
 
 ### Oracle result
 
-**0 个正式推荐。**
+**仍然 0 个正式推荐。**
 
-当前公开 Oracle 资源主要是：
+本轮更深搜索发现了 Oracle Fusion 顾问 AI 实战课，但它解决的是 requirements / design / UAT / troubleshooting，并没有提供一套“如何用 AI 系统学习陌生 Oracle 模块”的学习方法。
+
+当前 Oracle 公开资源仍主要是：
 
 - Fusion 产品课程；
 - AI Agent Studio 开发 / 配置；
-- 某些产品内置 AI Agent 使用说明。
+- 产品内置 AI Agent 使用说明。
 
-没有发现一套高质量公开方法，专门解决“实施顾问如何利用 AI 系统学习一个陌生 Oracle Fusion 模块”。
-
-这类任务后续值得重点从真实 Oracle 顾问回答中验证；如果需求高而公开资源长期为空，反而可能成为内部培训要自己补的方法资产。
+因此 OR05 的 Oracle 子问题仍保持空缺。若真实 Oracle 顾问反复提出这个需求，**它更可能需要我们自己沉淀方法资产，而不是继续寻找并不存在的完美外部 Skill。**
 
 ### Cloud judgement
 
-SAP：medium-high confidence；Oracle：current public gap is meaningful, not a search failure proven impossible。
+SAP：medium-high confidence；Oracle：current public gap remains meaningful after deeper search。
 
 **Owner judgement:** pending  
 **Observed use:** pending
@@ -281,8 +283,9 @@ SAP：medium-high confidence；Oracle：current public gap is meaningful, not a 
 1. `OWNER_REAL` 问题确实可以驱动一个小型资源决策层；
 2. draw.io / prototype / model routing 三类问题能形成明确、当前可用的推荐；
 3. SAP 顾问 AI 资源开始出现非常具体的官方实践，不再只是泛 prompting；
-4. Oracle 实施顾问“AI 工作方法”公开资源明显弱于 Oracle“如何开发 / 配置 AI Agent”的资料；
-5. 0 推荐在 OR04 / OR05 的 Oracle 子问题上是有信息价值的。
+4. Oracle 顾问侧并非“完全没有资源”：需求 / 设计 / UAT 场景已找到一个高匹配但中等可信度的实战课程；
+5. Oracle“陌生模块 AI 学习方法”仍然是明显空缺；
+6. 对稀缺主题，**第一次搜不到 ≠ 应立即判 0 推荐**，需要至少一次有针对性的跨源深搜；深搜后仍无强匹配，才把 abstain 视为较高置信结论。
 
 ## What this batch does NOT support
 
@@ -294,9 +297,9 @@ SAP：medium-high confidence；Oracle：current public gap is meaningful, not a 
 
 ## Next cloud action
 
-优先等待 / 接收真实培训问卷和实际求助问题，并按 `REAL_TASK_INTAKE.md` 直接进入同一闭环。
+优先接收真实培训问卷和实际求助问题，并按 `REAL_TASK_INTAKE.md` 进入同一闭环。
 
-在没有更多 `REAL_USER` 数据前，云端仍可以继续做两类工作：
+在没有更多 `REAL_USER` 数据前，云端继续：
 
 1. 对高价值 Starter Pack 做当前性维护；
-2. 研究明显的缺口（特别是 Oracle 顾问 AI 方法），但将其标记为 discovery，不冒充真实用户验证。
+2. 对反复出现但外部资源弱的主题判断：继续搜索，还是转成内部自建方法资产。
