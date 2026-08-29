@@ -2,13 +2,13 @@
 
 > Status: current execution authority. Product principles remain defined by `PROJECT_NORTH_STAR.md` and `AI_LEVERAGE_MODEL_V3.md`.
 
-## 1. Current product direction
+## 1. Product direction
 
 ERP AI Curator is a **bounded Curator / Orchestrator hypothesis** for泛 ERP / 企业信息化工作。
 
 Its job is:
 
-> **Given a real work problem, help the user choose the most useful AI working approach; when external resources are actually needed, find and curate a small number of resources worth learning, trying or sharing.**
+> **Given a real work problem, help the user choose the most useful AI working approach; when external resources are needed, find and curate a small number of external resources worth learning, trying or sharing.**
 
 Current flow:
 
@@ -16,62 +16,89 @@ Current flow:
 real work problem
 → understand outcome + constraints
 → compare current AI/tool baseline
-→ Mode A / B / C
-→ if external discovery is needed:
-     normal Web + GitHub first
-     + approved read-only source adapters only when a material coverage gap exists
+→ decide whether external discovery is needed
+→ normal Web/GitHub first
+→ approved read-only source adapters only when a material coverage gap exists
 → compare evidence
 → small actionable recommendation package
 ```
 
 Curator owns judgement. Source adapters only acquire evidence.
 
+Important curation boundary:
+
+> Curator-created usage guidance must be labelled as synthesis. Do not present newly invented guidance as a discovered external resource.
+
 ## 2. What is already supported
 
-### Product / curation
+### Curation behaviour
 
-- Resource-first Phase 2/3 was too narrow.
-- Heavy Gate / scoring / candidate JSON governance is a demonstrated failure mode.
-- Official sources are fact anchors, not automatic recommendation winners.
-- T01 exposed discovery-recall risk.
-- T02 exposed task-fit vs maturity risk.
-- Chinese practitioner-content gaps mix access, indexing and true quality/scarcity; `not found` does not mean `does not exist`.
+- official/original sources are fact anchors, not automatic recommendation winners;
+- T01 exposed discovery-recall risk;
+- T02 exposed task-fit vs dependency-maturity risk;
+- practical companion content must add real workflow/example/failure/adoption evidence;
+- Chinese practitioner coverage mixes access gap, index bias and true quality/scarcity.
 
-### Source adapter qualification
+### Source-adapter lifecycle
 
-First Windows + Codex qualification:
+Local qualification produced real provider decisions:
 
-- WeChat discovery: **CONDITIONAL**.
-- WeChat public article reader: **KEEP FOR PILOT**.
-- `XZXZZX-Ai/bilibili-mcp`: **CONDITIONAL**, real search blocked by `COOKIE_EXPIRED`.
-- `xpzouying/xiaohongshu-mcp`: **REMOVE**, broad write/account surface failed the research-only boundary.
+- WeChat discovery: **CONDITIONAL**;
+- WeChat public article reader: **KEEP FOR PILOT**;
+- first Bilibili provider: **CONDITIONAL / credential blocked**;
+- first Xiaohongshu provider: **REMOVE**.
 
-### Multi-Skill routing
+### Bounded composition
 
-Phase 3A result: **PASS** for the WeChat chain.
-
-Observed in one task:
+WeChat multi-Skill routing: **PASS** for this chain only.
 
 ```text
 Curator evidence need
-→ wechat-article-search
-→ direct mp.weixin.qq.com candidate
-→ wechat-article-reader
-→ original article body + metadata
+→ WeChat Search
+→ mp.weixin.qq.com candidate
+→ WeChat Reader
+→ original body + metadata
 → Curator judgement
 → stop
 ```
 
-Bilibili/Xiaohongshu were not called. Search snippet was not substituted for original content.
+This proves bounded composition, not arbitrary Skill orchestration.
 
-This proves bounded composition for this chain only. It does **not** prove arbitrary Skill orchestration or user-value uplift.
+## 3. Phase 4 result
 
-See:
+`CURATION_UPLIFT_AB_TEST_01` is complete.
 
-- `docs/validation/SOURCE_ADAPTER_QUALIFICATION_RESULT_01.md`
-- `docs/validation/SOURCE_ADAPTER_ROUTING_RESULT_01.md`
+Verdict for the exact mixed task:
 
-## 3. Current provider state
+> **NO MATERIAL UPLIFT**
+
+Reason:
+
+- Run A used normal Web/GitHub only;
+- Run B had WeChat available but did **not** invoke it;
+- therefore differences between A and B cannot be attributed to adapter evidence.
+
+Positive signal:
+
+- Run B did not call WeChat merely because it was installed;
+- conditional routing discipline held.
+
+See `docs/validation/CURATION_UPLIFT_AB_RESULT_01.md`.
+
+## 4. Test-design correction
+
+The Phase 4 raw task mixed two different jobs:
+
+1. learn an unfamiliar **standard ERP module**;
+2. reverse-engineer a **custom enterprise system/codebase**.
+
+Both runs gravitated toward codebase/process-mining evidence. That can hide weakness on the standard-ERP-learning job.
+
+Do not repeat this mixed task.
+
+Future validation separates the jobs by work outcome, not by role.
+
+## 5. Current provider state
 
 ```text
 wechat_discover_public_articles
@@ -80,202 +107,102 @@ wechat_discover_public_articles
 wechat_read_public_article
   Githun1314/agent-wechat-reader → KEEP FOR PILOT
 
-bilibili_search_public_videos / bilibili_read_transcript
+bilibili
   XZXZZX-Ai/bilibili-mcp → CONDITIONAL / credential blocked
-  sandraschi/bilibili-mcp → cloud-reviewed alternative; separate local qualification later
+  sandraschi/bilibili-mcp → cloud-reviewed alternative; local test deferred
 
-xiaohongshu_search_public_notes / xiaohongshu_read_public_note
+xiaohongshu
   xpzouying/xiaohongshu-mcp → REMOVED
   replacement → none approved
 ```
 
-Do not weaken permission boundaries to regain platform coverage.
+Do not expand adapter footprint until a task demonstrates material value.
 
-## 4. Phase map
+## 6. Next phase — Standard ERP Module Diagnostic
 
-### Phase 0 — V3 product reset
-
-**DONE**
-
-### Phase 1 — resource-curation behaviour (T01/T02)
-
-**DONE ENOUGH TO MOVE ON**
-
-Do not keep re-searching those topics.
-
-### Phase 2 — source-adapter qualification
-
-**FIRST RUN DONE**
-
-Enough evidence exists to test value with the WeChat chain.
-
-### Phase 3A — WeChat multi-Skill routing
-
-**DONE / PASS**
-
-Routing feasibility is no longer the next uncertainty.
-
-### Phase 3B — Bilibili alternative
-
-**NON-BLOCKING / LATER**
-
-Cloud static review of `sandraschi/bilibili-mcp` found an anonymous read path worth a separate local qualification, but it also exposes broader local-LLM/web/shutdown/cache surfaces. Do not install it as part of Phase 4.
-
-### Xiaohongshu
-
-**COVERAGE GAP / RESEARCH ONLY**
-
-No approved replacement. Do not install a high-risk crawler merely to fill coverage.
-
-### Phase 4 — curation uplift paired A/B
-
-**NEXT / LOCAL**
+Status: **NEXT / LOCAL**
 
 Question:
 
-> Does the qualified WeChat adapter chain materially improve the final ERP resource-curation package over normal Web/GitHub discovery alone?
+> Can ERP AI Curator find a genuinely useful external learning package for an unfamiliar standard ERP module, and does optional WeChat practitioner evidence add material value beyond authoritative Web/GitHub sources?
 
-Protocol:
+This is a diagnostic follow-up because the previous mixed task did not isolate this job.
 
-`docs/validation/CURATION_UPLIFT_AB_TEST_01.md`
+It is **not** a search for a positive adapter result.
 
-Fresh task:
+### Test design
 
-> 请为泛 ERP / 企业信息化从业者寻找：能够帮助实施顾问、产品经理或开发人员借助 AI 快速理解一个陌生 ERP 模块或定制企业系统的优秀 Skill、Tool、方法和实战资源。目标包括快速建立端到端业务流程、角色/单据/主数据、配置或代码逻辑、接口上下游、异常场景的认识，并能验证自己的理解，而不是让 AI 凭记忆解释。最终只保留真正值得采用、学习或分享给同事的少量资源。
+Use one specific unfamiliar standard ERP module/business area.
 
-Run A:
+Recommended neutral task:
 
-- fresh isolated session;
-- normal Web/GitHub only;
-- source adapters unavailable;
-- freeze output before Run B.
+> A consultant who has not worked with SAP EWM must quickly understand inbound receiving and putaway: end-to-end process, roles, main business objects/documents, core configuration boundaries, key integrations, common exceptions, and how to verify understanding. Find only a small number of strong AI-enabled methods/Skills/Tools/tutorials/practitioner resources worth learning or sharing.
 
-Run B:
+Why a specific module:
 
-- separate fresh isolated session;
-- same raw task/model/config/repo commit;
-- normal Web/GitHub + qualified WeChat chain available;
-- do not force WeChat use;
-- do not read Run A output.
+- prevents the Agent from escaping into generic codebase archaeology;
+- exposes whether official documentation alone is enough;
+- gives practitioner-source adapters a fair but non-forced opportunity to add implementation detail.
 
-Local Agent produces both frozen outputs and observable acquisition traces. It does **not** judge which run wins.
+### Incremental design
 
-Cloud then adversarially compares:
+Do **not** use another fully independent A/B pair as the primary causal test.
 
-- serious candidates gained;
-- original practitioner evidence gained;
-- recommendation/confidence/limitations materially changed;
-- share-worthiness improved;
-- maintenance/research overhead justified.
+Instead:
 
-Valid cloud verdicts:
+1. **Baseline** — normal Web/GitHub discovery only; freeze candidate package.
+2. **Adapter delta** — start from the frozen baseline package; allow only the qualified WeChat Search → Reader chain as new acquisition capability.
+3. Ask whether newly acquired evidence changes/adds/removes any recommendation or materially strengthens practical guidance.
 
-- `MATERIAL UPLIFT`
-- `LIMITED UPLIFT`
-- `NO MATERIAL UPLIFT`
-- `INVALID TEST`
+This isolates adapter contribution from ordinary search/model variance.
 
-### Phase 5 — repeat fresh tasks
+If WeChat is not useful, valid result is `NO MATERIAL DELTA`.
 
-**FUTURE / ONLY IF PHASE 4 SHOWS MATERIAL VALUE**
+## 7. Next local stop point
 
-Repeat on 1–2 genuinely different real tasks before generalizing.
+Local Codex only executes the Standard ERP Module Diagnostic.
 
-### Phase 6 — packaging decision
+It must stop after producing:
 
-**FUTURE**
+- frozen baseline package;
+- any WeChat evidence actually acquired;
+- revised package only if evidence justifies a change;
+- explicit delta trace.
 
-Only after repeated evidence choose:
+Local Codex does not decide product architecture.
 
-1. build minimal Curator Skill;
-2. keep as working method/docs;
-3. keep selective adapters only;
-4. drop adapter layer.
-
-Do not implement a production Skill merely because routing works.
-
-## 5. Responsibility split
+## 8. Cloud / local / Owner split
 
 ### Cloud / ChatGPT
 
-Owns:
-
-- product direction;
-- first-principles/adversarial review;
-- upstream candidate/static research;
-- evidence interpretation;
-- KEEP / CONDITIONAL / REMOVE decisions;
-- A/B comparison;
-- GitHub docs/PR/merge.
-
-Continue autonomously unless a real Owner decision is required.
+Owns product direction, adversarial review, source/provider research, evidence interpretation, GitHub docs/PRs and final KEEP/REMOVE/package decisions.
 
 ### Local Codex
 
-Owns only local-runtime facts/actions:
-
-- sync exact repo state;
-- installed Skill/MCP runtime;
-- read-only smoke/routing/A-B execution;
-- isolated sessions;
-- observable evidence/artifacts.
-
-Does not redefine V3, install unassigned adapters, change pins, or declare product PASS.
+Owns local runtime execution, installed Skill/MCP use, isolated/frozen test artifacts and observable evidence.
 
 ### Product Owner
 
-Only:
+Only unavoidable login/privacy/business-semantics decisions and final human usefulness judgement.
 
-- unavoidable QR/login/account approval;
-- privacy/enterprise approval;
-- final human usefulness judgement when genuinely needed;
-- ambiguous business semantics.
+## 9. Non-blocking tracks
 
-## 6. Dependency/runtime rules
+Bilibili replacement and Xiaohongshu provider research are deferred.
 
-During normal curation:
+Do not install more source adapters until current evidence shows a real acquisition-value gap.
 
-- use only already-qualified installed adapters;
-- do not install/update dependencies mid-task;
-- no auto-update;
-- no social/write actions;
-- Web/GitHub remains default when sufficient;
-- adapter failure degrades honestly to normal sources / Coverage Gap.
+## 10. Anti-drift checks
 
-Installation/update remains a separate maintenance activity under `SOURCE_ADAPTER_LIFECYCLE_V3.md`.
-
-## 7. Immediate action
-
-### Cloud — done
-
-- recorded Phase 3A PASS with narrow evidence boundary;
-- designed the Phase 4 paired A/B protocol;
-- kept Bilibili replacement and Xiaohongshu research off the critical path.
-
-### Local — next
-
-Execute `CURATION_UPLIFT_AB_TEST_01.md` exactly.
-
-Stop after Run A and Run B outputs are frozen and reported.
-
-Do not:
-
-- compare/judge A vs B locally;
-- run Phase 5;
-- install Bilibili/Xiaohongshu replacements;
-- modify product rules.
-
-## 8. Anti-drift checks
-
-Stop if the work turns into:
+Stop if work turns into:
 
 - resource database construction;
 - platform quotas;
 - adapter package manager;
-- automatic adapter updates;
+- automatic updates;
 - every-platform search;
 - link-count scoring;
 - source adapter making final recommendations;
+- Curator synthesis presented as discovered external resource;
 - local PASS treated as independent-user validation.
 
 The project advances only when the next action reduces uncertainty about real user value or runtime feasibility.
