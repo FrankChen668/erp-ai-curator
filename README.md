@@ -20,6 +20,8 @@
 
 因此项目不是 AI 工具大全，也不是“搜索几个链接”的资源搜索器。
 
+但当用户明确要求寻找外部资源时，**资源采编本身是核心产品能力之一**：不仅要找到当前可信的能力来源，也要尽量找到真正有实操价值的 GitHub 项目、教程、公众号/视频/社区经验与最佳实践，并替用户做取舍。
+
 ## 当前状态
 
 **Product discovery / working-model reset。尚未发布新的正式 Skill。**
@@ -29,8 +31,8 @@
 - V0.2–V0.4 的重 Gate / 评分 / candidate JSON / validator 路线不作为下一版默认架构；
 - 旧 Phase 2/3 把产品逐渐收窄成“资源搜索 + 0–2 推荐”，这一假设已被 V3 工作模型修正；
 - 新模型以 **AI Leverage Discovery** 为核心：先判断是否值得引入专门 AI 工作方式，再决定要不要搜索资源；
+- 对明确的资源发现任务，不再把“官方资料”当天然主推荐：官方/原始资料主要承担事实锚点，GitHub、社区实战、中文教程、视频和独立测评可以承担实践价值；
 - 不通过提前罗列 SAP / Oracle / 财务 / 供应链 / 开发场景来获得泛化；
-- 官方资料只在它本身最有用，或需要核验高风险动态事实时重点使用；
 - 企业数据、源码、本地/云端、权限和合规限制属于真实可用性约束；
 - 云端负责产品判断、研究、文档和 GitHub；低能力本地 Agent 不进入关键决策链路。
 
@@ -40,15 +42,19 @@
 2. **专门方案有明显价值**：给 1 个主推荐，确有差异时给第 2 个；
 3. **暂不值得引入复杂方案**：先给低成本试验路径。
 
-`0–2` 只是正式资源推荐位的默认数量，不再是产品本身。
+`0–2` 只是正式方案推荐位的默认数量，不限制用于支撑主方案的事实锚点或少量实战伴随资源。
 
 ## 当前权威文档
 
 - `docs/AI_LEVERAGE_MODEL_V3.md`：当前产品工作模型
 - `docs/PROJECT_NORTH_STAR.md`：当前项目 North Star
 - `docs/SKILL_BLUEPRINT_V3.md`：未来 Skill 的最小设计蓝图，**尚未实现**
+- `docs/SOURCE_STRATEGY_V3.md`：当前资源发现与来源组合策略
 - `docs/ADVERSARIAL_REVIEW_V3.md`：V3 对抗性审查
+- `docs/validation/ADVERSARIAL_REVIEW_SOURCE_STRATEGY_V3.md`：来源策略专项对抗性审查
 - `docs/validation/PROTOCOL_V3.md`：当前真实任务验证协议
+- `docs/validation/V3_SYSTEMATIC_TEST_PLAN.md`：V3 判断与增量价值系统测试方案
+- `docs/validation/RESOURCE_CURATION_PILOT_V3.md`：当前资源采编专项测试方案
 - `docs/validation/REAL_TASK_INTAKE.md`：真实问题进入项目的方法
 - `docs/validation/REAL_TASK_BANK_V0.md`：真实来源任务与证据缺口
 - `docs/validation/V3_OWNER_REAL_REPLAY_01.md`：V3 对现有 OWNER_REAL 问题的反证回放
@@ -74,8 +80,9 @@
 - 统一评分；
 - Gate / candidate JSON；
 - 固定搜索次数；
-- 多 Agent 编排。
+- 多 Agent 编排；
+- 固定平台覆盖配额。
 
 任何机制进入主线前都必须回答：
 
-> **它是否能让泛 ERP 用户更快选到更合适的 AI 工作方式？**
+> **它是否能让泛 ERP 用户更快选到更合适的 AI 工作方式或真正值得学习/使用的资源？**
