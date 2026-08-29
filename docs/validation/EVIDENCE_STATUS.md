@@ -2,151 +2,161 @@
 
 Date: 2026-08-29
 
-## 1. What we know with relatively high confidence
+> Current product model is `AI_LEVERAGE_MODEL_V3.md`. Evidence created under the older resource-first model must not be silently treated as V3 validation.
 
-### The product problem is real enough to continue discovery
+## 1. 当前已经确认的事实
 
-Current `OWNER_REAL` tasks repeatedly involve high-noise choices around:
+### A. 泛 ERP / 企业信息化工作里确实存在“AI 工作方式选择”问题
 
-- editable business-process / architecture visualization;
-- interactive prototyping;
-- current Claude Code / Codex model-routing setup;
-- AI-assisted Fit-to-Standard / requirements work;
-- unfamiliar-module learning methods;
-- understanding Agent project architecture versus runtime traces versus workflow governance.
+现有 OWNER_REAL 问题覆盖：
 
-This is enough to justify continued product discovery, but not enough to claim broad target-user validation.
+- editable 业务流程 / 架构图；
+- 交互原型；
+- Claude Code / Codex 模型路由；
+- Fit-to-Standard / 需求分析；
+- 陌生模块学习；
+- 现有 Agent 项目的静态架构、运行链路与 workflow governance 区分。
 
-### The useful core is a decision layer, not raw search
+这些问题不只属于 SAP / Oracle，也可以映射到定制供应链、财务、Java 企业系统和 Agent 开发工作。
 
-Repeated failures came from:
+### B. 后续偏航的根因已经找到
 
-- matching a resource label while missing the complete task;
-- treating official material as an automatic recommendation slot;
-- filling empty slots with adjacent tools;
-- missing linked/bundled materials;
-- using stale configuration facts;
-- over-abstaining after one narrow search path;
-- confusing static architecture visualization, runtime observability and workflow governance.
+Phase 2 把产品定义成：
 
-So the useful core is:
+> 真实任务 → 从互联网筛 0–2 个资源。
 
-`task understanding + source discovery + original-content reading + comparison + targeted verification + disciplined abstention`
+Phase 3 又把触发条件进一步锁成：
 
-### Trigger precision matters
+> 用户必须明确在找 / 比较资源。
 
-Real owner questions also show many cases where Curator should exit:
+两层叠加后，产品自然滑向：
 
-- direct explanation;
-- direct code / SPEC review;
-- direct artifact creation;
-- direct domain research.
+`resource search + official verification + 0–2 links`
 
-The fact that web/GitHub/external sources are used does **not** mean the user is choosing a resource.
+这比最初目标更窄。
 
-### Heavy governance is the wrong default
+V3 已把核心改成：
 
-V0.2–V0.4 showed that universal gates, scoring, candidate JSON and validators can be structurally correct while degrading product judgment.
+`真实任务 → AI leverage diagnosis → Mode A/B/C → 必要时才定向发现`
 
-## 2. Current real-origin evidence
+### C. 判断层比搜索层更重要
 
-### OWNER_REAL
+过去反复出现的失败包括：
 
-Current task bank contains OR01–OR06.
+- 完整任务没理解，只匹配资源标签；
+- 本来通用 AI 足够，却默认开始搜工具；
+- 把官方材料自动当推荐位；
+- 用相邻工具填空；
+- 过早 abstain；
+- 配置事实过时；
+- 把 static map、runtime tracing、workflow graph 混为一谈。
 
-Strong current evidence exists for:
+这些都说明真正价值首先是“诊断哪种 AI 工作方式适合当前任务”。
 
-- OR01 editable draw.io: official `jgraph/drawio-mcp` as default; Agents365 for advanced extraction/diagram workflows;
-- OR02 interactive prototype: baoyu-design / claude-prototype as differentiated candidates;
-- OR03 model routing: current OpenRouter Ori as preferred setup entry, with runtime re-verification required;
-- OR04 SAP requirements/Fit-to-Standard: current official SAP Cloud ALM / Joule material; Oracle deep scan found one high-task-fit but medium-trust practitioner course;
-- OR05 SAP unfamiliar-module learning: partial official method support; Oracle remains a public-method gap after deeper search;
-- OR06 Agent project visualization: static map, runtime observability and governed work graphs must be treated as different jobs.
+### D. 重治理仍不是答案
 
-Trigger-negative owner cases are also recorded and count as evidence that **not triggering** is part of correct behavior.
+V0.2–V0.4 已证明：Gate、评分、candidate JSON、validator 可以结构正确但产品判断错误。
 
-### REAL_USER
+V3 不恢复这些机制。
 
-**Insufficient today.**
+## 2. 现有 OWNER_REAL 证据如何重新解释
 
-The repository does not yet contain enough independently sourced consultant / PM / developer questions from the training questionnaire, interviews or work requests to claim target-population validation.
+OR01–OR06 的**原始工作问题**仍然有效，因为它们来自真实工作需要。
 
-## 3. Role coverage — current truth
+但旧的推荐结果主要是在 resource-first 模型下产生，因此：
 
-### Implementation / business consultant
+- 可以作为 discovery history；
+- 可以作为 V3 replay 的输入；
+- **不能直接算 V3 已验证通过。**
 
-Best represented so far, mainly through OWNER_REAL problems and discovery.
+V3 必须重新回答一个更前置的问题：
 
-### Project manager
+> 这个任务到底需要专门 AI 方案吗，还是通用 AI / 低成本试验已经够？
 
-Some owner problems have PM/product-manager context, but there is not enough independent project-manager `REAL_USER` evidence.
+## 3. REAL_USER 证据
 
-### Developer
+**目前仍不足。**
 
-**Not validated.**
+已经找到内部 AI 培训需求问卷设计，并已建立问卷 → Real Task Intake 的桥接规则；但当前 File Library 没有实际答卷 / 汇总结果。
 
-OR03 / OR06 are developer-adjacent owner problems, not independent developer-user evidence. Do not relabel them to make coverage look better.
+因此：
 
-## 4. What is only partially supported
+- 不伪造独立顾问 / PM / 开发人员需求；
+- 不为了角色覆盖人为补题；
+- 当前主要使用 OWNER_REAL 做产品模型回放与反证。
 
-### 0–2 recommendations
+## 4. 角色范围的当前定义
 
-Strong default for ordinary resource-choice requests, not a permanent hard rule. Broad research may need a larger candidate set after Top Picks.
+不再局限于“SAP / Oracle 顾问”。
 
-### Runtime search first
+目标是泛 ERP / 企业信息化从业者，包括：
 
-Still appropriate before a persistent database is justified. Repeated real usage may later support a lightweight retained index.
+- 实施 / 业务顾问；
+- 项目经理；
+- 产品经理 / 解决方案人员；
+- 开发人员；
+- 标准 ERP、二开、集成、Java / .NET 定制企业系统等环境。
 
-### Abstention
+角色用于理解上下文，不建立人为配额。
 
-0 recommendation is useful, but sparse topics now require at least one changed source-class/search-expression counterexample search before a confident 0 result. This is a search habit, not a Gate or fixed query count.
+## 5. 当前资产证据等级
 
-## 5. What is NOT proven
-
-- A new Skill adds value over a strong ordinary prompt / cloud workflow.
-- The product has been validated by enough independent real users.
-- The product should definitely be a Skill.
-- PM and developer value is established.
-- Batch 01 exploratory results predict adoption.
-- A persistent resource database is needed.
-- Automation / refresh infrastructure is needed.
-
-## 6. Evidence classification of current assets
-
-| Asset | Evidence type | Status |
+| Asset | Evidence type | Current status |
 |---|---|---|
-| Phase 1 — 21 Skill study | design research | keep |
-| Phase 2 — product vision | product hypothesis | keep, bounded by North Star |
-| Phase 3 — minimal architecture | implementation hypothesis | keep, do not execute yet |
-| V0.4 / historical gates | failure evidence | archive only |
-| PR #4 Phase 4 pilot | execution + failure evidence | closed, not merged |
-| Exploratory Batch 01 | discovery | superseded by newer starter/real-task assets for mainline decisions |
-| Starter Pack V0 | verified discovery inventory | useful, not user validation |
-| OWNER_REAL Batch 01 / OR06 | owner-origin product evidence | useful, still needs broader validation |
-| Trigger-negative cases | trigger-boundary evidence | keep |
-| Independent REAL_USER results | primary product validation | insufficient today |
+| Phase 1 — 21 Skill study | design research | keep; many principles still valid |
+| Phase 2 Product Vision | historical product hypothesis | partially superseded by V3 |
+| Phase 3 Skill Architecture | historical implementation hypothesis | trigger/core-flow superseded by V3 |
+| V0.2–V0.4 | failure evidence | archive only |
+| PR #4 Phase 4 pilot | execution/failure evidence | closed, not merged |
+| Starter Pack V0 | discovery inventory | candidate memory only, not fixed answers |
+| OR01–OR06 original problems | OWNER_REAL input evidence | keep; replay under V3 |
+| old OR01–OR06 recommendations | resource-first discovery evidence | do not treat as V3 validation |
+| Trigger-negative cases | intent-boundary evidence | keep, reinterpret as execution vs AI-work-method boundary |
+| Independent REAL_USER results | primary validation | insufficient today |
 
-## 7. Current project state
+## 6. 目前还没有证明什么
 
-**Status: real-task product discovery / evidence gathering. Not Skill implementation.**
+- V3 工作模型在独立真实用户上稳定有效；
+- V3 应该最终封装成 Skill；
+- 固定资源缓存能明显提高效果；
+- PM / developer 等角色已经被独立验证；
+- 资源推荐应该永远是 0–2；
+- 自动 refresh / 数据库有必要；
+- 场景 taxonomy 有必要。
 
-Current mainline work:
+## 7. 当前主线
 
-1. accept real questionnaire/interview/work-request problems without polishing away their original wording;
-2. first decide whether external-resource discovery is actually needed;
-3. when yes, search/open/compare and produce 0–2 recommendations;
-4. record shareability and actual use when available;
-5. maintain only a small current Starter Pack where it reduces repeated discovery work.
+**Status: product-model reset + OWNER_REAL replay + real-user intake preparation. Not Skill implementation.**
 
-## 8. Anti-drift stop conditions
+当前工作：
 
-Stop and reassess if any of these occurs:
+1. 使用 V3 重新判断现有真实问题；
+2. 优先识别 Mode A（通用 AI 足够），防止 over-tooling；
+3. Mode B 才做定向发现；
+4. Mode C 给低成本试验，不把不确定性包装成成熟方案；
+5. 真实问卷答卷出现后，直接按 V3 处理；
+6. 只有 V3 本身被证明有价值，再讨论 Skill 封装。
 
-- more time is spent maintaining Eval mechanics than reviewing real resources;
-- new rules are added because of a single example without a reusable task-understanding lesson;
-- synthetic tasks outnumber real-origin tasks but are used to claim success;
-- the project builds a database before repeated search cost is demonstrated;
-- the Curator begins directly performing every ERP task and loses its resource-decision boundary;
-- local Agent execution becomes a dependency for product decisions;
-- developer/PM evidence is inferred from the topic instead of the actual role/source;
-- exploratory discovery is relabeled as user validation.
+## 8. 当前主要风险
+
+### Over-tooling
+
+把所有“怎么用 AI”都回答成“装一个 Skill / Tool”。
+
+### Resource gravity
+
+因为仓库已经有 Starter Pack，就优先往已有资源上靠。
+
+### Official-document gravity
+
+因为官方容易核验，就花大量时间在官网，而不是先判断用户是否需要那个能力。
+
+### Scenario explosion
+
+为了覆盖泛 ERP，开始罗列 SAP / Oracle / 财务 / 供应链 / 项目管理 / 开发的几百个场景。
+
+### Rebuilding governance
+
+因为一次错误又新增一条 Gate、评分、字段或脚本。
+
+出现以上趋势时应回到 `AI_LEVERAGE_MODEL_V3.md`。
