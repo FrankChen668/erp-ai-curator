@@ -39,22 +39,21 @@ Source adapters are replaceable acquisition capabilities. They do not own ERP ju
 
 - Selection quality improved when official facts and practitioner evidence were separated.
 - T01 showed a real **discovery recall risk**: the first pass could favor mature SaaS/official results and miss relevant GitHub/local-Agent methods.
-- T02 showed a separate **fit vs maturity risk**: a method can fit ERP work very well while still being weakly proven as a maintained/mature dependency.
+- T02 showed a separate **fit vs maturity risk**: a method can fit ERP work very well while still be weakly proven as a maintained/mature dependency.
 - Chinese practitioner evidence is underrepresented in the default search path, but `not found` must not be interpreted as `does not exist`.
 
-### Source-adapter finding
+### Source-adapter qualification findings
 
-A bounded composition model is worth testing:
+The first local Windows + Codex qualification run produced real provider-level decisions:
 
-```text
-Curator judgement
-→ identify missing evidence capability
-→ invoke an already-installed approved read-only source adapter
-→ acquire original content
-→ return to Curator judgement
-```
+- WeChat discovery: **CONDITIONAL** — actual search worked and direct `mp.weixin.qq.com` URLs were resolved, but dependency/Sogou anti-bot/cookie-path caveats remain.
+- WeChat public article reader: **KEEP FOR PILOT** — public exact-host article reading worked with meaningful body + metadata and the intended GET-only/no-cookie boundary.
+- Bilibili provider `XZXZZX-Ai/bilibili-mcp`: **CONDITIONAL** — local build/stdio worked, but real search was blocked by `COOKIE_EXPIRED`; search→transcript is not proven.
+- Xiaohongshu provider `xpzouying/xiaohongshu-mcp`: **REMOVE** — rejected before install because a practical research-only tool surface was not demonstrated and broad social write/account actions are registered.
 
-This architecture is **not proven yet**. The next local phase exists to falsify it.
+The WeChat two-step chain is enough to proceed to a narrow orchestration test. We do **not** need every desired platform to qualify before testing the core routing hypothesis.
+
+See `docs/validation/SOURCE_ADAPTER_QUALIFICATION_RESULT_01.md`.
 
 ## 3. Current architecture boundary
 
@@ -80,12 +79,23 @@ Do not invoke every platform because an adapter exists.
 
 Use only when a concrete source-access gap matters to the recommendation.
 
-Current pilot capabilities:
+Current provider state:
 
-- WeChat article discovery;
-- WeChat public article reading;
-- Bilibili search/transcript;
-- Xiaohongshu public-note search/read.
+```text
+wechat_discover_public_articles
+  zjp1997720/wechat-article-search → CONDITIONAL
+
+wechat_read_public_article
+  Githun1314/agent-wechat-reader → KEEP FOR PILOT
+
+bilibili_search_public_videos / bilibili_read_transcript
+  XZXZZX-Ai/bilibili-mcp → CONDITIONAL (credential blocked)
+  sandraschi/bilibili-mcp → cloud-review candidate, not approved yet
+
+xiaohongshu_search_public_notes / xiaohongshu_read_public_note
+  xpzouying/xiaohongshu-mcp → REMOVED
+  replacement → none approved
+```
 
 Runtime use is read-only. Installation/update is a separate maintenance action.
 
@@ -129,44 +139,66 @@ Do not keep re-searching these topics. Repeated searching would contaminate late
 
 ### Phase 2 — source-adapter qualification
 
+Status: **FIRST RUN DONE**
+
+Result:
+
+- one usable two-step WeChat chain exists;
+- one Bilibili provider is credential-blocked;
+- the first Xiaohongshu provider was correctly rejected;
+- provider qualification/pinning boundaries are functioning as intended.
+
+Phase 2 does **not** need to reach full platform coverage before Phase 3.
+
+Separate provider-replacement research can continue without blocking the core routing test.
+
+### Phase 3A — focused orchestration/routing test
+
 Status: **NEXT / LOCAL**
 
 Goal:
 
-> Prove which candidate source adapters can be safely installed and can actually acquire original public evidence in the target Windows Codex environment.
+> Verify that Codex can use Curator intent plus the two installed WeChat Skills in one task, moving discovery → original article read without manual copy/paste, while avoiding unrelated adapters and preserving the read-only boundary.
 
-Candidate pilot set:
-
-- WeChat discovery: `zjp1997720/wechat-article-search`
-- WeChat reader: `Githun1314/agent-wechat-reader`
-- Bilibili: `XZXZZX-Ai/bilibili-mcp`
-- Xiaohongshu: `xpzouying/xiaohongshu-mcp`
-
-Required result per adapter:
-
-`KEEP FOR PILOT / CONDITIONAL / REMOVE`
-
-No production endorsement is implied.
-
-### Phase 3 — orchestration/routing test
-
-Status: **BLOCKED BY PHASE 2**
-
-Goal:
-
-> Verify that Codex can use Curator intent plus multiple installed Skills/MCPs in one task without turning the workflow into a platform checklist.
+This phase intentionally uses only the qualified/conditional WeChat chain.
 
 Must prove:
 
-- correct adapter selected;
-- unrelated adapters skipped;
-- evidence returned to Curator judgement;
-- read-only boundary preserved;
-- adapter failure degrades gracefully.
+- Curator-style evidence need triggers WeChat discovery only when material;
+- search result is handed to the original-article reader in the same task;
+- search snippet is not mistaken for original evidence;
+- unrelated adapters are skipped;
+- evidence returns to Curator judgement;
+- workflow stops when enough evidence exists;
+- failure degrades honestly.
+
+Result:
+
+`Multi-skill routing: PASS / PARTIAL / FAIL`
+
+### Phase 3B — Bilibili replacement qualification
+
+Status: **CLOUD REVIEW ACTIVE / LOCAL LATER**
+
+Current first provider remains CONDITIONAL because of the local credential failure.
+
+Cloud has identified `sandraschi/bilibili-mcp` as a possible anonymous-tier alternative. It must complete static review before a pinned local qualification command is issued.
+
+Do not ask the Owner to configure a Bilibili Cookie until the lower-friction alternative has been tested or rejected.
+
+### Xiaohongshu provider track
+
+Status: **COVERAGE GAP / RESEARCH ONLY**
+
+The first provider is REMOVED.
+
+Do not weaken read-only requirements to regain Xiaohongshu coverage.
+
+A replacement should only be assigned when cloud review finds a provider whose acquisition value and permission/maintenance profile are acceptable. A read-oriented crawler using stealth/fingerprint evasion is currently research-only, not approved for local installation.
 
 ### Phase 4 — curation uplift A/B test
 
-Status: **BLOCKED BY PHASE 3**
+Status: **BLOCKED BY PHASE 3A**
 
 Use a fresh real topic not already contaminated by T01/T02.
 
@@ -178,6 +210,8 @@ Run:
 
 - A: normal discovery path;
 - B: same task with qualified adapters available and conditional routing.
+
+At first, B may use only the WeChat chain if that is the only qualified practitioner-source adapter. This is sufficient to measure whether the adapter adds material value.
 
 Compare only material user value:
 
@@ -277,7 +311,7 @@ Flow:
 Cloud defines current task + pins + boundaries
 → Local Codex executes and reports observed evidence
 → Cloud independently reviews evidence
-→ Cloud updates architecture/docs only if repeated evidence justifies it
+→ Cloud updates architecture/docs only if evidence justifies it
 → next task
 ```
 
@@ -310,40 +344,42 @@ Details are authoritative in `SOURCE_ADAPTER_LIFECYCLE_V3.md`.
 
 ## 8. Immediate action sequence
 
-### Cloud — completed in this calibration
+### Cloud — current work
 
-- consolidate current direction into this execution plan;
-- sync evidence status with T01/T02 and adapter findings;
-- sync the source-adapter pilot with the separate WeChat discovery + reader chain;
-- keep the production Skill unimplemented.
+- record Phase 2 qualification evidence;
+- advance the core route to Phase 3A using the WeChat chain;
+- review lower-friction Bilibili provider candidates;
+- keep Xiaohongshu as an explicit coverage gap rather than lowering permission standards.
 
 ### Local — next command
 
-Execute **Phase 2 source-adapter qualification only**.
+Execute **Phase 3A WeChat multi-Skill routing test only**.
 
-Do not run the final curation task yet.
+Do not run T03/Phase 4 curation uplift yet.
 
 Stop after producing:
 
-- qualification table;
-- actual install status;
-- read-only smoke result;
-- multi-skill readiness notes;
-- unavoidable human action, if any.
+- whether discovery → reader happened in one task;
+- which tools/Skills were actually used;
+- whether unrelated adapters were skipped;
+- whether original article evidence was distinguished from search snippets;
+- routing result `PASS / PARTIAL / FAIL`;
+- any observed failure/fallback.
 
-Then cloud reviews the result before Phase 3.
+Then cloud reviews the result before Phase 4.
 
 ## 9. Definition of done for the next phase
 
-Phase 2 is complete when we can answer, from actual local evidence:
+Phase 3A is complete when we can answer, from actual local evidence:
 
-1. Which adapters are safe enough for this pilot?
-2. Which actually work on this Windows Codex environment?
-3. Which can be constrained to research/read behaviour?
-4. Which require login/manual action?
-5. Which should be removed before any curation uplift test?
+1. Can Curator-style intent cause Codex to select WeChat discovery when it is useful?
+2. Can Codex then pass a discovered original URL to the separate reader in the same task?
+3. Does it avoid manually pretending that two unrelated runs are orchestration?
+4. Does it avoid invoking Bilibili/Xiaohongshu just because they exist?
+5. Does it preserve source provenance and distinguish snippet vs original content?
+6. Does it stop after the evidence need is satisfied?
 
-Until those answers exist, do not claim the meta-Skill/source-adapter architecture works.
+Until those answers exist, do not claim the bounded meta-Skill composition works.
 
 ## 10. Anti-drift checks
 
