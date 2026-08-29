@@ -37,7 +37,7 @@ Skill 负责稳定执行一个判断：
 主 Skill 只需要这条链：
 
 ```text
-1. Understand the real work outcome
+1. Understand the real work outcome and hard constraints
 2. Run the AI leverage test
 3. Choose Mode A / B / C
 4. If Mode B needs discovery, search narrowly
@@ -45,6 +45,13 @@ Skill 负责稳定执行一个判断：
 6. Verify volatile facts only when needed
 7. Return an actionable working recommendation
 ```
+
+第 1 步的 hard constraints 只抓真正会决定方案可用性的条件，例如：
+
+- 数据 / 源码能否离开当前环境；
+- 必须本地还是允许云端；
+- 是否需要特定可编辑格式、系统集成或权限；
+- 版本、成本、企业账号等明显边界。
 
 不要把搜索放到第 1 步。
 
@@ -73,6 +80,8 @@ Skill 负责稳定执行一个判断：
 - 通用 Web 模型拿不到的权限内容。
 
 如果这种访问直接决定质量，专门方案可能有明显价值。
+
+反过来，如果候选方案不能满足客户数据、源码或企业合规边界，它即使能力很强也不是可用方案。
 
 ### Signal 3 — Runtime observation / action
 
@@ -125,6 +134,10 @@ Skill 负责稳定执行一个判断：
 - 输出可以由用户快速人工判断；
 - 专门 Tool 只是“可能更方便”，没有明显质量 / 时间增益。
 
+但 Mode A 不等于“凭模型记忆直接回答”。
+
+对于 ERP 业务、配置、代码、接口等专业内容，优先采用 **source-grounded working method**：围绕用户材料、项目文档、代码、配置或可信知识源分析，并让关键结论可回溯。
+
 不要因为发现了一个相关 Skill 就倒推它有必要。
 
 ## 6. Mode C — 防止过度自信
@@ -140,7 +153,12 @@ Skill 负责稳定执行一个判断：
 
 > “先用现有 Agent 完成一个真实样本。如果出现 X 问题，再升级到 Y 类专门能力。”
 
-Mode C 是产品能力，不是犹豫失败。
+Mode C 必须包含：
+
+- 一个具体最小试验；
+- 一个明确 upgrade signal。
+
+没有这两项，就只是犹豫，不是合法 Mode C。
 
 ## 7. Discovery fast path
 
@@ -150,11 +168,17 @@ Mode C 是产品能力，不是犹豫失败。
 
 不需要重新长篇论证“AI 能不能帮忙”。
 
-直接：
+可以直接：
 
 `确认约束 → 定向发现 → 阅读原始材料 → 比较 → 推荐`
 
-保持低流程成本。
+但“用户说要 Skill”仍然只是一个 solution hypothesis，不是强制 Mode B。
+
+如果需求明显是一次性简单任务、专门 Skill 没有可解释的增量价值，仍可以回答：
+
+> “这个任务不值得额外装 Skill，现有通用 AI 已够。”
+
+Fast path 的意思是减少流程，不是无条件接受用户预设解法。
 
 ## 8. Search strategy
 
@@ -177,9 +201,10 @@ Mode C 是产品能力，不是犹豫失败。
 1. 能否解决完整任务？
 2. 用户实际会得到什么？
 3. 相比现有通用 AI，它的增量价值是什么？
-4. 启动 / 安装 / 迁移成本是否值得？
-5. 当前是否可用？
-6. 什么情况下不要用它？
+4. 启动 / 安装 / 迁移 / 学习成本是否值得？
+5. 是否符合数据、源码、企业环境和权限边界？
+6. 当前是否可用？
+7. 什么情况下不要用它？
 
 如果第 3 条说不清，默认不推荐专门方案。
 
