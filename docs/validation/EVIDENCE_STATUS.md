@@ -2,73 +2,43 @@
 
 Date: 2026-08-30
 
-> Current execution authority: `CURRENT_EXECUTION_PLAN_V3.md`.
+> Current execution authority: `docs/CURRENT_EXECUTION_PLAN_V3.md`.
 
 ## 1. Supported by evidence
 
-### Real-user demand evidence now exists
+### REAL_USER demand evidence
 
-The training survey export contains **83 responses** from the target delivery population:
+The 2026-08 training survey provides current demand evidence from 83 target users.
 
-- implementation consultant: 37 (44.58%);
-- project manager: 30 (36.14%);
-- developer: 8 (9.64%);
-- presales: 5 (6.02%);
-- other: 3 (3.61%).
+Key supported conclusions:
 
-This is genuine `REAL_USER demand evidence`, although the exported free text may contain platform-side wording cleanup or summarization.
+- the main audience is implementation consultants and project managers;
+- many respondents already use AI frequently;
+- the dominant need is practical project-delivery use rather than AI introduction;
+- unstable AI output quality, lack of real project cases/methods and enterprise data constraints are recurring frictions;
+- typical inputs are actual project artifacts such as Word/PDF, PPT, Excel, meeting transcripts, screenshots, code and logs;
+- repeated free-text semantics support concrete Problem Cards such as workshop → requirement package, requirements → prototype, business logic → editable process diagram, materials → PPT, Excel → reconciliation, codebase → logic/debug and requirements → test cases.
 
-Therefore:
+Authority:
 
-- closed-choice aggregates are treated directly;
-- free-text answers are used for repeated semantic work patterns, not assumed verbatim;
-- user identifiers are not retained in project evidence.
+- `SURVEY_DERIVED_PROBLEM_CARDS_01.md`
 
-Under Q18, 78 respondents supplied at least one non-empty concrete-work-problem entry after excluding obvious blank/`无`/`-` values, producing 224 non-empty issue slots. This supports a move from representative scenario design to survey-derived Problem Cards.
+The survey is **demand validation**, not yet outcome validation.
 
-See `SURVEY_DERIVED_PROBLEM_CARDS_01.md`.
-
-### The main user need is practical delivery, not AI introduction
-
-Strong survey signals:
-
-- frequent AI use: 51.81%; daily-work-tool use: 27.71%;
-- current use: research/Q&A 93.98%, document writing 81.93%, PPT/reporting 71.08%;
-- main friction: unstable AI output quality 63.86%, lack of real project cases/methods 44.58%, data-security/environment limits 38.55%;
-- desired training: AI in project implementation 84.34%, project management 62.65%, Agent practice 50.60%.
-
-Therefore the main problem is not “what is AI?” but:
-
-> **How do I use AI reliably on my actual project material to produce a deliverable I can review, edit and hand over?**
-
-### Curation behaviour
+## 2. Curation / source behaviour supported so far
 
 - official/original sources are fact anchors, not automatic recommendation winners;
-- T01 exposed discovery-recall risk;
-- T02 exposed task-fit vs dependency-maturity risk;
-- practical/community content is useful only when it adds real workflow/example/failure/adoption evidence;
-- Chinese practitioner coverage must distinguish access, indexing and true quality/scarcity;
-- Curator-created synthesis must not be presented as an external resource;
-- creator reputation/engagement may improve discovery order but cannot determine the recommendation.
+- practical/community content is valuable only when it adds reproducible workflow/example/failure/adoption evidence;
+- Curator synthesis must be separated from external resources;
+- source popularity / creator reputation may affect discovery order but cannot determine recommendation;
+- original content must be read;
+- task fit and source maturity must be judged separately;
+- an external resource can legitimately be a method/template rather than another software dependency;
+- installed source adapters should not be called mechanically.
 
-### Creator-prior boundary
+Creator Prior remains a bounded discovery design; its value is not yet empirically proven.
 
-The project now has a bounded creator-prior strategy for practitioner discovery.
-
-Supported principle:
-
-> **Creator prior affects what to inspect first; specific original content determines whether to recommend.**
-
-The strategy deliberately rejects:
-
-- numeric influencer ranking;
-- closed creator whitelists;
-- follower/like/save counts as direct quality scores;
-- recommendation based on creator reputation without reading the specific content.
-
-Platform engagement is only a weak discovery hint. See `docs/CREATOR_PRIOR_STRATEGY_V3.md`.
-
-### Adapter lifecycle / routing
+## 3. Adapter lifecycle / routing
 
 Controlled Windows + Codex qualification:
 
@@ -79,127 +49,134 @@ Controlled Windows + Codex qualification:
 
 WeChat Search → Reader bounded multi-Skill routing: **PASS**.
 
-This proves acquisition composition feasibility, not general user-value uplift.
+This proves acquisition composition feasibility, not user-value uplift.
 
-### First uplift test
+The earlier mixed-task uplift A/B produced **NO MATERIAL UPLIFT for that exact task** because the treatment adapter was not used.
 
-`CURATION_UPLIFT_AB_TEST_01` produced **NO MATERIAL UPLIFT for that exact mixed task** because Run B did not invoke WeChat.
+## 4. P01 / J02 result
 
-Positive evidence: the Curator did not mechanically call an installed adapter.
+Status: **KEEP FOR PRACTICAL PILOT**
 
-## 2. Current product unit
+Authority:
 
-The main validation unit is now a **survey-derived Problem Card**, not a broad label such as `requirements analysis`, `PPT` or `data processing`.
+- `P01_CURATION_RESULT_01.md`
 
-Each card captures:
+The local curation run found a practical package for:
 
-```text
-real situation
-+ typical project inputs
-+ concrete work action
-+ expected deliverable
-+ acceptance conditions
-+ current workaround/pain
-+ important constraints
-→ resources worth learning/trying/sharing
-```
+> customer workshop notes / transcripts → first reviewable requirement brief with provenance, conflict handling, open questions and traceability
 
-The survey repeatedly exposes problems such as:
+Main resource:
 
-- workshop/minutes → requirement package;
-- requirements → PRD/FS/functional design;
-- requirements/rules → interactive prototype;
-- business logic → editable process/architecture diagram;
-- source material → customer-ready PPT;
-- Excel/CSV → clean/reconcile/validate;
-- codebase → logic/FS/debug;
-- requirement → test scenarios/cases;
-- screenshots/steps → operation manual;
-- daily inputs → weekly report/risk/action closure;
-- experience/materials → reusable local knowledge/Skills.
+- `Convert Notes to Requirements Working Skill`
 
-Authority: `SURVEY_DERIVED_PROBLEM_CARDS_01.md`.
+Cloud review independently confirmed the source contains:
 
-## 3. Current provider state
+- statement/speaker classification;
+- need vs solution separation;
+- source traceability;
+- conflict logging;
+- assumption/risk register;
+- open questions;
+- requirements template;
+- quality checklist;
+- weak vs strong examples;
+- Agent prompt pattern;
+- explicit stakeholder-validation boundary.
 
-```text
-WeChat discovery → CONDITIONAL
-WeChat reader → KEEP FOR PILOT
-Bilibili first provider → CONDITIONAL / credential blocked
-Bilibili alternative → cloud-reviewed, local test deferred
-Xiaohongshu first provider → REMOVED
-Xiaohongshu replacement → none approved
-```
+### Maturity boundary
 
-No adapter expansion is justified merely by platform coverage.
+Do **not** call the main resource an independently validated best practice.
 
-## 4. What remains unproven
+Observed maturity signals:
 
-- Curator consistently produces strong, share-worthy resource packages for survey-derived concrete problems;
-- a colleague can actually apply the recommended resource on real project materials with lower rework;
-- creator-prior discovery materially improves recall without creating popularity bias;
-- WeChat practitioner evidence materially improves one of those packages;
-- source-adapter value generalizes;
-- Codex/WorkBuddy/PM-Skill onboarding can be curated around real jobs rather than feature tours;
-- V3 should be packaged as a production Skill.
+- the source explicitly describes itself as a public working interpretation, not an official BABOK/SAP/vendor method;
+- only one file commit was observed;
+- it was added in a batch containing multiple related working skills;
+- no independent ERP-project usage evidence was established in the pilot.
 
-Important distinction:
+Current classification:
 
-> The survey provides **REAL_USER demand validation**, not yet **REAL_USER outcome validation**.
+> **high task fit / low independent validation**
 
-We know the problems are real. We do not yet know that Curator recommendations solve them well.
+### Correction to local output
 
-## 5. Immediate validation — READY TO TEST
+The local run slightly over-attributed some Curator application guidance to the external resource.
 
-**Status: P01 / J02 READY TO TEST.**
+Treat as `Curator synthesis`:
 
-The design is sufficiently stable for the first survey-driven practical pilot. No additional framework is required before running it.
+- `T-/P-/R-/A-` multi-source numbering;
+- generalized multi-file ERP intake convention;
+- generic confidence field;
+- combined next-morning package schema;
+- exact Fit/Partial Fit/Gap placeholder fields.
 
-Use **P01 / J02: workshop → reviewable requirement package**.
+### What P01 does and does not prove
 
-The question is not “can AI do requirements analysis?”.
+P01 supports:
 
-The question is:
+- Curator can find a practical low-setup method rather than defaulting to another Tool/Agent;
+- the recommendation can be specific enough for same-day adoption;
+- stopping discipline held;
+- no adapter / Creator Prior use was required.
 
-> A consultant has a customer workshop transcript/notes, As-Is process material, RFP/requirement list and attachments. By tomorrow morning they need structured requirements, open questions, conflicts/assumptions and traceable evidence. What external Skills/Tools/tutorials/practitioner methods are worth learning tonight and applying tomorrow?
+P01 does **not** yet prove:
 
-Protocol:
+- reduced rework on actual project material;
+- real-user outcome improvement;
+- Creator Prior uplift;
+- WeChat uplift;
+- generalization across other delivery artifacts.
 
-- `DELIVERY_J02_POST_WORKSHOP_REQUIREMENTS.md`
-
-Readiness boundary:
-
-- `P01_TEST_READINESS_NOTE.md`
-
-Run one curation test, then stop for cloud review.
-
-Do not automatically run the rest of the problem-card queue.
-
-## 6. Evidence asset state
+## 5. Evidence asset state
 
 | Asset | Evidence type | Current status |
 |---|---|---|
-| Survey export 2026-08 | REAL_USER demand evidence | strong, current |
+| Survey export 2026-08 | REAL_USER demand evidence | strong/current |
 | Survey-derived Problem Cards 01 | normalized demand evidence | current |
-| Creator Prior Strategy V3 | discovery design | current; value not yet empirically proven |
-| P01 Test Readiness Note | execution freeze | READY TO TEST |
-| T01 prototype curation | OWNER_REAL behaviour evidence | recall issue exposed |
-| T02 requirements/Fit-Gap curation | OWNER_REAL behaviour evidence | fit-vs-maturity issue exposed |
+| Creator Prior Strategy V3 | discovery design | current; uplift unproven |
 | Source Adapter Qualification 01 | local runtime evidence | provider decisions proven |
 | Source Adapter Routing Result 01 | local runtime evidence | WeChat bounded composition PASS |
-| Curation Uplift A/B Test 01 | paired value test | NO MATERIAL UPLIFT for mixed task |
+| Curation Uplift A/B Test 01 | paired value test | no material uplift for mixed task |
+| P01 Curation Result 01 | practical curation evidence | KEEP FOR PRACTICAL PILOT |
 | Independent REAL_USER outcome/use results | primary solution validation | still insufficient |
 
-## 7. Main risks
+## 6. Next validation
 
-- translating survey answers back into broad consulting categories and losing concrete work units;
-- treating “generate X” as success without judging rework, correctness, editability and traceability;
-- over-tooling;
-- adapter sprawl/platform checklist drift;
+Next: **P04A — business description / requirements → editable business process diagram**.
+
+Protocol:
+
+- `DELIVERY_P04A_EDITABLE_PROCESS_DIAGRAM.md`
+
+Why this is the next useful test:
+
+- it changes artifact type instead of repeating requirements text;
+- it directly addresses repeated survey pain around process/diagram work;
+- it tests actual diagram Skills/Tools and editability;
+- it creates a natural surface for Creator Prior and Chinese practitioner evidence without forcing them;
+- it tests whether Curator can distinguish “pretty generated image” from a genuinely editable business artifact.
+
+Run one P04A curation test and stop for cloud review.
+
+## 7. Main remaining uncertainties
+
+- whether recommended resources reduce real-user rework on actual project materials;
+- whether Curator consistently finds share-worthy resources across distinct artifact types;
+- whether Creator Prior improves recall without creating popularity bias;
+- whether WeChat practitioner evidence materially improves a real delivery package;
+- whether selected executable Skills/Tools remain safe and worth installing after static/runtime qualification;
+- whether V3 should eventually become a production Skill.
+
+## 8. Main risks
+
+- polishing personal frameworks into “industry best practices” without independent evidence;
+- broad consulting categories replacing concrete Problem Cards;
+- “can generate” being mistaken for “can deliver with low correction cost”;
+- adapter sprawl / platform checklist drift;
+- creator popularity echo chamber;
 - Chinese-content halo;
-- popularity/creator echo chamber;
-- Curator synthesis mistaken for discovered resources;
-- local PASS mistaken for user outcome validation;
-- building more validation machinery instead of accumulating genuinely useful resources.
+- Curator synthesis mistaken for discovered capability;
+- local success mistaken for independent real-user outcome validation;
+- building validation machinery instead of accumulating useful practical assets.
 
-Do not implement a production Skill merely because routing works or because user demand exists.
+Do not implement a production Skill merely because demand exists or because one curation run is useful.
