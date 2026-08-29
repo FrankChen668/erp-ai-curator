@@ -28,39 +28,61 @@ Controlled Windows + Codex qualification:
 
 WeChat Search → Reader multi-Skill routing: **PASS**.
 
-This proves the approved two-step chain can be composed conditionally in one task. It does not prove arbitrary Skill orchestration.
+This proves the approved two-step chain can be composed conditionally in one task. It does not prove arbitrary Skill orchestration or general user-value uplift.
 
-### Phase 4 paired test
+### First uplift test
 
-`CURATION_UPLIFT_AB_TEST_01` completed.
+`CURATION_UPLIFT_AB_TEST_01` produced **NO MATERIAL UPLIFT for that exact mixed task**.
 
-Verdict for the exact mixed task:
-
-> **NO MATERIAL UPLIFT**
-
-Run B had the WeChat adapter available but did not invoke it. Therefore recommendation differences between Run A and Run B came from normal search/model variance, not adapter evidence.
+Run B did not invoke WeChat, so A/B recommendation differences were normal search/model variance rather than adapter evidence.
 
 Positive evidence:
 
-- the Curator did not call WeChat just because it was installed;
+- Curator did not call the installed adapter mechanically;
 - conditional-routing discipline held.
 
-See `CURATION_UPLIFT_AB_RESULT_01.md`.
+## 2. Validation-scope correction
 
-## 2. Test-design finding
+The current product originated from AI training/resource curation for **real ERP / enterprise-information-system project delivery**.
 
-The Phase 4 task combined:
+The previous follow-up proposal over-weighted unfamiliar standard-module learning.
 
-- standard ERP module learning;
-- custom enterprise-system/codebase understanding.
+That remains a valid secondary use case, but it is not the current mainline.
 
-Both runs gravitated toward the custom-system/codebase path.
+Current main validation focus:
 
-Therefore standard ERP module curation remains insufficiently tested.
+### Delivery outputs
 
-Future validation separates these jobs.
+- requirements analysis;
+- solution design;
+- data processing / reconciliation;
+- PPT / project communication;
+- interactive prototype;
+- testing / issue analysis when grounded in real tasks.
 
-## 3. Current provider state
+### Tool onboarding for delivery
+
+- Codex;
+- WorkBuddy;
+- other tools only when materially relevant to delivery.
+
+Authority:
+
+`DELIVERY_SCENARIO_VALIDATION_V3.md`
+
+## 3. Why this correction matters
+
+The product should answer questions such as:
+
+- how can AI improve requirement discovery and Fit-Gap work?
+- what resources help turn requirements into a reviewable solution/prototype?
+- what AI workflow is best for cleaning/reconciling project data?
+- how can a consultant create a better project PPT from existing materials?
+- what is the shortest reliable way to learn Codex or WorkBuddy for project delivery?
+
+If validation mostly tests ERP knowledge learning, Curator risks becoming a generic learning/research assistant rather than a project-delivery assistant.
+
+## 4. Current provider state
 
 ```text
 WeChat discovery → CONDITIONAL
@@ -73,38 +95,39 @@ Xiaohongshu replacement → none approved
 
 No adapter expansion is justified yet.
 
-## 4. What remains unproven
+## 5. What remains unproven
 
-- WeChat practitioner evidence materially improves standard ERP learning curation;
-- source-adapter value generalizes across ERP tasks;
-- Bilibili/Xiaohongshu need or justify additional providers;
+- Curator consistently produces strong, share-worthy packages for core delivery scenarios;
+- WeChat practitioner evidence materially improves any delivery scenario;
+- source-adapter value generalizes;
+- Codex/WorkBuddy onboarding resources can be curated into genuinely short, practical paths;
 - V3 is consistently better for independent real users;
 - production Curator Skill packaging is justified.
 
-## 5. Next validation
+## 6. Next validation
 
-Run one **Standard ERP Module Diagnostic**.
+Run **D01 Requirements Analysis** from `DELIVERY_SCENARIO_VALIDATION_V3.md`.
 
-Use a specific module, currently recommended:
+This is a curation-quality test first, not another adapter A/B.
 
-> SAP EWM inbound receiving and putaway for a consultant unfamiliar with the module.
+Question:
 
-Primary design:
+> Can Curator find a small, genuinely useful external resource package for AI-assisted requirements analysis in project delivery without collapsing into generic prompt lists, official-only references or self-invented methods?
 
-1. normal Web/GitHub baseline → freeze;
-2. enable only WeChat Search → Reader as additional acquisition capability;
-3. measure only evidence/recommendation delta attributable to the adapter.
+Qualified source adapters may be used only if a real evidence-access gap matters.
 
-This sequential incremental design avoids confusing ordinary search variance with adapter causality.
+## 7. Priority queue after D01
 
-Valid delta outcomes:
+1. D03 Data processing / reconciliation
+2. T01 Codex for project delivery
+3. T02 WorkBuddy for project delivery
+4. D02 Solution design
+5. D04 PPT / project communication
+6. D05 prototype only when a fresh validation question remains
 
-- `MATERIAL DELTA`
-- `LIMITED DELTA`
-- `NO MATERIAL DELTA`
-- `INVALID TEST`
+Real survey/user problems should replace representative prompts whenever available.
 
-## 6. Evidence asset state
+## 8. Evidence asset state
 
 | Asset | Evidence type | Current status |
 |---|---|---|
@@ -113,12 +136,13 @@ Valid delta outcomes:
 | Source Adapter Qualification 01 | local runtime evidence | provider decisions proven |
 | Source Adapter Routing Result 01 | local runtime evidence | WeChat bounded composition PASS |
 | Curation Uplift A/B Test 01 | paired value test | NO MATERIAL UPLIFT for mixed task |
-| Curation Uplift A/B Result 01 | cloud interpretation | current |
-| Standard ERP Module Diagnostic | next local test | pending |
+| Delivery Scenario Validation V3 | validation direction | current |
+| Standard ERP Module Diagnostic | secondary/deferred | not current mainline |
 | Independent REAL_USER results | primary validation | insufficient |
 
-## 7. Main risks
+## 9. Main risks
 
+- generic ERP learning displacing delivery work;
 - over-tooling;
 - adapter sprawl;
 - platform checklist drift;

@@ -4,32 +4,57 @@
 
 ## 1. Product direction
 
-ERP AI Curator is a **bounded Curator / Orchestrator hypothesis** for泛 ERP / 企业信息化工作。
+ERP AI Curator is a **bounded Curator / Orchestrator hypothesis** for泛 ERP / 企业信息化项目工作。
 
 Its job is:
 
-> **Given a real work problem, help the user choose the most useful AI working approach; when external resources are needed, find and curate a small number of external resources worth learning, trying or sharing.**
+> **Given a real project-delivery problem, help the user choose a useful AI working approach; when external resources are needed, find and curate a small number of resources worth learning, trying or sharing.**
 
 Current flow:
 
 ```text
-real work problem
-→ understand outcome + constraints
-→ compare current AI/tool baseline
+real delivery problem
+→ understand expected output + constraints
+→ compare current AI/tool baseline when needed
 → decide whether external discovery is needed
 → normal Web/GitHub first
-→ approved read-only source adapters only when a material coverage gap exists
-→ compare evidence
+→ approved read-only source adapters only when a material evidence gap exists
+→ compare original evidence + practitioner value
 → small actionable recommendation package
 ```
 
 Curator owns judgement. Source adapters only acquire evidence.
 
-Important curation boundary:
+Curator-created usage guidance must be labelled as synthesis, not presented as a discovered external resource.
 
-> Curator-created usage guidance must be labelled as synthesis. Do not present newly invented guidance as a discovered external resource.
+## 2. Current validation focus
 
-## 2. What is already supported
+The mainline is **project delivery**, not ERP knowledge learning for its own sake.
+
+Primary scenario families:
+
+### Delivery-output work
+
+- requirements analysis;
+- solution design;
+- data processing / reconciliation;
+- PPT / project communication;
+- interactive prototype;
+- testing / issue analysis when supported by real tasks.
+
+### Tool onboarding for delivery
+
+- Codex;
+- WorkBuddy;
+- other AI/Agent tools only when they materially support delivery work.
+
+Current scenario authority:
+
+`docs/validation/DELIVERY_SCENARIO_VALIDATION_V3.md`
+
+The previously proposed SAP EWM standard-module diagnostic is **deferred / secondary**, not the current next task.
+
+## 3. What is already supported
 
 ### Curation behaviour
 
@@ -37,7 +62,8 @@ Important curation boundary:
 - T01 exposed discovery-recall risk;
 - T02 exposed task-fit vs dependency-maturity risk;
 - practical companion content must add real workflow/example/failure/adoption evidence;
-- Chinese practitioner coverage mixes access gap, index bias and true quality/scarcity.
+- Chinese practitioner coverage mixes access gap, index bias and true quality/scarcity;
+- Curator synthesis must be separated from external resources.
 
 ### Source-adapter lifecycle
 
@@ -62,43 +88,21 @@ Curator evidence need
 → stop
 ```
 
-This proves bounded composition, not arbitrary Skill orchestration.
+This proves bounded composition, not arbitrary Skill orchestration or user-value uplift.
 
-## 3. Phase 4 result
+### First uplift test
 
-`CURATION_UPLIFT_AB_TEST_01` is complete.
+`CURATION_UPLIFT_AB_TEST_01` produced **NO MATERIAL UPLIFT for that exact mixed task** because Run B did not invoke WeChat.
 
-Verdict for the exact mixed task:
+Useful finding:
 
-> **NO MATERIAL UPLIFT**
+- conditional routing discipline held;
+- pairwise search/model variance is real;
+- the mixed standard-ERP/custom-codebase task was a poor validation surface.
 
-Reason:
+Do not repeat that test.
 
-- Run A used normal Web/GitHub only;
-- Run B had WeChat available but did **not** invoke it;
-- therefore differences between A and B cannot be attributed to adapter evidence.
-
-Positive signal:
-
-- Run B did not call WeChat merely because it was installed;
-- conditional routing discipline held.
-
-See `docs/validation/CURATION_UPLIFT_AB_RESULT_01.md`.
-
-## 4. Test-design correction
-
-The Phase 4 raw task mixed two different jobs:
-
-1. learn an unfamiliar **standard ERP module**;
-2. reverse-engineer a **custom enterprise system/codebase**.
-
-Both runs gravitated toward codebase/process-mining evidence. That can hide weakness on the standard-ERP-learning job.
-
-Do not repeat this mixed task.
-
-Future validation separates the jobs by work outcome, not by role.
-
-## 5. Current provider state
+## 4. Current provider state
 
 ```text
 wechat_discover_public_articles
@@ -116,70 +120,72 @@ xiaohongshu
   replacement → none approved
 ```
 
-Do not expand adapter footprint until a task demonstrates material value.
+Do not expand adapter footprint until a delivery task demonstrates a material source-access gap.
 
-## 6. Next phase — Standard ERP Module Diagnostic
+## 5. Next phase — Delivery Scenario Validation
 
 Status: **NEXT / LOCAL**
 
+Do not test all scenarios at once.
+
+Priority:
+
+1. **D01 Requirements analysis**
+2. **D03 Data processing / reconciliation**
+3. **T01 Codex for project delivery**
+4. **T02 WorkBuddy for project delivery**
+5. D02 Solution design
+6. D04 PPT/project communication
+7. D05 prototype only when a fresh question remains after historical T01 evidence
+
+Real survey/user problems should replace representative prompts when available.
+
+## 6. Immediate next local task — D01 Requirements Analysis
+
 Question:
 
-> Can ERP AI Curator find a genuinely useful external learning package for an unfamiliar standard ERP module, and does optional WeChat practitioner evidence add material value beyond authoritative Web/GitHub sources?
+> Can Curator find a small, genuinely useful resource package for AI-assisted requirements analysis in project delivery without collapsing into generic prompt lists, official-only references, or self-invented methods?
 
-This is a diagnostic follow-up because the previous mixed task did not isolate this job.
+Raw scenario:
 
-It is **not** a search for a positive adapter result.
+> 一个实施顾问拿到了客户访谈纪要、现状流程、RFP/需求清单和若干附件，希望借助 AI 更快形成结构化需求、待澄清问题、冲突/遗漏、As-Is/To-Be、Fit-Gap/Fit-to-Standard 和可追溯的需求文档。请寻找少量真正值得采用或学习的 AI Skill、Tool、方法、教程和实战资源，重点看如何基于真实材料工作、如何避免模型脑补、如何保留来源和待确认项。
 
-### Test design
+This is a **curation-quality test first**, not another adapter A/B.
 
-Use one specific unfamiliar standard ERP module/business area.
+Normal Web/GitHub and current accessible sources may be used. The qualified WeChat chain may be used only when a concrete practitioner-evidence gap matters.
 
-Recommended neutral task:
+Do not force source-adapter use.
 
-> A consultant who has not worked with SAP EWM must quickly understand inbound receiving and putaway: end-to-end process, roles, main business objects/documents, core configuration boundaries, key integrations, common exceptions, and how to verify understanding. Find only a small number of strong AI-enabled methods/Skills/Tools/tutorials/practitioner resources worth learning or sharing.
+## 7. D01 success evidence
 
-Why a specific module:
+A useful result should show:
 
-- prevents the Agent from escaping into generic codebase archaeology;
-- exposes whether official documentation alone is enough;
-- gives practitioner-source adapters a fair but non-forced opportunity to add implementation detail.
+- at least one serious external resource/method worth trying;
+- source-grounded handling of real project material;
+- explicit treatment of assumptions/open questions/conflicts;
+- traceability from input material to requirements/decisions;
+- practical adoption guidance based on original/practitioner evidence;
+- honest limitations and maturity uncertainty.
 
-### Incremental design
+It should not rely on:
 
-Do **not** use another fully independent A/B pair as the primary causal test.
-
-Instead:
-
-1. **Baseline** — normal Web/GitHub discovery only; freeze candidate package.
-2. **Adapter delta** — start from the frozen baseline package; allow only the qualified WeChat Search → Reader chain as new acquisition capability.
-3. Ask whether newly acquired evidence changes/adds/removes any recommendation or materially strengthens practical guidance.
-
-This isolates adapter contribution from ordinary search/model variance.
-
-If WeChat is not useful, valid result is `NO MATERIAL DELTA`.
-
-## 7. Next local stop point
-
-Local Codex only executes the Standard ERP Module Diagnostic.
-
-It must stop after producing:
-
-- frozen baseline package;
-- any WeChat evidence actually acquired;
-- revised package only if evidence justifies a change;
-- explicit delta trace.
-
-Local Codex does not decide product architecture.
+- generic “AI can write BRD” claims;
+- prompt collections with no real workflow;
+- vendor marketing alone;
+- Curator-invented frameworks disguised as discovered resources;
+- platform/link volume.
 
 ## 8. Cloud / local / Owner split
 
 ### Cloud / ChatGPT
 
-Owns product direction, adversarial review, source/provider research, evidence interpretation, GitHub docs/PRs and final KEEP/REMOVE/package decisions.
+Owns product direction, first-principles/adversarial review, source/provider research, evidence interpretation, GitHub docs/PRs and final KEEP/REMOVE/package decisions.
 
 ### Local Codex
 
-Owns local runtime execution, installed Skill/MCP use, isolated/frozen test artifacts and observable evidence.
+Owns local runtime execution, installed Skill/MCP use, isolated search/curation runs and observable evidence.
+
+Local Codex does not redefine V3 or install unassigned adapters.
 
 ### Product Owner
 
@@ -187,22 +193,22 @@ Only unavoidable login/privacy/business-semantics decisions and final human usef
 
 ## 9. Non-blocking tracks
 
-Bilibili replacement and Xiaohongshu provider research are deferred.
+Bilibili replacement, Xiaohongshu provider research and standard-module learning are deferred.
 
-Do not install more source adapters until current evidence shows a real acquisition-value gap.
+Do not install more source adapters before delivery-scenario evidence justifies them.
 
 ## 10. Anti-drift checks
 
 Stop if work turns into:
 
-- resource database construction;
-- platform quotas;
-- adapter package manager;
-- automatic updates;
-- every-platform search;
+- generic ERP knowledge learning as the mainline;
+- a tool/resource catalog;
+- one test per software product;
+- mandatory platform coverage;
+- endless A/B machinery;
 - link-count scoring;
-- source adapter making final recommendations;
-- Curator synthesis presented as discovered external resource;
+- source adapters making final recommendations;
+- Curator synthesis presented as external resources;
 - local PASS treated as independent-user validation.
 
-The project advances only when the next action reduces uncertainty about real user value or runtime feasibility.
+The project advances only when the next action reduces uncertainty about **real project-delivery usefulness**.
