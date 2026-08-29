@@ -56,13 +56,18 @@ When Mode B requires external discovery:
 1. define the capability gap first;
 2. find enough original/current evidence to understand what the candidate actually does;
 3. when practical adoption matters, deliberately look for practitioner evidence showing how it behaves in real use;
-4. for non-trivial adoption decisions, make one falsification pass for limitations, issues, failed attempts, maintenance or compatibility caveats;
-5. compare candidates by complete task fit, evidence and adoption value, not by source prestige;
-6. stop when another search is unlikely to change the recommendation or materially help the user act.
+4. when a known high-signal creator has repeatedly published relevant practical material, use that creator as a **discovery prior**, not as a recommendation authority;
+5. for non-trivial adoption decisions, make one falsification pass for limitations, issues, failed attempts, maintenance or compatibility caveats;
+6. compare candidates by complete task fit, evidence and adoption value, not by source prestige;
+7. stop when another search is unlikely to change the recommendation or materially help the user act.
 
-This is **not** a platform-coverage checklist.
+This is **not** a platform-coverage checklist and not an influencer leaderboard.
 
-Do not search WeChat, Xiaohongshu, Bilibili, GitHub and official sites merely to prove diversity. Search a source class because it can resolve a real uncertainty.
+Do not search WeChat, Xiaohongshu, Bilibili, GitHub and official sites merely to prove diversity. Search a source class or creator because it can resolve a real uncertainty or improve practical discovery recall.
+
+Detailed creator-prior rules:
+
+`docs/CREATOR_PRIOR_STRATEGY_V3.md`
 
 ## 4. Original-content rule
 
@@ -72,7 +77,8 @@ A source cannot become a recommended practical companion based only on:
 - AI-generated summary;
 - repost title;
 - engagement count;
-- screenshot seen out of context.
+- screenshot seen out of context;
+- creator reputation alone.
 
 The Agent must actually open/read the original post, article, transcript, repository, video transcript/notes, or sufficiently complete primary material.
 
@@ -106,9 +112,40 @@ Confidence drops when the content is mainly:
 - stale configuration with no date/version context;
 - copied screenshots without explanation.
 
-Popularity, likes, followers, stars and repost count are weak discovery signals only.
+Popularity, likes, followers, stars, views, saves and repost count are **discovery signals only**. They can affect what the Curator inspects first, but they do not directly determine recommendation quality.
 
-## 6. Chinese-source policy
+A rough platform-specific interpretation is allowed when the metric exists:
+
+- Xiaohongshu: saves / substantive comments are normally stronger use-intent signals than likes or follower count;
+- Bilibili: saves / coins / substantive comments are normally more useful for tutorial discovery than raw views or followers;
+- WeChat: creator history and repeated practical originals matter more because comparable engagement data is often incomplete;
+- GitHub: actual capability, examples, maintenance and issue history matter more than stars/forks.
+
+These are heuristics, not numeric weights.
+
+## 6. Creator-prior rule
+
+Curator may maintain a **small discovery seed set** of creators who repeatedly produce useful practical AI content for enterprise consulting, product management, Agent use, prompts/workflows and adjacent delivery work.
+
+This seed set exists to reduce blind search cost.
+
+It must not become:
+
+- a closed whitelist;
+- a popularity ranking;
+- a substitute for reading the specific content;
+- a large influencer database;
+- a reason to ignore niche ERP/BA/PM practitioners.
+
+A high-prior creator can still publish a weak post. A small creator can still provide the best resource.
+
+Adversarial test:
+
+> **If the author name and engagement metrics were hidden, would this specific resource still deserve recommendation?**
+
+If not, the evidence is too reputation-dependent.
+
+## 7. Chinese-source policy
 
 Chinese practitioner content can be especially valuable because it reduces adoption cost for internal ERP users.
 
@@ -126,7 +163,7 @@ A strong package may therefore be:
 
 > **English original implementation / official fact anchor + Chinese practitioner guide.**
 
-## 7. Stable insight vs volatile fact
+## 8. Stable insight vs volatile fact
 
 A practical article may be old but still contain a useful workflow pattern.
 
@@ -139,7 +176,7 @@ Stable insight can remain useful if transferable.
 
 Volatile facts must be rechecked against a current original/official source before being presented as current truth.
 
-## 8. Preferred recommendation package
+## 9. Preferred recommendation package
 
 Avoid a flat link list.
 
@@ -161,7 +198,7 @@ The fact anchor and practical companion support the main recommendation; they do
 
 More links require explicit user request or clear incremental value.
 
-## 9. Falsification habit
+## 10. Falsification habit
 
 Before confidently recommending a non-trivial Tool / Skill / workflow, deliberately look once for evidence that could change the decision:
 
@@ -171,11 +208,12 @@ Before confidently recommending a non-trivial Tool / Skill / workflow, deliberat
 - maintenance inactivity;
 - privacy/security concern;
 - compatibility caveat;
-- evidence that the existing toolchain already does the same job.
+- evidence that the existing toolchain already does the same job;
+- evidence that a highly visible creator's content is recycled, promotional or not reproducible.
 
 This is a judgment habit, not a fixed query count or Gate.
 
-## 10. Success test
+## 11. Success test
 
 The source strategy is working when the final package answers:
 
@@ -185,4 +223,4 @@ And the practical Owner test remains:
 
 > **Would I directly send this package to a colleague because it saves them search/learning time and helps them act?**
 
-Source diversity, official citations and link count do not rescue a package that fails that test.
+Source diversity, official citations, creator reputation and link count do not rescue a package that fails that test.
