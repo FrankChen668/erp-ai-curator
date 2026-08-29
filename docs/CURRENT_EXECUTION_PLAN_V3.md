@@ -4,221 +4,86 @@
 
 ## 1. Product direction
 
-ERP AI Curator is a bounded Curator / Orchestrator for **real ERP / enterprise-information-system delivery work**.
+ERP AI Curator exists for **real ERP / enterprise-information-system delivery work**.
 
-Its job is:
+Its basic unit is not a broad label such as `requirements analysis`, `PPT`, `prototype`, `data processing`, nor a tool name.
 
-> **Given a real project job with actual inputs and an expected deliverable, help the practitioner choose a useful AI working approach; when external resources are needed, find and curate a small number of resources worth learning, trying or sharing.**
-
-The basic unit is not `requirements analysis`, `PPT`, `prototype`, `data processing` or a tool name.
-
-The basic unit is:
+Use:
 
 ```text
 real project situation
 + actual input artifacts
-+ concrete action that must be completed
-+ expected deliverable
-+ review / time / privacy constraints
-→ decide how AI can help
-→ find external Skills / Tools / tutorials / methods / cases that materially improve the job
-→ small practical recommendation package
++ concrete action
++ expected reviewable deliverable
++ time / privacy / environment constraints
+→ decide how AI should help
+→ discover only the external Skill / Tool / method / tutorial / case that adds material value
+→ read original evidence
+→ compare task fit, maturity and adoption cost separately
+→ return a small practical package
 ```
 
 Curator owns judgement. Source adapters only acquire evidence.
 
-Curator-created usage guidance must be labelled as synthesis, not presented as a discovered resource.
+Curator-created usage guidance must be labelled as synthesis, not presented as an external resource.
 
-## 2. Survey is now the primary demand source
+## 2. Demand source — survey-driven Problem Cards
 
 Current REAL_USER demand evidence:
 
-- 83 survey responses from the target delivery population;
-- 37 implementation consultants, 30 project managers, 8 developers, 5 presales, 3 other;
-- 78 respondents supplied at least one non-empty concrete problem in Q18, producing 224 non-empty issue slots after removing obvious blanks/`无`/`-`.
-
-Because the survey export may contain platform-side wording cleanup, do not treat every free-text sentence as verbatim. Use repeated semantic work patterns.
+- 83 survey responses;
+- implementation consultants and project managers are the main audience;
+- 78 respondents supplied at least one non-empty concrete work problem in Q18;
+- 224 non-empty issue slots were normalized into repeated work patterns.
 
 Authority:
 
 - `docs/validation/SURVEY_DERIVED_PROBLEM_CARDS_01.md`
 
-This evidence overrides representative scenario invention when choosing what to curate next.
+The survey shows the main need is not AI introduction. Many users already use AI; the harder problem is:
 
-## 3. First-principles interpretation of the survey
+> **How do I use AI reliably on the material already on my desk to produce something I can review, edit and hand over with less rework?**
 
-Most respondents already use AI. The main gap is not AI awareness.
+Typical inputs include Word/PDF, PPT, Excel, meeting transcripts, screenshots, code and logs.
 
-Strong signals:
+## 3. Current first-wave Problem Cards
 
-- research/Q&A already used by 93.98%;
-- document work 81.93%;
-- PPT/reporting 71.08%;
-- unstable AI output quality 63.86%;
-- lack of real project cases/methods 44.58%;
-- AI in project implementation is the top training request at 84.34%.
+Do not curate all at once.
 
-Typical inputs are actual delivery artifacts:
+- P01 — workshop/minutes → requirement package
+- P02 — requirements → PRD / FS / functional design
+- P03 — requirements/rules → clickable prototype
+- P04 — business logic → editable process / architecture diagram
+- P05 — source materials → customer-ready PPT
+- P06 — Excel/CSV → clean / reconcile / validate
+- P07 — codebase → logic / FS / debug
+- P10 — requirement → test scenarios / cases
 
-- Word/PDF 85.54%;
-- PPT 65.06%;
-- Excel 60.24%;
-- meeting minutes/transcripts 59.04%;
-- screenshots 40.96%;
-- code/logs 26.51%.
+This is a provisional queue, not a permanent taxonomy.
 
-Therefore the core product question is:
+## 4. Source strategy
 
-> **Given the material already on my desk, what proven AI workflow/resource helps me produce tomorrow's deliverable with less rework and acceptable quality?**
+Current source authority:
 
-## 4. Current problem-card queue
-
-Do not curate all problems at once.
-
-First wave from repeated survey demand:
-
-1. **P01 — workshop/minutes → requirement package**
-2. **P02 — requirements → PRD/FS/functional design**
-3. **P03 — requirements/rules → clickable prototype**
-4. **P04 — business logic → editable process/architecture diagram**
-5. **P05 — source materials → customer-ready PPT**
-6. **P06 — Excel/CSV → clean/reconcile/validate**
-7. **P07 — codebase → logic/FS/debug**
-8. **P10 — requirement → test scenarios/cases**
-
-Second wave only after useful resources are actually accumulating:
-
-- troubleshooting/log/error analysis;
-- solution completeness/adversarial review;
-- manuals/training material;
-- PM weekly/risk/action closure;
-- local knowledge/Skill reuse;
-- Codex/WorkBuddy onboarding bound to one real delivery job.
-
-This queue is provisional and not a permanent taxonomy.
-
-## 5. What counts as a useful resource
-
-The survey repeatedly says AI output is unstable and requires heavy human rework.
-
-Therefore a resource is valuable only when it improves one or more of:
-
-- source grounding / provenance;
-- correctness and completeness;
-- editable output;
-- repeatability;
-- real project input support;
-- verification/review workflow;
-- reduction in manual formatting or repetitive work;
-- lower correction cost;
-- enterprise privacy/safety fit.
-
-“Can generate X” is not enough.
-
-A polished demo or generic prompt list is weak if it does not survive real project material.
-
-## 6. Creator-prior discovery
-
-For practical resource discovery, Curator may maintain a **small, evidence-based creator seed set** across Bilibili, Xiaohongshu, WeChat, GitHub and other practitioner channels.
-
-Good seed creators may include people who repeatedly publish useful material about:
-
-- AI enterprise consulting;
-- AI product management / PM workflows;
-- Agent/Codex/WorkBuddy usage;
-- requirements / PRD / prototypes;
-- process diagrams;
-- PPT/documentation;
-- data/spreadsheet workflows;
-- practical prompt/workflow design.
-
-The seed set affects **where to inspect first**, not what to recommend.
-
-Creator popularity is not a hard weight.
-
-Use engagement as weak platform-specific discovery evidence only:
-
-- Xiaohongshu: saves and substantive comments normally carry more practical-use signal than likes/followers;
-- Bilibili: saves/coins/substantive comments normally carry more tutorial-use signal than raw views/followers;
-- WeChat: repeated original practical output and topic consistency matter more because comparable engagement is incomplete;
-- GitHub: actual capability, examples, maintenance and issues matter more than stars/forks.
-
-Always read the specific original content. Always allow niche creators outside the seed set to win.
-
-Authority:
-
+- `docs/SOURCE_STRATEGY_V3.md`
 - `docs/CREATOR_PRIOR_STRATEGY_V3.md`
 
-Do not build a large influencer database or a numeric creator ranking.
+Rules:
 
-## 7. Test readiness — design freeze
+- original/current evidence before recommendation;
+- official/original is a fact anchor, not an automatic winner;
+- practitioner content matters when it adds real operating steps, prompts, templates, examples, failure modes or adoption lessons;
+- Creator Prior may improve discovery order but never determines recommendation;
+- popularity/engagement is a weak discovery signal only;
+- specific original content must still be read;
+- open discovery must remain available so niche creators can win;
+- task fit and source maturity must be judged separately.
 
-**Status: READY TO TEST P01.**
+Adversarial creator test:
 
-The following are now sufficiently stable for the first pilot:
+> **If author name and engagement metrics were hidden, would this specific resource still deserve recommendation?**
 
-- REAL_USER survey as demand source;
-- Problem Card as validation unit;
-- practical `input → workflow → output → limitation/rework` standard;
-- source/evidence strategy;
-- creator prior as discovery-only signal;
-- original-content requirement;
-- source-adapter permission/lifecycle boundary;
-- cloud/local/Owner responsibility split.
-
-Readiness note:
-
-- `docs/validation/P01_TEST_READINESS_NOTE.md`
-
-Do **not** add another framework, scoring model, creator ranking, platform quota, taxonomy or adapter before the P01 result unless a hard runtime blocker appears.
-
-The next uncertainty is empirical:
-
-> **Can Curator actually find a package that a consultant would open tonight and use on tomorrow's real material?**
-
-## 8. Immediate next local task
-
-Use **P01 / J02: post-workshop requirement package**.
-
-Protocol:
-
-- `docs/validation/DELIVERY_J02_POST_WORKSHOP_REQUIREMENTS.md`
-
-Concrete job:
-
-> A consultant finishes a two-hour customer workshop. They have transcript/notes, As-Is process material, RFP/requirement list, Excel/Word attachments and screenshots. By tomorrow morning they need a first reviewable package containing structured requirements, source/quote/owner, open questions, conflicts/assumptions and preliminary Fit/Gap inputs.
-
-The Curator must find a small set of external resources that can plausibly be learned tonight and applied to that material tomorrow.
-
-This is a curation-quality test, not another routing/A-B test.
-
-Normal public Web/GitHub/current sources may be used. Practitioner discovery should follow the source strategy and creator-prior rules. The qualified WeChat Search → Reader chain remains optional only when a concrete Chinese-practice evidence gap matters.
-
-Do not force source-adapter use.
-
-## 9. After P01
-
-Cloud reviews the package before any next task.
-
-Do not mechanically run P02–P10.
-
-If P01 is practical:
-
-- preserve the good resources as actual product assets;
-- identify which discovery behaviour found them;
-- record useful creator observations only when specific content actually passed curation;
-- then choose one **different work unit** from the survey, preferably P03/P04/P05/P06 rather than another requirements variation.
-
-If P01 remains abstract:
-
-- fix discovery/output behaviour;
-- do not add more validation framework.
-
-The project should now start accumulating **useful resources and practical recipes**, not more scenario documents.
-
-## 10. Source adapters
-
-Current state:
+## 5. Source-adapter state
 
 ```text
 WeChat discovery → CONDITIONAL
@@ -229,11 +94,96 @@ Xiaohongshu first provider → REMOVED
 Xiaohongshu replacement → none approved
 ```
 
-Adapters are evidence acquisition capabilities, not product goals.
+Adapters are optional acquisition capabilities, not product goals.
 
-Do not expand adapter footprint unless a survey-derived problem exposes a material source-access gap that changes the recommendation package.
+Do not expand adapter footprint merely for platform coverage.
 
-## 11. Cloud / local / Owner split
+## 6. Completed — P01 / J02
+
+Status: **CURATION COMPLETE / KEEP FOR PRACTICAL PILOT**
+
+Result authority:
+
+- `docs/validation/P01_CURATION_RESULT_01.md`
+
+P01 found a low-setup practitioner working method for:
+
+> workshop notes / transcripts → source-grounded requirement brief + traceability + conflict log + open questions
+
+Main resource:
+
+- `Convert Notes to Requirements Working Skill`
+
+Cloud adversarial review confirmed:
+
+- strong task fit;
+- explicit source/speaker traceability;
+- conflict and ambiguity discipline;
+- practical templates/checklists;
+- no requirement to install a new Agent/Skill.
+
+But maturity is limited:
+
+- the source itself calls the method a public working interpretation, not an official BABOK/SAP/vendor method;
+- only one observed file commit exists;
+- it was introduced in a batch of related working skills;
+- no independent ERP-project adoption evidence was established.
+
+Use the maturity label:
+
+> **high task fit / low independent validation**
+
+Also corrected from the local run:
+
+- `T-/P-/R-/A-` numbering;
+- multi-file ERP packaging conventions;
+- generic confidence fields;
+- combined next-morning output schema;
+
+are **Curator synthesis/application guidance**, not direct claims from the main resource.
+
+P01 proves useful discovery behaviour, not real-user outcome improvement.
+
+Creator Prior and WeChat uplift were not tested because neither was needed.
+
+## 7. Immediate next test — P04A editable business process diagram
+
+Status: **NEXT / LOCAL**
+
+Protocol:
+
+- `docs/validation/DELIVERY_P04A_EDITABLE_PROCESS_DIAGRAM.md`
+
+Concrete job:
+
+> A consultant has confirmed business requirements / process description, roles, major documents/system touchpoints and exception scenarios. By tomorrow they need an editable process diagram for customer review. AI may generate the first draft, but the result must remain editable and correctable rather than a flat image.
+
+Why P04A next:
+
+- it is a different artifact type from P01;
+- survey respondents repeatedly mention flow/process diagram work and manual formatting effort;
+- it naturally tests executable Skills, draw.io/BPMN/Visio workflows and practical tutorials;
+- it gives Creator Prior / Chinese practitioner discovery a natural opportunity without forcing any platform;
+- it directly tests editability and semantic fidelity, two major user acceptance conditions.
+
+Do **not** broaden P04A into architecture-diagram catalogs in this run.
+
+## 8. P04A success evidence
+
+The final package should make it possible to answer:
+
+- What source material does the consultant provide?
+- What actual steps/tool calls produce the first diagram?
+- What structured editable artifact is returned?
+- Can roles/swimlanes, decisions, exceptions and system handoffs be represented?
+- How does the workflow avoid inventing missing process relationships?
+- How does a consultant review and correct the output?
+- What install/learning/privacy cost exists?
+- Is the workflow faster than manual drawing after correction cost is included?
+
+Image-generation-only tools cannot be the main recommendation.
+
+## 9. Cloud / local / Owner split
 
 ### Cloud / ChatGPT
 
@@ -242,42 +192,40 @@ Owns:
 - product direction;
 - first-principles/adversarial review;
 - survey interpretation;
-- source/provider research;
-- creator-prior research and maintenance;
-- evidence interpretation;
+- source/provider/creator research;
+- maturity and evidence interpretation;
 - GitHub maintenance;
-- final KEEP/REMOVE/product decisions.
+- final KEEP / CONDITIONAL / REMOVE decisions.
 
 ### Local Codex
 
-Owns only local-runtime execution:
+Owns:
 
 - fresh curation runs;
-- installed Skill/MCP use;
 - observable source evidence;
-- local installation/runtime tests when explicitly assigned.
+- use of already approved installed adapters when the task genuinely needs them;
+- local runtime/install tests only when explicitly assigned.
 
 It does not redefine V3 or install arbitrary adapters.
 
 ### Product Owner
 
-Only unavoidable login/privacy/business semantics and final human usefulness judgement.
+Only unavoidable login/privacy/business-semantics decisions and final human usefulness judgement.
 
-## 12. Anti-drift
+## 10. Anti-drift
 
 Stop if work turns into:
 
-- broad consulting-stage labels detached from real tasks;
+- broad consulting-stage labels detached from actual artifacts;
 - AI/tool feature catalogs;
-- generic ERP knowledge learning as mainline;
-- one test per software product;
+- generic ERP knowledge learning as the mainline;
 - mandatory platform coverage;
-- influencer popularity ranking;
-- a closed creator whitelist;
+- influencer ranking / closed creator whitelist;
 - endless A/B machinery;
 - link-count scoring;
-- Curator synthesis presented as external resources;
-- local PASS treated as user outcome validation;
-- more validation documents without a better resource package.
+- calling a polished personal method an industry best practice without maturity evidence;
+- Curator synthesis presented as discovered content;
+- local PASS treated as real-user outcome validation;
+- more validation framework without better practical resources.
 
 The project advances only when the next action helps a real ERP colleague solve a real delivery problem better.
