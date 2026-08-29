@@ -117,46 +117,7 @@ Therefore a resource is valuable only when it improves one or more of:
 
 A polished demo or generic prompt list is weak if it does not survive real project material.
 
-## 6. Immediate next local task
-
-Use **P01 / J02: post-workshop requirement package**.
-
-Protocol already exists:
-
-- `docs/validation/DELIVERY_J02_POST_WORKSHOP_REQUIREMENTS.md`
-
-Concrete job:
-
-> A consultant finishes a two-hour customer workshop. They have transcript/notes, As-Is process material, RFP/requirement list, Excel/Word attachments and screenshots. By tomorrow morning they need a first reviewable package containing structured requirements, source/quote/owner, open questions, conflicts/assumptions and preliminary Fit/Gap inputs.
-
-The Curator must find a small set of external resources that can plausibly be learned tonight and applied to that material tomorrow.
-
-This is a curation-quality test, not another routing/A-B test.
-
-WeChat Search → Reader remains optional only when a real practitioner-evidence gap matters.
-
-Do not force source-adapter use.
-
-## 7. After P01
-
-Cloud reviews the package before any next task.
-
-Do not mechanically run P02–P10.
-
-If P01 is practical:
-
-- preserve the good resources as actual product assets;
-- identify which discovery behaviour found them;
-- then choose one **different work unit** from the survey, preferably P03/P04/P05/P06 rather than another requirements variation.
-
-If P01 remains abstract:
-
-- fix discovery/output behaviour;
-- do not add more validation framework.
-
-The project should now start accumulating **useful resources and practical recipes**, not more scenario documents.
-
-## 8. Creator-prior discovery
+## 6. Creator-prior discovery
 
 For practical resource discovery, Curator may maintain a **small, evidence-based creator seed set** across Bilibili, Xiaohongshu, WeChat, GitHub and other practitioner channels.
 
@@ -190,7 +151,72 @@ Authority:
 
 Do not build a large influencer database or a numeric creator ranking.
 
-## 9. Source adapters
+## 7. Test readiness — design freeze
+
+**Status: READY TO TEST P01.**
+
+The following are now sufficiently stable for the first pilot:
+
+- REAL_USER survey as demand source;
+- Problem Card as validation unit;
+- practical `input → workflow → output → limitation/rework` standard;
+- source/evidence strategy;
+- creator prior as discovery-only signal;
+- original-content requirement;
+- source-adapter permission/lifecycle boundary;
+- cloud/local/Owner responsibility split.
+
+Readiness note:
+
+- `docs/validation/P01_TEST_READINESS_NOTE.md`
+
+Do **not** add another framework, scoring model, creator ranking, platform quota, taxonomy or adapter before the P01 result unless a hard runtime blocker appears.
+
+The next uncertainty is empirical:
+
+> **Can Curator actually find a package that a consultant would open tonight and use on tomorrow's real material?**
+
+## 8. Immediate next local task
+
+Use **P01 / J02: post-workshop requirement package**.
+
+Protocol:
+
+- `docs/validation/DELIVERY_J02_POST_WORKSHOP_REQUIREMENTS.md`
+
+Concrete job:
+
+> A consultant finishes a two-hour customer workshop. They have transcript/notes, As-Is process material, RFP/requirement list, Excel/Word attachments and screenshots. By tomorrow morning they need a first reviewable package containing structured requirements, source/quote/owner, open questions, conflicts/assumptions and preliminary Fit/Gap inputs.
+
+The Curator must find a small set of external resources that can plausibly be learned tonight and applied to that material tomorrow.
+
+This is a curation-quality test, not another routing/A-B test.
+
+Normal public Web/GitHub/current sources may be used. Practitioner discovery should follow the source strategy and creator-prior rules. The qualified WeChat Search → Reader chain remains optional only when a concrete Chinese-practice evidence gap matters.
+
+Do not force source-adapter use.
+
+## 9. After P01
+
+Cloud reviews the package before any next task.
+
+Do not mechanically run P02–P10.
+
+If P01 is practical:
+
+- preserve the good resources as actual product assets;
+- identify which discovery behaviour found them;
+- record useful creator observations only when specific content actually passed curation;
+- then choose one **different work unit** from the survey, preferably P03/P04/P05/P06 rather than another requirements variation.
+
+If P01 remains abstract:
+
+- fix discovery/output behaviour;
+- do not add more validation framework.
+
+The project should now start accumulating **useful resources and practical recipes**, not more scenario documents.
+
+## 10. Source adapters
 
 Current state:
 
@@ -207,7 +233,7 @@ Adapters are evidence acquisition capabilities, not product goals.
 
 Do not expand adapter footprint unless a survey-derived problem exposes a material source-access gap that changes the recommendation package.
 
-## 10. Cloud / local / Owner split
+## 11. Cloud / local / Owner split
 
 ### Cloud / ChatGPT
 
@@ -237,7 +263,7 @@ It does not redefine V3 or install arbitrary adapters.
 
 Only unavoidable login/privacy/business semantics and final human usefulness judgement.
 
-## 11. Anti-drift
+## 12. Anti-drift
 
 Stop if work turns into:
 
