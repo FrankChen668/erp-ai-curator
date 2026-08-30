@@ -1,175 +1,147 @@
-# ERP AI Curator — Current Execution Plan V3
+# ERP AI Curator — Current Execution Plan
 
 Date: 2026-08-30
+Status: **CURRENT**
 
-> Current execution authority. Context-drift correction remains recorded in `docs/REBASE_AUDIT_20260830.md`. Minimal Curator V0.1 remains in a bounded real-user pilot.
+> Navigation authority: `docs/PROJECT_MAP.md`. Product authority: `docs/PROJECT_NORTH_STAR.md`.
 
-## 0. Owner execution continuity rule
+## 0. Owner execution rule
 
-Authority: `docs/OWNER_EXECUTION_RULES.md`.
-
-> **Cloud/ChatGPT must continue any useful next step it can execute itself. It stops only for a genuine Owner decision, a genuine Local Agent handoff, or an external evidence barrier. When it stops, the next actor/task/result must be explicit.**
-
-This does not authorize busywork; continue the highest-value current milestone.
+Cloud/ChatGPT continues every useful cloud-executable next step. It stops only for a genuine Owner decision, Local Agent-only access/runtime, or external evidence barrier. Authority: `docs/OWNER_EXECUTION_RULES.md`.
 
 ## 1. Product objective
 
-ERP AI Curator helps SAP / Oracle / ERP / enterprise-information-system practitioners find the **best existing AI working method for a real delivery task**.
-
-Core question:
-
-> **面对这个真实工作任务，普通 AI 是否已经够用？如果不够，互联网上已经存在的实操经验、Tool / Skill / MCP / 方法 / 教程中，什么最值得学习和采用？**
+> **面对真实 ERP / 企业信息化工作任务，判断当前 AI / 工具链是否已经够用；如果不够，从互联网上已经存在的实践、Tool / Skill / MCP / 方法 / 教程中筛出少量真正值得优先学习和采用的方案。**
 
 Main chain:
 
 ```text
-real task
-→ AI leverage judgement
-→ practitioner workflow / review / failure evidence
-→ original Tool / Skill / repo verification
+real task + current baseline + hard constraints
+→ AI leverage / capability-gap judgement
+→ practitioner evidence when needed
+→ original implementation verification
 → decision-changing official facts
-→ small curated best-practice recommendation
+→ compact adoption recommendation
 ```
 
-The default product output is **best-practice / existing-resource curation**, not a full execution SOP and not a user tool-testing program.
+Curator 不是工具目录、资源数据库、执行 SOP 生成器或工具认证实验室。
 
-## 2. Trustworthy evidence baseline
+## 2. 当前方法结论
 
-Demand authority:
+历史异构任务 P01/P03/P04/P06/P07 与后续边界回归已经足以支持一个稳定方法骨架：
 
-- 83-response 2026-08 training survey;
-- `docs/validation/SURVEY_DERIVED_PROBLEM_CARDS_01.md`.
+1. 从真实任务、材料、当前 baseline、交付物和硬约束开始；
+2. A/B/C 由 capability gap + adoption cost 决定；
+3. external adoption question 优先 practitioner experience，再核验 implementation / current facts；
+4. source-grounded analysis 优先于模型记忆；
+5. runtime/local test 只在 decision-changing 时出现；
+6. 0 个资源合法；强匹配优先于覆盖率；
+7. 结论稳定即停止。
 
-Accepted heterogeneous task evidence:
+**没有证据支持重建 Gate、评分、taxonomy、资源数据库或多 Agent pipeline。**
 
-- P01 — workshop/minutes → requirement package: **high task fit / low independent validation**;
-- P04 — business logic → editable process diagram: **CLOSED**;
-- P06 — ERP-style reconciliation: **CLOSED**, with bounded runtime evidence;
-- P03 — requirements/rules → clickable prototype: **CLOSED** via clean Result 02;
-- P07 — codebase/program → logic/FS/defect hypotheses: **CLOSED** via clean Result 02.
-
-Current evidence authority: `docs/validation/EVIDENCE_STATUS.md`.
-
-Invalidated P03/P07 Result 01 files remain invalid. Only Result 02 is authoritative.
-
-## 3. Cross-card method decision
-
-Authority: `docs/validation/CROSS_CARD_METHOD_REASSESSMENT_20260830.md`.
-
-Verdict:
-
-> **METHOD READY FOR REAL-USER PILOT — PRODUCT OUTCOME NOT YET VALIDATED**
-
-The recurring method remains:
-
-1. start from the real job, actual artifacts, deliverable and material constraints;
-2. ordinary AI / existing Agent is the baseline;
-3. specialized capability is introduced only for a concrete bottleneck;
-4. when external evidence matters, practitioner workflow/failure evidence comes before vendor feature lists;
-5. verify original Tool / Skill / repo and only decision-changing current facts;
-6. local/runtime testing is used only when the result can change the recommendation;
-7. stop when the user has a stable small set of best practices/resources worth learning or adopting.
-
-## 4. Minimal Curator V0.1 status
-
-Current Skill:
+## 3. 当前 Skill
 
 - `skills/curating-erp-ai-resources/SKILL.md`
-- version `0.6.3`
+- version: **0.7.0**
+- stage: **Curation pilot — user-use value unvalidated**
 
-Status:
+0.7.0 是项目级校准后的 runtime 版本：
 
-> **Minimal Curator V0.1 — real-user pilot candidate**
+- 用真实 baseline，不和裸模型比较；
+- 默认说“当前任务下优先推荐实践”，不滥用“最佳/唯一/已验证”；
+- `信息不足 != C`；
+- C 默认给低成本学习/采用路径，不把用户变成测试员；
+- Skill 主体只保留稳定流程，详细边界按需进 references。
 
-0.6.2 added the adoption-consistency Harness check. 0.6.3 adds a product-boundary Harness correction after Pilot Case 001 drifted from Curator work into execution/test coaching.
+## 4. 两条证据 Lane
 
-Authorities:
+### Lane A — REAL_USER_ORIGIN CURATION（当前 Cloud 可持续推进）
 
-- `docs/validation/CURATOR_062_HARNESS_PATCH.md`
-- `docs/validation/CURATOR_063_BEST_PRACTICE_BOUNDARY_PATCH.md`
+真实同事/问卷/Owner 的真实问题 → Curator 研究与推荐。
 
-Do not describe it as a validated product yet.
+当前已形成：
 
-## 5. Correct current checkpoint
+- `docs/curation-cases/CASE_001_ERP_OPERATING_MANUAL.md`
+- `docs/curation-cases/CASE_002_ORACLE_EBS_DEVELOPMENT.md`
 
-> **REAL_USER best-practice curation / adoption remains the active product milestone.**
+这类结果是**真实来源 curation output**，不是用户采用证据。
 
-The product must first give a real colleague a high-value curated answer to a real task. User adoption/modification/rejection is then captured as validation evidence.
+### Lane B — REAL_USER_USE VALIDATION（外部反馈 Lane）
 
-Do not invert this order by making the user perform a test protocol as the Curator's main output.
+真实同事收到推荐后自然学习、采用、修改、拒绝或忽略。
 
-## 6. Active Pilot Case 001 — ERP operating manual
+Authority: `docs/REAL_USER_PILOT_V1.md`。
 
-Authority:
+只有 Lane B 能证明真实用户价值、节省搜索/判断成本、减少错选或返工。
 
-- `docs/pilot/PILOT_CASE_001_ERP_OPERATING_MANUAL.md`
+## 5. 近阶段目标 — bounded Curation Pack 01
 
-Current status:
+不要无限把 83 份问卷全部“做一遍”。只再补两个**高区分度**真实来源问题，使当前 curation pack 同时覆盖：
 
-> **BEST-PRACTICE CURATION READY — AWAITING REAL USER FEEDBACK / ADOPTION**
+- 已确认需要专业能力的 B 类：Case 001 / 002；
+- 一个应明确说“无需新增 Tool/Skill”的 A 类控制案例；
+- 一个企业系统/权限/真实访问会改变推荐的边界案例。
 
-Case 001 now curates the reusable practice rather than prescribing a test:
+目的不是覆盖率，而是确认 0.7.0 能在不同采用边界上稳定做 Curator。
 
-- task/role-based modular documentation;
-- capture-assisted screenshot/annotation work;
-- stable text for business context, permissions, exceptions and notes;
-- selective screenshots instead of image-per-step by default;
-- change-oriented maintenance;
-- cloud/local choice driven by enterprise data boundaries.
+完成 Pack 01 后，默认停止继续批量 curation，回看：
 
-Guidde / Folge are implementation candidates for different boundaries, not the product itself.
+- 推荐是否真的比普通自搜索更有信息密度；
+- 是否仍出现 over/under-tooling；
+- 是否还会把 author self-practice 写成独立验证；
+- 是否还会把 Curator 变成执行教练；
+- 是否存在值得真实同事优先看到的结果。
 
-## 7. Immediate next action — real-user curation loop
+这仍属于 Lane A，不冒充 Lane B 产品验证。
 
-For each genuine case:
+## 6. 下一执行动作
 
-```text
-real colleague task/materials/constraints
-→ Minimal Curator 0.6.3 finds and compresses best practices
-→ user receives 0–1 primary resource / method by default
-→ user may learn / adopt / modify / reject naturally
-→ capture concrete feedback if available
-→ narrow method/harness correction only if evidence requires it
-```
+Cloud 下一步直接完成：
 
-Capture only decision-changing validation evidence:
+1. **Case 003 — 多顾问周报/PPT 汇总与数据准确性检查**：优先验证 A/no-new-tool 是否成立；
+2. **Case 004 — SAP/ERP 程序 Bug 定位或运维系统访问边界**：验证什么时候 ordinary repo/log analysis 足够，什么时候真实系统/元数据访问才值得升级。
 
-- which recommendation/resource the user actually found useful or useless;
-- whether it reduced search/selection effort;
-- whether an important capability/privacy/permission/environment constraint was missed;
-- whether they adopted, modified or rejected it and why;
-- whether they would bring another real problem to Curator.
+不要预设 A/B/C；按 0.7.0 从原始问题重新判断。
 
-## 8. Cloud / local split
+## 7. Cloud / Local Agent 边界
 
-Cloud/ChatGPT owns:
+Cloud owns：
 
-- continued execution whenever cloud capabilities are sufficient;
-- current Web/GitHub best-practice/resource research;
-- practitioner/original/official evidence separation;
-- product/adoption judgement;
-- evidence review and narrow method/harness corrections;
-- GitHub authority maintenance.
+- public Web/GitHub research；
+- practitioner / implementation / official fact separation；
+- product judgement and adversarial review；
+- GitHub authority maintenance；
+- cloud-executable curation cases。
 
-Use a Local Agent only when a real curation decision materially depends on local files/repository/runtime, enterprise environment or environment-specific reproducibility.
+Local Agent 只在真实决策依赖以下内容时接力：
 
-Agent availability is not a reason to create work.
+- 本地项目文件 / repo / runtime；
+- 企业 ERP 环境；
+- 当前系统元数据/日志/权限；
+- Cloud 无法获得且会改变结论的受保护 evidence。
 
-## 9. Anti-drift during pilot
+Agent 可用性本身不是派活理由。
 
-Do not add without real-user evidence of need:
+## 8. Anti-drift
 
-- new validation cards by default;
-- new synthetic boundary regressions by default;
-- fixed scenario taxonomy;
-- scoring/Gate systems;
-- mandatory runtime benchmarks;
-- resource databases or automatic refresh;
-- multi-Agent orchestration;
-- source/influencer rankings;
-- card-specific rules in the permanent Skill;
-- user test protocols as the default Curator deliverable.
+除非真实使用/明确 blocker 证明必要，不新增：
 
-## 10. Current milestone
+- synthetic validation loop；
+- fixed scenario taxonomy；
+- scoring / Gate；
+- resource database / refresh；
+- mandatory runtime benchmark；
+- multi-Agent orchestration；
+- creator ranking；
+- source-adapter framework activation；
+- card-specific permanent rules；
+- user test protocol as Curator default output。
 
-> **Use Minimal Curator 0.6.3 to turn genuine colleague problems into small, evidence-backed best-practice recommendations, then observe whether colleagues actually find them worth learning/adopting.**
+Source Adapter 设计目前只是 conditional design，只有重复、material acquisition gap 真正影响推荐时才重新激活。
+
+## 9. 当前完成标准
+
+近阶段完成不是“更多 Case 数量”，而是：
+
+> **完成 4 个高区分度 REAL_USER_ORIGIN curation 后，能明确说明 0.7.0 在 A/B/系统访问边界上是否稳定；同时保持 REAL_USER_USE 仍为唯一产品价值验证 Lane。**
