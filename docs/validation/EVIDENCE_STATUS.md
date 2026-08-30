@@ -4,165 +4,122 @@ Date: 2026-08-30
 
 > Current execution authority: `docs/CURRENT_EXECUTION_PLAN_V3.md`.
 
-## 1. REAL_USER demand evidence
+## 1. Demand evidence
 
-The 2026-08 survey provides current demand evidence from 83 target users.
+The 2026-08 survey remains the primary REAL_USER demand source.
 
 Supported conclusions:
 
 - implementation consultants and project managers are the main audience;
-- many respondents already use AI frequently;
-- the dominant need is practical project-delivery use rather than AI introduction;
-- unstable output quality, lack of real project cases/methods and enterprise data constraints are recurring frictions;
-- repeated free-text semantics support Problem Cards such as workshop → requirement package, requirements → prototype, business logic → editable process diagram, materials → PPT, Excel → reconciliation, codebase → logic/debug and requirements → test cases.
+- many respondents already use AI;
+- the main gap is practical delivery quality, not AI introduction;
+- users repeatedly want real methods/cases for requirements, PRD, prototypes, diagrams, PPT, Excel/data, testing, project management and Agent usage;
+- typical inputs are actual project artifacts rather than abstract prompts.
 
 Authority:
 
 - `SURVEY_DERIVED_PROBLEM_CARDS_01.md`
 
-The survey is demand validation, not outcome validation.
+The survey validates demand, not solution outcome.
 
-## 2. Curation behavior supported so far
+## 2. Major source-strategy correction
 
-- original/current evidence before recommendation;
-- official/original sources are fact anchors, not automatic winners;
-- practical/community content matters when it adds a reproducible workflow/example/failure/adoption lesson;
-- Curator synthesis must be separated from external resources;
-- creator reputation/popularity affects discovery order only;
-- task fit, maturity, runtime proof and adoption cost must be separated;
-- installed adapters should not be called mechanically;
-- execution-environment bias is real: a Codex-based researcher may over-prefer Codex-native solutions unless a materially different lower-friction path is considered.
+New supported direction:
 
-## 3. Adapter lifecycle / routing
+> **For practical delivery questions, third-party practitioner guides/reviews/cases should normally be the first discovery lane; original Tool/Skill and official docs are supporting verification layers.**
 
-- WeChat discovery: `CONDITIONAL`;
-- WeChat reader: `KEEP FOR PILOT`;
-- Bilibili first provider: `CONDITIONAL / credential blocked`;
-- Xiaohongshu first provider: `REMOVE`.
+Reason:
 
-WeChat Search → Reader bounded multi-Skill routing: **PASS**.
-
-This proves acquisition composition feasibility, not user-value uplift.
-
-## 4. P01 result
-
-Status: **KEEP FOR PRACTICAL PILOT**
+- the user primarily needs “how people actually use it, what works, what fails”;
+- official docs are stronger for current capability/setup/privacy/version facts;
+- existing communities already contain substantial practical material and Skill libraries;
+- rebuilding independent tests for every tool creates low-value duplication.
 
 Authority:
 
-- `P01_CURATION_RESULT_01.md`
+- `docs/SOURCE_STRATEGY_V3.md`
+- `docs/CREATOR_PRIOR_STRATEGY_V3.md`
 
-Main resource:
+## 3. Current web/platform evidence
+
+Observed in current cloud research:
+
+- Bilibili public Web search can surface current practical tutorials, descriptions and engagement metadata for WorkBuddy, Codex, draw.io Skills and AI PM workflows;
+- direct Bilibili page opening/transcript acquisition can still intermittently hit 412/anti-bot, so discovery availability and full-content availability must be distinguished;
+- WeChat Search → Reader remains a qualified path for original public-article evidence;
+- Xiaohongshu remains an acquisition/indexing coverage gap; do not infer content scarcity from access difficulty.
+
+Therefore adapter failure/status must not be used as a proxy for platform value.
+
+## 4. Existing upstream ecosystems discovered
+
+Current evidence shows that ERP AI Curator can reuse existing ecosystems rather than rebuild them, including:
+
+- Chinese AI Product Manager Skill libraries covering PRD, PRD review, UI/prototype, Draw.io and solution challenge;
+- broader PM Agent Skill libraries with dozens of reusable workflows;
+- WorkBuddy community practical bluebooks organized around real tasks;
+- Bilibili creator series covering Draw.io Skills, Codex, PM Skills and WorkBuddy practical operation;
+- practitioner articles describing end-to-end AI PM workflows.
+
+These are feeder pools, not final recommendations by themselves.
+
+## 5. P01
+
+Status: **KEEP FOR PRACTICAL PILOT**
+
+Main retained resource:
 
 - `Convert Notes to Requirements Working Skill`
 
 Classification:
 
-> **high task fit / low independent validation**
+> high task fit / low independent validation
 
-P01 supports practical discovery behavior but does not yet prove reduced rework on real project material.
+Useful practical method; not an independently validated industry standard.
 
-## 5. P04A result
+## 6. P04A
 
-Status: **PROMISING DISCOVERY / RUNTIME UNPROVEN**
+Status: **STRONG IMPLEMENTATION CANDIDATE / PRACTITIONER EVIDENCE UNDER-SAMPLED**
 
-Authority:
+Retained implementation:
 
-- `P04A_CURATION_RESULT_01.md`
+- official `jgraph/drawio-mcp` draw.io Skill
 
-Main retained candidate:
+P04A confirmed strong documentary evidence for native editable `.drawio` output, but the run underweighted third-party guides/reviews and over-weighted implementation docs.
 
-- official `jgraph/drawio-mcp` Codex draw.io Skill
-- cloud review pin: `14b318b19cc37b159f841227b9d11fbd18ce18ea`
+The local result also could not prove runtime usability because candidate installation was prohibited.
 
-Supported by original documentation:
+The previously prepared `P04B` runtime pilot is now:
 
-- native `.drawio` output;
-- Mermaid → `.drawio` path;
-- direct draw.io XML authoring;
-- optional layout/export paths;
-- continued editability.
+> **DEFERRED / escalation only**
 
-Not yet supported by runtime evidence:
+It should run only if practitioner evidence + original implementation + current fact checks leave a material unresolved risk.
 
-- install succeeds in current Windows/Codex environment;
-- a representative ERP process diagram opens and edits correctly;
-- controlled revision preserves unrelated semantics;
-- actual rework is lower than manual drawing;
-- offline/runtime-reference behavior is acceptable.
+## 7. Runtime-testing policy
 
-### P04A adversarial findings
+Do not use this ladder as a mandatory pipeline for every resource.
 
-- the protocol prohibited installation but still asked for `Tomorrow usefulness = Yes/Maybe/No`; therefore `Yes` could only be inferred, not proven;
-- file-format/editability capability was partially conflated with business semantic fidelity;
-- draw.io XML is not automatically BPMN 2.0 semantic XML;
-- the anti-hallucination generation constraints in the local result are Curator synthesis;
-- `Optional second solution: none` was not sufficiently established because materially different browser/collaborative paths currently exist;
-- the official Skill fetches shared GitHub references at runtime, which matters for reproducibility/network policy;
-- the practical companion was another Skill, not strong independent practitioner/case evidence.
+Local runtime test is justified only when:
 
-Current candidate classification:
+- credible practical evidence is absent/contradictory;
+- install/permission/privacy risk matters;
+- exact local reproducibility is essential to training;
+- the candidate may become a repeated internal standard.
 
-> **KEEP FOR PINNED RUNTIME PILOT**
+Otherwise curation should stop earlier.
 
-## 6. Evidence ladder for executable resources
+## 8. Main remaining uncertainties
 
-Do not collapse these levels:
+- which practitioner sources/creators consistently produce the best resources for ERP delivery jobs;
+- whether the curated package is genuinely useful to colleagues on real material;
+- which existing PM/Agent/WorkBuddy resource ecosystems deserve recurring feeder status;
+- whether platform-specific acquisition gaps materially harm recall;
+- whether a minimal production Curator Skill is eventually worth packaging.
 
-```text
-Discovery evidence
-→ original docs inspected
-→ static dependency/permission review
-→ pinned local runtime proof
-→ representative work artifact proof
-→ real-user project outcome evidence
-```
+## 9. Main risk now
 
-P04A reached the first two levels for the main candidate, not the later levels.
+The dominant risk is no longer “insufficient validation”.
 
-## 7. Evidence asset state
+It is:
 
-| Asset | Evidence type | Current status |
-|---|---|---|
-| Survey export 2026-08 | REAL_USER demand evidence | strong/current |
-| Survey-derived Problem Cards 01 | normalized demand evidence | current |
-| Creator Prior Strategy V3 | discovery design | current; uplift unproven |
-| Source Adapter Qualification 01 | local runtime evidence | provider decisions proven |
-| Source Adapter Routing Result 01 | local runtime evidence | WeChat bounded composition PASS |
-| Curation Uplift A/B Test 01 | paired value test | no material uplift for mixed task |
-| P01 Curation Result 01 | practical curation evidence | KEEP FOR PRACTICAL PILOT |
-| P04A Curation Result 01 | executable candidate discovery | PROMISING / runtime unproven |
-| Independent REAL_USER outcome/use results | primary solution validation | still insufficient |
-
-## 8. Next validation
-
-Next: **P04B — pinned official draw.io Codex Skill runtime pilot**.
-
-Protocol:
-
-- `DELIVERY_P04B_DRAWIO_RUNTIME_PILOT.md`
-
-P04B does not search for more tools. It tests the exact strong candidate on one representative ERP process, one revision, runtime dependencies and cleanup.
-
-Run P04B once, then stop for cloud review.
-
-## 9. Main remaining uncertainties
-
-- whether selected executable Skills/Tools actually survive pinned local runtime qualification;
-- whether recommended resources reduce real-user rework on actual project materials;
-- whether Curator consistently finds share-worthy resources across distinct artifact types;
-- whether Creator Prior improves recall without popularity bias;
-- whether Chinese practitioner evidence materially improves a real package;
-- whether V3 should eventually become a production Skill.
-
-## 10. Main risks
-
-- documentation claims mistaken for runtime proof;
-- editable output mistaken for business-semantic correctness;
-- Codex-native solution bias because Codex is the research environment;
-- personal frameworks polished into “best practice” without independent evidence;
-- adapter/platform checklist drift;
-- creator popularity echo chamber;
-- Curator synthesis mistaken for discovered capability;
-- local technical success mistaken for real-user outcome validation;
-- building more validation machinery instead of accumulating useful resources.
+> **over-validation and framework-building causing the project to miss the actual value: finding and curating existing practical experience faster than colleagues can find it themselves.**

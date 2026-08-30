@@ -1,208 +1,222 @@
 # ERP AI Curator — Current Execution Plan V3
 
-> Status: current execution authority. Product principles remain defined by `PROJECT_NORTH_STAR.md` and `AI_LEVERAGE_MODEL_V3.md`.
+> Current execution authority.
 
 ## 1. Product direction
 
-ERP AI Curator exists for **real ERP / enterprise-information-system delivery work**.
+ERP AI Curator exists to help ERP / enterprise-information-system practitioners solve real delivery problems with **existing practical AI resources**.
 
-Its basic unit is:
+Basic unit:
 
 ```text
 real project situation
 + actual input artifacts
-+ concrete action
-+ expected reviewable deliverable
-+ time / privacy / environment constraints
-→ decide how AI should help
-→ discover external Skill / Tool / method / tutorial / case only when it adds material value
-→ read original evidence
-→ separate task fit, maturity, runtime proof and adoption cost
-→ return a small practical package
++ concrete task
++ expected deliverable
+→ find how practitioners already solve it
+→ identify the useful Tool / Skill / workflow behind that practice
+→ verify only the current facts that matter
+→ return a small package worth learning and trying
 ```
 
-Curator synthesis must be labelled as synthesis, not presented as external capability.
+The project is a **curator**, not a generic Skill directory and not a tool certification lab.
 
 ## 2. Demand source
 
-The primary demand source is the 83-response training survey and its normalized Problem Cards.
+Primary demand source:
+
+- 83-response training survey;
+- normalized survey Problem Cards.
 
 Authority:
 
 - `docs/validation/SURVEY_DERIVED_PROBLEM_CARDS_01.md`
 
-The survey supports a practical-delivery focus: users already use AI, but need repeatable ways to turn real Word/PDF/PPT/Excel/minutes/screenshots/code/logs into reviewable deliverables with less rework.
+First-wave practical problems include:
 
-## 3. First-wave Problem Cards
+- workshop/minutes → requirement package;
+- requirements → PRD / FS;
+- requirements/rules → clickable prototype;
+- business logic → editable process diagram;
+- source materials → customer-ready PPT;
+- Excel/CSV → clean / reconcile / validate;
+- codebase → logic / FS / debug;
+- requirement → test scenarios/cases.
 
-- P01 — workshop/minutes → requirement package
-- P02 — requirements → PRD / FS / functional design
-- P03 — requirements/rules → clickable prototype
-- P04 — business logic → editable process / architecture diagram
-- P05 — source materials → customer-ready PPT
-- P06 — Excel/CSV → clean / reconcile / validate
-- P07 — codebase → logic / FS / debug
-- P10 — requirement → test scenarios / cases
-
-This is a provisional queue, not a permanent taxonomy.
-
-## 4. Source / creator strategy
+## 3. Source order — practitioner first
 
 Authority:
 
 - `docs/SOURCE_STRATEGY_V3.md`
 - `docs/CREATOR_PRIOR_STRATEGY_V3.md`
 
-Rules:
-
-- original/current evidence before recommendation;
-- official/original is a fact anchor, not an automatic winner;
-- practitioner content matters when it adds operating steps, prompts, templates, examples, failure modes or adoption lessons;
-- Creator Prior changes discovery order only;
-- popularity is a weak discovery signal;
-- open discovery remains available so niche creators can win;
-- task fit and source maturity are separate.
-
-For a generalized ERP audience, also guard against **execution-environment bias**:
-
-> Before concluding that a Codex/Agent-native solution is the only useful boundary, inspect at least one materially different lower-friction path when one plausibly exists (for example browser/SaaS collaborative workflow).
-
-This is a comparison discipline, not a quota. The alternative may still lose.
-
-## 5. Source-adapter state
+For practical questions, default search order is now:
 
 ```text
-WeChat discovery → CONDITIONAL
-WeChat reader → KEEP FOR PILOT
-Bilibili first provider → CONDITIONAL / credential blocked
-Bilibili alternative → deferred
-Xiaohongshu first provider → REMOVED
-Xiaohongshu replacement → none approved
+第三方攻略 / 测评 / 实战 / creator content
+→ actual Tool / Skill / repository
+→ official/current fact anchor
+→ limitations / counter-evidence
 ```
 
-Do not expand adapters merely for platform coverage.
+This is a deliberate correction from the earlier official/original-first tendency.
 
-## 6. Completed — P01
+The expected main learning resource is often a practitioner guide, video, case or field note. Official docs normally support current facts rather than occupy the first recommendation slot.
 
-Status: **CURATION COMPLETE / KEEP FOR PRACTICAL PILOT**
+## 4. Platforms / access
 
-Authority:
+Do not equate adapter status with platform usefulness.
 
-- `docs/validation/P01_CURATION_RESULT_01.md`
+Current reality:
 
-Main retained resource:
+- Bilibili practical videos can often be discovered through ordinary public Web/indexing; direct full-page/transcript access may still hit anti-bot/412 depending on the path.
+- WeChat Search → Reader is qualified for original article acquisition when ordinary discovery is insufficient.
+- Xiaohongshu remains an acquisition coverage gap; login/dynamic-rendering/indexing limits are not evidence that useful content does not exist.
+
+Use the least costly path first.
+
+Do not require every platform in every run.
+
+## 5. Existing ecosystems — reuse, do not rebuild
+
+There are already substantial upstream ecosystems:
+
+- PM / AI Product Manager Skill libraries;
+- Agent Skill repositories;
+- Bilibili practitioner series;
+- WeChat / Xiaohongshu practical creators;
+- WorkBuddy practical guides / bluebooks;
+- tool-specific community tutorials and reviews.
+
+ERP AI Curator should treat them as feeder pools.
+
+Our value is the ERP / enterprise-delivery filter:
+
+> which one actually helps this consultant solve this specific project problem tomorrow?
+
+Do not create another generic Prompt library, tutorial encyclopedia, influencer ranking or PM Skill catalog.
+
+## 6. Testing policy — major simplification
+
+Repeated local runtime testing is **not** the default.
+
+Do not test every recommended Skill/Tool merely to prove the Curator designed the recommendation correctly.
+
+Local runtime proof is justified only when:
+
+1. credible third-party practical evidence is absent or contradictory;
+2. installation / permission / privacy risk is material;
+3. the training recommendation depends on exact reproducible local steps;
+4. the resource is likely to become a repeated internal standard and being wrong is costly.
+
+Otherwise:
+
+> strong practitioner evidence + actual implementation + current fact check + limitations
+
+is sufficient for curation.
+
+This corrects the previous over-validation drift.
+
+## 7. Existing pilot conclusions
+
+### P01 — workshop → requirement package
+
+Retained resource:
 
 - `Convert Notes to Requirements Working Skill`
 
 Classification:
 
-> **high task fit / low independent validation**
+> high task fit / low independent validation
 
-P01 proved useful discovery behavior, not real-user outcome improvement.
+Useful as a practical method; not an industry-standard best practice.
 
-## 7. Completed — P04A curation
+### P04A — business description → editable process diagram
 
-Status: **PROMISING DISCOVERY / RUNTIME UNPROVEN**
+Strong implementation candidate:
 
-Authority:
+- official `jgraph/drawio-mcp` / draw.io Skill
 
-- `docs/validation/P04A_CURATION_RESULT_01.md`
+But P04A underweighted practitioner evidence and over-weighted implementation documentation.
 
-Strong retained candidate:
+The missing layer is not another technical test first. The missing layer is:
 
-- official `jgraph/drawio-mcp` Codex draw.io Skill
-- cloud review pin: `14b318b19cc37b159f841227b9d11fbd18ce18ea`
+> **第三方实操：别人到底怎么用 draw.io + Agent/Codex/Skill，效果如何，哪里需要修改，适不适合普通顾问。**
 
-Documentary evidence strongly supports native `.drawio` generation and editing paths.
+The previously prepared `P04B` local runtime pilot is therefore **DEFERRED / NOT NEXT**. Keep it only as an escalation path if practitioner evidence cannot resolve a material uncertainty.
 
-But P04A intentionally prohibited installation, so it did **not** prove:
+## 8. Immediate next work
 
-- local installation/runtime;
-- non-trivial swimlane/branch/exception output quality;
-- edit-and-correct workflow;
-- lower rework than manual drawing;
-- semantic fidelity on ERP process prose.
+Stop designing more validation protocols.
 
-Therefore documentary curation alone must not be reported as `Tomorrow usefulness = Yes` for an executable candidate.
+Run a **practitioner-first resource curation wave** across a few survey-derived concrete problems.
 
-Use:
+Recommended next practical set:
 
-> **plausible / promising from source evidence**
+1. P04 — 业务描述 → 可编辑流程图;
+2. P03 — 需求 / PRD → 可点击原型;
+3. P02 — 零散需求 → PRD / FS;
+4. P05 — 项目材料 → 客户汇报 PPT;
+5. Codex / WorkBuddy usage only when bound to one of these real jobs.
 
-until runtime evidence exists.
+For each problem, aim to retain only:
 
-### P04A adversarial corrections
+- 1 strong practical guide / review / creator resource;
+- the actual Skill / Tool / repository if applicable;
+- 0–1 official/current fact anchor;
+- 0–1 materially different alternative.
 
-1. `.drawio` editability is not ERP semantic correctness.
-2. draw.io XML with BPMN-like shapes is not automatically BPMN 2.0 semantic XML.
-3. the anti-hallucination prompt in the local result is `Curator synthesis`.
-4. `Optional second solution: none` was not established strongly enough; current browser/collaborative alternatives exist with materially different adoption boundaries.
-5. the official Codex Skill fetches shared GitHub references at runtime, creating network/reproducibility considerations for enterprise adoption.
-6. `Agents365-ai/drawio-skill` is a useful second Skill candidate but does not replace independent practitioner/case evidence.
+Do not run a technical certification sequence for each item.
 
-## 8. Immediate next test — P04B pinned runtime pilot
+## 9. What “good” now means
 
-Status: **NEXT / LOCAL**
+A strong package lets an ERP colleague answer:
 
-Protocol:
+- 谁已经这样做过？
+- 我先看哪一个攻略/视频/文章？
+- 具体输入什么、怎么操作、产出什么？
+- 用的是哪个 Tool / Skill？
+- 有什么坑、返工点、隐私/安装成本？
+- 当前官方事实有没有变化？
+- 我明天能不能拿自己的材料试？
 
-- `docs/validation/DELIVERY_P04B_DRAWIO_RUNTIME_PILOT.md`
-
-Unique purpose:
-
-> Test whether the pinned official draw.io Codex Skill actually works in the current Windows/Codex environment on a representative ERP process, produces a valid editable `.drawio`, survives one controlled revision, and cleans up without disturbing unrelated Codex plugin state.
-
-This is not a new search.
-
-Do not search for more diagram tools during P04B.
-
-Do not move to another Problem Card before cloud review of P04B.
-
-## 9. Evidence ladder for executable resources
-
-For executable Skills/Tools, keep these levels distinct:
-
-```text
-Discovery evidence
-→ Original documentation inspected
-→ Static dependency/permission review
-→ Pinned local runtime proof
-→ Representative work artifact proof
-→ Real-user project outcome evidence
-```
-
-Do not jump from documentation directly to `validated practical workflow`.
-
-For non-executable methods/tutorials, runtime installation is not required; use an equivalent artifact/application check instead.
-
-## 10. Cloud / local / Owner split
+## 10. Cloud / local split
 
 ### Cloud / ChatGPT
 
-Owns product direction, adversarial review, survey interpretation, source/provider/creator research, maturity/evidence interpretation, GitHub maintenance and final KEEP/CONDITIONAL/REMOVE decisions.
+Owns:
+
+- product direction;
+- web / GitHub practitioner-source research;
+- adversarial review;
+- creator/source prioritization;
+- current fact verification;
+- GitHub maintenance;
+- final curation decisions.
 
 ### Local Codex
 
-Owns fresh curation runs, observable source evidence and explicitly assigned local runtime/install tests. It does not redefine V3 or install arbitrary dependencies.
+Use only when needed for:
 
-### Product Owner
+- local-only source adapters;
+- inaccessible WeChat/Bilibili content acquisition;
+- explicitly justified runtime checks;
+- evidence that genuinely requires the user's environment.
 
-Only unavoidable login/privacy/business-semantics decisions and final human usefulness judgement.
+Local Agent is no longer the default engine for every curation task when cloud Web can already research the sources.
 
 ## 11. Anti-drift
 
 Stop if work turns into:
 
-- broad consulting labels detached from actual artifacts;
-- AI/tool feature catalogs;
-- mandatory platform coverage;
-- influencer rankings;
-- link-count scoring;
-- Codex-native answers chosen merely because the test Agent is Codex;
-- documentation claims treated as runtime proof;
-- editable file format treated as semantic correctness;
-- Curator synthesis presented as discovered capability;
-- local success treated as real-user outcome validation;
-- more framework without better practical evidence.
+- one validation protocol per Tool;
+- repeated runtime tests with no user decision value;
+- official docs dominating practical recommendations;
+- ignoring Bilibili/WeChat/Xiaohongshu merely because an adapter is inconvenient;
+- rebuilding existing PM/Agent resource catalogs;
+- creator popularity ranking;
+- link-count accumulation;
+- Curator synthesis presented as external experience;
+- technical proof mistaken for actual colleague usefulness.
 
-The project advances only when the next action helps a real ERP colleague solve a real delivery problem better.
+The project advances by accumulating **good practical resources for real work**, not by accumulating tests.

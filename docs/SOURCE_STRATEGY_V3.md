@@ -1,226 +1,216 @@
 # ERP AI Curator — Source Strategy V3
 
-> Current discovery-source strategy for testing. The goal is not to maximize source diversity; it is to combine **current factual anchors** with **practical, reproducible usage evidence** for generalized ERP / enterprise-information-system practitioners.
+> Current source strategy for ERP / enterprise-delivery curation.
 
-## 1. Core principle
+## 1. First principle
 
-A useful recommendation usually needs to answer two different questions:
+The user normally asks two different questions:
 
-1. **Can this capability actually be used now, under the user's constraints?**
-2. **How does a practitioner use it well in real work?**
+1. **别人到底怎么用，值不值得学，踩过什么坑？**
+2. **这个功能现在是否真的存在，当前怎么安装，边界是什么？**
 
-Different sources may answer different parts.
+For training / practical curation, the first question usually determines usefulness; the second protects factual accuracy.
 
-- Official/original material is normally the preferred fact anchor for native capability, current setup, versions, compatibility, APIs, pricing/license and policy/security claims.
-- Practitioner/community material is often stronger for workflows, prompts, examples, failure modes, adoption friction, comparison and real usage experience.
+Therefore the default order is:
 
-But there is no universal source hierarchy.
+```text
+real Problem Card
+→ practitioner / review / tutorial discovery first
+→ inspect the actual Skill / Tool / method referenced
+→ official / original fact check for volatile claims
+→ one falsification pass
+→ small recommendation package
+```
 
-> **Judge each source by the evidence role it plays and the value it adds to the user's decision. Official does not mean automatically useful; community does not mean automatically practical.**
+Do not default to official documentation and then look for practice only if something is missing.
 
-## 2. Classify by evidence role, not website
+Official documentation is usually a **fact anchor**, not the main learning resource.
 
-A source may play one or more roles:
+## 2. Default evidence roles
 
-### Fact anchor
-Used to verify volatile/native claims such as capability, installation, version, compatibility, API, pricing, license, privacy or standard-product boundary.
+### A. Practitioner guide / review / field note — default discovery lane
 
-Typical sources: official docs, release notes, original repo/docs.
+Use first when the question is about how to perform real work.
 
-### Original implementation artifact
-The actual Tool / Skill / MCP / repository / demo being evaluated.
+Good sources include:
 
-Typical sources: official or personal GitHub repositories, product demos, author documentation.
+- Bilibili / YouTube practical walkthroughs;
+- WeChat public-account articles;
+- Xiaohongshu practical notes;
+- 人人都是产品经理 / 知乎 / 掘金 / CSDN / personal blogs;
+- practitioner-created Skill / workflow collections;
+- real project retrospectives, comparisons and failure reports.
 
-### Practitioner guide / field note
-Shows how somebody actually used the method.
+Strong content shows some combination of:
 
-Typical sources: WeChat public-account articles, Xiaohongshu posts, Bilibili/YouTube videos, Zhihu, Juejin, CSDN, personal blogs, implementation notes.
+- actual input;
+- actual steps;
+- prompt / command / configuration;
+- screenshots / video / generated artifact;
+- before / after;
+- failures and correction;
+- reusable Skill / template / repository;
+- comments that reveal adoption friction.
 
-### Independent comparison / counter-evidence
-Helps expose trade-offs, failures, maintenance problems or compatibility limits.
+### B. Original implementation artifact
 
-Typical sources: comparative reviews, GitHub issues/discussions, negative field reports, independent benchmarks.
+Open the actual Skill / Tool / MCP / repository referenced by the practitioner content.
 
-### Secondary / aggregation
-Useful for discovery only unless the original source cannot be found and the content itself is sufficiently complete and attributable.
+Use it to confirm what is really implemented and to avoid recommending recycled or misrepresented content.
 
-Examples: reposts, link collections, AI summaries, aggregation pages.
+### C. Official / current fact anchor
 
-Do not equate platform with evidence role. A GitHub repo may be official, original implementation and practitioner evidence at the same time.
+Use official docs / release notes / original vendor pages primarily to verify volatile claims:
 
-## 3. Search behavior
+- current feature availability;
+- install command;
+- version / compatibility;
+- pricing / licensing;
+- privacy / data flow;
+- platform support;
+- native output format.
 
-When Mode B requires external discovery:
+### D. Independent counter-evidence
 
-1. define the capability gap first;
-2. find enough original/current evidence to understand what the candidate actually does;
-3. when practical adoption matters, deliberately look for practitioner evidence showing how it behaves in real use;
-4. when a known high-signal creator has repeatedly published relevant practical material, use that creator as a **discovery prior**, not as a recommendation authority;
-5. for non-trivial adoption decisions, make one falsification pass for limitations, issues, failed attempts, maintenance or compatibility caveats;
-6. compare candidates by complete task fit, evidence and adoption value, not by source prestige;
-7. stop when another search is unlikely to change the recommendation or materially help the user act.
+For non-trivial adoption, look once for:
 
-This is **not** a platform-coverage checklist and not an influencer leaderboard.
+- failures;
+- unresolved issues;
+- stale setup;
+- compatibility problems;
+- hidden paid requirements;
+- correction cost;
+- evidence that a simpler existing workflow is already enough.
 
-Do not search WeChat, Xiaohongshu, Bilibili, GitHub and official sites merely to prove diversity. Search a source class or creator because it can resolve a real uncertainty or improve practical discovery recall.
+## 3. Search order for practical Problem Cards
 
-Detailed creator-prior rules:
+For most survey-derived practical jobs, use:
 
-`docs/CREATOR_PRIOR_STRATEGY_V3.md`
+1. search the real task in natural practitioner language;
+2. search Bilibili / WeChat / Xiaohongshu / PM-consulting communities / blogs for walkthroughs and reviews;
+3. check known high-signal creators and existing curated resource libraries;
+4. open the original Skill / Tool / repo behind serious candidates;
+5. verify only the current facts that matter against official/original sources;
+6. stop when additional searching is unlikely to change the recommendation.
 
-## 4. Original-content rule
+This is **practitioner-first**, not **platform-quota**.
 
-A source cannot become a recommended practical companion based only on:
+If a platform cannot be fully read because of login, anti-bot, dynamic rendering or tooling limits:
 
-- search snippet;
-- AI-generated summary;
-- repost title;
-- engagement count;
-- screenshot seen out of context;
-- creator reputation alone.
+- use public search/discovery evidence only for discovery;
+- invoke an already-approved read adapter when available and justified;
+- otherwise record a coverage gap;
+- never invent unseen content.
 
-The Agent must actually open/read the original post, article, transcript, repository, video transcript/notes, or sufficiently complete primary material.
+## 4. Existing resource ecosystems are feeder sources, not competitors
 
-If a platform is inaccessible because of login, dynamic rendering or tool limitations:
+Do not rebuild resources that already exist.
 
-> **report the coverage gap; do not invent or infer the unseen content.**
+Existing PM/Agent Skill libraries, practical bluebooks, creator series and tutorial collections should be treated as **feeder ecosystems**.
 
-## 5. Practitioner evidence heuristics
+Curator value is not to duplicate them. Curator adds:
 
-There is no numeric Gate.
+```text
+ERP / enterprise delivery Problem Card
+→ find the few relevant items across existing ecosystems
+→ remove hype / stale / mismatched content
+→ pair practical experience with current fact checks
+→ explain exactly when a consultant should use it
+```
 
-A practitioner/community source becomes interesting when it gives enough concrete evidence that another practitioner can **learn, reproduce or judge** the method.
+Do not create another generic Prompt library, Skill directory, creator leaderboard or tutorial encyclopedia.
 
-Strong signals include:
+## 5. Creator prior
 
-- real operating steps;
-- screenshots / demo / code / prompt / output;
-- clear input and result;
-- specific failure modes or limitations;
-- comparison with another method;
-- reproducible setup or example;
-- evidence of actual project use;
-- useful follow-up discussion or maintenance history.
+Creator Prior affects where to inspect first.
 
-Confidence drops when the content is mainly:
+For practical AI delivery work, useful creator topics include:
 
-- repost / aggregation;
-- generic AI summary;
-- promotional copy without real operation;
-- polished outcome with no process evidence;
-- stale configuration with no date/version context;
-- copied screenshots without explanation.
+- AI 产品经理 / PM;
+- AI 企业咨询 / 数字化顾问;
+- requirements / PRD / prototype;
+- process diagram / draw.io / BPMN;
+- PPT / documentation;
+- Excel / data processing;
+- Codex / Claude Code / WorkBuddy / Agent workflows;
+- reusable Skills / prompts / workflows.
 
-Popularity, likes, followers, stars, views, saves and repost count are **discovery signals only**. They can affect what the Curator inspects first, but they do not directly determine recommendation quality.
+Popularity is only a discovery hint.
 
-A rough platform-specific interpretation is allowed when the metric exists:
+Rough hints when available:
 
-- Xiaohongshu: saves / substantive comments are normally stronger use-intent signals than likes or follower count;
-- Bilibili: saves / coins / substantive comments are normally more useful for tutorial discovery than raw views or followers;
-- WeChat: creator history and repeated practical originals matter more because comparable engagement data is often incomplete;
-- GitHub: actual capability, examples, maintenance and issue history matter more than stars/forks.
-
-These are heuristics, not numeric weights.
-
-## 6. Creator-prior rule
-
-Curator may maintain a **small discovery seed set** of creators who repeatedly produce useful practical AI content for enterprise consulting, product management, Agent use, prompts/workflows and adjacent delivery work.
-
-This seed set exists to reduce blind search cost.
-
-It must not become:
-
-- a closed whitelist;
-- a popularity ranking;
-- a substitute for reading the specific content;
-- a large influencer database;
-- a reason to ignore niche ERP/BA/PM practitioners.
-
-A high-prior creator can still publish a weak post. A small creator can still provide the best resource.
+- Xiaohongshu: 收藏/收藏率、有效评论 > 点赞/粉丝;
+- Bilibili: 收藏、投币、有效评论 > 单纯播放/点赞/粉丝;
+- WeChat: sustained original practical output > account prestige;
+- GitHub: capability/examples/maintenance/issues > stars/forks.
 
 Adversarial test:
 
-> **If the author name and engagement metrics were hidden, would this specific resource still deserve recommendation?**
+> If author name and engagement metrics were hidden, would this specific content still be worth sending to a colleague?
 
-If not, the evidence is too reputation-dependent.
+## 6. Original-content rule
 
-## 7. Chinese-source policy
+Do not recommend a practical resource based only on:
 
-Chinese practitioner content can be especially valuable because it reduces adoption cost for internal ERP users.
+- search snippet;
+- AI summary;
+- repost title;
+- engagement count;
+- creator reputation;
+- screenshots without context.
 
-When practical quality is comparable, prefer Chinese content.
+Read the original article / video page or transcript / repository / sufficiently complete primary material whenever technically possible.
 
-But language convenience cannot override:
+## 7. Local runtime testing — exception, not default
 
-- factual errors;
-- outdated setup;
-- weak evidence;
-- obvious marketing;
-- mismatch with the task.
+ERP AI Curator is not a tool-testing laboratory.
 
-A strong package may therefore be:
+Do **not** install and smoke-test every promising Skill or Tool.
 
-> **English original implementation / official fact anchor + Chinese practitioner guide.**
+Run a local test only when at least one of these is true:
 
-## 8. Stable insight vs volatile fact
+1. third-party practical evidence is missing or contradictory;
+2. installation / permission / data-safety risk is material;
+3. the exact training recommendation depends on reproducible local steps;
+4. a candidate is likely to become a repeated internal standard and the cost of being wrong is high.
 
-A practical article may be old but still contain a useful workflow pattern.
+When good practitioner evidence + original implementation + current fact checks already answer the user's decision, stop.
 
-Separate:
+## 8. Recommendation package
 
-- **stable insight**: workflow, prompt structure, adoption lesson, failure pattern;
-- **volatile fact**: version, endpoint, model support, installation command, pricing, current native capability.
+Default package should reflect the user journey:
 
-Stable insight can remain useful if transferable.
+### Practical recommendation — first
 
-Volatile facts must be rechecked against a current original/official source before being presented as current truth.
+The tutorial / workflow / Skill / method most useful to learn and apply.
 
-## 9. Preferred recommendation package
+Explain:
 
-Avoid a flat link list.
+- what real job it solves;
+- input;
+- actual steps;
+- expected output;
+- why practitioners found it useful;
+- limitations / correction cost.
 
-Default package:
+### Tool / Skill — when applicable
 
-### Main recommendation
-The Tool / Skill / method actually worth adopting.
+Link the actual implementation or product used by the practical guide.
 
-### Fact anchor — only when useful
-A current official/original source confirming the facts that matter.
+### Official fact anchor — supporting
 
-### Practical companion — default 0–1
-One practitioner resource that materially helps the user get value from the main recommendation.
+Attach only the official/current facts needed to prevent stale or inaccurate adoption.
 
-### Second solution — only when meaningfully different
-Use only when it solves a different capability boundary or user condition.
+### Alternative — only if materially different
 
-The fact anchor and practical companion support the main recommendation; they do not automatically consume separate recommendation slots.
+For example no-install/browser vs local Agent/Skill.
 
-More links require explicit user request or clear incremental value.
+Avoid flat link lists.
 
-## 10. Falsification habit
+## 9. Success test
 
-Before confidently recommending a non-trivial Tool / Skill / workflow, deliberately look once for evidence that could change the decision:
+The source strategy works when an ERP colleague can answer:
 
-- known limitations;
-- unresolved issues;
-- failed attempts;
-- maintenance inactivity;
-- privacy/security concern;
-- compatibility caveat;
-- evidence that the existing toolchain already does the same job;
-- evidence that a highly visible creator's content is recycled, promotional or not reproducible.
+> **别人实际怎么做？我今晚应该先看哪个？明天怎么在自己的项目材料上试？这个方法有哪些坑？官方当前边界是什么？**
 
-This is a judgment habit, not a fixed query count or Gate.
-
-## 11. Success test
-
-The source strategy is working when the final package answers:
-
-> **What should I use? Why should I trust this decision? How do I actually get value from it? What are the real limitations?**
-
-And the practical Owner test remains:
-
-> **Would I directly send this package to a colleague because it saves them search/learning time and helps them act?**
-
-Source diversity, official citations, creator reputation and link count do not rescue a package that fails that test.
+That is more important than proving the Curator searched every platform or technically validated every candidate itself.
