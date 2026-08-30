@@ -1,341 +1,238 @@
 # ERP AI Curator — AI Leverage Model V3
 
-> Status: current product working model. This document supersedes the older assumption that the product only activates when a user explicitly asks for external resources.
+Status: **CURRENT DETAILED WORKING MODEL**
+Runtime authority: `skills/curating-erp-ai-resources/SKILL.md` 0.7.0
+Navigation: `docs/PROJECT_MAP.md`
+
+> 本文解释“为什么这样判断”；普通 runtime 不需要默认全文加载。
 
 ## 1. 第一性问题
 
-目标用户是更广义的 **泛 ERP / 企业信息化从业者**：
+泛 ERP / 企业信息化从业者真正需要的不是更多 AI 链接，而是：
 
-- SAP / Oracle 等标准 ERP 实施与二开；
-- Java / .NET 等技术栈建设的定制供应链、财务、采购、制造、主数据等系统；
-- 系统集成、接口、数据、测试与运维；
-- 实施顾问、业务顾问、项目经理、产品经理、解决方案人员、开发人员。
+> **面对这个真实工作任务，我现有 AI / Agent / 工具链已经够不够？如果不够，什么已经存在的实践/能力最值得采用，并且收益是否值得它的学习、迁移、权限和治理成本？**
 
-他们真正缺少的通常不是“搜索结果”，而是：
+因此产品核心是：
 
-> **面对一个真实工作任务，我是否值得引入一种更好的 AI 工作方式？如果值得，互联网上已经存在的 Skill / Tool / 方法 / 教程 / 实战经验里，哪个最适合我现在使用？**
+`AI Leverage Diagnosis → Practitioner-first Curation → Adoption Decision`
 
-因此产品的核心问题不是 Resource Search，也不是自建教程，而是 **AI Leverage Discovery + Practitioner-first Curation + Decision**。
+## 2. 真实 baseline
 
-## 2. 一句话定义
+比较对象不是“裸模型”，而是用户当前已经拥有并能使用的：
 
-> **面向泛 ERP / 企业信息化工作的 AI 工作方式导航器：从真实任务出发，先判断现有 AI + 工具链是否已经够用；确有增益空间时，优先从已有第三方实操和现成生态中筛选，再用原始实现与官方当前事实做必要核验。**
+- 通用 AI / Coding Agent；
+- 企业批准的 AI；
+- IDE / repo / knowledge base；
+- 内部 exporter / pipeline / automation；
+- ALM / test / data / office 工具。
 
-资源是答案的一种形式，不是产品起点；第三方生态是 feeder，不是需要被重建的竞争产品。
+新 Tool / Skill / MCP 必须相对这个 baseline 产生可解释增益。
 
-## 3. Skill 应该什么时候介入
+## 3. Frame：只抓会改变判断的任务信息
 
-### 应介入
+```text
+real work context
++ actual materials
++ concrete action/problem
++ expected deliverable
++ current AI/toolchain
++ hard constraints
+```
 
-用户表达的是“如何更好地用 AI 完成工作”，即使没有主动说“帮我找资源”：
+Hard constraints 常见包括：
 
-- “这个需求分析工作怎么用 AI 做得更好？”
-- “怎么快速从需求做 PRD / 原型 / 流程图？”
-- “有没有更适合顾问做 PPT / Excel 核对的方法？”
-- “Codex / WorkBuddy 在这个真实项目任务里应该怎么用？”
-- “这个事情值得装一个 Skill 吗，还是现有工具就够？”
+- 数据/源码能否离开环境；
+- 本地/云端；
+- 特定可编辑/机器协议格式；
+- ERP/应用版本；
+- 系统/数据库权限；
+- 成本、复跑、审计、企业账号。
 
-也应介入明确的资源发现请求：
+不先做场景 taxonomy。
 
-- “帮我找一个能生成 editable draw.io 的 Skill。”
-- “现在有哪些靠谱的 PM Skills？”
+## 4. Leverage：A/B/C
 
-但用户明确说“找 Skill”只是 solution hypothesis。若新增 Skill 相比现有工具链没有清晰增量价值，仍可回答“不需要额外安装”。
+### A — 当前工具链已够用
 
-### 不应抢占
+适合：
 
-用户只是在要求直接完成一次任务时，不主动转成资源推荐：
+- 主要是理解、总结、规划、改写、生成草稿；
+- 输入材料已经齐全；
+- 现有 Agent 可以读取所需材料；
+- 没有特殊格式、系统访问、确定性处理等能力缺口；
+- 新工具只是“可能更方便”，增量价值不清楚。
 
-- “帮我解释这段业务逻辑。”
-- “帮我改这段代码。”
-- “帮我写项目周报。”
-- “根据这些需求直接做一个原型。”
+A 不等于凭模型记忆做 ERP 专业判断。业务、代码、配置、接口等重要结论仍应 source-grounded。
 
-边界不是“是否出现 Skill/Tool 关键词”，而是：
+### B — 专门能力有明显增益
 
-> **用户是在执行当前任务，还是在选择一种可复用的 AI 工作方式？**
+当出现一个 current baseline 无法很好提供的**可观察 capability gap**，且收益值得采用成本时进入 B。
 
-## 4. 核心工作机制
+常见 gap：
 
-### Step 1 — 理解真实工作任务和当前 baseline
+- 原生可编辑/机器协议格式；
+- 真实 repo / system / metadata access；
+- runtime observation/action；
+- deterministic reconciliation/validation；
+- repeated structured maintenance；
+- 专业交互/设计系统；
+- local/privacy/enterprise integration。
 
-先搞清楚：
+专门能力更强不等于 B。必须同时考虑：
 
-- 用户最终想交付什么；
-- 手头已有的真实材料是什么；
-- 当前工作对象是什么（标准 ERP、二开、定制系统、代码库、项目材料等）；
-- 用户已经有什么 AI / Agent / 内部工具 / exporter / workflow；
-- 有什么关键限制（可编辑、本地运行、数据保密、源码边界、版本、权限、成本等）；
-- 当前最费时间 / 最容易返工的地方在哪里。
+- 安装/学习；
+- 迁移；
+- 账号/权限；
+- 数据外发；
+- 长期维护/治理。
 
-不需要先把任务塞进固定场景分类。
+### C — 可能有增益，但现在不值得复杂化
 
-### Step 2 — 诊断 AI 杠杆点
+C 只在以下逻辑成立时使用：
 
-判断三件事：
+- capability gap 真实存在；
+- 专门路线也可能解决；
+- 但当前任务频率/规模、采用成本或证据不确定性使重投入暂时不值。
 
-1. **用户现有 AI + 现有工具链已经够不够？**
-2. **是否存在一个当前 baseline 无法很好提供的专门能力，能明显降低时间、错误、返工或学习成本？**
-3. **用户真正缺的是工具、方法、知识来源、系统访问，还是工作流？**
+C 默认给：
 
-### Step 3 — 选择工作模式
+- 最低成本学习/采用路径；
+- 明确 upgrade signal。
 
-#### Mode A：当前工具链已经足够
+**C 不等于“信息不足”，也不等于“让用户先测试工具”。**
 
-不要为了推荐资源而搜索。
-
-直接告诉用户：当前任务没有必要新增专门 Skill / Tool，并给一个最小可行的使用方式。
-
-对于 ERP 业务、配置、代码、接口等专业知识，Mode A 也应采用 source-grounded analysis，而不是模型凭记忆解释。
-
-#### Mode B：专门 AI 工作方式有明显增益
-
-明确“需要补的能力是什么”，再进入 practitioner-first discovery。
-
-例如：
-
-- 需要 editable diagram，而不是“找流程图资源”；
-- 需要 workshop transcript → requirement，而不是“找 AI 需求分析文章”；
-- 需要 Excel 多表核对，而不是“找数据分析 AI”；
-- 需要可点击原型，而不是“找原型工具大全”。
-
-专门方案除了能力更强，还必须值得其安装、学习、迁移、账号/权限和数据边界成本。
-
-#### Mode C：是否值得引入专门方案尚不确定
-
-优先给一个低成本试验方式，而不是先建设复杂工具链。
-
-Mode C 必须包含一个具体最小试验和一个 upgrade signal。
+如果某个技术不确定性会直接改变采用结论、静态证据又无法解决，才做最小验证。
 
 ## 5. Practitioner-first discovery
 
-只有 Mode B 需要外部发现时才搜索。
+只有采用判断需要外部实践/资源时才进入 discovery。
 
-对于“怎么用 / 值不值得 / 有什么坑”这类采用问题，默认证据顺序是：
-
-```text
-1. 第三方实操 / 测评 / 攻略 / 案例
-2. 对应原始 Skill / Tool / 方法 / 仓库
-3. 必要的官方 / 当前原始事实核验
-```
-
-### 为什么第三方实操在前
-
-用户首先需要知道：
-
-- 别人怎么真正操作；
-- 输入什么材料；
-- Prompt / Workflow / Skill 怎么配；
-- 输出能不能继续改；
-- 哪些地方最容易返工；
-- 安装和学习成本是否值得；
-- 真实使用里有什么坑。
-
-官方文档经常只能证明“功能存在”，不能自动回答“值不值得你学”。
-
-### 官方的正确角色
-
-以下高波动事实应回当前官方/原始来源核验：
-
-- 版本；
-- 安装命令；
-- API / endpoint；
-- 兼容；
-- 价格；
-- 隐私 / 数据政策；
-- 许可证；
-- 当前原生能力。
-
-因此：
-
-> **Practitioner-first ≠ practitioner-authority；official fact anchor ≠ official recommendation priority。**
-
-## 6. 来源与平台
-
-高价值第三方实践来源可以包括：
-
-- Bilibili / YouTube；
-- 微信公众号；
-- 小红书；
-- 知乎、掘金、CSDN、人人都是产品经理等；
-- AI 产品经理 / 企业咨询 / Agent 实践作者；
-- GitHub PM / BA / Agent / Skill 库；
-- WorkBuddy / Codex / Claude Code 等现成教程、社区手册和蓝皮书。
-
-这不是固定平台清单或搜索配额。
-
-### 平台获取与平台价值必须分开
+默认顺序：
 
 ```text
-能否搜索发现
-!=
-能否完整读取
-!=
-内容是否优质
+independent practitioner / real workflow / failure experience
+→ author self-practice（明确角色）
+→ original Tool / Skill / repo / method
+→ decision-changing current official facts
+→ counterevidence / curator synthesis
 ```
 
-- 普通 Web 能发现候选时先做 discovery；
-- 如果完整正文/字幕会影响推荐而普通路径拿不到，再考虑已批准的来源 Adapter；
-- 仍拿不到则记录 Coverage gap；
-- 不能因为 acquisition failure 就说该平台“没好内容”。
+为什么 practitioner 在前：用户首先要知道别人怎么做、实际输入输出、哪里返工、对什么任务真省时间。
 
-## 7. Creator Prior
+为什么官方仍重要：版本、安装、兼容、价格、隐私、许可证、edition、当前原生能力必须回原始/官方事实。
 
-历史上反复产出高质量 AI 实操内容的作者，可以作为 discovery prior。
+> Practitioner-first ≠ practitioner-authority.  
+> Official fact anchor ≠ official recommendation priority.
 
-但：
+## 6. Search 不是积累链接
 
-- 粉丝 / 收藏 / 点赞 / 播放 / Stars 只是发现信号；
-- 必须实际读取当前具体内容；
-- 作者名气不能替代任务匹配；
-- 如果隐藏作者名和互动数据后内容不值得推荐，则淘汰。
+研究的目标是替用户完成取舍，不是把选择工作留给用户。
 
-优质作者池的价值是降低搜索成本，不是做排行榜。
+纪律：
 
-## 8. Existing ecosystems first — Curator before Builder
+- strong match > coverage；
+- 0 个资源合法；
+- 默认 0–1 个主资源；
+- 第二个只有在采用边界明显不同才保留；
+- social repetition 不等于 independent corroboration；
+- 领先答案有 material uncertainty 时主动找反证；
+- 结论稳定就停。
 
-过去和当前互联网已经存在大量：
+平台数量、搜索次数、链接数量都不是 KPI。
 
-- PM / BA Skill 库；
-- AI 产品经理方法和模板；
-- PRD / 原型 / 流程图 / PPT / Excel 实战；
-- Codex / WorkBuddy / Agent 教程；
-- 社区蓝皮书和作者系列。
+## 7. Existing ecosystem before builder
 
-这些首先是 feeder ecosystem。
+已经存在的 PM/BA Skill 库、Agent 教程、社区实践、Tool 官方 examples、作者系列都应先作为 feeder ecosystem。
 
-ERP AI Curator 不应重新写一套平行知识库，而应做：
+Curator 做的是：
 
 ```text
-真实 ERP 工作问题
-→ 从现有生态发现
-→ 读具体内容
-→ 核验对应工具/方法
-→ 少量推荐
+real ERP problem
+→ discover existing ecosystem
+→ inspect concrete content
+→ verify implementation/current facts
+→ compress recommendation
 ```
 
-只有现成资源无法覆盖关键实际问题时，才允许补 `Curator synthesis`，并必须显式标注。
+只有现有生态确实不能覆盖关键问题时才补 `curator synthesis`，并明确标注。
 
-## 9. Runtime / artifact test 不是默认步骤
+## 8. Dynamic facts 与稳定洞见分开
 
-发现一个可执行 Skill/Tool 后，不自动进入：
+教程可能同时包含：
 
-`static review → install → runtime → artifact → cleanup`
+- stable practice insight；
+- version-coupled setup instruction。
 
-仅在以下情况下做最小本地验证：
+前者可以继续保留，后者需要当前核验。
 
-- 高质量第三方实操证据不足；
-- 第三方结论对关键能力存在冲突；
-- 安装、权限、隐私、安全风险较高；
-- 准备作为公司内部长期标准推荐；
-- 某个关键能力仅靠文档/第三方证据无法确认。
+不要因为操作步骤过时就丢掉仍成立的方法洞见，也不要因为方法洞见不错就默认旧安装命令仍可用。
 
-否则，**第三方实操 + 原始实现核验 + 必要官方事实**已经足够做一般资源推荐。
+## 9. Source Adapter 只是条件性 acquisition capability
 
-这避免把 Curator 变成工具测试实验室。
+当前普通 Web/GitHub 能完成大多数公开 discovery。
 
-## 10. 候选如何判断
+只有同时满足时才考虑已批准 source adapter：
 
-重点只看：
+1. 某个平台内容可能 material 改变推荐；
+2. 普通路径无法获得足够正文/字幕；
+3. 已存在合适的 read-only acquisition capability；
+4. 增加的复杂度/风险值得。
 
-1. 是否解决完整任务，而不是只匹配关键词；
-2. 第三方实操实际证明了什么；
-3. 用户实际能得到什么结果；
-4. 是否比用户当前 AI + 当前工具链明显更值得采用；
-5. 是否有可执行路径，而不是概念宣传；
-6. 安装、学习、迁移、权限和企业数据边界是否可接受；
-7. 当前事实是否仍可用；
-8. 什么情况下不要用它。
+Source Adapter 不拥有最终判断，也不是当前默认产品架构。
 
-如果第 4 条说不清，默认不推荐新增专门方案。
+详细历史/条件性设计：
 
-同时检查研究环境偏置：
+- `docs/SOURCE_ADAPTER_ARCHITECTURE_V3.md`
+- `docs/SOURCE_ADAPTER_LIFECYCLE_V3.md`
 
-> 当前研究 Agent 是否因为自己是 Codex / GitHub 环境，就天然偏爱 Codex Plugin / GitHub Skill，而漏掉对实施顾问更低摩擦的浏览器、SaaS 或社区教程？
+## 10. Runtime / local test
 
-## 11. 输出
+不自动进入：
 
-### Mode A
+`static review → install → runtime → artifact → benchmark`
 
-> 不需要新增专门 Skill / Tool。现有 AI / 工具链已足够，建议这样做：……
+最小验证只在结果会改变采用判断时出现，例如：
 
-### Mode B
+- practitioner 证据对关键能力冲突；
+- 隐私/权限/兼容静态无法判断；
+- 精确本地复现是采用前提；
+- 准备把能力作为内部长期标准；
+- 两方案真实差异无法从现有证据判断。
 
-默认从用户采用视角呈现：
+Runtime 是决策工具，不是可信度仪式。
 
-- **最值得先看的实操攻略 / 测评 / 经验**（如果存在）
-- **对应主资源：Skill / Tool / 方法**
-- **为什么适合当前任务**
-- **输入 → 操作 → 输出**
-- **真正能省什么工作**
-- **踩坑 / 返工 / 隐私 / 学习成本**
-- **必要的官方/原始事实核验**
-- 链接
+## 11. “最佳实践”的证据边界
 
-没有强第三方实操内容时，可以直接推荐原始资源，但要明确 `practitioner evidence gap`，不能自动自己补一整套教程后冒充外部最佳实践。
+产品目标可以是寻找最佳做法，但单次输出默认应说：
 
-### Mode C
+> **在当前任务、baseline、约束和已取得证据下，最值得优先借鉴/采用的实践。**
 
-> 目前不值得先装复杂方案。建议先做这个低成本试验；如果出现 X，再升级到专门工具。
+只有有足够覆盖证据时才使用 universal `best / unique / validated`。
 
-## 12. 不建立场景百科
+作者自实践可以证明“怎么操作/如何实现”，不能自动证明“独立用户一致认为值得采用”。
 
-不要提前为“财务 / 供应链 / 项目管理 / 开发 / SAP / Oracle”分别堆规则和资源。
+## 12. Curator 与执行任务的边界
 
-这些只是用户任务的背景，不是 Skill 的运行逻辑。
+触发 Curator：用户在选择/学习可复用 AI 工作方式。
 
-Skill 的泛化来自“真实任务理解 + AI 杠杆判断 + practitioner-first curation”，不是来自场景枚举。
+不触发 Curator：用户只是让 Agent 完成当前一次性任务。
 
-## 13. 历史资源怎么用
+即使进入 Curator，也不要自动扩展成：
 
-过去已经发现的高质量资源只作为：
+- 完整执行 SOP；
+- 项目实施计划；
+- 用户工具测试协议。
 
-- 搜索先验；
-- creator / ecosystem seed；
-- 候选缓存；
-- 已知能力线索。
+除非用户本身明确请求这些产物。
 
-它们不是固定答案，也不能阻止运行时发现更好的新方案。
+## 13. Success / unresolved risk
 
-高波动事实必须重新核验当前状态。
+一次成功 curation 应让用户感觉：
 
-## 14. 成功标准
+> **“我知道这个任务当前最值得采用什么做法，也知道为什么、不适用在哪里、从哪个可信资源开始。”**
 
-一次成功运行的感觉应该是：
+当前最大的产品风险仍未解决：
 
-> “我现在知道这个真实工作最合适怎么用 AI，也知道最值得先学哪一个现成经验/Skill，以及它有什么坑。”
+> **强模型 + 普通搜索可能已经足够好，以至于 Curator 没有稳定额外价值。**
 
-真正要减少的是：
-
-- 试错成本；
-- 方案选择成本；
-- 学习路径成本；
-- 重复建设成本；
-- 过时工具与错配工具带来的浪费；
-- 用户自己在海量视频、文章、Skill 库里筛选的时间。
-
-## 15. 对后续 Skill 实现的约束
-
-未来如果重新实现 Skill，主文件只需要表达：
-
-`真实任务与 baseline → AI 杠杆判断 → A/B/C → practitioner-first discovery → 原始资源核验 → 必要官方事实 → 按需 Adapter / 最小实测 → 可执行建议`
-
-第一版仍默认：
-
-- 不建大型数据库；
-- 不建统一评分；
-- 不建 Gate；
-- 不建候选 JSON；
-- 不建固定场景 taxonomy；
-- 不设固定搜索次数；
-- 不设平台覆盖配额；
-- 不建 influencer ranking；
-- 不把 runtime test 变成每个候选的 mandatory pipeline；
-- 不重新建设现有 PM Skills / WorkBuddy / Codex 教程生态；
-- 不用脚本替代“是否值得采用”的判断。
-
-任何新增机制都必须回答：
-
-> **它是否让泛 ERP 用户更快从已经存在的优秀互联网资源中，找到真正能解决当前项目问题的做法？**
-
-如果不能明确回答“是”，不进入主线。
+这个问题只能由真实用户实际收到推荐后的采用/拒绝/反馈继续验证，不能靠增加规则、Gate 或内部 benchmark 证明。
