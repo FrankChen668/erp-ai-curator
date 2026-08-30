@@ -161,7 +161,90 @@ Do not recommend a practical resource based only on:
 
 Read the original article / video page or transcript / repository / sufficiently complete primary material whenever technically possible.
 
-## 7. Local runtime testing — exception, not default
+## 7. Independence and incentive rule
+
+`Third-party` does not automatically mean `independent`.
+
+For any serious practical guide/review, identify when reasonably observable whether the creator is:
+
+- the Tool / Skill author or maintainer;
+- an employee / official evangelist / partner;
+- an affiliate, paid promoter or course seller;
+- an independent practitioner;
+- unknown.
+
+Author-created tutorials are still valuable for operation steps, but they are **first-party practice evidence**, not independent validation.
+
+Commercial relationships do not automatically disqualify content. They lower confidence in comparative claims such as `best`, `better`, `saves X%`, or `no downside` unless supported elsewhere.
+
+Do not require formal disclosure research for every post; record only material, observable incentives that could change interpretation.
+
+## 8. Content-lineage / echo rule
+
+Ten posts repeating one original demo are not ten independent pieces of evidence.
+
+When several practical sources:
+
+- use the same screenshots/demo;
+- repeat the same prompt almost verbatim;
+- point to the same upstream tutorial/repo;
+- repeat identical claims without new failure/adoption evidence;
+
+collapse them mentally to one evidence family.
+
+Prefer sources that add **independent operating experience**, different constraints, failure modes, before/after artifacts or a materially different workflow.
+
+Do not confuse social repetition with corroboration.
+
+## 9. Freshness and version coupling
+
+A practical tutorial can be useful even when old, but the Curator must separate:
+
+- **stable practice insight** — workflow, prompt structure, review habit, failure lesson;
+- **version-coupled instruction** — UI path, install command, model name, API, plugin syntax, feature availability, pricing.
+
+When a practical resource depends materially on a version/tool state, record the publication/update date when available and recheck the version-coupled claims against current original/official evidence.
+
+Do not reject an old article merely for age if the stable insight still transfers. Do not present stale setup steps as current truth.
+
+## 10. Minimum safety review for executable resources
+
+Practitioner-first does **not** mean `install first`.
+
+Before recommending that a colleague install/run a third-party Skill / MCP / plugin / script, do a lightweight static safety check proportional to risk. At minimum inspect, when available:
+
+- repository/source ownership and current state;
+- installation commands and package dependencies;
+- requested credentials / API keys;
+- filesystem, shell, browser, network or account access;
+- whether it exposes mutating actions;
+- obvious data egress / telemetry paths;
+- license and maintenance signals when relevant.
+
+This is not a mandatory runtime certification.
+
+If the practical value can be learned without installation, prefer `learn/read first` and separate that from `safe to install`.
+
+High-risk or unclear executable candidates should be marked conditional or escalated to a focused runtime/security check rather than casually recommended for enterprise material.
+
+## 11. Lightweight retained-resource memory
+
+Do not build a large resource database, but do not lose the evidence boundary either.
+
+When a resource is actually retained as an asset, keep only lightweight provenance needed for safe reuse, such as:
+
+- Problem Card / job it solved;
+- resource title + original URL;
+- creator / source role;
+- practical evidence actually observed;
+- important limitations / incentive caveat;
+- tool/repo/version/commit when materially relevant;
+- last checked date;
+- current state such as `retain`, `conditional`, `stale/recheck`.
+
+Historical retention is a **search prior**, not permanent approval. Reused volatile claims must be rechecked when they matter.
+
+## 12. Local runtime testing — exception, not default
 
 ERP AI Curator is not a tool-testing laboratory.
 
@@ -176,7 +259,7 @@ Run a local test only when at least one of these is true:
 
 When good practitioner evidence + original implementation + current fact checks already answer the user's decision, stop.
 
-## 8. Recommendation package
+## 13. Recommendation package
 
 Default package should reflect the user journey:
 
@@ -191,11 +274,14 @@ Explain:
 - actual steps;
 - expected output;
 - why practitioners found it useful;
-- limitations / correction cost.
+- limitations / correction cost;
+- whether the practical source is independent, first-party or commercially interested when that materially changes interpretation.
 
 ### Tool / Skill — when applicable
 
 Link the actual implementation or product used by the practical guide.
+
+If installation is recommended, distinguish `practical usefulness` from `installation/safety confidence`.
 
 ### Official fact anchor — supporting
 
@@ -207,10 +293,10 @@ For example no-install/browser vs local Agent/Skill.
 
 Avoid flat link lists.
 
-## 9. Success test
+## 14. Success test
 
 The source strategy works when an ERP colleague can answer:
 
-> **别人实际怎么做？我今晚应该先看哪个？明天怎么在自己的项目材料上试？这个方法有哪些坑？官方当前边界是什么？**
+> **别人实际怎么做？我今晚应该先看哪个？明天怎么在自己的项目材料上试？这个方法有哪些坑？这是不是作者自己在推产品？当前版本还成立吗？如果要安装，企业环境是否值得冒这个成本？**
 
 That is more important than proving the Curator searched every platform or technically validated every candidate itself.
