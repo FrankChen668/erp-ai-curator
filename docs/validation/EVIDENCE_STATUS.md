@@ -22,18 +22,15 @@ Authority:
 
 The survey validates demand, not solution outcome.
 
-## 2. Major source-strategy correction
+## 2. Current source-strategy position
 
 Supported direction:
 
-> **For practical delivery questions, third-party practitioner guides/reviews/cases should normally be the first discovery lane; original Tool/Skill and official docs are supporting verification layers.**
+> **For practical delivery questions, practitioner guides/reviews/cases should normally be the first discovery lane; original Tool/Skill and official docs are supporting verification layers.**
 
-Reason:
+This is practical-value-first, not independent-third-party-at-all-costs.
 
-- the user primarily needs “how people actually use it, what works, what fails”;
-- official docs are stronger for current capability/setup/privacy/version facts;
-- existing communities already contain substantial practical material and Skill libraries;
-- rebuilding independent tests for every tool creates low-value duplication.
+An author/maintainer/original repository can still be the best primary learning resource when it contains the strongest workflow, examples and failure guidance, but its evidence role must be labeled honestly.
 
 Authority:
 
@@ -44,9 +41,9 @@ Authority:
 
 Observed in current cloud research:
 
-- Bilibili public Web search can surface current practical tutorials, descriptions and engagement metadata for WorkBuddy, Codex, draw.io Skills and AI PM workflows;
+- Bilibili public Web search can surface practical tutorials, descriptions and engagement metadata for WorkBuddy, Codex, draw.io Skills and AI PM workflows;
 - direct Bilibili page opening/transcript acquisition can still intermittently hit 412/anti-bot, so discovery availability and full-content availability must be distinguished;
-- one failed Bilibili URL path is not enough to conclude that practitioner evidence is unavailable; later cloud falsification immediately surfaced relevant draw.io / PM Skill walkthroughs through ordinary public Web;
+- one failed Bilibili URL path is not enough to conclude that practitioner evidence is unavailable;
 - WeChat Search → Reader remains a qualified path for original public-article evidence;
 - Xiaohongshu remains an acquisition/indexing coverage gap; do not infer content scarcity from access difficulty.
 
@@ -78,47 +75,60 @@ Classification:
 
 Useful practical method; not an independently validated industry standard.
 
-## 6. P04A
+## 6. P04 technical/implementation evidence
 
-Status: **STRONG IMPLEMENTATION CANDIDATE / PRACTITIONER EVIDENCE UNDER-SAMPLED**
+Retained implementation anchors remain:
 
-Retained implementation:
+- `Castaldo-Solutions/process-builder` — strong enterprise-process method/implementation; author self-practice;
+- official `jgraph/drawio-mcp` — implementation/current-fact anchor;
+- Anttu draw.io MCP article — optional independent technical operation/troubleshooting companion.
 
-- official `jgraph/drawio-mcp` draw.io Skill
-
-P04A confirmed strong documentary evidence for native editable `.drawio` output, but the run underweighted third-party guides/reviews and over-weighted implementation docs.
-
-The local result also could not prove runtime usability because candidate installation was prohibited.
-
-The previously prepared `P04B` runtime pilot is now:
+The previously prepared `P04B` runtime pilot remains:
 
 > **DEFERRED / escalation only**
 
-It should run only if practitioner evidence + original implementation + current fact checks leave a material unresolved risk.
+Do not rerun technical/static/runtime work unless a later real adoption decision exposes a new material unresolved risk.
 
-## 7. P04 practitioner-first curation wave
+## 7. P04 practitioner delta — CLOSED
 
-Status: **USEFUL WITH GAPS / GOAL NOT YET COMPLETE**
+Status: **CLOSE P04 — RECOMMENDATION STABLE WITH EXPLICIT COVERAGE GAPS**
 
-Result authority:
+Authority:
 
-- `P04_PRACTITIONER_CURATION_RESULT_01.md`
+- `P04_PRACTITIONER_CURATION_RESULT_02.md`
 
-Useful retained assets:
+New retained practitioner evidence:
 
-- `Castaldo-Solutions/process-builder` — strong task-fit implementation/method candidate, but author self-practice rather than independent practitioner validation;
-- official `jgraph/drawio-mcp` — strong implementation/current-fact anchor;
-- Anttu draw.io MCP article — useful independent technical operation/troubleshooting companion, but not sufficiently matched to ERP/business-process mapping.
+- `冰冰酱 — 从一张白纸到交付PRD：我的全自动 AI 产品工作流`
+  - role: independent practitioner workflow/judgement evidence;
+  - material evidence: real product context, multi-round correction, rework after semantic/model errors, Draw.io in the actual toolchain, explicit remaining layout defects;
+  - value: establishes the correct quality boundary — clarify semantics first, then generate/review/iterate.
 
-Why the goal is not complete:
+- `健彬的产品Live / 北沐而川 — 3分钟绘制流程图！这个AI+绘图工具的神仙组合`
+  - role: independent practitioner-style operational guide;
+  - material evidence: CRM/product text → AI-generated XML → Draw.io import → manual adjustment → editable artifact;
+  - caveat: shallow demo; “3 minutes”/“standard” claims are not treated as validated outcomes; DeepSeek UI/setup details are version-coupled.
 
-- the main practical guide is still the tool/method author's own write-up;
-- the independent companion is too technical to cover the business-process consulting job end-to-end;
-- the run stopped Bilibili discovery too early after a 412 path even though ordinary public Web can surface relevant PM/draw.io practical videos;
-- the conclusion “interview → JSON → local generator is the most reliable path” is stronger than current comparative evidence supports;
-- the run partially reframed the task into rejecting “one-click enterprise BPMN”, which was not the actual user success criterion.
+Bilibili delta:
 
-Next step is **delta practitioner discovery only**, not a repeat of repository/runtime verification.
+- `AI辅导员小宇` Cursor + draw.io walkthrough is useful but does not materially improve the selected package;
+- `产品老兵杰哥` exposes several highly relevant PM/ERP-adjacent Draw.io Skill videos through public search, but full original content remains intermittently inaccessible; record as a coverage gap rather than absence evidence.
+
+Adversarial rejection:
+
+- a detailed 2026 CSDN `DeepSeek + Draw.io` article was not retained because unsupported quantitative claims, inconsistent setup statements and incomplete runnable code reduce evidence reliability.
+
+Why P04 can close:
+
+- real business/product input: covered;
+- actual workflow: covered;
+- editable output: covered;
+- correction/rework and failure boundary: covered;
+- low-cost first trial: covered;
+- deeper enterprise process mapping method: covered;
+- current implementation/fact anchor: covered;
+- remaining platform acquisition gap: explicit;
+- additional search is unlikely to change what a colleague should learn/use first.
 
 ## 8. Runtime-testing policy
 
@@ -135,9 +145,9 @@ Otherwise curation should stop earlier.
 
 ## 9. Main remaining uncertainties
 
-- can practitioner-first discovery consistently find a genuinely share-worthy guide, not only a strong self-authored Tool/Skill explanation;
+- can practitioner-first discovery consistently find share-worthy material across other real Problem Cards without stopping early;
 - which practitioner sources/creators consistently produce the best resources for ERP delivery jobs;
-- whether the curated package is genuinely useful to colleagues on real material;
+- whether curated packages are genuinely useful to colleagues on real material;
 - which existing PM/Agent/WorkBuddy resource ecosystems deserve recurring feeder status;
 - whether platform-specific acquisition gaps materially harm recall;
 - whether a minimal production Curator Skill is eventually worth packaging.
@@ -148,6 +158,6 @@ The dominant risk is not insufficient technical validation.
 
 It is:
 
-> **premature search stopping or source-role confusion causing the Curator to return a strong implementation candidate before it has actually found the practitioner experience the user asked for.**
+> **premature search stopping or source-role confusion causing the Curator to return a technically strong candidate before it has found enough practical evidence to support the user's adoption decision.**
 
-The project should improve this through real curation work, not by adding another governance framework.
+P04 now demonstrates the desired stopping behavior: do a targeted evidence delta, reject dense-but-unreliable material, make the remaining coverage gap explicit, and stop once the recommendation is stable.
