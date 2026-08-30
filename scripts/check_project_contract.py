@@ -45,6 +45,8 @@ OLD_PILOT_CASES = [
 ]
 
 errors: list[str] = []
+skill_name = ""
+version = ""
 
 
 def check(condition: bool, message: str) -> None:
@@ -63,13 +65,11 @@ if SKILL.is_file():
     check(bool(version_match), "SKILL.md missing metadata.version")
 
     if name_match:
-        skill_name = name_match.group(1).strip().strip('"\'')
+        skill_name = name_match.group(1).strip().strip("\"'")
         check(skill_name == SKILL_DIR.name, f"skill name {skill_name!r} != directory {SKILL_DIR.name!r}")
-    else:
-        skill_name = ""
 
-    version = version_match.group(1).strip() if version_match else ""
-    if version:
+    if version_match:
+        version = version_match.group(1).strip()
         for path in CURRENT_DOCS:
             if path.is_file():
                 doc = path.read_text(encoding="utf-8")
