@@ -8,7 +8,7 @@
 
 ## 想直接试用
 
-当前版本：**0.7.0 — Controlled User Trial**。
+当前版本：**0.7.1 — Controlled User Trial**。
 
 普通试用用户/管理员先看：
 
@@ -20,11 +20,11 @@ Skill 包：
 
 试用不要求用户理解项目历史，也不要求跑项目测试协议。用户直接拿自己的真实问题使用即可。
 
-当前发布裁决：
+当前发布裁决仍是：
 
 > **CONTROLLED USER TRIAL GO / BROAD RELEASE NO**
 
-详见：`docs/validation/RELEASE_READINESS_ADVERSARIAL_20260830.md`。
+0.7.1 是受控试用中的**真实缺陷窄修正**，不是 broad-release 结论变化。
 
 ## 项目维护者从这里开始
 
@@ -39,14 +39,27 @@ Skill 包：
 
 ## 当前 Skill
 
-- version: **0.7.0**
+- version: **0.7.1**
 - release class: **Controlled User Trial**
 - product value: **Unvalidated**
 
-0.7.0 的主要边界：
+0.7.1 在 0.7.0 基础上修复一个真实试用缺陷：
 
-- 用用户真实 baseline 而不是裸模型做 A/B/C；
-- 把“当前任务下优先推荐实践”与无证据的“全球最佳”分开；
+> **`A = 不需要新增 Tool/Skill`，不能被执行成 `A = 不需要帮用户找最佳实践/教程`。**
+
+现在：
+
+- “是否新增专门能力”和“是否明确请求实操资源”分开判断；
+- 用户明确找最佳实践/教程时，practitioner discovery 是任务本身，即使最终 A；
+- 中文泛 ERP / ToB / 产品经理/顾问场景优先检查 Bilibili、公众号、小红书及相关 practitioner 生态；
+- 官方/规范主要做能力、版本、兼容、权限和标准核验；
+- 输出先给 1–3 个真正值得看的实操资源和优先级，再做 Curator synthesis；
+- official-only + 模型自写教程不再视为“最佳实践搜索完成”。
+
+0.7.0 的其他核心边界继续保留：
+
+- 用户真实 baseline 而不是裸模型；
+- capability gap + adoption cost；
 - practitioner / author self-practice / implementation / official fact / curator synthesis 分层；
 - `信息不足 != C`；
 - C 不自动变成“让用户测试工具”；
@@ -57,7 +70,9 @@ Skill 包：
 
 ### A — 当前工具链已够用
 
-不为了推荐而搜索或安装新能力。
+不新增不必要的 Tool / Skill。
+
+但如果用户明确要求“帮我找最佳实践/教程”，仍然应该完成 practitioner/resource curation。
 
 ### B — 专门能力有明显增益
 
@@ -69,7 +84,7 @@ Skill 包：
 
 ## 外部证据顺序
 
-真正需要外部资源时：
+真正需要外部实践/资源时：
 
 ```text
 independent practitioner / 真实复盘 / 失败经验
@@ -128,7 +143,7 @@ Authority：`docs/validation/CURATION_PACK_01_ADVERSARIAL_REVIEW.md`。
 
 尚未证明 Curator 相比普通 AI / 用户自己搜索具有稳定、重复、足够大的真实用户增量价值。
 
-所以当前正确动作不是继续闭门完善 Skill，而是进入小范围真实用户使用。
+所以当前动作是继续小范围真实用户使用，并把真实缺陷做窄修正，而不是回到闭门扩规则。
 
 ## 当前不做
 

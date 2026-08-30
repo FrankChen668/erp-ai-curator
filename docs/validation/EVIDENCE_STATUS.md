@@ -73,22 +73,20 @@ The heterogeneous evidence supports a stable method skeleton:
 
 1. start from the real job, current baseline, artifacts, deliverable and hard constraints;
 2. specialized capability only for a concrete capability gap whose benefit justifies adoption cost;
-3. external adoption questions prioritize practitioner workflow/review/failure evidence;
+3. external adoption/practice questions prioritize practitioner workflow/review/failure evidence;
 4. source/project/system grounding outranks model memory for important domain facts;
 5. runtime/local tests only when their result can change the recommendation;
 6. strong match and stopping discipline outrank resource coverage.
 
-Historical wording “METHOD READY FOR REAL-USER PILOT” remains a readiness checkpoint. Current release class is defined below.
-
 This supports **controlled user trial readiness**, not product-value completion.
 
-## 5. Current Skill — 0.7.0
+## 5. Current Skill — 0.7.1
 
 `skills/curating-erp-ai-resources/SKILL.md`:
 
-> **CONTROLLED USER TRIAL — USER-USE VALUE UNVALIDATED / version 0.7.0**
+> **CONTROLLED USER TRIAL — USER-USE VALUE UNVALIDATED / version 0.7.1**
 
-0.7.0 consolidates:
+0.7.0 established:
 
 - current baseline instead of bare-model comparison;
 - `information missing != C`;
@@ -98,16 +96,46 @@ This supports **controlled user trial readiness**, not product-value completion.
 - runtime Skill separated from project/history documentation;
 - adoption consistency and read-only/system-access boundaries.
 
-Supporting historical Harness authorities remain:
+### 0.7.1 — practitioner discovery correction from real controlled use
 
-- `CURATOR_062_HARNESS_PATCH.md`
-- `CURATOR_063_BEST_PRACTICE_BOUNDARY_PATCH.md`
+Real user prompt:
 
-Current project calibration authority:
+> “使用这个 skill 给我找下做流程图的最佳实践”
 
-- `docs/PROJECT_CALIBRATION_20260830.md`
+Observed 0.7.0 failure:
 
-Engineering/scope evidence is not user-value evidence.
+- concluded A/no-new-tool quickly;
+- mostly relied on OMG/Camunda/Microsoft/ASQ official/standard sources;
+- generated its own generic flowchart tutorial + prompt;
+- did not surface the expected Chinese practitioner/creator ecosystem such as Bilibili/WeChat/Xiaohongshu/product-manager/ToB AI tutorials.
+
+Cloud follow-up discovery immediately found multiple high-match Bilibili practical resources, including product-manager-oriented editable draw.io Skill/tutorial content and heavily engaged drawio-skill workflow videos. Therefore the defect is **not resource scarcity**; it is a runtime discovery-routing failure.
+
+Root cause:
+
+> 0.7.0's `A — external resources default 0` can be misread as “after A, stop external practitioner discovery”, even when the user explicitly asked to find best practices/tutorials.
+
+0.7.1 correction:
+
+> **A/B/C decides specialized-capability adoption. Explicit best-practice/tutorial intent independently requires practitioner discovery.**
+
+New runtime reference:
+
+- `skills/curating-erp-ai-resources/references/practitioner-discovery.md`
+
+Acceptance target:
+
+- explicit practice/tutorial intent → actual practitioner/creator discovery before official synthesis;
+- Chinese ERP/ToB/product/consulting context → inspect relevant Bilibili/WeChat/Xiaohongshu/community ecosystems when accessible;
+- official/standards return to verification role;
+- output prioritizes 1–3 actual practical links + why + priority before Curator synthesis;
+- official-only + model-authored tutorial is not accepted as completed curation unless practitioner discovery genuinely found no admissible resource and coverage/gap is explicit.
+
+Authority:
+
+- `CURATOR_071_PRACTITIONER_DISCOVERY_PATCH.md`
+
+This is a **REAL_USER_USE defect signal and engineering correction**. It does not prove the corrected Skill now has product-value uplift.
 
 ## 6. Closed 0.6.1 boundary regression — internal evidence only
 
@@ -140,32 +168,17 @@ Status:
 
 > **PACK 01 CLOSED — METHOD DISCRIMINATION SUFFICIENT FOR CONTROLLED USER TRIAL.**
 
-What it supports:
-
-- Curator can return no-new-tool A;
-- B can be tied to an observable capability gap;
-- system/ERP access is conditional on actual evidence access needs;
-- author self-practice can be kept separate from independent evidence;
-- current outputs do not require users to become project testers.
-
-What it does not support:
-
-- user adoption;
-- time/rework savings;
-- superiority over ordinary AI/self-search;
-- organization-wide standardization.
+Pack remains closed. 0.7.1 is triggered by real controlled use, not renewed pre-user expansion.
 
 ## 8. Release readiness
 
-Authority: `RELEASE_READINESS_ADVERSARIAL_20260830.md`.
+Original release-readiness authority: `RELEASE_READINESS_ADVERSARIAL_20260830.md`.
 
-Verdict:
+Current verdict remains:
 
 > **CONTROLLED USER TRIAL GO / BROAD RELEASE NO**
 
-Controlled trial readiness is supported by method convergence, Pack 01 discrimination, user-facing trial instructions and deterministic project/Harness checks.
-
-Broad release remains unsupported because REAL_USER_USE and cross-host compatibility are unvalidated.
+0.7.1 is a narrow real-use correction. It does not expand the release class.
 
 The public repository currently has no `LICENSE` file; public/open-source release completion requires an explicit Owner licensing decision and is not inferred by the Agent.
 
@@ -175,25 +188,25 @@ Authority: `docs/REAL_USER_PILOT_V1.md`.
 
 Accepted product-value evidence requires a real colleague to actually receive the recommendation and naturally learn/adopt/modify/reject/ignore it, with a concrete reason or outcome.
 
-Strong signals include:
+The flowchart feedback above is accepted as **negative product-behavior evidence** because it came from a real controlled-use prompt and exposed a concrete mismatch with the Curator North Star.
 
-- saved search/selection/setup effort;
-- concrete adoption/rejection reason;
-- missed capability/privacy/permission/version constraint;
-- downstream work/rework effect if actually used;
-- willingness to bring another real problem.
-
-Do not manufacture Lane B by making users run a test protocol for the project.
+It does not yet prove corrected user value; original-host re-run or future natural use can provide that evidence.
 
 ## 10. Current dominant uncertainty
 
-> **Does Curator consistently provide a higher-trust, lower-noise adoption decision than an ERP practitioner would get from ordinary AI or self-search, and is that difference valuable enough that real users would return?**
+> **Does Curator consistently provide a higher-trust, lower-noise, more useful set of practitioner practices/resources than an ERP practitioner would get from ordinary AI or self-search, and is that difference valuable enough that real users would return?**
 
-This remains unresolved and is now the primary product question.
+This remains unresolved and is the primary product question.
 
 ## 11. Next accepted evidence
 
-Prefer natural REAL_USER_USE from controlled trial users.
+Prefer natural REAL_USER_USE from controlled trial users, especially:
+
+- whether practitioner-first links are actually the kind of content users wanted;
+- whether Curator saves search/filtering effort;
+- whether it surfaces resources ordinary AI would miss;
+- whether it still overproduces self-authored tutorials;
+- whether source coverage gaps on WeChat/Xiaohongshu materially hurt recommendations.
 
 Do not substitute:
 
