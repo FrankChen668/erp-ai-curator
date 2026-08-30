@@ -4,185 +4,156 @@ Date: 2026-08-30
 
 ## 1. Purpose
 
-This strategy improves discovery recall for practitioner content.
+For practical ERP / enterprise-delivery questions, creator and practitioner content is often the fastest way to discover **how people actually use AI at work**.
 
-It does **not** define a popularity ranking and does **not** make creators recommendation authorities.
+Creator Prior therefore exists to improve discovery recall and reduce blind search cost.
 
-The question is:
+It is not an influencer ranking.
 
-> When looking for practical AI resources for ERP / enterprise delivery work, which creators are worth checking early because they repeatedly publish concrete, reusable material?
+## 2. Default position
 
-A creator prior affects **search order**, not the final recommendation decision.
+For Problem Cards that ask “怎么做 / 有什么技巧 / 哪个 Skill 值得用 / 实际踩坑是什么”, practitioner discovery is the default first lane.
 
-## 2. First-principles model
-
-Use three separate layers:
+Use:
 
 ```text
-Creator prior
-→ helps decide where to look first
-
-Content evidence
-→ decides whether this specific article/video/post is useful
-
-Current fact verification
-→ verifies volatile capability/setup claims against original/official sources when needed
+real work problem
+→ open practitioner / review / tutorial discovery
+→ check known high-signal creators / collections
+→ inspect specific content
+→ trace back to actual Tool / Skill / repo
+→ current official fact check when needed
 ```
 
-Never collapse these into one popularity score.
+Do not start from official docs by default for this kind of question.
 
-## 3. What creates a strong creator prior
+## 3. What makes a useful creator seed
 
-A creator becomes a useful discovery seed when their history repeatedly shows several of the following:
+A creator is worth checking early when repeated history shows:
 
-- focuses on AI product management, enterprise consulting, Agent workflows, practical AI adoption or adjacent delivery work;
-- publishes concrete operating steps rather than only concept commentary;
-- shows inputs, prompts, screenshots, demos, outputs or before/after artifacts;
-- explains failure modes, limitations or correction loops;
-- provides reusable templates / Skills / workflows / repositories / examples;
-- connects AI usage to real work such as requirements, PRD, prototypes, process diagrams, PPT, data processing, testing or project management;
-- updates content when tools change;
-- has multiple useful posts over time rather than one viral hit;
-- receives substantive comments/questions from practitioners that expose real adoption experience.
+- real operating steps rather than AI news commentary;
+- actual prompts / commands / screenshots / videos / files;
+- before/after artifacts;
+- failure modes and correction;
+- reusable Skills / workflows / templates / repos;
+- project-delivery topics such as requirements, PRD, prototypes, diagrams, PPT, spreadsheets, testing or project management;
+- current Agent practice such as Codex / Claude Code / WorkBuddy;
+- multiple useful posts over time, not one viral hit.
 
-Creator prior should be reduced when the account is mainly:
+Reduce prior for:
 
-- generic AI news reposting;
-- motivational/productivity content with little operational detail;
-- prompt-list aggregation without examples;
-- affiliate/vendor promotion with weak counter-evidence;
-- highly polished demos without reproducible steps;
+- generic AI news/reposts;
+- motivational productivity content;
+- prompt-list aggregation with no examples;
+- affiliate/vendor promotion with no counter-evidence;
+- polished demo with no reproducible steps;
 - stale tutorials for volatile tools.
 
-## 4. Engagement signals — discovery hints only
+## 4. Engagement signals — hints only
 
-No single metric is a quality label.
+No numeric score.
 
 ### Xiaohongshu
 
-When available, a rough discovery preference is:
+When available:
 
-`收藏/收藏率 > 高质量评论 > 点赞 > 粉丝数`
-
-Reason:
-
-- saves often signal future-use intent;
-- comments can reveal whether users actually tried the workflow;
-- likes are lower-cost reactions;
-- follower count mostly measures account reach, not task fit.
-
-Do not treat this as a numeric scoring formula.
+`收藏/收藏率 + 有效评论 > 点赞 > 粉丝数`
 
 ### Bilibili
 
-When available, useful hints include:
+When available:
 
-`收藏/投币 + 评论质量 + 完播/长期搜索可见性 > 点赞/播放量 > 粉丝数`
+`收藏 + 投币 + 有效评论 > 播放/点赞 > 粉丝数`
 
-Practical tutorials with modest views can be more valuable than viral concept videos.
+### WeChat
 
-### WeChat public accounts
+Public metrics are incomplete. Prefer:
 
-Public comparable engagement is often incomplete.
-
-Prefer creator history signals:
-
-- repeated original practical articles;
-- recognizable specialization;
+- sustained original practical articles;
+- topic consistency;
 - concrete screenshots/templates/cases;
-- consistent update quality;
-- useful cross-reference/citation by practitioners.
-
-Do not infer quality from account prestige alone.
+- practitioner cross-reference.
 
 ### GitHub
 
-For Tools / Skills / workflows:
+Prefer:
 
-`actual capability + README/example quality + maintenance/issues > stars/forks`
+`actual capability + examples + maintenance + issues > stars/forks`
 
-Stars/forks mainly help discovery and maturity estimation.
+## 5. Existing creator/resource ecosystems
 
-## 5. Creator-first discovery lane
+Do not recreate what existing communities already curate.
 
-When a delivery Problem Card would benefit from practitioner evidence, Curator may use a creator-first lane:
+Useful feeder ecosystems may include:
 
-1. search normally for the real problem;
-2. check known high-signal creators whose historical topic matches the job;
-3. search within or around those creators for the current specific problem;
-4. open/read the original content;
-5. compare against strong content from outside the creator seed set;
-6. falsify important claims;
-7. stop when the package is stable.
+- AI 产品经理 / Agent creator series on Bilibili;
+- WeChat public-account practical articles;
+- Xiaohongshu PM / consultant / AI-office notes;
+- 人人都是产品经理 / 知乎 / 掘金 / CSDN / personal blogs;
+- existing PM Agent Skill libraries;
+- tool-specific practical bluebooks / case libraries.
 
-The creator lane supplements open discovery. It must not become a closed whitelist.
+Curator should use these as upstream discovery pools, then apply the ERP Problem Card and evidence rules.
 
 ## 6. Seed-set lifecycle
 
-A small creator seed set may be maintained as discovery memory.
+A small seed set is allowed.
 
-A creator enters the seed set only after Curator has independently observed repeated useful content, or strong external evidence indicates consistent practical value.
+Add a creator only after at least one strong item has passed curation and there is evidence of repeated topic-quality, or strong external evidence of sustained practical output.
 
-Record only lightweight fields such as:
+Record only lightweight fields:
 
-- creator/account name;
+- creator/account;
 - platform;
-- stable profile/original URL when available;
+- stable profile URL when available;
 - recurring topics;
 - observed strengths;
 - known weaknesses / promotional bias / access limits;
-- last checked date;
-- examples of content that actually passed curation.
+- examples that actually passed curation;
+- last checked date.
 
-Do **not** store passwords, cookies, private follower data or scrape-derived personal data.
+No passwords, cookies or private data.
 
-Do not build a large influencer database.
+No large influencer database.
 
 ## 7. Recommendation boundary
 
-A high-prior creator can still produce a bad post.
+Creator prior affects **what to inspect first**.
 
-A low-follower niche creator can still produce the best resource.
+Specific content decides **what to recommend**.
 
-Therefore:
+Adversarial test:
 
-> **Creator reputation may decide what to inspect first; only the specific content and evidence decide what to recommend.**
+> If the author name, follower count, likes, saves and views were hidden, would this specific resource still deserve recommendation?
 
-The final package must still answer:
+If not, do not recommend it.
 
-- does this solve the user's concrete delivery job?
-- can another practitioner reproduce/use it?
-- was the original content actually read?
-- are volatile claims current?
-- are marketing/source limitations explicit?
+## 8. Platform access discipline
 
-## 8. Adversarial checks
+Do not assume a platform is unusable merely because one adapter failed.
 
-Before relying heavily on creator priors, ask:
+Separate:
 
-1. Are we creating a popularity echo chamber?
-2. Are several creators copying the same original source?
-3. Are engagement metrics inflated by broad-interest AI content rather than project-delivery relevance?
-4. Are we missing niche ERP/BA/PM practitioners with smaller audiences?
-5. Is a creator's old reputation being used to excuse weak current content?
-6. Does the creator have a commercial incentive that should be disclosed?
-7. Would the resource still be recommended if the author name and metrics were hidden?
+- discovery via normal Web/index;
+- original page accessibility;
+- transcript/full-text accessibility;
+- login/cookie requirement;
+- adapter availability.
 
-If the last answer is no, the evidence is too reputation-dependent.
+Examples:
+
+- a Bilibili video may be discoverable through public Web even when direct page/transcript retrieval later hits anti-bot;
+- WeChat keyword discovery may require the approved Search → Reader chain to reach original article text;
+- Xiaohongshu may have stronger indexing/login/dynamic-rendering gaps.
+
+Use the least costly available path first; report coverage gaps rather than equating access difficulty with content scarcity.
 
 ## 9. Product implication
 
-Creator priors are a discovery optimization, not a new Gate or recommendation score.
+The resource library should feel like:
 
-They are especially useful for:
+> **有人已经实战过，我帮你找到最值得看的那一两个，再把当前官方边界核对清楚。**
 
-- AI enterprise consulting;
-- AI product management;
-- Agent/Codex/WorkBuddy usage;
-- requirements / PRD / prototypes;
-- process diagrams;
-- PPT / documentation;
-- spreadsheet/data workflows;
-- high-quality prompt/workflow examples.
+It should not feel like:
 
-Real survey Problem Cards remain the driver. Creator seeds only improve how Curator searches for answers to those problems.
+> **我重新为每个 Tool 做一遍实验室认证。**
