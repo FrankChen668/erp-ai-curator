@@ -6,12 +6,30 @@
 
 项目不是 AI 工具大全、教程百科、资源数据库或工具实验室。
 
-## 从这里开始
+## 想直接试用
 
-当前项目地图：
+当前版本：**0.7.0 — Controlled User Trial**。
+
+普通试用用户/管理员先看：
+
+- `docs/USER_TRIAL_GUIDE_V1.md`
+
+Skill 包：
+
+- `skills/curating-erp-ai-resources/`
+
+试用不要求用户理解项目历史，也不要求跑项目测试协议。用户直接拿自己的真实问题使用即可。
+
+当前发布裁决：
+
+> **CONTROLLED USER TRIAL GO / BROAD RELEASE NO**
+
+详见：`docs/validation/RELEASE_READINESS_ADVERSARIAL_20260830.md`。
+
+## 项目维护者从这里开始
 
 - `docs/PROJECT_MAP.md` — **当前导航权威；新 Agent / 新会话先读**
-- `docs/PROJECT_NORTH_STAR.md` — 产品边界
+- `docs/PROJECT_NORTH_STAR.md` — 产品边界与最终用户结果
 - `docs/OWNER_EXECUTION_RULES.md` — 云端/本地/Owner 执行边界
 - `docs/CURRENT_EXECUTION_PLAN_V3.md` — 当前阶段与下一步
 - `docs/validation/EVIDENCE_STATUS.md` — 当前证据状态
@@ -21,17 +39,18 @@
 
 ## 当前 Skill
 
-- path: `skills/curating-erp-ai-resources/SKILL.md`
 - version: **0.7.0**
-- stage: **Curation pilot — user-use value unvalidated**
+- release class: **Controlled User Trial**
+- product value: **Unvalidated**
 
-0.7.0 不是“更多规则”的版本，而是一次项目级校准：
+0.7.0 的主要边界：
 
 - 用用户真实 baseline 而不是裸模型做 A/B/C；
 - 把“当前任务下优先推荐实践”与无证据的“全球最佳”分开；
 - practitioner / author self-practice / implementation / official fact / curator synthesis 分层；
-- C 不再自动变成“让用户测试工具”；
-- Runtime/local test 仍只在 decision-changing 时出现；
+- `信息不足 != C`；
+- C 不自动变成“让用户测试工具”；
+- Runtime/local test 只在 decision-changing 时出现；
 - runtime Skill 保持精简，项目历史留在项目层。
 
 ## 核心判断
@@ -48,8 +67,6 @@
 
 专门能力可能有价值，但现阶段成本/规模/不确定性不支持重投入。给最低成本学习/采用路径和升级信号。
 
-**信息不足不是 C。**
-
 ## 外部证据顺序
 
 真正需要外部资源时：
@@ -64,46 +81,54 @@ independent practitioner / 真实复盘 / 失败经验
 
 搜索摘要只能 discovery，不能冒充已读证据；多个平台复读同一 Demo 不算多份独立验证。
 
-## 两条必须分开的证据 Lane
+## Curation Pack 01
+
+当前 pre-user pack 已完成并停止扩张：
+
+- Case 001 — ERP 操作手册：B；
+- Case 002 — Oracle EBS AI 开发：B；
+- Case 003 — 多顾问周报/PPT 汇总：A；
+- Case 004 — SAP Bug/系统 evidence access：A → conditional B。
+
+Authority：`docs/validation/CURATION_PACK_01_ADVERSARIAL_REVIEW.md`。
+
+这证明的是方法在真实来源问题上的基本区分度，**不是用户价值已经验证**。
+
+## 两条证据 Lane
 
 ### Lane A — REAL_USER_ORIGIN CURATION
 
-真实同事/问卷/Owner 的真实问题，由 Curator 先完成研究和推荐。
+真实同事/问卷/Owner 的真实问题，由 Curator 研究和推荐。
 
-当前案例：
-
-- `docs/curation-cases/CASE_001_ERP_OPERATING_MANUAL.md`
-- `docs/curation-cases/CASE_002_ORACLE_EBS_DEVELOPMENT.md`
-
-它们证明“Curator 能针对真实来源问题形成可审查推荐”，**不证明用户已采用或产品已产生价值**。
+它不能证明用户已采用或产生价值。
 
 ### Lane B — REAL_USER_USE VALIDATION
 
-真实同事收到推荐后，自然地学习、采用、修改或拒绝，并给出具体反馈。
+真实同事收到推荐后，自然学习、采用、修改、忽略或拒绝，并给出具体原因。
 
 这才用于验证：
 
 - 是否比自己搜索/普通 AI 更省判断成本；
 - 是否少选错工具；
 - 是否漏掉企业约束或关键能力；
-- 用户是否愿意再次带真实问题回来。
+- 是否减少配置/返工；
+- 用户是否愿意再次使用。
 
 详见 `docs/REAL_USER_PILOT_V1.md`。
 
-## 当前可信结论
+## 当前最重要的结论
 
-已完成的 P01/P03/P04/P06/P07 等异构任务研究支持一个稳定方法骨架：
+### 已完成
 
-1. 真实任务和当前 baseline 优先；
-2. 专门方案必须对应 capability gap；
-3. external adoption evidence 优先 practitioner 真实经验；
-4. 重要事实回原始/官方/source/system 证据；
-5. runtime/local test 只是决策工具；
-6. 结论稳定就停。
+> **方法/Skill/Harness 的 pre-user 构建和 controlled-trial readiness。**
 
-当前 evidence authority：`docs/validation/EVIDENCE_STATUS.md`。
+### 尚未完成
 
-**尚未证明**：Curator 相比普通 AI / 用户自己搜索有稳定、重复的真实用户价值。
+> **North Star 用户结果目标。**
+
+尚未证明 Curator 相比普通 AI / 用户自己搜索具有稳定、重复、足够大的真实用户增量价值。
+
+所以当前正确动作不是继续闭门完善 Skill，而是进入小范围真实用户使用。
 
 ## 当前不做
 
@@ -118,8 +143,8 @@ independent practitioner / 真实复盘 / 失败经验
 - 让真实用户替项目执行测试协议；
 - 为了保持 Agent 忙碌而制造任务。
 
-## 当前阶段
+## Public / open-source note
 
-> **先完成少量高区分度的 REAL_USER_ORIGIN curation，持续吸收自然出现的 REAL_USER_USE 反馈；不要把更多内部自测冒充产品验证。**
+仓库当前公开，但尚未包含 repository `LICENSE` 文件。
 
-云端能完成的研究、审查、GitHub 维护继续由 Cloud 直接推进；只有本地文件/runtime/企业环境确实会改变结论时，才交给 Local Agent。
+这不阻塞受控试用；如果要正式声明 public/open-source release complete，需要 Owner 明确许可方式。Agent 不擅自选择许可证。
