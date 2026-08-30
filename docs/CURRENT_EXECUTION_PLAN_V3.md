@@ -1,6 +1,8 @@
 # ERP AI Curator — Current Execution Plan V3
 
-> Current execution authority. Historical validation detail belongs in `docs/validation/`.
+Date: 2026-08-30
+
+> Current execution authority. This file was rebased after a context-length audit. `docs/REBASE_AUDIT_20260830.md` records the correction.
 
 ## 1. Product objective
 
@@ -22,180 +24,194 @@ real project situation
 
 The product is not a generic AI tool directory, Prompt library, tutorial encyclopedia or tool-certification lab.
 
-## 2. Validation phase — COMPLETE FOR V0.1
+## 2. Trustworthy evidence baseline
 
-Do not continue through remaining Problem Cards merely for coverage.
+### Demand — accepted
 
-Current heterogeneous evidence:
+Primary REAL_USER demand source:
 
-- **P01** — workshop/minutes → requirement package;
-- **P04** — business logic → editable process diagram;
-- **P06** — Excel/CSV/system export → deterministic reconciliation;
-- **P03** — requirements/rules → clickable B-end prototype;
-- **P07** — codebase/program → understand logic / support FS / locate defects.
+- 83-response 2026-08 training survey;
+- normalized semantics in `docs/validation/SURVEY_DERIVED_PROBLEM_CARDS_01.md`.
 
-These cover materially different artifact classes: text, structured visual, data/computation, interactive UI and code/repository reasoning.
+The survey validates demand, not recommendation outcome. Free-text is semantic evidence and may contain platform-side wording cleanup.
 
-Observed stable behavior across cards:
+### P01 — retained, low maturity
 
-- starts from the real job rather than a preferred Tool;
-- can correctly conclude “plain AI / existing Agent is enough”;
-- introduces specialist capability only when adoption benefit is material;
-- separates practical evidence, implementation evidence and current facts;
-- uses runtime testing only when it can change the decision;
-- stops when colleague advice is stable rather than maximizing research activity.
+Status:
 
-Therefore Curator-method validation is sufficient for Minimal Curator V0.1.
+> **KEEP FOR PRACTICAL PILOT — HIGH TASK FIT / LOW INDEPENDENT VALIDATION**
 
-## 3. Current product — Minimal Curator V0.1
+Do not treat P01 as independent proof of a general method.
 
-Primary implementation:
+### P04 — accepted closed card
 
-- `skills/curating-erp-ai-resources/SKILL.md`
-- metadata version `0.5.0`
+Status:
 
-The Skill has been simplified from the earlier Gate/scoring-oriented curation workflow into a user-facing decision flow:
+> **CLOSED — RECOMMENDATION STABLE WITH EXPLICIT COVERAGE GAPS**
+
+Authority:
+
+- `docs/validation/P04_PRACTITIONER_CURATION_RESULT_02.md`
+
+Reason: concrete source URLs, evidence roles, limitations and coverage gaps are retained and auditable.
+
+### P06 — accepted closed card
+
+Status:
+
+> **CLOSED — PLAIN CODE-FIRST DEFAULT WITH EXPLICIT RECONCILIATION CONTROLS; HUASHU OPTIONAL**
+
+Authorities:
+
+- `docs/validation/DELIVERY_P06_DATA_RECONCILIATION.md`
+- `docs/validation/P06_LOCAL_RUNTIME_RESULT_01.md`
+- `docs/validation/evidence/p06/`
+
+Reason: bounded runtime evidence exists with a pinned candidate commit, isolated baseline/with-Skill runs, hidden truth and retained artifacts.
+
+## 3. Invalidated sprint conclusions
+
+The following recent sprint conclusions are **not accepted product evidence**:
+
+- `docs/validation/P03_PROTOTYPE_CURATION_RESULT_01.md`
+- `docs/validation/P07_CODEBASE_UNDERSTANDING_RESULT_01.md`
+
+Why:
+
+- the retained files do not provide a trustworthy source-acquisition/citation trail for the external claims they use;
+- some conclusions were produced during an overloaded long-context sprint and cannot be distinguished reliably from model synthesis;
+- therefore their `CLOSED` verdicts were unsupported.
+
+Consequently, these statements are withdrawn:
+
+- “P03 is closed”;
+- “P07 is closed”;
+- “five heterogeneous cards prove Curator-method validation complete”;
+- “Minimal Curator V0.1 is validated”;
+- “the project has already entered REAL USER PILOT as the current authoritative phase”.
+
+The simplified Skill produced in that sprint remains only an **experimental candidate implementation**, not validated product evidence.
+
+## 4. Correct current checkpoint
+
+The last trustworthy controlled checkpoint is:
+
+> **P06 closed. P03 is the next controlled heterogeneous validation card.**
+
+This is the same checkpoint that existed before the invalid sprint close.
+
+Do not restart P04 or P06 without a new material reason.
+
+## 5. Immediate next action — rerun P03 correctly
+
+P03:
+
+> **requirements / rules → clickable prototype / UI demo**
+
+Run it from scratch. Do not use the invalid P03 verdict as a search prior or answer.
+
+Required evidence flow:
 
 ```text
-understand real task
-→ AI leverage judgement
-→ general AI enough?
-    yes → give minimum viable workflow and stop
-    no  → targeted practical discovery
-→ necessary fact/safety check
-→ 0–1 main recommendation by default
-→ concrete “try now” guidance
-→ stop
+survey-derived real job
+→ practitioner discovery with concrete source URLs
+→ actually read serious sources
+→ inspect relevant Tool / Skill / implementation
+→ verify only current facts that affect adoption
+→ record limitations / counter-evidence
+→ material evidence gap?
+    yes → targeted delta
+    no  → recommendation package
+→ adversarial stop check
 ```
 
-Default user-facing output:
+For every retained external source, preserve enough information to audit:
 
-1. conclusion;
-2. why;
-3. recommended workflow (`input → operation → output → review`);
-4. 0–1 main practical resource, second only for a materially different boundary;
-5. main failure/adoption risks;
-6. what to try now.
+- concrete URL/source identity;
+- whether content was actually read or only discovered;
+- evidence role;
+- material claim supported;
+- important limitation/counter-evidence.
 
-Internal evidence machinery should remain mostly invisible to normal users.
+A plausible synthesis without traceable sources is not accepted evidence.
 
-## 4. Current retained lessons
+Runtime/local A/B is **not default**. Use it only if a concrete unresolved adoption decision could change because of the result.
 
-These are method evidence, not permanent tool whitelists.
+## 6. After P03
 
-- **P01:** specialized working method can improve structure/traceability, but evidence role must be honest.
-- **P04:** clarify semantics before generating; editable diagram is a review artifact, not business truth.
-- **P06:** plain code-first Agent can be enough if deterministic replay, row/amount/control-total checks and no-guess review routing are present.
-- **P03:** coded prototype is the generic B-end default; prefer Figma Make when an existing Figma/design-system workflow is already the organizational source.
-- **P07:** repo-aware code Agent is the generic default; reliability comes from source/test/log grounding and verification, not an extra architecture Skill.
+After a trustworthy P03 close, select one engineering-type card such as P07 code understanding or P10 testing and execute it with the same evidence discipline.
 
-## 5. Immediate next phase — REAL USER PILOT
+Only then reassess whether heterogeneous evidence is sufficient to package a minimal user-facing Curator and move into real-user adoption validation.
 
-The next product-learning loop is not another synthetic/representative card.
+Do not predeclare that transition now.
 
-Use real ERP / enterprise colleagues and real work tasks.
+## 7. Candidate Skill status
 
-For each pilot, capture only evidence that improves the product:
+Current candidate:
 
-- what real task/material the user brought;
-- what Curator recommended;
-- whether they actually tried it;
-- whether it reduced search/learning time or rework;
-- what recommendation was wrong/useless;
-- what risk was missed;
-- whether they would use Curator again.
+- `skills/curating-erp-ai-resources/SKILL.md`
 
-Do not build a heavy feedback database before real usage volume justifies it.
+Its simplified leverage-first direction is broadly aligned with the North Star, but it is **experimental** until the validation sequence is trustworthy again.
 
-### Valid work in this phase
+Do not describe it as proven Minimal Curator V0.1.
 
-A task is valid only if it does at least one of the following:
+## 8. Cloud / local split
 
-1. **serves an actual real-user / owner-real work task now** and produces a recommendation the person can actually use;
-2. **fixes a material defect exposed by real use**;
-3. **removes a concrete blocker preventing a real pilot from happening**.
+Cloud/ChatGPT owns:
 
-The following do **not** count as product progress by themselves:
+- product judgement;
+- Web/GitHub research;
+- source prioritization;
+- evidence-role judgement;
+- current fact checks;
+- adversarial review;
+- proportional static inspection;
+- GitHub maintenance;
+- final recommendation/stop decisions.
 
-- synthetic/smoke/readiness tests;
-- generic Quickstart or documentation polish;
-- creating work merely because a local/cloud Agent is available;
-- more validation cards for coverage;
-- internal PASS/score/readiness labels;
-- implementation cleanup that no real pilot currently depends on.
+Use local Agent only when local capability materially adds evidence: local repository/runtime, inaccessible-source acquisition, local files/environment or justified reproducibility evidence.
 
-Engineering smoke/regression checks are allowed after a justified product change, but they are implementation verification — **not product evidence and not a milestone substitute**.
+Agent availability is not a reason to create work.
 
-## 6. Mandatory task preflight — milestone first
+## 9. Task preflight
 
-Before cloud or local Agent starts any non-trivial task, answer these four questions privately and concretely:
+Before any non-trivial task, confirm:
 
-1. **What is the current milestone?**
-2. **What observable evidence will this task create for that milestone?**
-3. **If the task succeeds perfectly but no real user behavior/decision changes, are we actually closer to the milestone?**
-4. **Why must this task happen now instead of directly serving the next real user problem?**
+1. current milestone;
+2. concrete evidence the task will create;
+3. why the evidence can change a product/adoption decision;
+4. why the task is preferable to directly executing the current card.
 
-If question 2 has no concrete answer, or question 3 is “no” without a real blocker being removed, **do not execute the task**.
-
-Goal hierarchy is fixed:
+Goal hierarchy:
 
 ```text
 North Star
-→ current milestone
-→ real user outcome/evidence
+→ current trustworthy checkpoint
+→ decision-changing evidence
 → task
 → artifact / test / commit / Agent
 ```
 
-Never reverse it.
+Do not reverse it.
 
-In particular:
+## 10. Anti-drift
 
-> **“We have a local Agent, what should it do?” is not a product reason to create work.**
+Do not add without evidence of need:
 
-Agent capacity is a means. It can be idle when no milestone-relevant local work exists.
-
-## 7. Cloud / local split
-
-Cloud/ChatGPT owns product judgement, current Web/GitHub research, evidence-role judgement, fact checks, proportional static inspection, GitHub maintenance and final recommendation/stop decisions.
-
-Use local Agent only when local capability materially adds evidence or execution needed by a valid current-phase task: local repository/runtime, inaccessible source acquisition, local files/environment, or a justified reproducibility check.
-
-For bounded local tasks:
-
-- fixed: objective, hard boundaries, escalation conditions, evidence return;
-- flexible: execution path, tools, scripts and internal iteration unless evidence validity requires otherwise.
-
-Every delegated local task must be traceable to:
-
-- `milestone_link`: which current milestone it advances;
-- `user_evidence_created`: what real-user evidence or concrete blocker removal it produces.
-
-If either is empty, do not delegate.
-
-Remote GitHub branch + readable remote commit is the completion boundary for local repository evidence; it is not itself evidence of product value.
-
-## 8. What not to build yet
-
-Until real-user usage proves need, do not add:
-
-- more Problem Card validation for its own sake;
-- unattended multi-card Loop;
-- large resource database;
-- fixed taxonomy;
-- universal scores / Gates;
+- new framework/Gate per Tool;
+- large resource database or taxonomy;
+- fixed source/platform quotas;
 - mandatory runtime benchmarks;
-- automated refresh infrastructure;
-- influencer/source rankings;
-- new governance for one-off failures;
-- pilot-readiness machinery whose only purpose is to prove the product is ready.
+- unattended multi-card Loop;
+- automatic refresh infrastructure;
+- source/influencer rankings;
+- synthetic/smoke/readiness work presented as product evidence;
+- conclusions that cannot be traced back to actually acquired evidence.
 
-## 9. Success criterion now
+## 11. Current milestone
 
-The next milestone is no longer “another card passes”, “Skill loads”, “smoke tests pass” or “local Agent completed a task”.
+Current milestone is **not** “real users love the product” yet.
 
 It is:
 
-> **A real ERP colleague brings a real task, receives a Curator recommendation, actually uses it, and reports that it reduced search/learning/rework enough that they would use Curator again.**
-
-Until that happens, prefer serving the next real task over polishing the system that serves it.
+> **Complete P03 with a trustworthy, auditable evidence chain and a stable colleague recommendation; then test one engineering-type heterogeneous card before deciding whether the method is ready for a minimal real-user pilot.**
