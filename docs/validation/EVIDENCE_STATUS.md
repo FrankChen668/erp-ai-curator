@@ -1,11 +1,11 @@
 # Current Evidence Status
 
 Date: 2026-08-30
+Status: **CURRENT EVIDENCE AUTHORITY**
 
-> Current execution authority: `docs/CURRENT_EXECUTION_PLAN_V3.md`.
-> Rebase audit: `docs/REBASE_AUDIT_20260830.md`.
-> Cross-card reassessment: `docs/validation/CROSS_CARD_METHOD_REASSESSMENT_20260830.md`.
-> North Star: `docs/PROJECT_NORTH_STAR.md`.
+> Navigation: `docs/PROJECT_MAP.md`  
+> Product: `docs/PROJECT_NORTH_STAR.md`  
+> Execution: `docs/CURRENT_EXECUTION_PLAN_V3.md`
 
 ## 1. Demand evidence — accepted
 
@@ -17,18 +17,18 @@ Supported conclusions:
 - implementation consultants and project managers are the main audience;
 - many respondents already use AI;
 - the main gap is practical delivery quality, not AI introduction;
-- repeated work problems include requirements, PRD/FS, prototypes, diagrams, PPT, Excel/data, code/debugging, testing, project management and Agent usage;
+- repeated problems include requirements, PRD/FS, prototype/diagram/PPT, Excel/data, code/debugging, testing, project management and Agent usage;
 - typical inputs are real project artifacts rather than abstract prompts.
 
 Authority: `SURVEY_DERIVED_PROBLEM_CARDS_01.md`.
 
-Boundary: the survey validates demand, not recommendation outcome.
+Boundary: **the survey validates demand and real problem provenance; it does not validate a Curator recommendation or product value.**
 
-## 2. Accepted task evidence
+## 2. Accepted task/method evidence
 
 ### P01 — workshop/minutes → requirement package
 
-> **KEEP FOR PRACTICAL PILOT — high task fit / low independent validation**
+> **KEEP FOR PRACTICAL CURATION — high task fit / low independent validation**
 
 ### P04 — business logic → editable process diagram
 
@@ -65,110 +65,114 @@ Authority: `P07_CODEBASE_UNDERSTANDING_RESULT_02.md`.
 
 Only Result 02 is authoritative for P03/P07.
 
-## 4. Cross-card method conclusion — accepted for pilot readiness
+## 4. Cross-task method conclusion — accepted
 
 Authority: `CROSS_CARD_METHOD_REASSESSMENT_20260830.md`.
 
-Status:
+The heterogeneous evidence supports a stable method skeleton:
 
-> **METHOD READY FOR REAL-USER PILOT — PRODUCT OUTCOME NOT YET VALIDATED**
+1. start from the real job, current baseline, artifacts, deliverable and hard constraints;
+2. specialized capability only for a concrete capability gap whose benefit justifies adoption cost;
+3. external adoption questions prioritize practitioner workflow/review/failure evidence;
+4. source/project/system grounding outranks model memory for important domain facts;
+5. runtime/local tests only when their result can change the recommendation;
+6. strong match and stopping discipline outrank resource coverage.
 
-The heterogeneous trustworthy cards repeatedly support a minimal recurring method:
+Historical verdict wording “METHOD READY FOR REAL-USER PILOT” remains valid only as a historical readiness checkpoint; current stage naming is defined below.
 
-1. start from the real job, artifacts, deliverable and material constraints;
-2. treat ordinary AI/existing Agent as the baseline;
-3. discover specialized capability only for a concrete bottleneck;
-4. when external evidence matters, prioritize practitioner workflow/review/failure evidence;
-5. verify original Tool / Skill / repo and only decision-changing current facts;
-6. run local/runtime tests only when their result can change the recommendation;
-7. stop when the user has a stable small set of best practices/resources worth learning or adopting.
-
-## 5. Minimal Curator status
+## 5. Current Skill — 0.7.0
 
 `skills/curating-erp-ai-resources/SKILL.md`:
 
-> **Minimal Curator V0.1 — real-user pilot candidate / version 0.6.3**
+> **Curation pilot — user-use value unvalidated / version 0.7.0**
 
-This means method readiness, not product validation.
+0.7.0 is a project-wide calibration, not new product validation. It consolidates lessons from 0.6.1–0.6.3 and the project audit:
 
-0.6.2 is the narrow adoption-consistency Harness patch.
+- current baseline instead of bare-model comparison;
+- `information missing != C`;
+- C no longer automatically produces a user test protocol;
+- “best/unique/validated” treated as high-evidence language;
+- default recommendation is decision-relative: the practice/resource most worth prioritizing for the current task and constraints;
+- runtime Skill is separated from project/history documentation.
 
-0.6.3 adds a **product-boundary Harness correction** grounded in the existing North Star and explicit Owner instruction:
-
-> **The Curator's default output is best-practice / existing-resource curation, not a complete execution SOP or user tool-testing protocol.**
-
-Authorities:
+Supporting historical Harness decisions remain:
 
 - `CURATOR_062_HARNESS_PATCH.md`
 - `CURATOR_063_BEST_PRACTICE_BOUNDARY_PATCH.md`
 
-This is an engineering/scope correction, not REAL_USER adoption evidence.
+Current project calibration authority:
 
-## 6. 0.6.1 boundary regression — closed internal evidence
+- `docs/PROJECT_CALIBRATION_20260830.md`
+
+This is engineering/scope evidence, not user-value evidence.
+
+## 6. Closed 0.6.1 boundary regression — internal evidence only
 
 Authorities:
 
 - `CURATOR_061_BOUNDARY_REGRESSION_PLAN.md`
 - `CURATOR_061_BOUNDARY_REGRESSION_RESULT_01.md`
 
-Bounded findings:
+Findings:
 
 - no over-tooling signal;
-- under-tooling appeared in Case 5 and Case 38, with a lighter signal in Case 8;
-- `C` misuse as “information missing” was not confirmed;
-- recurring multi-problem decomposition defect was not confirmed;
-- Curator showed no clear repeatable adoption-decision advantage over ordinary Baseline Agent in this bounded exercise.
+- under-tooling appeared in Case 5/38 and lightly in Case 8;
+- C-as-missing-information and recurring decomposition defects were not confirmed;
+- no clear repeatable Curator uplift over ordinary Agent was demonstrated.
 
-This remains internal engineering evidence, not REAL_USER adoption/product evidence.
+The regression informed Harness design but does **not** prove product value.
 
-## 7. Active Pilot Case 001
+## 7. REAL_USER_ORIGIN CURATION — current Lane A
 
-Authority:
+These cases originate from real survey/user problems, but the curation was produced by Cloud, not by an observed end-user interaction:
 
-- `docs/pilot/PILOT_CASE_001_ERP_OPERATING_MANUAL.md`
+- `docs/curation-cases/CASE_001_ERP_OPERATING_MANUAL.md`
+- `docs/curation-cases/CASE_002_ORACLE_EBS_DEVELOPMENT.md`
 
 Status:
 
-> **BEST-PRACTICE CURATION READY — AWAITING REAL USER FEEDBACK / ADOPTION**
+> **REAL_USER_ORIGIN CURATION READY — NOT USER-USE EVIDENCE**
 
-Case 001 is the first corrected real-problem Curator output:
+They can support claims about task provenance, curation method behavior and evidence quality. They cannot support claims about adoption, time savings, reduced rework or superiority over ordinary AI/self-search.
 
-- practitioner evidence first;
-- original capability verification second;
-- Curator synthesis clearly labeled;
-- no mandatory user test protocol.
+## 8. REAL_USER_USE VALIDATION — current Lane B
 
-It is not evidence that Guidde, Folge or the synthesized practice has already delivered user value.
+Authority: `docs/REAL_USER_PILOT_V1.md`.
 
-## 8. Current dominant uncertainty
+Accepted product-value evidence requires a real colleague to actually receive the recommendation and naturally learn/adopt/modify/reject/ignore it, with a concrete reason or outcome.
 
-The main uncertainty is now expressed more precisely:
+Strong signals include:
 
-> **Can the Curator turn real ERP work problems into small, trustworthy best-practice recommendations that users consider worth learning/adopting, while saving them from noisy search, wrong-tool selection and avoidable setup/rework?**
+- saved search/selection/setup effort;
+- concrete adoption/rejection reason;
+- missed capability/privacy/permission/version constraint;
+- downstream work/rework effect if actually used;
+- willingness to bring another real problem.
 
-Authority for the current phase: `docs/REAL_USER_PILOT_V1.md`.
+Do not manufacture Lane B by making users run a test protocol for the project.
 
-## 9. Next accepted evidence
+## 9. Current dominant uncertainty
 
-Prefer:
+> **Does Curator consistently provide a higher-trust, lower-noise adoption decision than an ERP practitioner would get from ordinary AI or self-search, and is that difference valuable enough that real users would return?**
 
-- a real colleague’s real task;
-- best-practice/resource recommendation actually given by Minimal Curator 0.6.3;
-- whether the user found the resource/method worth learning, adopting, modifying or rejecting;
-- concrete reason for adoption/rejection;
-- observed reduction or increase in search/selection/setup effort;
-- missed constraints or unsafe/wrong recommendation if any.
+This remains unresolved.
 
-Do **not** substitute:
+## 10. Next accepted evidence
 
-- another invented card;
-- a user tool-test protocol designed mainly to prove Curator;
-- another synthetic boundary/smoke/readiness regression without a real-use defect;
-- owner/agent opinion that the output “looks good”;
-- more resource collection without a real user problem.
+Near-stage Cloud work may add a small number of **high-discrimination REAL_USER_ORIGIN** cases because those are real demand inputs and can falsify runtime behavior.
 
-## 10. Evidence acceptance rule remains
+Current bounded plan: Case 003 (A/no-new-tool control) + Case 004 (system-access/permission boundary), then stop bulk curation and reassess Pack 01.
 
-External claims must remain traceable to concrete acquired evidence. Search snippets are discovery only. Author self-tests are not independent validation. Runtime evidence is bounded to what was actually tested.
+Product-value claims still require Lane B.
 
-During the real-user phase, internal testing is justified only to fix a concrete defect exposed by real use or remove a concrete pilot blocker.
+Do not substitute:
+
+- synthetic benchmark loops;
+- Owner/Agent opinion that output “looks good”;
+- more resource links without a real problem;
+- user tool-test protocols designed mainly to prove Curator;
+- internal validator success.
+
+## 11. Evidence acceptance rule
+
+External claims must remain traceable to actually acquired evidence. Search snippets are discovery only. Author self-practice is not independent validation. Runtime evidence is bounded to what was actually tested. Stable practice insight must be separated from version-coupled facts.

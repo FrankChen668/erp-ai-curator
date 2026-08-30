@@ -1,142 +1,99 @@
 # ERP AI Curator — Current Session Handoff
 
 Date: 2026-08-30
+Status: **CURRENT / MINIMAL HANDOFF**
 
-> **Fresh-session authority after context reset.** Always inspect current `main` first. Do not rely on prior chat summaries when they conflict with repository evidence.
+> 新会话不要从历史聊天或旧 validation 文档恢复状态。先读 `docs/PROJECT_MAP.md`。
 
-## 0. Owner execution rule — mandatory
-
-Authority: `docs/OWNER_EXECUTION_RULES.md`.
-
-Hard rule:
-
-> **If Cloud/ChatGPT can complete the next useful project step with cloud capabilities, continue executing it directly. Do not stop merely to describe the next step or leave the next actor ambiguous.**
-
-Cloud stops only for:
-
-1. a genuine Owner decision;
-2. a genuine Local Agent handoff because local files/repository/runtime/enterprise environment are required;
-3. an external evidence barrier such as real-user action, protected access or permission.
-
-When stopping, explicitly state who acts next, what they must execute/return, and what Cloud will do after the result returns.
-
-## 1. Repository / authority
-
-- GitHub: `FrankChen668/erp-ai-curator`
-- Owner execution rules: `docs/OWNER_EXECUTION_RULES.md`
-- North Star: `docs/PROJECT_NORTH_STAR.md`
-- Current execution: `docs/CURRENT_EXECUTION_PLAN_V3.md`
-- Current evidence: `docs/validation/EVIDENCE_STATUS.md`
-- Pilot contract: `docs/REAL_USER_PILOT_V1.md`
-- Pilot Case 001: `docs/pilot/PILOT_CASE_001_ERP_OPERATING_MANUAL.md`
-- Pilot Case 002: `docs/pilot/PILOT_CASE_002_ORACLE_EBS_DEVELOPMENT.md`
-- 0.6.2 Harness patch: `docs/validation/CURATOR_062_HARNESS_PATCH.md`
-- 0.6.3 best-practice boundary patch: `docs/validation/CURATOR_063_BEST_PRACTICE_BOUNDARY_PATCH.md`
-- Pilot Skill: `skills/curating-erp-ai-resources/SKILL.md`
-
-## 2. Product objective — do not drift
-
-ERP AI Curator is fundamentally a **best-practice / existing-resource curator for real ERP work**.
-
-Core question:
-
-> **面对真实工作问题，普通 AI 是否够用？如果不够，互联网上已经存在的实操经验、Tool / Skill / MCP / 方法 / 教程中，什么最值得学习和采用？**
-
-Main chain:
+## 1. 最小读取顺序
 
 ```text
-real problem
-→ AI leverage judgement
-→ practitioner practice / review / failure evidence
-→ original implementation verification
-→ decision-changing official facts
-→ small curated recommendation
+docs/PROJECT_MAP.md
+→ docs/PROJECT_NORTH_STAR.md
+→ docs/OWNER_EXECUTION_RULES.md
+→ docs/CURRENT_EXECUTION_PLAN_V3.md
+→ docs/validation/EVIDENCE_STATUS.md
 ```
 
-The default deliverable is **not** a complete execution SOP, user training plan, or tool-test protocol.
+只有具体任务需要时再读 runtime Skill、Pilot、AI Leverage、Adversarial Review 或历史材料。
 
-Real-user adoption/modification/rejection is product-validation evidence after the recommendation is delivered; it is not the Curator output itself.
+## 2. 当前产品
 
-## 3. Minimal Curator status
+ERP AI Curator 是**真实 ERP / 企业信息化工作问题的 AI 实践与现成资源 Curator**。
 
-`skills/curating-erp-ai-resources/SKILL.md`:
+核心问题：
 
-- version: `0.6.3`
-- status: **Minimal Curator V0.1 — real-user pilot candidate**
+> **当前 AI / 工具链是否已经够用？如果不够，什么已经存在的实践、Tool / Skill / MCP / 方法 / 教程最值得在当前任务和约束下优先学习/采用？**
 
-0.6.3 keeps the 0.6.2 adoption-consistency check and adds one scope guardrail:
+默认不是：工具目录、执行 SOP、用户测试协议、资源数据库或工具实验室。
 
-> **Do not silently turn best-practice curation into execution coaching/testing unless the user's task explicitly asks for execution/test design.**
+## 3. 当前 Skill
 
-## 4. Current real-problem curation outputs
+- `skills/curating-erp-ai-resources/SKILL.md`
+- version: **0.7.0**
+- stage: **Curation pilot — user-use value unvalidated**
 
-### Case 001 — ERP operating manual
+关键 runtime 边界：
 
-Status: **BEST-PRACTICE CURATION READY — AWAITING REAL USER FEEDBACK / ADOPTION**
+- 真实 baseline first；
+- capability gap + adoption cost 决定 A/B/C；
+- `信息不足 != C`；
+- practitioner-first，但 author self-practice 不冒充独立验证；
+- 默认“当前任务下优先推荐”，不滥用“最佳/唯一/已验证”；
+- 0 资源合法，默认最多 1 个主资源；
+- C 不自动让用户测试工具；
+- runtime/local test 只在 decision-changing 时做；
+- Curator != execution coach / test coordinator。
 
-Curated practice:
+## 4. 两条 Lane
 
-- task/role-based modular documentation;
-- capture-assisted screenshot/annotation work;
-- stable text for business purpose, roles, permissions, exceptions and notes;
-- selective screenshots instead of screenshot-per-step by default;
-- change-oriented maintenance;
-- cloud/local choice based on enterprise data boundary.
+### REAL_USER_ORIGIN CURATION
 
-Practitioner evidence comes first. Guidde / Folge are only implementation examples for different boundaries.
+真实问题来源，由 Cloud 完成研究/推荐。当前：
 
-### Case 002 — Oracle EBS AI-assisted development
+- `docs/curation-cases/CASE_001_ERP_OPERATING_MANUAL.md`
+- `docs/curation-cases/CASE_002_ORACLE_EBS_DEVELOPMENT.md`
 
-Status: **BEST-PRACTICE CURATION READY — AWAITING REAL USER FEEDBACK / ADOPTION**
+这些**不是用户使用证据**。
 
-Curated practice:
+### REAL_USER_USE VALIDATION
 
-> **EBS Context Engineering + Coding Agent, rather than hunting for a magical EBS-specific AI.**
+真实同事实际收到并自然学习/采用/修改/拒绝推荐。Authority：`docs/REAL_USER_PILOT_V1.md`。
 
-Direct EBS practitioner evidence shows a reusable pattern: organize custom extensions/integrations, DDL, PL/SQL, object maps, deployment rules and team conventions into a predictable repository and persistent Agent instructions; then let a mainstream Coding Agent work against that grounded context.
+只有这条 Lane 用于证明产品真实价值。
 
-Oracle EBS Developer's Guide is the authoritative standards source. Oracle Code Assist remains a current PL/SQL/Oracle-native candidate, but public evidence does not establish it as the default EBS-specific winner.
+## 5. 当前近阶段
 
-## 5. Current checkpoint
+Authority：`docs/CURRENT_EXECUTION_PLAN_V3.md`。
 
-> **REAL_USER best-practice curation / adoption is the governing phase.**
+完成 bounded Curation Pack 01：
 
-For each genuine colleague problem:
+1. Case 001/002 已完成；
+2. Cloud 下一步直接做 Case 003：多顾问周报/PPT 汇总与数据准确性；
+3. 再做 Case 004：程序 Bug / ERP 系统真实访问边界；
+4. 然后停止批量 curation，做 Pack 01 adversarial review。
 
-1. curate the best existing practice/resource;
-2. give a compact evidence-backed recommendation;
-3. stop when the user knows what is worth learning/adopting;
-4. if the user later adopts/modifies/rejects it, capture that as validation evidence.
+不要提前预设 A/B/C。
 
-Cloud should continue to the next real survey problem while public evidence is sufficient; it does not need to wait for feedback on Case 001/002 before curating additional genuine problems.
+## 6. Owner execution rule
 
-## 6. Cloud / local boundary
+Cloud 能做就继续直接做。只有以下情况停：
 
-Cloud should continue automatically on cloud-executable best-practice research, curation, evidence review and GitHub maintenance.
+- genuine Owner decision；
+- Local Agent-only file/repo/runtime/ERP environment；
+- external evidence barrier。
 
-Use a Local Agent only when a curation decision genuinely needs local files/repository/runtime or an enterprise environment.
+停时必须明确下一 actor、任务、返回结果和 Cloud 后续动作。
 
-Do not dispatch local work merely because an Agent is available.
+## 7. 绝对不要复活
 
-## 7. Anti-drift
+除非当前 evidence 证明必要，不要重新启动：
 
-Do not default to:
-
-- user test protocols;
-- synthetic benchmark loops;
-- large tool/resource directories;
-- fixed scenario taxonomies;
-- scoring/Gate systems;
-- mandatory runtime tests;
-- card-specific rules in the permanent Skill.
-
-## 8. New-session start instruction
-
-When a fresh cloud conversation starts:
-
-1. inspect current `main`;
-2. read Owner Execution Rules + North Star + Current Plan + this Handoff + Evidence Status;
-3. use `0.6.3` as the current distributable Skill;
-4. remember: **Curator first = find and compress best existing practices; execution coaching only when explicitly requested**;
-5. continue cloud-executable work automatically, including more genuine survey-problem curation;
-6. stop only for a genuine Owner decision, Local Agent handoff or external evidence barrier, and make the next actor explicit.
+- V0.4 Gate/scoring/taxonomy/validator 流程；
+- synthetic benchmark loop；
+- resource DB / auto refresh；
+- source-adapter framework as default architecture；
+- multi-Agent orchestration；
+- user tool-test protocol；
+- 已失效 P03/P07 Result 01；
+- 历史 `PROJECT_WORKFLOW.md` 的旧 CURRENT/NEXT。
