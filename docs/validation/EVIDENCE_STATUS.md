@@ -26,17 +26,48 @@ Boundary: **the survey validates demand and real problem provenance; it does not
 
 ## 2. Accepted task/method evidence
 
-Accepted historical authorities remain unchanged:
+### P01 — workshop/minutes → requirement package
 
-- P01 — workshop/minutes → requirement package: high task fit / low independent validation;
-- P04 — business logic → editable process diagram: CLOSED;
-- P06 — Excel/CSV/system export → reconcile and validate: CLOSED, plain code-first default;
-- P03 — requirements/rules → clickable prototype: CLOSED via Result 02;
-- P07 — codebase/program → understand logic / reverse FS / defect hypotheses: CLOSED via Result 02.
+> **KEEP FOR PRACTICAL CURATION — high task fit / low independent validation**
 
-Invalidated P03/P07 Result 01 files remain **INVALIDATED / NOT PRODUCT EVIDENCE**.
+### P04 — business logic → editable process diagram
 
-## 3. Cross-task method conclusion — accepted for controlled trial readiness
+> **CLOSED — recommendation stable with explicit coverage gaps**
+
+Authority: `P04_PRACTITIONER_CURATION_RESULT_02.md`.
+
+### P06 — Excel/CSV/system export → reconcile and validate
+
+> **CLOSED — plain code-first default / Huashu optional**
+
+Authorities:
+
+- `DELIVERY_P06_DATA_RECONCILIATION.md`
+- `P06_LOCAL_RUNTIME_RESULT_01.md`
+- `evidence/p06/`
+
+### P03 — requirements/rules → clickable prototype
+
+> **CLOSED — spec-first code prototype default; Figma Make conditional upgrade**
+
+Authority: `P03_PROTOTYPE_CURATION_RESULT_02.md`.
+
+### P07 — codebase/program → understand logic / reverse FS / defect hypotheses
+
+> **CLOSED — traceable read-only repo exploration default; conditional LSP/semantic or ERP-native MCP upgrade**
+
+Authority: `P07_CODEBASE_UNDERSTANDING_RESULT_02.md`.
+
+## 3. Invalidated evidence remains invalid
+
+- `P03_PROTOTYPE_CURATION_RESULT_01.md` — **INVALIDATED / NOT PRODUCT EVIDENCE**.
+- `P07_CODEBASE_UNDERSTANDING_RESULT_01.md` — **INVALIDATED / NOT PRODUCT EVIDENCE**.
+
+Only Result 02 is authoritative for P03/P07.
+
+## 4. Cross-task method conclusion — accepted for controlled-trial readiness
+
+Authority: `CROSS_CARD_METHOD_REASSESSMENT_20260830.md`.
 
 The heterogeneous evidence supports a stable method skeleton:
 
@@ -47,9 +78,11 @@ The heterogeneous evidence supports a stable method skeleton:
 5. runtime/local tests only when their result can change the recommendation;
 6. strong match and stopping discipline outrank resource coverage.
 
+Historical wording “METHOD READY FOR REAL-USER PILOT” remains a readiness checkpoint. Current release class is defined below.
+
 This supports **controlled user trial readiness**, not product-value completion.
 
-## 4. Current Skill — 0.7.0
+## 5. Current Skill — 0.7.0
 
 `skills/curating-erp-ai-resources/SKILL.md`:
 
@@ -65,11 +98,23 @@ This supports **controlled user trial readiness**, not product-value completion.
 - runtime Skill separated from project/history documentation;
 - adoption consistency and read-only/system-access boundaries.
 
+Supporting historical Harness authorities remain:
+
+- `CURATOR_062_HARNESS_PATCH.md`
+- `CURATOR_063_BEST_PRACTICE_BOUNDARY_PATCH.md`
+
+Current project calibration authority:
+
+- `docs/PROJECT_CALIBRATION_20260830.md`
+
 Engineering/scope evidence is not user-value evidence.
 
-## 5. Closed 0.6.1 boundary regression — internal evidence only
+## 6. Closed 0.6.1 boundary regression — internal evidence only
 
-Authority: `CURATOR_061_BOUNDARY_REGRESSION_RESULT_01.md`.
+Authorities:
+
+- `CURATOR_061_BOUNDARY_REGRESSION_PLAN.md`
+- `CURATOR_061_BOUNDARY_REGRESSION_RESULT_01.md`
 
 Findings remain:
 
@@ -80,7 +125,7 @@ Findings remain:
 
 This informed later Harness changes but does not prove product value.
 
-## 6. Curation Pack 01 — REAL_USER_ORIGIN Lane A closed
+## 7. Curation Pack 01 — REAL_USER_ORIGIN Lane A closed
 
 Authority: `CURATION_PACK_01_ADVERSARIAL_REVIEW.md`.
 
@@ -110,7 +155,7 @@ What it does not support:
 - superiority over ordinary AI/self-search;
 - organization-wide standardization.
 
-## 7. Release readiness
+## 8. Release readiness
 
 Authority: `RELEASE_READINESS_ADVERSARIAL_20260830.md`.
 
@@ -124,7 +169,7 @@ Broad release remains unsupported because REAL_USER_USE and cross-host compatibi
 
 The public repository currently has no `LICENSE` file; public/open-source release completion requires an explicit Owner licensing decision and is not inferred by the Agent.
 
-## 8. REAL_USER_USE VALIDATION — active Lane B
+## 9. REAL_USER_USE VALIDATION — active Lane B
 
 Authority: `docs/REAL_USER_PILOT_V1.md`.
 
@@ -140,13 +185,13 @@ Strong signals include:
 
 Do not manufacture Lane B by making users run a test protocol for the project.
 
-## 9. Current dominant uncertainty
+## 10. Current dominant uncertainty
 
 > **Does Curator consistently provide a higher-trust, lower-noise adoption decision than an ERP practitioner would get from ordinary AI or self-search, and is that difference valuable enough that real users would return?**
 
 This remains unresolved and is now the primary product question.
 
-## 10. Next accepted evidence
+## 11. Next accepted evidence
 
 Prefer natural REAL_USER_USE from controlled trial users.
 
@@ -158,6 +203,6 @@ Do not substitute:
 - user tool-test protocols designed mainly to prove Curator;
 - internal validator success.
 
-## 11. Evidence acceptance rule
+## 12. Evidence acceptance rule
 
 External claims must remain traceable to actually acquired evidence. Search snippets are discovery only. Author self-practice is not independent validation. Runtime evidence is bounded to what was actually tested. Stable practice insight must be separated from version-coupled facts.
