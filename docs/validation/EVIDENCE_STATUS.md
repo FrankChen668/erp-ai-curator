@@ -19,23 +19,15 @@ Supported conclusions:
 - repeated work problems include requirements, PRD/FS, prototypes, diagrams, PPT, Excel/data, code/debugging, testing, project management and Agent usage;
 - typical inputs are real project artifacts rather than abstract prompts.
 
-Authority:
+Authority: `SURVEY_DERIVED_PROBLEM_CARDS_01.md`.
 
-- `SURVEY_DERIVED_PROBLEM_CARDS_01.md`
-
-Boundary:
-
-- closed-choice aggregates are direct demand evidence;
-- free-text is semantic evidence and may contain platform-side wording cleanup;
-- the survey validates demand, not recommendation outcome.
+Boundary: the survey validates demand, not recommendation outcome.
 
 ## 2. Accepted task evidence
 
 ### P01 — workshop/minutes → requirement package
 
 > **KEEP FOR PRACTICAL PILOT — high task fit / low independent validation**
-
-Do not present P01 as independently validated industry best practice.
 
 ### P04 — business logic → editable process diagram
 
@@ -52,8 +44,6 @@ Authorities:
 - `DELIVERY_P06_DATA_RECONCILIATION.md`
 - `P06_LOCAL_RUNTIME_RESULT_01.md`
 - `evidence/p06/`
-
-Bounded evidence: plain deterministic code matched the Skill on record-level outcomes in the synthetic fixture; Huashu added one useful control-total discipline but not enough Skill-specific gain for mandatory adoption.
 
 ### P03 — requirements/rules → clickable prototype
 
@@ -72,13 +62,11 @@ Authority: `P07_CODEBASE_UNDERSTANDING_RESULT_02.md`.
 - `P03_PROTOTYPE_CURATION_RESULT_01.md` — **INVALIDATED / NOT PRODUCT EVIDENCE**.
 - `P07_CODEBASE_UNDERSTANDING_RESULT_01.md` — **INVALIDATED / NOT PRODUCT EVIDENCE**.
 
-Only Result 02 is authoritative for P03/P07. The clean reruns do not rehabilitate unsupported old reports.
+Only Result 02 is authoritative for P03/P07.
 
 ## 4. Cross-card method conclusion — accepted for pilot readiness
 
-Authority:
-
-- `CROSS_CARD_METHOD_REASSESSMENT_20260830.md`
+Authority: `CROSS_CARD_METHOD_REASSESSMENT_20260830.md`.
 
 Status:
 
@@ -89,36 +77,52 @@ The heterogeneous trustworthy cards repeatedly support a minimal recurring metho
 1. start from the real job, artifacts, deliverable and material constraints;
 2. treat ordinary AI/existing Agent as the baseline;
 3. discover specialized capability only for a concrete bottleneck;
-4. when external adoption evidence is needed, prioritize practitioner workflow/failure evidence, then original implementation, then decision-changing current official facts;
+4. use practitioner workflow/failure evidence when external adoption evidence matters;
 5. ground generated work in source/project/system evidence and expose unknowns;
 6. run local/runtime tests only when their result can change the recommendation;
 7. stop when the colleague’s next action is stable.
 
-No trusted card requires a contradictory permanent method.
-
 ## 5. Minimal Curator status
 
-`skills/curating-erp-ai-resources/SKILL.md` is now:
+`skills/curating-erp-ai-resources/SKILL.md`:
 
-> **Minimal Curator V0.1 — real-user pilot candidate**
+> **Minimal Curator V0.1 — real-user pilot candidate / version 0.6.1**
 
-This promotion means **method readiness**, not product validation.
+This means method readiness, not product validation.
 
-The Skill was deliberately kept generic: card-specific P03/P04/P06/P07 recommendations remain in validation documents rather than being accumulated as permanent scenario rules.
+## 6. 0.6.1 boundary regression — closed internal evidence
 
-## 6. Current dominant uncertainty
+Authorities:
 
-The main uncertainty is no longer whether the Curator can produce plausible decisions on another internal card.
+- `CURATOR_061_BOUNDARY_REGRESSION_PLAN.md`
+- `CURATOR_061_BOUNDARY_REGRESSION_RESULT_01.md`
 
-It is:
+Status:
+
+> **CLOSED — KEEP 0.6.1 UNCHANGED; RETURN TO REAL_USER PILOT**
+
+Bounded findings from five paired isolated Baseline-vs-Curator cases:
+
+- no over-tooling signal;
+- under-tooling appeared in Case 5 and Case 38, with a lighter signal in Case 8;
+- `C` misuse as “information missing” was not confirmed;
+- recurring multi-problem decomposition defect was not confirmed;
+- Curator showed no clear repeatable adoption-decision advantage over ordinary Baseline Agent in this bounded exercise;
+- the under-tooling misses are already covered by current permanent Skill/reference rules, so a Skill-text defect was **not established**.
+
+Decision: do not patch `SKILL.md` from this regression. Treat the misses as execution sensitivity/model variance unless real use demonstrates a recurring permanent-rule defect.
+
+Evidence boundary: this is internal bounded regression evidence, not REAL_USER adoption/product evidence.
+
+## 7. Current dominant uncertainty
+
+The main uncertainty remains:
 
 > **Will real ERP / enterprise-information-system colleagues act on the recommendation, and does it materially reduce wrong-tool selection, search/setup effort or avoidable downstream rework?**
 
-Authority for the next evidence phase:
+Authority for the current phase: `docs/REAL_USER_PILOT_V1.md`.
 
-- `docs/REAL_USER_PILOT_V1.md`
-
-## 7. Next accepted evidence
+## 8. Next accepted evidence
 
 Prefer:
 
@@ -132,12 +136,12 @@ Prefer:
 Do **not** substitute:
 
 - another invented card;
-- another smoke/readiness test;
+- another boundary/smoke/readiness regression without a real-use defect;
 - owner/agent opinion that the output “looks good”;
 - more resource collection without user action.
 
-## 8. Evidence acceptance rule remains
+## 9. Evidence acceptance rule remains
 
 External claims must remain traceable to concrete acquired evidence. Search snippets are discovery only. Author self-tests are not independent validation. Runtime evidence is bounded to what was actually tested.
 
-During the real-user phase, synthetic/internal testing is justified only to fix a defect exposed by real use or remove a concrete pilot blocker.
+During the real-user phase, internal testing is justified only to fix a concrete defect exposed by real use or remove a concrete pilot blocker.
