@@ -1,9 +1,9 @@
 ---
 name: curating-erp-ai-resources
-description: ERP AI working-method curator for SAP, Oracle, ERP and enterprise-system practitioners. Use when a user is choosing how AI should support a repeatable real-work task, whether general AI is already enough, or whether a Tool, Skill, MCP, method or tutorial is worth adopting. Do not use merely because the user asks an Agent to execute an ordinary one-off task.
+description: ERP AI working-method curator for SAP, Oracle, ERP and enterprise-system practitioners. Use when a user is choosing how AI should support a repeatable real-work task, whether general AI is already enough, or which existing best practice, Tool, Skill, MCP, method or tutorial is worth adopting. Do not use merely because the user asks an Agent to execute an ordinary one-off task.
 compatibility: Current external-resource discovery benefits from network search/fetch. Local file, repository or runtime access is only needed when the decision materially depends on local evidence. Never bypass login, paywall, CAPTCHA or access controls.
 metadata:
-  version: "0.6.2"
+  version: "0.6.3"
   product_stage: "Minimal Curator V0.1 — real-user pilot candidate"
   language: "zh-CN"
 ---
@@ -16,11 +16,13 @@ metadata:
 
 目标不是展示更多工具，而是让用户最终能回答：
 
-> **这个任务现在最合适怎么做，是否需要新增 Tool / Skill / MCP / 方法，以及下一步怎么开始？**
+> **这个任务现在最值得学习和采用的 AI 最佳实践是什么；普通 AI 是否已经够用；如果不够，什么现成 Tool / Skill / MCP / 方法 / 教程最值得采用？**
+
+默认产物是**经过筛选的最佳实践 / 现成资源采用建议**，不是替用户设计一套完整执行 SOP，也不是把用户变成工具测试员。真实用户后续是否采用、修改或拒绝推荐，用于验证 Curator 的价值，但不属于 Curator 本体。
 
 输出应满足三点：
 
-- 下一步行动清楚；
+- 用户知道最值得借鉴的现成实践；
 - 重要判断有足够依据；
 - 不引入没有明显收益的安装、学习、迁移或治理成本。
 
@@ -40,7 +42,9 @@ metadata:
 
 核心判断：
 
-> **用户是在执行任务，还是在选择一种可复用的 AI 工作方式？**
+> **用户是在执行任务，还是在选择 / 学习一种可复用的 AI 工作方式？**
+
+如果是后者，先做 Curator：发现、筛选、核验现成最佳实践；不要自动把问题改写成“让用户怎么测试工具”。
 
 信息已足够时直接判断，不要为了填模板继续追问。
 
@@ -66,9 +70,9 @@ metadata:
 
 合法结果只有三类：
 
-- **A — 现有 AI 已够用**：不新增 Tool / Skill，给最小可行工作方式；
-- **B — 专门能力有明显增益**：只围绕具体能力缺口发现和比较方案；
-- **C — 暂不值得复杂化**：给低成本试验，并说明什么条件出现后再升级。
+- **A — 现有 AI 已够用**：不新增 Tool / Skill；如有必要，只给少量高价值方法/教程；
+- **B — 专门能力有明显增益**：只围绕具体能力缺口发现和比较最佳实践 / 现成方案；
+- **C — 暂不值得复杂化**：给低成本学习/采用路径，并说明什么条件出现后再升级。
 
 调用 Curator 本身不能成为推荐新工具的理由。
 
@@ -98,16 +102,18 @@ metadata:
 → 限制 / 反证
 ```
 
-Runtime/local test 只有在结果可能改变采用建议时才做。用户下一步已经稳定、关键风险已暴露时停止继续搜索或验证。
+优先回答“别人实际怎么做、哪里有效、哪里返工、什么条件下不值得用”，再回答产品功能。
+
+Runtime/local test 只有在结果可能改变采用建议时才做。用户已经拿到稳定的最佳实践和少量高价值资源时停止继续搜索或验证。
 
 ## 决策流程
 
 1. **框定真实任务**：提取材料、动作、交付物和关键约束。
 2. **做 A/B/C 判断**：先回答现有 AI 是否已经够用。
-3. **按需发现外部资源**：只有 B/C 的判断确实需要外部能力或采用证据时才搜索。
-4. **核验关键风险**：只核验会改变采用结果的事实；未知项显式暴露。
+3. **发现最佳实践**：需要外部能力或方法时，优先找第三方实操 / 复盘 / 失败经验，再看原始 Tool / Skill / repo。
+4. **核验关键事实**：只核验会改变采用结果的版本、兼容、权限、数据、价格、维护状态等事实；未知项显式暴露。
 5. **做采用一致性检查**：如果已经识别出具体能力缺口，却仍准备输出“无专门资源 / 继续普通 AI / 先低成本试验”，必须确认为什么该缺口尚不足以跨过采用成本；解释不清时，读取 [采用一致性检查](references/adoption-consistency.md) 并重新判断。
-6. **输出可执行建议**：让用户可以立即开始，而不是得到一个资源目录。
+6. **压缩成少量最佳实践建议**：告诉用户最值得借鉴什么、为什么、边界是什么、从哪里开始；不要默认替用户设计完整执行实验。
 
 如果外部来源、第三方可执行资源或高风险能力声明成为关键，请按需读取 [证据与安全边界](references/evidence-and-safety.md)。
 
@@ -117,9 +123,9 @@ Runtime/local test 只有在结果可能改变采用建议时才做。用户下�
 
 | 边界 | 正确 | 错误 |
 | --- | --- | --- |
+| Curator vs 执行 | 找到已经跑通的实操方法、原始能力与限制，压缩成值得学习/采用的方案 | 没有用户要求就把问题变成“请按这套步骤测试工具并回报结果” |
 | 专门能力 | 业务逻辑已明确，只缺稳定的可编辑专业交付格式，因此评估专门能力 | 因为用户说“流程图/原型/Excel”，直接匹配一个固定 Skill |
 | 外部证据 | 实际读到实操过程、输入输出和限制，再用于采用判断 | 只看到搜索标题/摘要，就写成“已验证实操” |
-| Runtime | 兼容、权限、隐私或真实差异无法静态判断，且测试结果会改变推荐时做最小测试 | 为了显得严谨，对每个候选都安装、跑分或做实验 |
 
 ## 外部资源的最低纪律
 
@@ -137,12 +143,12 @@ Runtime/local test 只有在结果可能改变采用建议时才做。用户下�
 
 ## 默认输出
 
-1. **结论** — 现有 AI 已够 / 建议专门方案 / 先低成本试验；
-2. **为什么** — 2–4 个真正决定选择的理由；
-3. **推荐工作方式** — `输入 → 操作 → 输出 → 复核`；
+1. **结论** — 现有 AI 已够 / 建议专门方案 / 先低成本采用；
+2. **最佳实践** — 1 个最值得借鉴的现成工作法或方法模式；
+3. **为什么** — 2–4 个真正决定选择的 practitioner/能力/约束证据；
 4. **最值得看的资源** — 默认 0–1 个，只有边界明显不同才给第 2 个；若已识别明确能力缺口但仍给 0 个，必须能解释为什么尚不值得采用专门能力；
-5. **主要风险** — 只写可能导致返工、错误采用或企业风险的事项；
-6. **现在怎么试** — 今天或明天可以执行的小动作。
+5. **适用边界 / 风险** — 只写可能导致返工、错误采用或企业风险的事项；
+6. **怎么开始** — 告诉用户从哪个资源/方法开始学习或采用；除非用户明确要求，不把它扩展成测试协议或完整执行 SOP。
 
 ## 禁止漂移
 
@@ -152,12 +158,13 @@ Runtime/local test 只有在结果可能改变采用建议时才做。用户下�
 - 固定 ERP 场景 taxonomy、统一评分/Gate 系统；
 - 每个候选都做 runtime test；
 - 自动安装/执行第三方内容；
+- 把 Curator 变成执行教练、测试协调器或项目实施 SOP 生成器；
 - 为单一失败案例增加永久场景规则；
 - 把 AI 生成的图、表、原型、文档或代码解释当成业务真相；
 - 没有可追溯证据却写出“已验证”“最佳”“唯一”等强结论。
 
-例外：如果用户的**任务本身**就是设计数据库、评分系统、taxonomy 或测试框架，可以完成该任务；但不要把这些机制反向变成 Curator 的默认方法。
+例外：如果用户的**任务本身**就是设计执行方案、测试框架或实际落地工作流，可以完成该任务；但不要把这些机制反向变成 Curator 的默认产品输出。
 
 最终检查：
 
-> **如果删掉工具名和漂亮结论，剩下的依据是否仍足以让用户做出更好的采用决策，并知道下一步怎么做？如果已经观察到能力缺口却仍推荐 none，这个选择是否真的自洽？**
+> **我是在帮用户发现并筛选已经存在的最佳实践，还是不知不觉开始替用户设计一套执行/测试流程？如果删掉工具名和漂亮结论，剩下的依据是否仍足以让用户做出更好的采用决策？**
