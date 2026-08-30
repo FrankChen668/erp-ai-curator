@@ -8,7 +8,7 @@
 
 ## 想直接试用
 
-当前版本：**0.8.1 — Controlled User Trial**。
+当前版本：**0.8.2 — Controlled User Trial**。
 
 - 试用指南：`docs/USER_TRIAL_GUIDE_V1.md`
 - Skill：`skills/curating-erp-ai-resources/`
@@ -17,11 +17,11 @@
 
 > **CONTROLLED USER TRIAL GO / BROAD RELEASE NO**
 
-0.8.0 完成 runtime simplification；0.8.1 只修复一条由真实 Codex Desktop 日志直接证明的执行缺陷：
+0.8.0 完成 runtime simplification；0.8.1 修正 practitioner discovery 执行；0.8.2 只修 candidate selection：
 
-- AI/Agent 工作方式请求不能在搜索时退化成纯领域“最佳实践”；
-- 明确找教程/实践时，必须真正调查 practitioner/creator 候选；
-- 如果宿主搜索策略、访问或 coverage 阻止 practitioner evidence，应明确 `coverage/policy gap`，不能用官网替代后声称 curation 完成。
+- 候选优先看**受众/职业生态匹配 + 交付物能力匹配**，不是全球知名度或新奇程度；
+- 中文 ERP/ToB/产品经理语境下，同质量时优先同语境 practitioner；海外资源只有明显更强或本地覆盖不足时才上位；
+- “最佳实践/教程”请求本身不构成安装 Tool/Skill 的理由；推荐能力必须真的匹配用户所需交付物。
 
 Runtime 仍保持简洁：
 
@@ -51,7 +51,7 @@ Runtime 仍保持简洁：
 
 > **Curator 是否能比普通 AI / 用户自己搜索更稳定地找到高价值 practitioner 实践、减少噪声和错选，并让真实用户愿意再次使用？**
 
-0.8.1 修正的是已观察到的 runtime 行为，不证明产品价值已经验证。
+0.8.2 修正的是已观察到的 candidate-selection 行为，不证明产品价值已经验证。
 
 ## 当前不做
 
