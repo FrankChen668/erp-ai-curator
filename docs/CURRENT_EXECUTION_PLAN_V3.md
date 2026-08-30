@@ -128,7 +128,7 @@ Do not test every recommended Skill/Tool merely to prove the Curator designed th
 
 Local runtime proof is justified only when:
 
-1. credible third-party practical evidence is absent or contradictory;
+1. credible third-party practical evidence is absent or contradictory after reasonable practitioner discovery;
 2. installation / permission / privacy risk is material and static evidence cannot resolve it;
 3. the training recommendation depends on exact reproducible local steps;
 4. the resource is likely to become a repeated internal standard and being wrong is costly.
@@ -163,25 +163,60 @@ Strong implementation candidate:
 
 But P04A underweighted practitioner evidence and over-weighted implementation documentation.
 
-The missing layer is not another technical test first. The missing layer is:
+The previously prepared `P04B` runtime pilot remains:
 
-> **第三方实操：别人到底怎么用 draw.io + Agent/Codex/Skill，效果如何，哪里需要修改，适不适合普通顾问。**
+> **DEFERRED / escalation only**
 
-The previously prepared `P04B` local runtime pilot is therefore **DEFERRED / NOT NEXT**. Keep it only as an escalation path if practitioner evidence cannot resolve a material uncertainty.
+### P04 practitioner-first wave
+
+Verdict:
+
+> **USEFUL WITH GAPS / GOAL NOT YET COMPLETE**
+
+Authority:
+
+- `docs/validation/P04_PRACTITIONER_CURATION_RESULT_01.md`
+
+Retained:
+
+- `Castaldo-Solutions/process-builder` — strong task-fit implementation/method candidate, but author self-practice rather than independent validation;
+- official `jgraph/drawio-mcp` — implementation/current-fact anchor;
+- Anttu draw.io MCP article — useful technical operation/troubleshooting companion, but not enough as the primary business-process/ERP practice guide.
+
+The run did not complete the practitioner-first objective because it stopped discovery too early. A later cloud falsification search immediately surfaced relevant Bilibili PM/draw.io practical content through ordinary public Web.
+
+Do not rerun the technical part of P04.
 
 ## 9. Immediate next work
 
-Stop designing more validation protocols.
+Do **one narrow P04 practitioner-evidence delta**, not another full validation round.
 
-Run a **practitioner-first resource curation wave** across a few survey-derived concrete problems.
+Goal:
 
-Recommended next practical set:
+> fill the missing independent-practice layer for `业务描述/需求 → 可编辑流程图`.
 
-1. P04 — 业务描述 → 可编辑流程图;
-2. P03 — 需求 / PRD → 可点击原型;
-3. P02 — 零散需求 → PRD / FS;
-4. P05 — 项目材料 → 客户汇报 PPT;
-5. Codex / WorkBuddy usage only when bound to one of these real jobs.
+Only do:
+
+1. inspect 2–4 high-signal Bilibili / Chinese practitioner candidates already discoverable through ordinary Web;
+2. prioritize PM / consultant / enterprise-workflow walkthroughs over tool-author self-demos;
+3. use WeChat Search → Reader only if a concrete high-value article needs full-text acquisition;
+4. compare those practical resources against the already-retained Castaldo + Anttu package;
+5. retain at most one primary practical guide and one materially different companion.
+
+Do **not** repeat:
+
+- draw.io official capability research;
+- static inspection already completed for retained candidates;
+- runtime certification;
+- P04B;
+- new validation framework design.
+
+When the practitioner layer is either filled or clearly remains a coverage gap, close P04 and move on to:
+
+1. P03 — 需求 / PRD → 可点击原型;
+2. P02 — 零散需求 → PRD / FS;
+3. P05 — 项目材料 → 客户汇报 PPT;
+4. Codex / WorkBuddy usage only when bound to one of these real jobs.
 
 For each problem, aim to retain only:
 
@@ -243,6 +278,7 @@ Stop if work turns into:
 - multiple derivative posts being counted as multiple independent validations;
 - stale setup steps presented as current truth;
 - recommending executable third-party code with no basic permission/data-flow inspection;
+- one failed URL/platform path being treated as evidence that practitioner content is unavailable;
 - ignoring Bilibili/WeChat/Xiaohongshu merely because an adapter is inconvenient;
 - rebuilding existing PM/Agent resource catalogs;
 - creator popularity ranking;
