@@ -22,112 +22,88 @@ real task / role / artifact / current toolchain / hard constraints
 
 Curator 不是工具目录、资源数据库、执行 SOP 生成器或工具认证实验室。
 
-## 2. Current Skill — 0.8.0
+## 2. Current Skill — 0.8.1
 
 - `skills/curating-erp-ai-resources/SKILL.md`
 - release class: **CONTROLLED USER TRIAL**
 - product value: **UNVALIDATED**
 
-0.8.0 是 runtime simplification，不是新方法扩张。
+0.8.0 完成 runtime simplification；0.8.1 是一条真实宿主执行缺陷的窄修正，不重新引入分类框架。
 
-已移出 runtime 主流程：
+### 0.8.1 修什么
+
+Codex Desktop 的一次真实运行日志证明：
+
+1. `0.8.0` 与 `practitioner-discovery.md` 已实际加载；
+2. 但搜索 query 把原本的“AI + 产品/ToB/ERP 工作方式”退化成纯“流程图/泳道/BPMN 最佳实践”；
+3. Bilibili、公众号、小红书、知乎、人人都是产品经理、掘金/CSDN 均未被实际定向搜索；
+4. 搜索结果中已出现中文 practitioner/creator 候选，但基本没有打开；
+5. 最终答案再次由 official/standard/implementation 来源主导。
+
+因此 0.8.1 只增加两个可观察执行要求：
+
+- **query intent preservation**：AI/Agent/Tool 工作方式请求至少保留一条 `AI/tool × role/industry/artifact` 高信号 query；
+- **candidate investigation**：明确找最佳实践/教程时，返回前实际打开至少一个 practitioner/creator 候选；若宿主策略/coverage/access 阻止，则明确 `coverage/policy gap`。
+
+Authority：`docs/validation/CURATOR_081_PRACTITIONER_EXECUTION_PATCH.md`。
+
+## 3. What remains intentionally simple
+
+Runtime 不恢复：
 
 - A/B/C 强制分类；
 - adoption-consistency reference；
 - decision-boundaries reference；
-- 多套固定输出结构和重复自检。
+- 平台配额；
+- creator scoring；
+- 固定 benchmark；
+- 多套固定输出结构。
 
-仍保留的核心行为：
-
-1. 从用户真实任务、当前工具和关键约束出发；
-2. 用户明确找最佳实践/教程时，真正完成 practitioner/resource curation；
-3. 新 Tool/Skill 只有在当前工具存在重要能力缺口且值得采用成本时才推荐；
-4. practitioner/author/implementation/official/synthesis 证据角色不混淆；
-5. 只核验 serious candidates 和会改变选择的当前事实；
-6. 强匹配优先，少推荐，结论稳定即停。
-
-Runtime references 只保留：
+Runtime references 仍只有：
 
 - `references/practitioner-discovery.md`
 - `references/evidence-and-safety.md`
 
-## 3. 为什么做 0.8.0
+## 4. Host/Harness issues kept outside the Skill
 
-0.7.0/0.7.1 的真实使用暴露了一个更高层问题：每次失败后加规则虽然局部正确，但逐渐形成 patch-on-patch 的认知复杂度。
+当前日志还暴露三类宿主风险，但没有足够证据把它们写进 Curator runtime：
 
-对照 OpenAI / Anthropic Skill Creator 和 Agent Skills progressive-disclosure 范式，本轮校准结论是：
+- Codex Web policy 中存在 `technical questions → primary sources only`，可能与 practitioner-first 存在策略冲突；
+- Graph Engineering Skill 被“多步骤任务”错误触发，属于 Skill collision / over-triggering；
+- Browser/Chrome 能力存在但本次未使用，是否需要作为 source-acquisition fallback 仍未验证。
 
-> **项目仓库可以复杂；runtime Skill 必须只保留模型真正需要的核心程序性知识。**
+这些先记录为 host compatibility risks，不通过增加 Curator 规则解决。
 
-0.8.0 不用另一套新 taxonomy 替换旧 taxonomy，而是恢复高自由度 judgment skill 应有的少量启发式。
+## 5. Historical evidence remains bounded
 
-Authority：`docs/validation/CURATOR_080_RUNTIME_SIMPLIFICATION.md`。
+Curation Pack 01 已关闭；历史 A/B 标签保留为当时分析记录，不定义 0.8.1 runtime。
 
-## 4. Historical evidence remains valid but not runtime logic
+当前发布边界仍是：
 
-Curation Pack 01 已关闭：
+> **CONTROLLED USER TRIAL GO / BROAD RELEASE NO**
 
-- Case 001 — ERP 操作手册：历史 B；
-- Case 002 — Oracle EBS AI 开发：历史 B；
-- Case 003 — 多顾问周报/PPT 汇总：历史 A；
-- Case 004 — SAP Bug/system evidence access：历史 A → conditional B。
+## 6. Current milestone — clean host verification + continued real use
 
-这些标签保留为当时的分析记录，不再要求 0.8.0 runtime 先产生 A/B/C。
+0.8.1 合并后，下一条最有价值的 evidence 是在**全新 Codex Desktop 上下文**用同一句自然问题重跑：
 
-## 5. Current milestone — Controlled REAL_USER_USE
+> “使用这个 skill 给我找下做流程图的最佳实践”
 
-真实用户直接用自然问题。
+要求仅验证真实宿主行为：
 
-重点观察：
+- 先同步 `main` 后再启动任务；
+- 不修改 Skill；
+- 不复用旧搜索上下文；
+- 不人为要求它必须搜某个平台；
+- 记录实际 query、reference、打开候选和最终来源角色。
 
-- 是否真正找到用户想看的 practitioner 实践；
-- 是否减少搜索和筛选成本；
-- 是否过度推荐新工具；
-- 是否漏掉版本/权限/数据边界；
-- 用户是否愿意再次使用。
-
-不要求用户跑固定 benchmark、工具测试协议或复杂评分。
-
-## 6. Cloud / Local boundary
-
-Cloud 自动处理：
-
-- Web/GitHub discovery 与事实核验；
-- 真实反馈的证据审查；
-- 窄缺陷修正；
-- GitHub authority/Harness 维护。
-
-Local Agent 仅在推荐真正依赖本地 repo/runtime、企业 ERP 环境、受保护 evidence，或必须验证某具体宿主的 Skill/reference 路由时接力。
+这不是让用户跑工具实验，而是验证本次宿主执行修正是否真正生效。
 
 ## 7. Anti-drift
 
-真实使用未证明必要前，不新增：
+新的 runtime 规则只有在真实日志能证明重复缺陷时才进入 Skill。
 
-- 新分类框架 / Gate / scoring；
-- synthetic benchmark loop；
-- resource database / auto refresh；
-- creator ranking；
-- source-adapter framework as default architecture；
-- multi-Agent orchestration；
-- card-specific permanent rules。
+任何候选修正先问：
 
-任何新 runtime 规则进入 Skill 前先问：
+> **这是 Curator runtime 的缺陷，还是宿主 policy / search coverage / Skill collision / access 的问题？**
 
-> **删掉它，真实用户结果会明显变差吗？**
-
-不能明确回答“会”，默认不加。
-
-## 8. Current next
-
-> **用 0.8.0 继续 controlled real-user use；不再为了内部完整性继续润色 Skill。**
-
-新的真实反馈出现时，Cloud 立即：
-
-```text
-classify actual user behavior
-→ decide whether it is a product defect, coverage gap or one-off preference
-→ make the smallest correction only if evidence justifies it
-→ update Evidence Status
-```
-
-如果没有新的真实使用证据，不用 synthetic case、benchmark 或额外规则替代当前产品里程碑。
+不能区分就先取证，不加规则。
