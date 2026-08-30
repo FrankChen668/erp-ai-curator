@@ -10,8 +10,10 @@ Date: 2026-08-30
 - North Star: `docs/PROJECT_NORTH_STAR.md`
 - Current execution: `docs/CURRENT_EXECUTION_PLAN_V3.md`
 - Current evidence: `docs/validation/EVIDENCE_STATUS.md`
+- Cross-card reassessment: `docs/validation/CROSS_CARD_METHOD_REASSESSMENT_20260830.md`
+- Pilot contract: `docs/REAL_USER_PILOT_V1.md`
 - Context-drift correction: `docs/REBASE_AUDIT_20260830.md`
-- Candidate Skill: `skills/curating-erp-ai-resources/SKILL.md`
+- Pilot Skill: `skills/curating-erp-ai-resources/SKILL.md`
 
 ## 2. Product objective
 
@@ -34,145 +36,135 @@ real project situation
 
 The product is not a generic AI tool directory, Prompt library, tutorial encyclopedia or tool-certification lab.
 
-## 3. Demand baseline — trusted
+## 3. Trusted evidence checkpoint
 
-Primary REAL_USER demand source:
+Demand:
 
 - 83-response 2026-08 training survey;
 - `docs/validation/SURVEY_DERIVED_PROBLEM_CARDS_01.md`.
 
-Survey demand does not prove recommendation outcomes.
+Trusted heterogeneous task evidence:
 
-## 4. Trusted card evidence
+- P01 — **high task fit / low independent validation**;
+- P04 — **CLOSED**;
+- P06 — **CLOSED**, with bounded runtime delta;
+- P03 — **CLOSED** via clean `P03_PROTOTYPE_CURATION_RESULT_02.md`;
+- P07 — **CLOSED** via clean `P07_CODEBASE_UNDERSTANDING_RESULT_02.md`.
 
-### P01
+Invalid old sprint artifacts remain invalid:
 
-> **KEEP FOR PRACTICAL PILOT — high task fit / low independent validation**
+- `P03_PROTOTYPE_CURATION_RESULT_01.md`;
+- `P07_CODEBASE_UNDERSTANDING_RESULT_01.md`.
 
-### P04
+Do not use them as product evidence.
 
-> **CLOSED — recommendation stable with explicit coverage gaps**
+## 4. Cross-card reassessment — completed
 
-Authority: `docs/validation/P04_PRACTITIONER_CURATION_RESULT_02.md`.
+Authority:
 
-### P06
+- `docs/validation/CROSS_CARD_METHOD_REASSESSMENT_20260830.md`
 
-> **CLOSED — plain code-first default with explicit reconciliation controls; Huashu optional**
+Verdict:
 
-Authorities:
+> **METHOD READY FOR REAL-USER PILOT — PRODUCT OUTCOME NOT YET VALIDATED**
 
-- `docs/validation/DELIVERY_P06_DATA_RECONCILIATION.md`
-- `docs/validation/P06_LOCAL_RUNTIME_RESULT_01.md`
-- `docs/validation/evidence/p06/`
+The recurring method is now stable enough to expose to real colleagues:
 
-### P03
+- real-task-first;
+- ordinary AI/existing Agent as baseline;
+- specialized capability only for a concrete bottleneck;
+- practitioner evidence first when the question is real adoption/workflow;
+- implementation/current official facts used for the claims they actually support;
+- important outputs grounded in project/source/system evidence;
+- unknowns exposed rather than guessed;
+- runtime/local tests only when decision-changing;
+- stop when the colleague's next action is stable.
 
-> **CLOSED — spec-first code prototype default; Figma Make conditional upgrade**
+No material contradiction was found across the trusted cards.
 
-Authority: `docs/validation/P03_PROTOTYPE_CURATION_RESULT_02.md`.
+## 5. Minimal Curator status
 
-### P07 — newly rerun and accepted
+`skills/curating-erp-ai-resources/SKILL.md`:
 
-> **CLOSED — traceable read-only repo exploration default; conditional LSP/semantic or ERP-native MCP upgrade**
+- version: `0.6.0`
+- status: **Minimal Curator V0.1 — real-user pilot candidate**
 
-Authority: `docs/validation/P07_CODEBASE_UNDERSTANDING_RESULT_02.md`.
+This means method readiness, not validated user value.
 
-Bounded recommendation:
+The Skill deliberately avoids carrying P03/P04/P06/P07-specific answer tables. Detailed card conclusions remain under `docs/validation/`.
 
-- start from a concrete question, not “understand the whole codebase”;
-- keep first-pass exploration read-only and evidence-linked;
-- move global → relevant flow/modules → detailed source/test/log verification;
-- distinguish observed behavior, inference and business-confirmation-required unknowns;
-- ordinary local Git repo: repo-aware Agent first;
-- noisy cross-symbol/cross-module retrieval: native LSP/semantic navigation, then dedicated tool only if the bottleneck persists;
-- code/system truth outside local files: system-native connector/MCP can materially help; SAP ABAP is a clear current example;
-- live SAP write/activation capabilities increase the need for least privilege;
-- no synthetic runtime A/B without a representative real repository.
+## 6. Correct current checkpoint
 
-## 5. Critical correction remains in force
+> **The project has moved from internal method validation to a bounded real-user adoption pilot.**
 
-The earlier long-context sprint artifacts remain invalid:
+This is a newly earned transition based on the corrected P03/P07 reruns plus the fresh cross-card reassessment. It is not the unsupported old sprint claim.
 
-- `docs/validation/P03_PROTOTYPE_CURATION_RESULT_01.md` = **INVALIDATED / NOT PRODUCT EVIDENCE**;
-- `docs/validation/P07_CODEBASE_UNDERSTANDING_RESULT_01.md` = **INVALIDATED / NOT PRODUCT EVIDENCE**.
+Do not default back to P10 or more internal validation cards.
 
-Only Result 02 files are authoritative.
+## 7. Immediate next action — real colleague task
 
-Do not restore the old claims “validation complete / Minimal Curator V0.1 validated / REAL USER PILOT started” by historical inheritance. They require a fresh cross-card reassessment now that the evidence gap has actually been repaired.
+Pilot authority:
 
-## 6. Candidate Skill status
+- `docs/REAL_USER_PILOT_V1.md`
 
-`skills/curating-erp-ai-resources/SKILL.md` remains:
+The next decision-changing evidence requires a real colleague with a real task.
 
-> **experimental candidate — cross-card reassessment pending**
+For each case, capture:
 
-Repeated trustworthy evidence supports its leverage-first direction, but it must now be checked for contradiction, overfitting and framework creep before being called a minimal validated Curator.
+1. task in the colleague's own words;
+2. real materials/constraints that affect the choice;
+3. Curator recommendation actually given;
+4. what the colleague actually tried, changed or rejected;
+5. usable artifact/result or concrete failure reason;
+6. saved/added search, setup or rework;
+7. missed environment/privacy/permission/capability constraints;
+8. whether they would use this type of recommendation again.
 
-## 7. Correct current checkpoint
+Do not require Problem Card classification and do not manufacture tasks to cover categories.
 
-> **P03 and P07 are trustworthy closed cards. The next action is cross-card method reassessment.**
+## 8. What cloud should do now
 
-Do not default to P10 or another card before this product decision.
+When a real pilot task arrives:
 
-Current milestone:
+1. run Minimal Curator V0.1 against the actual task;
+2. use current Web/GitHub research only if the task genuinely needs external resource discovery;
+3. keep the recommendation compact and actionable;
+4. capture post-action evidence when available;
+5. fix only concrete method defects exposed by real use;
+6. maintain repository authorities.
 
-> **Determine whether the recurring Curator method is stable/minimal enough for a bounded real-user adoption pilot.**
+If no real pilot task is available, do not invent internal work to keep the project busy.
 
-## 8. Immediate next cloud action — reassess, do not accumulate more cards
+## 9. Local Agent boundary
 
-Cloud should:
+Use a local Agent only when the real pilot task materially needs:
 
-1. reread the candidate Skill plus trustworthy P01/P04/P06/P03/P07 evidence;
-2. extract only recurring decision rules across heterogeneous cards;
-3. check whether “ordinary AI first / specialized capability only for a concrete gap” survives all cards;
-4. check practitioner-first discovery, source-role separation and stop decisions for repeated support;
-5. check whether any P03/P07/P06-specific detail was accidentally generalized into the Skill;
-6. adversarially inspect complexity: remove rules that exist only to make the method look complete;
-7. decide whether the remaining uncertainty is now real-user adoption/outcome;
-8. if stable, package the smallest usable Curator and define a bounded pilot; if not, make only the narrow correction and reassess.
+- local project files;
+- repository/runtime access;
+- inaccessible-source acquisition;
+- environment-specific reproducibility evidence.
 
-No new runtime benchmark, taxonomy or resource database is implied by this step.
+Do not dispatch local tasks merely because an Agent is available.
 
-## 9. Evidence acceptance discipline
+## 10. Anti-drift
 
-For every retained external source, preserve enough to answer:
+During Pilot, avoid:
 
-- exact source/URL;
-- was it actually read or only discovered?;
-- evidence role;
-- material claim supported;
-- limitation/counter-evidence.
+- returning to validation-card accumulation without a real blocker;
+- synthetic benchmarks presented as product evidence;
+- new taxonomy/Gate/scoring frameworks;
+- resource database construction;
+- mandatory runtime tests;
+- card-specific rules added to the permanent Skill;
+- claiming product success before real colleague action exists.
 
-Source-less synthesis may be useful reasoning but is not product evidence.
-
-## 10. Cloud / local split
-
-Cloud owns product judgement, Web/GitHub research, source prioritization, current fact checks, adversarial review, static inspection and final stop/recommendation decisions.
-
-Use local Agent only when local capability materially adds evidence: local files/repo/runtime, inaccessible-source acquisition, environment-specific evidence or justified reproducibility.
-
-Do not create tasks merely to keep a local Agent busy.
-
-## 11. Anti-drift
-
-Avoid:
-
-- new Gate/benchmark/framework per candidate;
-- official-document gravity;
-- platform/source quotas;
-- author self-tests presented as independent proof;
-- runtime testing by default;
-- specialized Skill recommendations when plain AI is sufficient;
-- synthetic/readiness work presented as product evidence;
-- undocumented external claims;
-- long-context synthesis silently promoted to evidence.
-
-## 12. New-session start instruction
+## 11. New-session start instruction
 
 When a fresh cloud conversation starts:
 
 1. inspect current `main`;
-2. read this handoff + Current Plan + Evidence Status + Rebase Audit;
+2. read this handoff + Current Plan + Evidence Status + Cross-Card Reassessment + Pilot contract;
 3. do not reopen settled P03/P04/P06/P07 without a new material reason;
-4. immediately perform the cross-card candidate-Skill reassessment;
-5. stop only for a genuine Owner decision or evidence barrier.
+4. treat **REAL_USER pilot** as the current phase;
+5. execute real submitted tasks directly and capture adoption/outcome evidence;
+6. stop only for a genuine Owner decision or external evidence barrier.
