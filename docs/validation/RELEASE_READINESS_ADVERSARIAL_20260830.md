@@ -18,7 +18,7 @@ Adversarial verdict:
 
 ### Goal A — Build a coherent Curator method
 
-**PASS for pilot.**
+**PASS for controlled trial.**
 
 The project now has a stable method:
 
@@ -28,7 +28,7 @@ A/B/C boundaries are coherent enough to expose to real users.
 
 ### Goal B — Package the method as a reusable Skill
 
-**PASS for pilot.**
+**PASS for controlled trial.**
 
 0.7.0 has:
 
@@ -51,15 +51,24 @@ Curation Pack 01 contains:
 
 This is enough to stop internal pack expansion.
 
-### Goal D — Make the Skill consumable by a normal trial user
+### Goal D — Provide a usable controlled-trial entrypoint
 
-**PASS after adding `docs/USER_TRIAL_GUIDE_V1.md`, with compatibility limits.**
+**CONDITIONAL PASS.**
 
-The user no longer needs to understand project history/validation docs. The trial guide explains package contents, natural input, expected output, Web/security boundaries and feedback expectations.
+`docs/USER_TRIAL_GUIDE_V1.md` now gives a normal user/admin a usable entrypoint: package contents, natural input, expected output, Web/security boundaries and feedback expectations.
 
-Compatibility is **not** proven across all hosts.
+But this is **not a cross-host compatibility pass**.
 
-Historical internal regression exercised a prior Skill version in isolated Codex contexts. That supports Codex as a credible pilot host path but does not prove 0.7.0 works identically in ChatGPT, WorkBuddy, Qoder, Claude Code or every Agent Skills host.
+Historical internal regression exercised a prior Skill version in isolated Codex contexts. That makes Codex/Agent-Skills-style installation a credible controlled-trial path, but it does not prove that 0.7.0 imports, triggers and retrieves references/Web identically in ChatGPT, WorkBuddy, Qoder, Claude Code or every other host.
+
+Therefore a controlled trial should use a host where the admin/user has actually confirmed:
+
+- the whole Skill directory imports/installs;
+- references are available at runtime;
+- Web/search/fetch exists when B-class discovery requires it;
+- organization data/permission policy permits the intended use.
+
+Host confirmation is a trial setup check, not a new Skill benchmark.
 
 ### Goal E — Prove Curator creates more user value than ordinary AI/self-search
 
@@ -115,7 +124,7 @@ This does **not** block a controlled internal/user trial where access/use terms 
 
 ### GO — Controlled trial
 
-Use 0.7.0 with a small number of real ERP/enterprise-information-system users in a known/approved host.
+Use 0.7.0 with a small number of real ERP/enterprise-information-system users in a host whose Skill import/references/Web/security boundary has been confirmed.
 
 Do not prescribe benchmark tasks. Let users ask natural questions.
 
