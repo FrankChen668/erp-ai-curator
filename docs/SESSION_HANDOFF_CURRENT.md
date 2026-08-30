@@ -13,19 +13,11 @@ Date: 2026-08-30
 - Creator prior: `docs/CREATOR_PRIOR_STRATEGY_V3.md`
 - Current evidence: `docs/validation/EVIDENCE_STATUS.md`
 
-Current main before this P06 branch started: `32ce5c82e4d9963c4188bd463f1fbbd39bc2bb7d`.
-
-Current P06 task envelope:
-
-- `docs/validation/DELIVERY_P06_DATA_RECONCILIATION.md`
-
-Current `main` always wins if newer.
+Current `main` always wins over this handoff.
 
 ## 2. Product intent
 
-ERP AI Curator serves SAP / Oracle / ERP / enterprise-information-system practitioners: implementation consultants, PMs, product managers, developers and solution roles.
-
-It is not a generic AI tool directory, tutorial encyclopedia, Prompt library or tool-certification lab.
+ERP AI Curator serves SAP / Oracle / ERP / enterprise-information-system practitioners.
 
 Core user question:
 
@@ -42,9 +34,11 @@ real project situation
 → practical resource curation
 ```
 
-## 3. Source / evidence boundary
+It is not a generic AI tool directory, Prompt library, tutorial encyclopedia or tool-certification lab.
 
-For adoption questions, use:
+## 3. Evidence / source position
+
+Default evidence flow:
 
 ```text
 practical guide / review / case / field experience
@@ -53,21 +47,27 @@ practical guide / review / case / field experience
 → limitations / counter-evidence
 ```
 
-Practical-value-first does not mean independent-third-party-at-all-costs. Author/maintainer tutorials may be primary when genuinely strongest, but label evidence roles correctly.
+Practical-value-first does not mean independent-third-party-only. Evidence roles must be labeled honestly.
 
-Official/current sources mainly verify volatile facts such as version, install, compatibility, privacy/data flow and native output format.
+Survey evidence validates REAL_USER demand, not solution outcome.
 
-Survey evidence validates demand, not solution quality or outcome.
+Discovery is problem-driven, not platform-quota-driven.
 
-## 4. Safety / testing / platform boundary
+## 4. Safety / testing position
 
 - Runtime testing is exceptional, not default.
-- Executable resources require proportional lightweight static inspection before install/run recommendations.
-- One failed platform route does not prove content absence.
-- No platform quotas, source-count targets or influencer ranking.
-- Historical retained resources are search priors, not permanent approvals.
+- Executable third-party resources require proportional lightweight static inspection when relevant.
+- Do not create a validation framework/Gate/benchmark for each candidate.
+- Use local Agent only when local files, runtime, environment or inaccessible-source evidence materially adds value.
 
-## 5. P01 / P04 retained state
+For local Task Envelopes:
+
+- fixed: real job, decision question, hard boundaries, escalation conditions, evidence return;
+- flexible: exact fixture, tools, scripts, output format and internal iteration unless evidence validity requires otherwise.
+
+Repository evidence is not considered delivered until the remote GitHub branch/commit is readable.
+
+## 5. Current retained state
 
 ### P01
 
@@ -81,7 +81,7 @@ Classification:
 
 ### P04
 
-Verdict:
+Status:
 
 > **CLOSED — RECOMMENDATION STABLE WITH EXPLICIT COVERAGE GAPS**
 
@@ -89,102 +89,81 @@ Authority:
 
 - `docs/validation/P04_PRACTITIONER_CURATION_RESULT_02.md`
 
-Do not reopen P04 unless later real adoption exposes a new material risk.
+Do not reopen unless later real adoption reveals a new material risk.
 
-## 6. P06 — current active card
+### P06
 
-Problem:
+Status:
 
-> **Several legacy / target / mapping Excel or CSV files must be reconciled into a reviewable, reproducible ERP migration/data-validation result. Which AI working method is actually worth adopting?**
+> **CLOSED — PLAIN CODE-FIRST DEFAULT, HUASHU OPTIONAL**
 
-Authority / local task envelope:
+Authorities:
 
 - `docs/validation/DELIVERY_P06_DATA_RECONCILIATION.md`
+- `docs/validation/P06_LOCAL_RUNTIME_RESULT_01.md`
+- `docs/validation/evidence/p06/`
 
-### Cloud work already completed
+Final cloud judgement:
 
-Cloud practitioner/current-fact research has established:
+- competent plain code-first Agent is the default for ordinary ERP multi-file reconciliation;
+- required method discipline includes replayable deterministic execution, row/amount checks, source control-total/subtotal back-checks when available, conservative normalization/mapping, no guessing on ambiguous matches, human-review routing and traceability;
+- spreadsheet-native AI remains valid for one-off lower-risk workbook tasks;
+- `alchaincyf/huashu-excel` is useful as an optional audit/checklist method for recurring/high-consequence work but is not required by current evidence.
 
-- direct conversational reconciliation can work for one-off low-risk jobs, but recurring/high-consequence reconciliation needs a fixed procedure, deterministic execution, explicit checks and exception routing;
-- current spreadsheet-native AI is materially stronger than older chat-only workflows, so `Python + Skill` must not be assumed as the only valid answer;
-- `alchaincyf/huashu-excel` is the strongest discovered packaged audit-oriented method so far, but it is recent and its strongest evidence is author self-practice / author-run pressure testing;
-- candidate was inspected at commit `9348581a87cc03ed8d0b30706631088e922c6027`.
+Runtime evidence:
 
-### Why one local runtime delta is justified
+- baseline and with-Skill matched all 9 expected record-level outcomes and produced the same reconciliation CSV;
+- Huashu additionally surfaced a legacy `TOTAL` difference of 10;
+- the pinned Huashu scripts first misclassified three subtotal rows and needed manual correction, plus Windows UTF-8 adjustment;
+- therefore the portable value is mainly the audit/control discipline rather than a demonstrated mandatory Skill advantage.
 
-The remaining decision is narrow:
+Do not expand P06 into a benchmark suite or rerun unless real-user adoption exposes a materially different risk.
 
-> **Does Huashu-Excel materially improve ERP-style multi-file reconciliation over a competent plain code-first local Agent, enough to justify adoption overhead?**
+## 6. Immediate next action
 
-This can change the recommendation and cannot be settled confidently from author evidence alone.
+P06 is at the controlled single-card review checkpoint.
 
-### Local Agent should do only this
+Next planned heterogeneous card:
 
-Use the Task Envelope in `DELIVERY_P06_DATA_RECONCILIATION.md`.
+> **P03 — requirements / rules → clickable prototype / UI demo**
 
-Core comparison:
+P03 should test whether Curator generalizes to interactive/editable artifact generation, where fidelity, iteration and handoff cost differ materially from P01/P04/P06.
 
-- fresh baseline context: plain local Agent + code execution, no Huashu knowledge;
-- fresh with-Skill context: same task/data, allowed to read/use pinned Huashu repository in a temporary isolated checkout;
-- hidden ground truth kept out of both execution contexts;
-- synthetic ERP-like data only;
-- stop when the comparison changes or stabilizes the adoption decision.
-
-Do not broadly search the Web, globally install the Skill, modify project principles, build a benchmark framework or start another Problem Card.
-
-## 7. Cloud/local collaboration rule
-
-For local Task Envelopes:
-
-- **fixed:** real job, decision question, hard boundaries, escalation conditions, evidence return;
-- **flexible:** exact fixture, tools, scripts, output format, search/execution details and internal iteration unless evidence validity requires otherwise.
-
-Local Agent escalates only when the task would change project direction, require credentials/risky installation, or cross a hard boundary. Minor execution choices should be made locally.
-
-Cloud does not rerun completed local work by default; it inspects key evidence, does the adversarial decision check, and owns the current stop/final recommendation judgement.
-
-## 8. Immediate next action
-
-Wait only for the bounded P06 local evidence package if the local Agent is being used.
-
-After it returns, cloud should:
-
-1. inspect the evidence and key artifacts;
-2. compare against existing practitioner/current-fact evidence;
-3. decide the P06 recommendation boundary: spreadsheet-native AI vs plain code-first Agent vs Huashu-Excel (or a clearly differentiated combination);
-4. close P06 when further work is unlikely to change what an ERP colleague should do.
-
-Do not start P03/P07/P10 in parallel.
-
-## 9. Loop Engine position
-
-Current decision:
-
-> **Use controlled single-card Loop thinking; do not authorize unattended self-governing multi-card loops.**
+Use the same controlled pattern:
 
 ```text
 Problem Card
 → practitioner discovery
-→ inspect serious Tool/Skill/method
+→ serious Tool/Skill/method inspection
 → fact/safety check only where needed
-→ material evidence gap?
-    yes → targeted delta
-    no  → recommendation package
+→ targeted delta only for material gaps
+→ recommendation package
 → adversarial stop check
-→ review checkpoint / stop
+→ review checkpoint
 ```
 
-Loop readiness is behavior-based, not card-count-based.
+Do not start unattended multi-card loops.
 
-## 10. Anti-drift
+After P03, select one engineering-type card such as P07 code understanding or P10 testing. Then reassess whether enough heterogeneous evidence exists to move from validation-heavy work toward a minimal user-facing Curator.
+
+## 7. Cloud / local collaboration
+
+Cloud owns product judgement, Web/GitHub research, source prioritization, current fact checks, adversarial review, GitHub maintenance and final stop/recommendation judgement.
+
+Local Agent should be used only for evidence the cloud cannot obtain efficiently or credibly, especially local files/runtime/environment-specific tests.
+
+Cloud should not rerun completed local work by default; inspect key evidence and attack the conclusion instead.
+
+## 8. Anti-drift
 
 - do not add scoring/Gates/databases/taxonomies for one-off failures;
-- do not mistake technical completeness for colleague usefulness;
-- do not require independent evidence when it adds no decision value;
-- do not let author self-tests masquerade as independent field evidence;
-- do not turn runtime testing into the default;
+- do not turn source/platform access issues into quotas;
+- do not present author self-tests as independent field evidence;
+- do not turn runtime testing into default work;
+- do not recommend specialized Skills when plain deterministic Agent work is enough;
 - do not maximize sources/tests/iterations;
-- do not autonomously modify project principles.
+- do not autonomously modify project principles;
+- do not keep accumulating validation artifacts after the adoption decision is stable.
 
 Success test:
 
