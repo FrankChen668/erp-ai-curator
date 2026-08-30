@@ -147,59 +147,44 @@ It is a useful working method, not an independently proven industry standard and
 
 Current verdict:
 
-> **USEFUL WITH GAPS / GOAL NOT YET COMPLETE**
+> **CLOSED — RECOMMENDATION STABLE WITH EXPLICIT COVERAGE GAPS**
 
 Authority:
 
-- `docs/validation/P04_PRACTITIONER_CURATION_RESULT_01.md`
+- `docs/validation/P04_PRACTITIONER_CURATION_RESULT_02.md`
 
-Retained so far:
+Retained package:
 
-- `Castaldo-Solutions/process-builder` — strong task-fit method/implementation; author self-practice, not independent validation;
+- `冰冰酱 — 从一张白纸到交付PRD：我的全自动 AI 产品工作流` — independent practitioner workflow/judgement evidence; real product context, semantic correction, multi-round rework and Draw.io in the actual toolchain;
+- `健彬的产品Live / 北沐而川 — 3分钟绘制流程图！这个AI+绘图工具的神仙组合` — independent practitioner-style low-friction walkthrough: CRM/product text → AI-generated XML → Draw.io import → manual adjustment;
+- `Castaldo-Solutions/process-builder` — strongest enterprise-process-specific method/implementation retained; author self-practice, not independent validation;
 - official `jgraph/drawio-mcp` — implementation/current-fact anchor;
-- Anttu draw.io MCP article — useful independent technical operation/troubleshooting companion, but not sufficient by itself as ERP/business-process practice evidence.
+- Anttu draw.io MCP article — optional technical operation/troubleshooting companion.
 
-Observed failure:
+Coverage boundary:
 
-> Discovery Recall stopped too early after a technically complete solution was found; later ordinary Web search surfaced additional relevant practitioner content.
+- ordinary public Web surfaced additional relevant Bilibili Draw.io / PM practice content;
+- some full original pages/transcripts remain intermittently inaccessible (412), so this remains an explicit coverage gap rather than absence evidence;
+- the gap is no longer decision-blocking because the recommendation package is stable.
 
-Do not rerun the technical/static/runtime part of P04.
+Do not reopen P04 or rerun technical/static/runtime work unless a later real adoption decision exposes a new material risk.
 
-## 8. Immediate next action — narrow P04 practitioner delta
+## 8. Immediate next action — select the next real Problem Card
 
-Purpose:
+P04 is closed. Return to REAL_USER demand evidence and select the next concrete Problem Card based on expected colleague value and evidence gap, not on a fixed sequence.
 
-> **challenge or complete the current P04 package with better practitioner evidence, then close P04.**
+Likely candidate areas include:
 
-Do a small, targeted practitioner search across the most promising available sources. Start with the already-observed Chinese/Bilibili recall gap, but do not treat Chinese sources, Bilibili, or any fixed source count as a requirement.
+- P03 prototype;
+- P02 PRD/FS;
+- P05 PPT;
+- Excel/data;
+- testing;
+- a concrete Codex/WorkBuddy workflow tied to real work.
 
-Prioritize content that adds at least one material signal:
+These are candidates, not a mandated order.
 
-- real business/process input;
-- actual steps / prompt / workflow;
-- editable artifact;
-- correction/iteration process;
-- failure or rework evidence;
-- adoption friction;
-- materially different user boundary.
-
-Prefer independent practitioner evidence when it adds information, but **do not require an independent third party as a gate to close P04**. If the strongest resource remains an author/original tutorial after reasonable challenge, retain it with the correct evidence label.
-
-Compare new evidence against the retained Castaldo + Anttu + draw.io package.
-
-Close P04 when either:
-
-- a stable recommendation package exists and additional search is unlikely to change the user decision; or
-- the remaining practitioner coverage gap is explicit and further search has low expected value.
-
-Do not repeat:
-
-- draw.io official capability research already completed;
-- static inspection already completed;
-- runtime certification / P04B;
-- new validation-framework design.
-
-After P04, choose the next real Problem Card from demand evidence; likely candidates include P03 prototype, P02 PRD/FS, P05 PPT, data/Excel, testing, or a Codex/WorkBuddy workflow tied to a concrete job. Do not treat this list as a mandatory sequence.
+For the next card, preserve the atomic real-work structure and use the controlled single-card loop below. Do not carry P04-specific Draw.io rules into a new framework.
 
 ## 9. Loop Engine — controlled execution pattern only
 
