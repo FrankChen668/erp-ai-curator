@@ -227,7 +227,75 @@ For each problem, aim to retain only:
 
 Do not run a technical certification sequence for each item.
 
-## 10. What “good” now means
+## 10. Loop Engine position — use the thinking, not an autonomous infinite loop
+
+Loop Engine is useful **as a bounded curation execution pattern**, not as a self-governing research engine.
+
+Why it helps:
+
+- Problem Cards repeat the same broad sequence;
+- discovery may need more than one pass when the first result set is biased or shallow;
+- a loop can explicitly ask whether a new search pass would materially change the recommendation;
+- it can reduce manual re-prompting once the curation pattern is stable.
+
+Why full autonomy is premature now:
+
+- P04 exposed that Discovery Recall is still unstable;
+- the Agent can stop early after finding one technically complete candidate;
+- source-quality judgement remains high-judgement work;
+- an automated loop would amplify official/GitHub/Codex bias or shallow social repetition if the stopping logic is wrong.
+
+### Allowed bounded loop
+
+Within **one Problem Card**:
+
+```text
+Problem Card
+→ practitioner discovery pass
+→ inspect serious original Tool/Skill/method
+→ fact/safety check only where needed
+→ ask: is a material practitioner/source gap still unresolved?
+    → yes: one targeted delta discovery pass
+    → no: package recommendation
+→ adversarial stop check
+→ stop and return for cloud/Owner review
+```
+
+The loop should optimize **decision completeness**, not number of sources.
+
+### Stop conditions
+
+Stop when either:
+
+- there is a strong practical resource + linked implementation when applicable + necessary current facts + known limitations, and additional search is unlikely to change the user decision; or
+- a material coverage gap remains after reasonable targeted discovery and is explicitly recorded.
+
+### Forbidden autonomous behavior
+
+Loop Engine must not, by itself:
+
+- process many Problem Cards indefinitely;
+- modify project principles or write new governance rules;
+- declare the overall product PASS;
+- install new Skills/MCPs/adapters;
+- trigger runtime tests without an explicit escalation reason;
+- turn platform coverage or source count into a target;
+- convert retained historical resources into permanent recommendations;
+- keep looping merely because more links can be found.
+
+### Adoption sequence
+
+Current recommendation:
+
+1. finish the P04 practitioner-evidence delta manually/supervised;
+2. run 1–2 additional Problem Cards with the same curation discipline;
+3. if the stop logic and source judgement stay stable, then use Loop Engine to batch **bounded single-card curation loops**, with cloud/Owner review between cards or small batches.
+
+So the current decision is:
+
+> **YES to Loop Engine thinking; NOT YET to unattended multi-card Loop Engine execution.**
+
+## 11. What “good” now means
 
 A strong package lets an ERP colleague answer:
 
@@ -240,7 +308,7 @@ A strong package lets an ERP colleague answer:
 - 如果要安装，最低限度的企业安全边界是否看清？
 - 我明天能不能拿自己的材料试？
 
-## 11. Cloud / local split
+## 12. Cloud / local split
 
 ### Cloud / ChatGPT
 
@@ -266,7 +334,7 @@ Use only when needed for:
 
 Local Agent is no longer the default engine for every curation task when cloud Web can already research the sources.
 
-## 12. Anti-drift
+## 13. Anti-drift
 
 Stop if work turns into:
 
@@ -285,6 +353,8 @@ Stop if work turns into:
 - link-count accumulation;
 - retained historical assets becoming permanent answers without recheck;
 - Curator synthesis presented as external experience;
-- technical proof mistaken for actual colleague usefulness.
+- technical proof mistaken for actual colleague usefulness;
+- Loop Engine optimizing iteration count/source count instead of user decision quality;
+- unattended loops changing product rules or expanding scope.
 
-The project advances by accumulating **good practical resources for real work**, not by accumulating tests.
+The project advances by accumulating **good practical resources for real work**, not by accumulating tests or loop iterations.
