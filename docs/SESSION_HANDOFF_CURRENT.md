@@ -122,54 +122,48 @@ Useful working method; not an independently proven industry standard and not REA
 
 Current verdict:
 
-> **USEFUL WITH GAPS / GOAL NOT YET COMPLETE**
+> **CLOSED — RECOMMENDATION STABLE WITH EXPLICIT COVERAGE GAPS**
 
 Authority:
 
-- `docs/validation/P04_PRACTITIONER_CURATION_RESULT_01.md`
+- `docs/validation/P04_PRACTITIONER_CURATION_RESULT_02.md`
 
-Retained:
+Retained package:
 
-- `Castaldo-Solutions/process-builder` — strong task-fit method/implementation; author self-practice;
+- `冰冰酱 — 从一张白纸到交付PRD：我的全自动 AI 产品工作流` — independent practitioner workflow/judgement evidence; real product context, semantic correction, multi-round rework and Draw.io in the actual toolchain;
+- `健彬的产品Live / 北沐而川 — 3分钟绘制流程图！这个AI+绘图工具的神仙组合` — independent practitioner-style low-friction walkthrough: CRM/product text → AI-generated XML → Draw.io import → manual adjustment;
+- `Castaldo-Solutions/process-builder` — strongest enterprise-process-specific method/implementation retained; author self-practice, not independent validation;
 - official `jgraph/drawio-mcp` — implementation/current-fact anchor;
-- Anttu draw.io MCP article — useful independent technical operation/troubleshooting companion, but not enough by itself as ERP/business-process practice evidence.
+- Anttu draw.io MCP article — optional technical operation/troubleshooting companion.
 
-Observed failure:
+Coverage boundary:
 
-> Discovery Recall stopped too early after a technically complete candidate; later ordinary Web search surfaced additional relevant practitioner material.
+- ordinary Web discovery surfaced additional relevant Bilibili Draw.io / PM practice videos;
+- some full original pages/transcripts remain intermittently inaccessible (412), so this is an explicit coverage gap, not evidence of platform absence;
+- the gap is no longer decision-blocking.
 
-Do not rerun P04 technical/static/runtime research already completed.
+Adversarial check:
+
+- a detailed 2026 CSDN `DeepSeek + Draw.io` article was rejected because unsupported quantitative claims, inconsistent setup statements and an incomplete claimed runnable path reduced evidence reliability.
+
+Do not reopen P04 or rerun its technical/static/runtime work unless a later real adoption decision exposes a new material risk.
 
 ## 9. Immediate next action
 
-Do one narrow **P04 practitioner-evidence delta** to challenge/complete the current package, then close P04.
+P04 is closed.
 
-Start with the known Chinese/Bilibili recall gap because it has already produced relevant candidates, but do not treat Bilibili, Chinese content, or any fixed candidate count as a requirement.
+Return to the REAL_USER demand evidence and select the next concrete Problem Card based on expected colleague value and evidence gap, not a fixed sequence.
 
-Look for practitioner content that adds material evidence such as:
+Possible candidates include P03 prototype, P02 PRD/FS, P05 PPT, Excel/data, testing, or a concrete Codex/WorkBuddy workflow tied to real work. They are candidates only.
 
-- real business/process input;
-- actual operation/prompt/workflow;
-- editable output;
-- correction/iteration;
-- failure/rework;
-- adoption friction;
-- a materially different user boundary.
+For the next card:
 
-Independent evidence is preferred when informative, but not required as a closure gate.
-
-Compare new evidence with the retained Castaldo + Anttu + draw.io package.
-
-Close P04 when additional search is unlikely to change the user decision or when the remaining coverage gap is explicit and further search has low expected value.
-
-Do not repeat:
-
-- draw.io official capability research already completed;
-- static review already completed;
-- runtime certification / P04B;
-- validation-framework design.
-
-After P04, choose the next real Problem Card from demand evidence. P03 prototype, P02 PRD/FS, P05 PPT, data/Excel, testing, or a concrete Codex/WorkBuddy workflow are candidates, not a mandatory sequence.
+- preserve the real situation + actual input + concrete action + expected deliverable + material constraints;
+- start practitioner discovery before tool-centric research;
+- inspect original Tool/Skill and current facts only where they change the decision;
+- do a targeted delta only when a material evidence gap remains;
+- stop when the recommendation is decision-stable;
+- do not carry P04-specific Draw.io details into a new framework.
 
 ## 10. Loop Engine position
 
