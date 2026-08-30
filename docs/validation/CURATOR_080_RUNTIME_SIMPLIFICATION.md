@@ -108,6 +108,18 @@ Correction: `PROJECT_MAP` explicitly marks `AI_LEVERAGE_MODEL_V3.md` as historic
 
 Countermeasure: retain concrete output behavior for the product's most differentiating request—explicit best-practice/tutorial curation must lead with 1–3 selected practitioner resources, priority and boundaries rather than a model-authored tutorial.
 
+### Attack G — Should simplicity be enforced by an arbitrary line-count gate?
+
+No.
+
+An early draft added `SKILL.md <= 140 lines` as a Project Contract failure condition. That was rejected during adversarial review because it would create a new optimization target: future Agents could compress wording or move complexity into references merely to pass CI.
+
+Current policy:
+
+- line count may be reported as an informational signal;
+- CI enforces only deterministic repository facts such as current version, required/removed files, reference existence and evidence-lane boundaries;
+- semantic simplicity remains a design judgement reviewed against real-user outcomes, not a numeric gate.
+
 ## 6. Implemented runtime
 
 `skills/curating-erp-ai-resources/SKILL.md` version `0.8.0` now centers on five steps:
@@ -128,7 +140,7 @@ Retained and simplified:
 - `references/practitioner-discovery.md`
 - `references/evidence-and-safety.md`
 
-Project Contract adds a runtime `SKILL.md <= 140 lines` simplification guardrail and explicitly checks that removed references do not reappear. This is a size/architecture invariant only; it does not score recommendation quality.
+Project Contract now checks only deterministic package/project facts. Runtime line count is informational, not a pass/fail threshold.
 
 ## 7. Bounded Cloud regression
 
@@ -219,7 +231,7 @@ Current bounded replay did not lose the four most important behaviors: practitio
 
 ### Are we adding a new framework to police simplicity?
 
-No semantic framework was added. The only mechanical guardrail is line/reference structure because those facts are deterministic.
+No semantic framework was added. Project Contract enforces only deterministic repository/package facts; runtime line count is reported only as an informational signal.
 
 ## 10. Verdict
 
