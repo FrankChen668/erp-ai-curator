@@ -80,7 +80,49 @@ Prefer:
 
 `actual capability + examples + maintenance + issues > stars/forks`
 
-## 5. Existing creator/resource ecosystems
+## 5. Independence / commercial-interest discipline
+
+Creator Prior must not silently treat all creator content as independent review.
+
+When materially observable, distinguish:
+
+- independent practitioner;
+- Tool / Skill author or maintainer;
+- vendor employee / evangelist / partner;
+- affiliate / sponsored promoter / course seller;
+- unknown.
+
+A creator can still be a strong discovery seed even when commercially connected. The implication is narrower:
+
+- trust concrete operation/demo evidence for what it visibly proves;
+- lower confidence in comparative or superlative claims;
+- seek independent counter-evidence before repeating `best`, `better`, `huge efficiency gain` or similar claims.
+
+Do not require invasive background research. Only record incentive information that is public and materially relevant.
+
+## 6. Content-lineage discipline
+
+Many AI creators repackage the same upstream demo, Skill or prompt.
+
+Do not count multiple derivative posts as independent confirmation merely because they come from different accounts.
+
+When several posts share the same source/demo/prompt, ask:
+
+> **What new evidence does this creator add?**
+
+Useful incremental evidence includes:
+
+- different real input;
+- a failure case;
+- correction/rework process;
+- enterprise/privacy constraint;
+- a different tool boundary;
+- long-term usage experience;
+- a genuinely clearer reproducible tutorial.
+
+If there is no incremental evidence, treat them as one evidence family.
+
+## 7. Existing creator/resource ecosystems
 
 Do not recreate what existing communities already curate.
 
@@ -95,7 +137,7 @@ Useful feeder ecosystems may include:
 
 Curator should use these as upstream discovery pools, then apply the ERP Problem Card and evidence rules.
 
-## 6. Seed-set lifecycle
+## 8. Seed-set lifecycle
 
 A small seed set is allowed.
 
@@ -109,6 +151,7 @@ Record only lightweight fields:
 - recurring topics;
 - observed strengths;
 - known weaknesses / promotional bias / access limits;
+- observable relationship to promoted tools when material;
 - examples that actually passed curation;
 - last checked date.
 
@@ -116,19 +159,21 @@ No passwords, cookies or private data.
 
 No large influencer database.
 
-## 7. Recommendation boundary
+## 9. Recommendation boundary
 
 Creator prior affects **what to inspect first**.
 
 Specific content decides **what to recommend**.
 
-Adversarial test:
+Adversarial tests:
 
 > If the author name, follower count, likes, saves and views were hidden, would this specific resource still deserve recommendation?
 
-If not, do not recommend it.
+> If five other creators disappeared because they all copied the same upstream source, would the remaining evidence still support the claim?
 
-## 8. Platform access discipline
+If not, do not treat popularity or repetition as evidence quality.
+
+## 10. Platform access discipline
 
 Do not assume a platform is unusable merely because one adapter failed.
 
@@ -148,11 +193,11 @@ Examples:
 
 Use the least costly available path first; report coverage gaps rather than equating access difficulty with content scarcity.
 
-## 9. Product implication
+## 11. Product implication
 
 The resource library should feel like:
 
-> **有人已经实战过，我帮你找到最值得看的那一两个，再把当前官方边界核对清楚。**
+> **有人已经实战过，我帮你找到最值得看的那一两个，分清是独立经验还是作者自述，再把当前官方边界核对清楚。**
 
 It should not feel like:
 
