@@ -2,7 +2,8 @@
 
 Date: 2026-08-30
 Status: **REAL_USER_ORIGIN CURATION READY — NOT USER-USE EVIDENCE**
-Produced with Skill: `curating-erp-ai-resources` `0.6.3`
+Originally produced with Skill: `0.6.3`  
+Re-reviewed against Skill: `0.7.0` — **recommendation stable**
 
 > 来源是 2026-08 训前调研中的真实同事问题。本文是 Curator 对真实来源问题形成的推荐，不代表该同事已经看到、采用或验证了推荐。
 
@@ -96,9 +97,20 @@ https://www.reddit.com/r/technicalwriting/comments/1bjvacf/which_is_better_tango
 
 ## 7. 给用户的最小 Curator 输出
 
-> **不要把目标设成“AI 自动写完整 ERP 手册”。更成熟的做法是把手册拆成任务型模块，让 capture 工具接管截图/点击/基础标注，让 AI 和顾问负责业务上下文与文字；截图只用于真正需要视觉定位的地方。云端允许时可看 Guidde 这类方案，截图不能外发时优先看 Folge 这类 local-first 方案。**
+> **不要把目标设成“AI 自动写完整 ERP 手册”。当前更值得优先采用的是任务型模块化文档：让 capture 工具接管截图/点击/基础标注，让 AI 和顾问负责业务上下文与文字；截图只用于真正需要视觉定位的地方。云端允许时可看 Guidde 这类方案，截图不能外发时优先看 Folge 这类 local-first 方案。**
 
-## 8. Evidence boundary
+## 8. 0.7.0 re-review
+
+按 0.7.0 重新检查 current baseline、capability gap、adoption cost、来源角色和 high-evidence wording 后：
+
+- B 仍成立：普通多模态 AI 无法天然承担连续桌面捕获、点击绑定和大规模截图维护；
+- Guidde/Folge 只因 cloud/local 数据边界不同而同时保留，不是工具列表扩张；
+- practitioner discussion 与 vendor capability 角色分离；
+- 不再使用 universal “best practice” 或要求用户替项目跑试验。
+
+因此 recommendation stable，无需重新搜索整套候选。
+
+## 9. Evidence boundary
 
 已完成：真实问题重构、practitioner 正反经验筛选、原始能力核验和 Curator synthesis。
 
