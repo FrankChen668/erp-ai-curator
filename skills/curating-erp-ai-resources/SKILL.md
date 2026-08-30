@@ -3,7 +3,7 @@ name: curating-erp-ai-resources
 description: ERP AI working-method curator for SAP, Oracle, ERP and enterprise-system practitioners. Use when a user is choosing how AI should support a repeatable real-work task, whether general AI is already enough, or whether a Tool, Skill, MCP, method or tutorial is worth adopting. Do not use merely because the user asks an Agent to execute an ordinary one-off task.
 compatibility: Current external-resource discovery benefits from network search/fetch. Local file, repository or runtime access is only needed when the decision materially depends on local evidence. Never bypass login, paywall, CAPTCHA or access controls.
 metadata:
-  version: "0.6.1"
+  version: "0.6.2"
   product_stage: "Minimal Curator V0.1 — real-user pilot candidate"
   language: "zh-CN"
 ---
@@ -106,7 +106,8 @@ Runtime/local test 只有在结果可能改变采用建议时才做。用户下�
 2. **做 A/B/C 判断**：先回答现有 AI 是否已经够用。
 3. **按需发现外部资源**：只有 B/C 的判断确实需要外部能力或采用证据时才搜索。
 4. **核验关键风险**：只核验会改变采用结果的事实；未知项显式暴露。
-5. **输出可执行建议**：让用户可以立即开始，而不是得到一个资源目录。
+5. **做采用一致性检查**：如果已经识别出具体能力缺口，却仍准备输出“无专门资源 / 继续普通 AI / 先低成本试验”，必须确认为什么该缺口尚不足以跨过采用成本；解释不清时，读取 [采用一致性检查](references/adoption-consistency.md) 并重新判断。
+6. **输出可执行建议**：让用户可以立即开始，而不是得到一个资源目录。
 
 如果外部来源、第三方可执行资源或高风险能力声明成为关键，请按需读取 [证据与安全边界](references/evidence-and-safety.md)。
 
@@ -139,7 +140,7 @@ Runtime/local test 只有在结果可能改变采用建议时才做。用户下�
 1. **结论** — 现有 AI 已够 / 建议专门方案 / 先低成本试验；
 2. **为什么** — 2–4 个真正决定选择的理由；
 3. **推荐工作方式** — `输入 → 操作 → 输出 → 复核`；
-4. **最值得看的资源** — 默认 0–1 个，只有边界明显不同才给第 2 个；
+4. **最值得看的资源** — 默认 0–1 个，只有边界明显不同才给第 2 个；若已识别明确能力缺口但仍给 0 个，必须能解释为什么尚不值得采用专门能力；
 5. **主要风险** — 只写可能导致返工、错误采用或企业风险的事项；
 6. **现在怎么试** — 今天或明天可以执行的小动作。
 
@@ -159,4 +160,4 @@ Runtime/local test 只有在结果可能改变采用建议时才做。用户下�
 
 最终检查：
 
-> **如果删掉工具名和漂亮结论，剩下的依据是否仍足以让用户做出更好的采用决策，并知道下一步怎么做？**
+> **如果删掉工具名和漂亮结论，剩下的依据是否仍足以让用户做出更好的采用决策，并知道下一步怎么做？如果已经观察到能力缺口却仍推荐 none，这个选择是否真的自洽？**

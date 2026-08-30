@@ -30,6 +30,7 @@ When stopping, explicitly state who acts next, what they must execute/return, an
 - Cross-card reassessment: `docs/validation/CROSS_CARD_METHOD_REASSESSMENT_20260830.md`
 - Pilot contract: `docs/REAL_USER_PILOT_V1.md`
 - Closed 0.6.1 regression result: `docs/validation/CURATOR_061_BOUNDARY_REGRESSION_RESULT_01.md`
+- 0.6.2 Harness patch decision: `docs/validation/CURATOR_062_HARNESS_PATCH.md`
 - Context-drift correction: `docs/REBASE_AUDIT_20260830.md`
 - Pilot Skill: `skills/curating-erp-ai-resources/SKILL.md`
 
@@ -83,41 +84,41 @@ Verdict:
 
 `skills/curating-erp-ai-resources/SKILL.md`:
 
-- version: `0.6.1`
+- version: `0.6.2`
 - status: **Minimal Curator V0.1 — real-user pilot candidate**
+
+`0.6.2` is a narrow Harness consistency patch. It does not add ERP scenario answers. It adds one on-demand consistency check for the specific execution failure observed in 0.6.1: a concrete capability gap is recognized, but the final recommendation still defaults to no specialized capability without a clear adoption-cost justification.
 
 This still means method readiness, not validated user value.
 
-## 6. 0.6.1 boundary regression — closed
+## 6. 0.6.1 regression and 0.6.2 Harness response
 
-Authority:
+0.6.1 regression authority:
 
 - `docs/validation/CURATOR_061_BOUNDARY_REGRESSION_RESULT_01.md`
 
-Verdict:
-
-> **CLOSED — KEEP 0.6.1 UNCHANGED; RETURN TO REAL_USER PILOT**
-
-The paired regression used 11 isolated Codex contexts: five Baselines, five Curator runs and one evaluator.
-
-Bounded result:
+Observed:
 
 - no over-tooling signal;
 - under-tooling appeared in Case 5/38 and lightly in Case 8;
-- C-as-missing-information was not confirmed;
-- recurring decomposition defect was not confirmed;
-- no clear repeatable Curator adoption advantage over ordinary Agent was demonstrated;
-- the strongest under-tooling misses are already covered by current Skill/reference rules, so no permanent Skill-text defect was established.
+- C-as-missing-information and recurring decomposition defects were not confirmed;
+- no clear repeatable Curator adoption advantage over ordinary Agent was demonstrated.
 
-Decision: **do not patch 0.6.1 from this regression and do not run another internal boundary test by default.**
+The regression did not prove a missing domain rule. Harness review then asked a different question: **if the rule is present but Agents still skip it, is the decision boundary sufficiently legible/enforceable?**
 
-This is internal bounded regression evidence only, not REAL_USER adoption evidence.
+Authority:
+
+- `docs/validation/CURATOR_062_HARNESS_PATCH.md`
+
+Decision:
+
+> **0.6.2 adds only an adoption-consistency execution checkpoint; no new scenario rules, Gate, scoring or synthetic retest.**
 
 ## 7. Correct current checkpoint
 
-> **The project is back to the REAL_USER adoption pilot with no active internal regression.**
+> **The project is in the REAL_USER adoption pilot with no active internal regression.**
 
-Do not reopen P10 or more internal validation unless a genuine real-use blocker/defect appears.
+Do not reopen P10 or another synthetic boundary round merely to validate 0.6.2.
 
 ## 8. Immediate next action
 
@@ -129,7 +130,7 @@ For each genuine use, capture:
 
 1. task in the colleague's own words;
 2. real materials/constraints that affect the choice;
-3. Curator recommendation actually given;
+3. Curator 0.6.2 recommendation actually given;
 4. what the colleague actually tried, changed or rejected;
 5. usable artifact/result or concrete failure reason;
 6. saved/added search, setup or rework;
@@ -149,8 +150,7 @@ Do not dispatch local work merely because an Agent is available.
 During Pilot, avoid:
 
 - returning to validation-card accumulation without a real blocker;
-- new boundary regressions without a real-use defect;
-- synthetic benchmarks presented as product evidence;
+- new synthetic boundary regressions without a real-use defect;
 - new taxonomy/Gate/scoring frameworks;
 - resource database construction;
 - mandatory runtime tests;
@@ -165,5 +165,6 @@ When a fresh cloud conversation starts:
 2. read Owner Execution Rules + this handoff + Current Plan + Evidence Status + Pilot contract;
 3. continue cloud-executable work automatically;
 4. do not reopen settled P03/P04/P06/P07 or the closed 0.6.1 boundary regression without a new material reason;
-5. treat REAL_USER pilot as the governing phase;
-6. stop only for a genuine Owner decision, Local Agent handoff or external evidence barrier, and always make the next actor explicit.
+5. use `0.6.2` as the current distributable Skill;
+6. treat REAL_USER pilot as the governing phase;
+7. stop only for a genuine Owner decision, Local Agent handoff or external evidence barrier, and always make the next actor explicit.
