@@ -27,16 +27,17 @@ ERP AI Curator 是**真实 ERP / ToB / 企业信息化工作问题的 AI 实践�
 
 默认不是：工具目录、执行 SOP、用户测试协议、资源数据库或工具实验室。
 
-## 3. 当前 Skill — 0.8.1
+## 3. 当前 Skill — 0.8.2
 
 - `skills/curating-erp-ai-resources/SKILL.md`
 - release class: **CONTROLLED USER TRIAL**
 - user-use value: **UNVALIDATED**
 
-0.8.0 完成 runtime simplification；0.8.1 只增加两条由真实 Codex Desktop 日志证明必要的执行要求：
+0.8.0 完成 runtime simplification；0.8.1 修正 query intent / practitioner investigation；0.8.2 只增加三条 candidate-selection 边界：
 
-- **query intent preservation**：如果原问题是“用 AI/Agent/Tool 改善某工作”，practitioner discovery 至少保留一条 `AI/tool × role/industry/artifact` query，不能退化成纯领域最佳实践搜索；
-- **candidate investigation**：明确找实践/教程时，必须实际打开至少一个 practitioner/creator 候选；如果宿主 policy/coverage/access 阻止，则明确 `coverage/policy gap`，不能用官网补位后声称完成。
+- **audience/ecosystem fit**：同质量时优先用户语言/地区/职业生态匹配的 practitioner；跨语言资源只有明显更强或本地覆盖不足时才上位；
+- **artifact fit**：推荐内容/能力必须真的支持用户需要的交付物，例如 SVG-only 不等于 editable draw.io；
+- **no incidental install**：最佳实践/教程请求本身不构成安装 Tool/Skill 的理由。
 
 Runtime 仍只有两个按需 reference：
 
@@ -52,29 +53,29 @@ Runtime 仍只有两个按需 reference：
 - 强匹配优先，少推荐，结论稳定即停；
 - 诊断/理解默认 read-only，权限最小化。
 
-## 4. 触发 0.8.1 的实际日志
+Authority：`docs/validation/CURATOR_082_CANDIDATE_SELECTION_PATCH.md`。
 
-本次 Codex Desktop 运行不是干净的 0.8.0 独立测试：前半段先用了 0.6.1/拟议 0.6.2 并进行了官方导向搜索，之后才同步 `main@d6165fa` 到 0.8.0 并继续同一上下文。
+## 4. 触发 0.8.2 的真实结果
 
-但同步后的日志直接证明：
+新鲜 0.8.1 运行已经能找到 practitioner 内容，但最终优先了日文 Qiita 实践，并额外推荐 `html-svg-diagrams` Skill。
 
-- `SKILL.md 0.8.0` 和两个 references 确实被读取；
-- 第二批搜索仍丢掉 AI / 产品经理 / ToB / ERP 语境；
-- Bilibili、公众号、小红书、知乎、人人都是产品经理、掘金/CSDN 未实际定向搜索；
-- 已出现的中文 practitioner 候选基本未打开；
-- 最终来源仍由 official/standard/implementation 主导。
+直接问题：
 
-Authority：`docs/validation/CURATOR_081_PRACTITIONER_EXECUTION_PATCH.md`。
+- 中文泛 ERP / ToB / 产品经理生态没有在 candidate selection 中被保留；
+- editable draw.io 目标与 SVG Skill 能力不一致；
+- 用户未要求新 Tool/Skill，却出现安装建议。
+
+这不是“日本资源不能用”；是 audience/artifact fit 与 adoption restraint 没有成为选择优先级。
 
 ## 5. Host risks — 当前不要塞回 Skill
 
-日志还暴露：
+此前日志仍暴露：
 
 - Codex Web policy 可能存在 technical→primary-source-only 冲突；
 - Graph Engineering 被“多步骤任务”错误触发，属于 Skill collision；
-- Browser/Chrome 可用但未调用，是否需要 source-acquisition fallback 仍未知。
+- Browser/Chrome 可用但是否需要 source-acquisition fallback 仍未知。
 
-这些都还没有足够证据成为 Curator runtime 规则。
+这些没有足够证据成为 Curator runtime 规则。
 
 ## 6. Curation Pack 01 — CLOSED
 
@@ -97,13 +98,14 @@ Authority：`docs/validation/CURATION_PACK_01_ADVERSARIAL_REVIEW.md`。
 
 ## 8. 当前下一步
 
-0.8.1 合并后，在**全新 Codex Desktop 上下文**同步最新 `main`，再用同一句自然问题重跑：
+继续自然 controlled use，重点观察：
 
-> “使用这个 skill 给我找下做流程图的最佳实践”
+- 是否优先出现用户职业/语言生态匹配的 practitioner；
+- 海外资源是否真的有明显增量价值；
+- 推荐 Tool/Skill 是否匹配目标 artifact；
+- 未要求新能力时是否仍出现不必要安装建议。
 
-不修改 Skill、不复用旧搜索上下文、不人为指定必须搜的平台。只返回可观察执行事实：实际 query、reference、打开的 practitioner 候选、最终来源角色、明确的 host policy/coverage 失败。
-
-若仍失败，再区分 Skill execution、host source policy、search coverage、Skill collision 或 source acquisition；不要继续靠最终答案猜根因。
+只有重复真实缺陷再修，不继续内部堆规则。
 
 ## 9. Cloud / Local / Owner
 

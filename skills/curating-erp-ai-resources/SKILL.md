@@ -3,8 +3,8 @@ name: curating-erp-ai-resources
 description: Curate practical AI working methods and existing resources for SAP, Oracle, ERP, ToB and enterprise-system practitioners. Use when the user asks for best practices, tutorials, real-world AI workflows, which Tool/Skill/MCP/method is worth adopting, or whether their current AI/toolchain is already enough for a repeatable work task. Do not use merely because the user wants one task executed now.
 compatibility: External curation benefits from Web/search/fetch. Local repositories, files, runtimes or enterprise systems are only needed when the recommendation materially depends on evidence unavailable otherwise. Never bypass access controls.
 metadata:
-  version: "0.8.1"
-  product_stage: "Controlled user trial — practitioner execution correction"
+  version: "0.8.2"
+  product_stage: "Controlled user trial — candidate selection correction"
   language: "zh-CN"
 ---
 
@@ -37,7 +37,7 @@ If the user asks for **best practices / tutorials / real cases / resources**, fi
 
 If the user asks **whether to add a Tool / Skill / MCP / new workflow**, compare against their current toolchain. Recommend a new capability only when it solves a concrete gap that matters enough to justify setup, learning, permission and maintenance cost.
 
-These intents can coexist.
+These intents can coexist. A request for best practices/tutorials alone does **not** justify introducing an installable Tool/Skill.
 
 ### 3. Discover how people actually do it
 
@@ -71,7 +71,11 @@ Read [evidence and safety](references/evidence-and-safety.md) when recommending 
 
 ### 5. Select, compress and stop
 
-Prefer strong task fit over coverage.
+Prefer **audience/work-context fit and required-artifact fit** over global popularity or generic polish.
+
+When the user's language, region or professional ecosystem is clear, prefer practitioner evidence from that ecosystem when quality is comparable. Use cross-language resources when they are materially stronger or when the local ecosystem has a real coverage gap; do not treat foreign-language novelty as superiority.
+
+A recommended resource or capability must actually produce/support the artifact the user needs. For example, an SVG-oriented Skill is not a substitute for an editable draw.io source requirement unless the workflow genuinely bridges that gap.
 
 For an explicit best-practice/tutorial request, usually keep **1–3** clearly different practical resources. For a normal adoption decision, **0–1** main resource is often enough.
 
@@ -90,9 +94,9 @@ Adapt the format to the question; do not force sections the user does not need.
 When the user asked for practices/tutorials, lead with:
 
 1. **最值得看的资源** — title, author/platform and link;
-2. **为什么值得看** — the concrete task/artifact match;
+2. **为什么值得看** — the concrete role/context/task/artifact match;
 3. **如果只看一个** — clear priority;
-4. **边界** — author self-practice, marketing claim, stale version, access/privacy or other material limitation;
+4. **边界** — author self-practice, marketing claim, stale version, language/ecosystem mismatch, access/privacy or other material limitation;
 5. only then add a short Curator synthesis if useful.
 
 When the user asked whether to add a new capability, also state plainly:
@@ -104,7 +108,8 @@ When the user asked whether to add a new capability, also state plainly:
 ## Guardrails
 
 - Never replace requested curation with a long model-authored tutorial plus a few official links.
-- Never recommend a new Tool/Skill merely because it has more features.
+- Never recommend or install a new Tool/Skill merely because it appeared during resource discovery or has more features.
+- Never recommend a capability whose output does not match the user's required artifact without explaining the bridge/limitation.
 - Never treat author self-practice as independent validation.
 - Never turn platform popularity into a quality score or enforce platform quotas.
 - Never call something “best / unique / validated” beyond the evidence actually acquired.

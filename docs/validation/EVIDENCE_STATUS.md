@@ -126,20 +126,41 @@ However, the post-sync logs directly prove:
 
 Authority: `CURATOR_081_PRACTITIONER_EXECUTION_PATCH.md`.
 
-## 8. Current Skill — 0.8.1
+## 8. Fresh 0.8.1 result — accepted candidate-selection defect evidence
+
+A fresh 0.8.1 result for the same natural flowchart request improved practitioner discovery but produced this pattern:
+
+- recommended a Japanese Qiita practitioner article as the primary practice;
+- summarized a workflow around natural language → structured intermediate representation → editable draw.io XML → human validation → local iteration;
+- additionally recommended `html-svg-diagrams` and supplied an install command;
+- the user had not asked to add a Skill;
+- the recommended Skill's core output focus was SVG, while the selected practice/target artifact emphasized editable draw.io.
+
+This shows discovery improved, but selection still lost three important product dimensions:
+
+1. **audience/ecosystem fit** — the project/user context is Chinese ERP/ToB/product-manager oriented, yet a foreign-language practitioner was promoted without showing material superiority over local candidates;
+2. **artifact fit** — SVG-oriented capability was treated as a companion to editable draw.io without proving the bridge;
+3. **adoption restraint** — a best-practice request triggered an installable Skill recommendation without a demonstrated capability gap.
+
+This does **not** mean Japanese/foreign resources are undesirable. The defect is failure to rank by audience/artifact fit and failure to justify adding a capability.
+
+Authority: `CURATOR_082_CANDIDATE_SELECTION_PATCH.md`.
+
+## 9. Current Skill — 0.8.2
 
 `skills/curating-erp-ai-resources/SKILL.md`:
 
-> **CONTROLLED USER TRIAL — USER-USE VALUE UNVALIDATED / version 0.8.1**
+> **CONTROLLED USER TRIAL — USER-USE VALUE UNVALIDATED / version 0.8.2**
 
-0.8.1 adds only two log-backed execution requirements:
+0.8.2 keeps the simplified runtime and adds only three narrow candidate-selection boundaries:
 
-1. **query intent preservation** — when the user asks how AI/Agent/Tool improves a task, practitioner discovery must retain at least one serious `AI/tool × role/industry/artifact` query instead of collapsing into pure domain advice;
-2. **candidate investigation** — explicit best-practice/tutorial requests must inspect at least one practitioner/creator candidate before synthesis, or explicitly report `coverage/policy gap` when host/search/access prevents it.
+1. **audience/ecosystem fit** — when the user's language/region/professional ecosystem is clear, comparable practitioner evidence from that ecosystem is preferred; cross-language resources can lead when materially stronger or local coverage is weak;
+2. **artifact fit** — recommended resources/capabilities must actually support the required deliverable; adjacent output formats cannot be silently treated as equivalent;
+3. **no incidental install** — a tutorial/best-practice request alone does not justify recommending an installable Tool/Skill.
 
-0.8.1 does **not** add platform quotas, creator scoring, A/B/C runtime classification, new references, Browser mandates, host-policy workarounds or Graph Engineering exclusions.
+0.8.2 does **not** add language quotas, country bans, creator scoring, A/B/C runtime classification, new references, Browser mandates, host-policy workarounds or platform quotas.
 
-## 9. Closed internal evidence remains bounded
+## 10. Closed internal evidence remains bounded
 
 ### 0.6.1 boundary regression
 
@@ -168,9 +189,9 @@ Historical case labels remain useful as evidence records:
 - `docs/curation-cases/CASE_003_WEEKLY_REPORT_CONSOLIDATION.md` — historical A;
 - `docs/curation-cases/CASE_004_SAP_BUG_DIAGNOSIS_SYSTEM_ACCESS.md` — historical A → conditional B.
 
-These labels do not define 0.8.1 runtime.
+These labels do not define 0.8.2 runtime.
 
-## 10. Release readiness
+## 11. Release readiness
 
 Original release-readiness authority: `RELEASE_READINESS_ADVERSARIAL_20260830.md`.
 
@@ -180,7 +201,7 @@ Current verdict remains:
 
 The public repository currently has no `LICENSE` file; public/open-source release completion requires an explicit Owner licensing decision and is not inferred by the Agent.
 
-## 11. REAL_USER_USE VALIDATION — active Lane B
+## 12. REAL_USER_USE VALIDATION — active Lane B
 
 Authority: `docs/REAL_USER_PILOT_V1.md`.
 
@@ -190,10 +211,10 @@ Current dominant uncertainty:
 
 > **Does Curator consistently provide a higher-trust, lower-noise, more useful set of practitioner practices/resources than an ERP practitioner would get from ordinary AI or self-search, and is that difference valuable enough that real users would return?**
 
-Next high-value evidence is a **fresh Codex Desktop context** using the same natural prompt after syncing 0.8.1, with no pre-search or Skill modification. Record actual queries, loaded references, opened practitioner candidates and final source roles.
+Continue natural use. For similar resource requests, observe whether candidate selection preserves audience/ecosystem fit, artifact fit and adoption restraint.
 
 Do not substitute more pre-user cards, synthetic benchmark loops, Owner/Agent opinion, user tool-test protocols or internal validator success for this evidence.
 
-## 12. Evidence acceptance rule
+## 13. Evidence acceptance rule
 
 External claims must remain traceable to actually acquired evidence. Search snippets are discovery only. Author self-practice is not independent validation. Runtime evidence is bounded to what was actually tested. Stable practice insight must be separated from version-coupled facts.
