@@ -40,7 +40,11 @@ Authority: `P04_PRACTITIONER_CURATION_RESULT_02.md`.
 
 > **CLOSED — plain code-first default / Huashu optional**
 
-Authorities: `DELIVERY_P06_DATA_RECONCILIATION.md`, `P06_LOCAL_RUNTIME_RESULT_01.md`, `evidence/p06/`.
+Authorities:
+
+- `DELIVERY_P06_DATA_RECONCILIATION.md`
+- `P06_LOCAL_RUNTIME_RESULT_01.md`
+- `evidence/p06/`
 
 ### P03 — requirements/rules → clickable prototype
 
@@ -59,11 +63,13 @@ Authority: `P07_CODEBASE_UNDERSTANDING_RESULT_02.md`.
 - `P03_PROTOTYPE_CURATION_RESULT_01.md` — **INVALIDATED / NOT PRODUCT EVIDENCE**.
 - `P07_CODEBASE_UNDERSTANDING_RESULT_01.md` — **INVALIDATED / NOT PRODUCT EVIDENCE**.
 
+Only Result 02 is authoritative for P03/P07.
+
 ## 4. Cross-task method conclusion — accepted for controlled-trial readiness
 
 Authority: `CROSS_CARD_METHOD_REASSESSMENT_20260830.md`.
 
-Stable method insights:
+The heterogeneous evidence supports stable method insights:
 
 1. start from the real job, current toolchain, artifacts, deliverable and hard constraints;
 2. specialized capability only for a concrete capability gap whose benefit justifies adoption cost;
@@ -72,7 +78,7 @@ Stable method insights:
 5. runtime/local tests only when their result can change the recommendation;
 6. strong match and stopping discipline outrank resource coverage.
 
-These insights support controlled trial readiness; they do not require runtime A/B/C classification.
+These insights support controlled trial readiness; they do not require the runtime Skill to expose A/B/C classification.
 
 ## 5. Flowchart controlled-use defect — accepted negative evidence
 
@@ -82,12 +88,14 @@ Triggering prompt:
 
 Observed 0.7.0 failure:
 
-- treated the task primarily as no-new-tool;
-- mainly used official/standard sources;
-- wrote a generic flowchart tutorial;
+- quickly treated the task as no-new-tool;
+- mainly used OMG/Camunda/Microsoft/ASQ official/standard sources;
+- wrote a generic flowchart tutorial and prompt;
 - failed to surface the expected Chinese product-manager/ToB/practitioner resources.
 
 Authority: `CURATOR_071_PRACTITIONER_DISCOVERY_PATCH.md`.
+
+This is accepted negative REAL_USER_USE behavior evidence. It did not prove the later correction worked in the original host.
 
 ## 6. 0.8.0 simplification — accepted engineering evidence
 
@@ -95,18 +103,26 @@ Authority: `CURATOR_080_RUNTIME_SIMPLIFICATION.md`.
 
 0.8.0 removed mandatory A/B/C classification and two runtime references while preserving the core Curator path. This is engineering/scope evidence, not user-value evidence.
 
-## 7. Codex Desktop diagnostic log — accepted diagnostic evidence
+## 7. Codex Desktop execution log — accepted diagnostic evidence
 
-A later Codex Desktop run showed that 0.8.0 and its references were actually loaded after sync, but the run was contaminated by earlier 0.6.1/0.6.2 context and official-heavy searches.
+A later Codex Desktop run of the same natural flowchart request supplied detailed execution logs.
 
-Post-sync logs still directly proved:
+Important boundary:
 
-- AI/product/ToB/ERP intent disappeared from search queries;
-- practitioner pools were not actually expanded;
-- practitioner candidates appeared but were mostly not opened;
-- final sources remained official/standard/implementation-heavy.
+> **The run was not a clean 0.8.0 isolated run.** It first loaded local 0.6.1, modified a proposed 0.6.2 and performed an initial official-heavy search; only after user correction did it fetch `main` at `d6165fa`, restore the Skill package to exact 0.8.0 and continue in the same context.
 
-Separate host risks were observed but not proven causal: possible primary-source policy conflict, Graph Engineering Skill collision, and unused Browser/Chrome fallback.
+Therefore this run cannot prove that a fresh 0.8.0 host run would fail identically.
+
+However, the post-sync logs directly prove:
+
+- `SKILL.md 0.8.0`, `practitioner-discovery.md` and `evidence-and-safety.md` were actually read;
+- the second discovery batch used broad domain queries but did not preserve the original AI/product/ToB/ERP work-method intent;
+- no explicit Bilibili, WeChat, Xiaohongshu, Zhihu, 人人都是产品经理 or 掘金/CSDN query was executed;
+- search results did include Chinese practitioner/creator candidates, but they were mostly not opened;
+- the final answer again relied on official/standard/implementation sources and used no independent practitioner or author self-practice source;
+- Codex Web policy exposed a potential `technical questions → primary sources only` conflict, but the log does not prove that this policy caused the final selection;
+- Graph Engineering was additionally loaded because the task was considered multi-step, indicating a separate possible host Skill-collision issue;
+- Browser/Chrome capabilities existed but were not used; the log does not establish whether they would materially improve source acquisition.
 
 Authority: `CURATOR_081_PRACTITIONER_EXECUTION_PATCH.md`.
 
@@ -120,7 +136,7 @@ A fresh 0.8.1 result for the same natural flowchart request improved practitione
 - the user had not asked to add a Skill;
 - the recommended Skill's core output focus was SVG, while the selected practice/target artifact emphasized editable draw.io.
 
-This is useful negative evidence because it shows discovery improved, but selection still lost three important product dimensions:
+This shows discovery improved, but selection still lost three important product dimensions:
 
 1. **audience/ecosystem fit** — the project/user context is Chinese ERP/ToB/product-manager oriented, yet a foreign-language practitioner was promoted without showing material superiority over local candidates;
 2. **artifact fit** — SVG-oriented capability was treated as a companion to editable draw.io without proving the bridge;
@@ -136,48 +152,69 @@ Authority: `CURATOR_082_CANDIDATE_SELECTION_PATCH.md`.
 
 > **CONTROLLED USER TRIAL — USER-USE VALUE UNVALIDATED / version 0.8.2**
 
-0.8.2 adds only three narrow selection constraints:
+0.8.2 keeps the simplified runtime and adds only three narrow candidate-selection boundaries:
 
 1. **audience/ecosystem fit** — when the user's language/region/professional ecosystem is clear, comparable practitioner evidence from that ecosystem is preferred; cross-language resources can lead when materially stronger or local coverage is weak;
 2. **artifact fit** — recommended resources/capabilities must actually support the required deliverable; adjacent output formats cannot be silently treated as equivalent;
 3. **no incidental install** — a tutorial/best-practice request alone does not justify recommending an installable Tool/Skill.
 
-0.8.2 does **not** add language quotas, country bans, creator scoring, new runtime references, A/B/C, Gate/scoring, Browser mandates or platform quotas.
+0.8.2 does **not** add language quotas, country bans, creator scoring, A/B/C runtime classification, new references, Browser mandates, host-policy workarounds or platform quotas.
 
 ## 10. Closed internal evidence remains bounded
 
 ### 0.6.1 boundary regression
 
-Authorities: `CURATOR_061_BOUNDARY_REGRESSION_PLAN.md`, `CURATOR_061_BOUNDARY_REGRESSION_RESULT_01.md`.
+Authorities:
 
-Findings remain: no over-tooling signal in that regression, some under-tooling, and no clear repeatable Curator uplift over ordinary Agent.
+- `CURATOR_061_BOUNDARY_REGRESSION_PLAN.md`
+- `CURATOR_061_BOUNDARY_REGRESSION_RESULT_01.md`
+
+Findings remain:
+
+- no over-tooling signal;
+- under-tooling appeared in Case 5/38 and lightly in Case 8;
+- C-as-missing-information and recurring decomposition defects were not confirmed;
+- no clear repeatable Curator uplift over ordinary Agent was demonstrated.
+
+This informed later Harness changes but does not prove product value.
 
 ### Curation Pack 01 — REAL_USER_ORIGIN Lane A closed
 
 Authority: `CURATION_PACK_01_ADVERSARIAL_REVIEW.md`.
 
-Historical case labels remain evidence records only and do not define 0.8.2 runtime.
+Historical case labels remain useful as evidence records:
+
+- `docs/curation-cases/CASE_001_ERP_OPERATING_MANUAL.md` — historical B;
+- `docs/curation-cases/CASE_002_ORACLE_EBS_DEVELOPMENT.md` — historical B;
+- `docs/curation-cases/CASE_003_WEEKLY_REPORT_CONSOLIDATION.md` — historical A;
+- `docs/curation-cases/CASE_004_SAP_BUG_DIAGNOSIS_SYSTEM_ACCESS.md` — historical A → conditional B.
+
+These labels do not define 0.8.2 runtime.
 
 ## 11. Release readiness
+
+Original release-readiness authority: `RELEASE_READINESS_ADVERSARIAL_20260830.md`.
 
 Current verdict remains:
 
 > **CONTROLLED USER TRIAL GO / BROAD RELEASE NO**
 
-The public repository currently has no `LICENSE` file; public/open-source release completion requires explicit Owner licensing choice.
+The public repository currently has no `LICENSE` file; public/open-source release completion requires an explicit Owner licensing decision and is not inferred by the Agent.
 
 ## 12. REAL_USER_USE VALIDATION — active Lane B
 
 Authority: `docs/REAL_USER_PILOT_V1.md`.
 
+Accepted product-value evidence requires a real colleague to actually receive the recommendation and naturally learn/adopt/modify/reject/ignore it, with a concrete reason or outcome.
+
 Current dominant uncertainty:
 
-> **Does Curator consistently provide a higher-trust, lower-noise, more useful set of practitioner practices/resources than an ERP practitioner would get from ordinary AI or self-search, and is that difference valuable enough that real users return?**
+> **Does Curator consistently provide a higher-trust, lower-noise, more useful set of practitioner practices/resources than an ERP practitioner would get from ordinary AI or self-search, and is that difference valuable enough that real users would return?**
 
-Continue natural use. For similar curation requests, observe whether candidate selection now preserves audience/ecosystem fit, artifact fit and adoption restraint.
+Continue natural use. For similar resource requests, observe whether candidate selection preserves audience/ecosystem fit, artifact fit and adoption restraint.
 
-Do not substitute more pre-user cards, synthetic benchmark loops or internal validator success for product evidence.
+Do not substitute more pre-user cards, synthetic benchmark loops, Owner/Agent opinion, user tool-test protocols or internal validator success for this evidence.
 
 ## 13. Evidence acceptance rule
 
-External claims must remain traceable to acquired evidence. Search snippets are discovery only. Author self-practice is not independent validation. Runtime evidence is bounded to what was actually tested. Stable practice insight must be separated from version-coupled facts.
+External claims must remain traceable to actually acquired evidence. Search snippets are discovery only. Author self-practice is not independent validation. Runtime evidence is bounded to what was actually tested. Stable practice insight must be separated from version-coupled facts.
