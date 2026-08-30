@@ -2,7 +2,7 @@
 
 Date: 2026-08-30
 
-> Current execution authority. Context-drift correction remains recorded in `docs/REBASE_AUDIT_20260830.md`. P03/P07 reruns and the cross-card reassessment are complete. Minimal Curator V0.1 is in a bounded real-user pilot.
+> Current execution authority. Context-drift correction remains recorded in `docs/REBASE_AUDIT_20260830.md`. P03/P07 reruns, cross-card reassessment and the bounded 0.6.1 regression are complete. Minimal Curator V0.1 remains in a bounded real-user pilot.
 
 ## 0. Owner execution continuity rule
 
@@ -59,7 +59,7 @@ Verdict:
 
 > **METHOD READY FOR REAL-USER PILOT — PRODUCT OUTCOME NOT YET VALIDATED**
 
-The recurring method survived materially different tasks without contradictory permanent rules:
+The recurring method remains:
 
 1. start from the real job, actual artifacts, deliverable and material constraints;
 2. ordinary AI / existing Agent is the baseline;
@@ -74,44 +74,43 @@ The recurring method survived materially different tasks without contradictory p
 Current Skill:
 
 - `skills/curating-erp-ai-resources/SKILL.md`
-- version `0.6.1`
+- version `0.6.2`
 
 Status:
 
 > **Minimal Curator V0.1 — real-user pilot candidate**
 
+`0.6.2` is a narrow Harness consistency patch, not a new domain method. It preserves 0.6.1 and adds one on-demand adoption-consistency check when a concrete capability gap has been identified but the run is still preparing to recommend no specialized capability.
+
+Authority:
+
+- `docs/validation/CURATOR_062_HARNESS_PATCH.md`
+
 Do not describe it as a validated product yet.
 
-## 5. 0.6.1 boundary regression — resolved
+## 5. 0.6.1 boundary regression — closed
 
 Authorities:
 
 - `docs/validation/CURATOR_061_BOUNDARY_REGRESSION_PLAN.md`
 - `docs/validation/CURATOR_061_BOUNDARY_REGRESSION_RESULT_01.md`
 
-Verdict:
-
-> **CLOSED — KEEP 0.6.1 UNCHANGED; RETURN TO REAL_USER PILOT**
-
-Observed:
+Bounded result:
 
 - no over-tooling signal;
 - under-tooling appeared in Case 5 / 38 and lightly in Case 8;
-- `C` semantic misuse was not confirmed;
-- recurring decomposition defect was not confirmed;
-- Curator did not show a clear repeatable adoption advantage over ordinary Agent in this bounded exercise.
+- `C` semantic misuse and recurring decomposition defect were not confirmed;
+- no clear repeatable adoption advantage over ordinary Agent was demonstrated.
 
-Adversarial attribution: the strongest under-tooling misses are already covered by current Skill/reference rules, so a permanent Skill-text defect is not established. Do not add more wording or another internal regression by default.
+The result did not establish a missing permanent domain rule. Harness review instead identified an execution-legibility gap: the rule existed but could still be skipped at the final adoption boundary. This is why 0.6.2 adds a narrow consistency checkpoint without adding scenario rules.
 
-This result is internal bounded regression evidence only, not REAL_USER adoption evidence.
+This remains internal evidence only, not REAL_USER adoption evidence.
 
 ## 6. Correct current checkpoint
 
-> **REAL_USER adoption/outcome is again the only active product milestone.**
+> **REAL_USER adoption/outcome is the only active product milestone.**
 
-The next decision-changing evidence must come from a real colleague using the Curator on a real work task.
-
-Do not return to P10, broad internal validation, or another boundary regression unless real use exposes a concrete blocker/defect.
+Do not run another synthetic boundary regression merely to verify 0.6.2. The next decision-changing feedback loop must come from real colleague use unless a concrete blocker appears.
 
 ## 7. Immediate next action — REAL_USER pilot
 
@@ -121,11 +120,11 @@ For each genuine case:
 
 ```text
 real colleague task/materials/constraints
-→ Minimal Curator recommendation
+→ Minimal Curator 0.6.2 recommendation
 → colleague actually tries / modifies / rejects it
 → capture usable result or concrete failure
 → inspect saved search/setup/rework or missed constraint
-→ narrow method correction only if evidence requires it
+→ narrow method/harness correction only if evidence requires it
 ```
 
 Capture only decision-changing evidence:
@@ -146,7 +145,7 @@ Cloud/ChatGPT owns:
 - running Curator recommendations for submitted real tasks;
 - current Web/GitHub research when external resources are actually needed;
 - product/adoption judgement;
-- evidence review and narrow method corrections;
+- evidence review and narrow method/harness corrections;
 - GitHub authority maintenance.
 
 Use a Local Agent only when it materially adds access/execution unavailable to Cloud, including local files/repository/runtime, enterprise environment or environment-specific reproducibility.
@@ -169,4 +168,4 @@ Do not add without real-user evidence of need:
 
 ## 10. Current milestone
 
-> **Run Minimal Curator V0.1 on genuine colleague tasks and obtain the first real adoption/outcome evidence. Do not substitute more internal proof for this milestone.**
+> **Run Minimal Curator 0.6.2 on genuine colleague tasks and obtain the first real adoption/outcome evidence. Do not substitute more internal proof for this milestone.**
