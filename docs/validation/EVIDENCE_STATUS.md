@@ -6,61 +6,41 @@ Date: 2026-08-30
 
 ## 1. Demand evidence
 
-The 2026-08 survey remains the primary REAL_USER demand source.
+The 83-response 2026-08 training survey remains the primary REAL_USER demand source.
 
 Supported conclusions:
 
 - implementation consultants and project managers are the main audience;
-- many respondents already use AI;
-- the main gap is practical delivery quality, not AI introduction;
-- users repeatedly want real methods/cases for requirements, PRD, prototypes, diagrams, PPT, Excel/data, testing, project management and Agent usage;
-- typical inputs are actual project artifacts rather than abstract prompts.
+- users already use AI heavily;
+- the major gap is practical delivery quality, not AI introduction;
+- recurring jobs include requirements, prototypes, diagrams, PPT, Excel/data, testing, code understanding/debugging, project management and Agent usage;
+- typical inputs are real project artifacts rather than abstract prompts.
 
-Authority:
+The survey validates demand, not recommendation outcome.
 
-- `SURVEY_DERIVED_PROBLEM_CARDS_01.md`
+## 2. Curator-method validation — sufficient for V0.1
 
-The survey validates demand, not solution outcome.
+Current heterogeneous evidence spans five materially different task classes.
 
-## 2. Source-strategy position
-
-For practical delivery questions, practitioner guides/reviews/cases should normally be the first discovery lane; original Tool/Skill and official docs are supporting verification layers.
-
-This is practical-value-first, not independent-third-party-at-all-costs.
-
-Do not use platform access failure, popularity metrics, source counts or author self-tests as substitutes for evidence quality.
-
-## 3. P01
+### P01 — workshop/minutes → requirement package
 
 Status: **KEEP FOR PRACTICAL PILOT**
 
-Retained:
+Retained: `Convert Notes to Requirements Working Skill`
 
-- `Convert Notes to Requirements Working Skill`
+Classification: **high task fit / low independent validation**.
 
-Classification:
+### P04 — business logic → editable process diagram
 
-> **high task fit / low independent validation**
+Status: **CLOSED — RECOMMENDATION STABLE WITH EXPLICIT COVERAGE GAPS**
 
-## 4. P04 — CLOSED
+Authority: `P04_PRACTITIONER_CURATION_RESULT_02.md`
 
-Status:
+Lesson: semantic clarification precedes diagram generation; AI output remains a review artifact.
 
-> **CLOSE P04 — RECOMMENDATION STABLE WITH EXPLICIT COVERAGE GAPS**
+### P06 — Excel/CSV/system export → reconcile and validate
 
-Authority:
-
-- `P04_PRACTITIONER_CURATION_RESULT_02.md`
-
-P04 demonstrated the desired behavior: practitioner-first search, targeted evidence delta, evidence-role discipline, explicit remaining coverage gap, then stop once the recommendation was stable.
-
-Do not rerun P04 technical/runtime work unless later real adoption exposes a new material risk.
-
-## 5. P06 data reconciliation — CLOSED
-
-Status:
-
-> **PLAIN CODE-FIRST DEFAULT / HUASHU OPTIONAL**
+Status: **CLOSED — PLAIN CODE-FIRST DEFAULT / HUASHU OPTIONAL**
 
 Authorities:
 
@@ -68,73 +48,97 @@ Authorities:
 - `P06_LOCAL_RUNTIME_RESULT_01.md`
 - `evidence/p06/`
 
-### Final supported judgement
+Lesson: a specialized Skill is not required when a plain code Agent can provide deterministic execution plus row/amount/control-total checks, conservative matching and review routing.
 
-For ordinary ERP Excel/CSV/system-export reconciliation, a competent local code-first Agent is sufficient as the default implementation path **if** the workflow includes explicit reconciliation controls.
+### P03 — requirements/rules → clickable prototype/UI demo
 
-Required method discipline:
+Status: **CLOSED — CODED PROTOTYPE DEFAULT; FIGMA MAKE FOR FIGMA/DESIGN-SYSTEM-FIRST TEAMS**
 
-- deterministic/replayable transformation and comparison;
-- explicit source/target row-count and amount checks;
-- back-check source control totals/subtotals when available rather than simply excluding them;
-- conservative key normalization and explicit mapping;
-- ambiguous/non-unique matches routed to review instead of guessed;
-- exceptions and source-row traceability preserved.
+Authority: `P03_PROTOTYPE_CURATION_RESULT_01.md`
 
-Current spreadsheet-native AI remains a legitimate lower-friction option for one-off lower-risk workbook work.
+Supported judgement:
 
-`alchaincyf/huashu-excel` remains useful as an optional audit/checklist method for recurring or high-consequence reconciliation, but current evidence does not justify mandatory adoption.
+- generic ERP/B-end prototype work should use clarified business rules/states/flows → coded clickable prototype → human review/iteration;
+- v0 / AI IDE / coding Agent are valid low-friction coded-prototype paths;
+- Figma Make becomes preferable when existing Figma libraries/design-system collaboration are already central;
+- no dedicated prototype Skill is justified as a default dependency;
+- main failure mode is a plausible-looking UI that gets business states, branches, permissions or field rules wrong.
 
-### Runtime evidence
+No generic P03 runtime comparison is justified because it would benchmark transient model output rather than resolve an adoption gap.
 
-The bounded local A/B used the same synthetic ERP-like input in isolated contexts and hidden ground truth.
+### P07 — codebase/program → understand logic / support FS / locate defects
 
-Independent verification found:
+Status: **CLOSED — REPO-AWARE CODE AGENT DEFAULT**
 
-- both baseline and with-Skill matched all 9 expected record-level statuses;
-- both produced the same reconciliation CSV;
-- baseline omitted a source control-total back-check;
-- Huashu exposed a legacy `TOTAL` difference of 10;
-- the pinned Huashu scripts initially failed to classify three `SUBTOTAL WHxx` rows correctly, requiring manual reclassification;
-- Windows default console encoding also required a UTF-8 adjustment.
+Authority: `P07_CODEBASE_UNDERSTANDING_RESULT_01.md`
 
-Therefore the material lesson is not “Huashu has no value”. It is:
+Supported judgement:
 
-> **the valuable audit discipline is portable into plain code-first execution and the bounded evidence does not show enough Skill-specific advantage to justify adding Huashu as a required dependency.**
+- capable repo-aware code Agents already cover unfamiliar-code exploration, feature tracing, debugging, tests and documentation;
+- business/FS explanations should be recovered from code/data/integration evidence with source pointers and explicit uncertainty;
+- critical conclusions/fixes require tests/logs/runtime evidence and independent review where consequence warrants it;
+- a specialist graph/architecture/code-understanding layer is justified only when normal repo navigation is materially inadequate.
 
-### Evidence boundary
+No generic runtime A/B is justified because the adoption boundary is already stable.
 
-This is one synthetic bounded fixture, not independent ERP production validation of either method.
+## 3. Cross-card conclusion
 
-Do not generalize it into:
+Across text, diagrams, data, interactive prototypes and code, the Curator repeatedly demonstrates the intended behavior:
 
-- “Huashu never helps”;
-- “plain Agent always succeeds”;
-- “all Excel work should use Python”.
+- real task before Tool;
+- plain AI/Agent is a valid final recommendation;
+- specialist capability is introduced only when it adds material value;
+- practitioner evidence is prioritized for adoption questions;
+- author/official evidence roles remain explicit;
+- runtime testing is targeted rather than default;
+- work stops when the colleague decision stabilizes.
 
-Reopen only if real-user adoption shows a materially different workload, scale, audit requirement or failure pattern.
+This is enough to exit Curator-method validation for Minimal Curator V0.1.
 
-## 6. Runtime-testing policy
+## 4. Minimal Curator V0.1
 
-Runtime testing remains exceptional.
+Primary artifact:
 
-P06 justified one bounded runtime delta because a new self-authored Skill was competing with an already-capable plain code-first workflow on a correctness-sensitive task and the result could change adoption advice.
+- `skills/curating-erp-ai-resources/SKILL.md`
+- Skill version `0.5.0`
 
-The test is now complete. Do not expand it into a benchmark suite.
+The Skill now emphasizes user-facing decision quality instead of the earlier Gate/scoring/staging machinery.
 
-## 7. Main remaining uncertainties
+Default decision sequence:
 
-Product-level uncertainties now matter more than P06 technical uncertainty:
+```text
+real work task
+→ AI leverage judgement
+→ general AI enough?
+→ targeted discovery only when needed
+→ necessary fact/safety checks
+→ small actionable recommendation
+→ stop
+```
 
-- whether practitioner-first curation remains stable on another heterogeneous job such as P03 prototype generation;
-- whether curated packages are genuinely useful to colleagues on real material;
-- which feeder ecosystems deserve recurring discovery prior;
-- whether a minimal user-facing Curator product is worth packaging after a few heterogeneous cards.
+## 5. Evidence boundary
 
-## 8. Main risk now
+None of the current cards prove universal performance.
 
-The dominant risk is:
+Do not interpret them as:
 
-> **continuing to accumulate validation artifacts instead of proving that Curator recommendations generalize across different real jobs and are useful to colleagues.**
+- permanent Tool whitelists;
+- “plain AI always works”;
+- “specialized Skills are unnecessary”;
+- independent production validation for every retained resource.
 
-Next planned controlled card is P03. After P03 and one engineering-type card, reassess whether to shift from research/validation toward a minimal user-facing Curator.
+They validate the Curator's **decision behavior strongly enough to start real-user piloting**.
+
+## 6. Main uncertainty now
+
+The dominant uncertainty has changed from method design to product usefulness:
+
+> **Will real ERP colleagues actually use the recommendation, save search/learning/rework time, and come back for another task?**
+
+That can only be answered by real-user pilot evidence.
+
+## 7. Current stop rule
+
+Do not continue synthetic/representative Problem Cards merely to increase coverage.
+
+Reopen validation only if real-user usage reveals a concrete failure pattern that could materially change Curator decision logic.

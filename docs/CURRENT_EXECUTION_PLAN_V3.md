@@ -1,12 +1,16 @@
 # ERP AI Curator — Current Execution Plan V3
 
-> Current execution authority. Keep this document short and current; historical detail belongs in validation records.
+> Current execution authority. Historical validation detail belongs in `docs/validation/`.
 
 ## 1. Product objective
 
-ERP AI Curator helps SAP / Oracle / ERP / enterprise-information-system practitioners solve **real delivery problems** using existing AI practice and resources.
+ERP AI Curator helps SAP / Oracle / ERP / enterprise-information-system practitioners choose the **right AI working method for a real delivery task**.
 
-Atomic unit:
+Core question:
+
+> **面对这个真实工作任务，普通 AI 是否已经够用？如果不够，什么现成 Tool / Skill / 方法 / 教程最值得采用？**
+
+Atomic input:
 
 ```text
 real project situation
@@ -14,193 +18,126 @@ real project situation
 + concrete work action/problem
 + expected deliverable
 + material constraints
-→ practical resource curation
 ```
 
-The product is **not** an AI tool directory, generic tutorial library, Prompt library, influencer ranking, or tool-certification lab.
+The product is not a generic AI tool directory, Prompt library, tutorial encyclopedia or tool-certification lab.
 
-Core user question:
+## 2. Validation phase — COMPLETE FOR V0.1
 
-> **我现在碰到这个具体工作问题，别人已经有哪些值得学习和采用的 AI Skill / Tool / 方法 / 教程 / 经验？**
+Do not continue through remaining Problem Cards merely for coverage.
 
-## 2. Demand and source discipline
+Current heterogeneous evidence:
 
-Primary REAL_USER demand source:
+- **P01** — workshop/minutes → requirement package;
+- **P04** — business logic → editable process diagram;
+- **P06** — Excel/CSV/system export → deterministic reconciliation;
+- **P03** — requirements/rules → clickable B-end prototype;
+- **P07** — codebase/program → understand logic / support FS / locate defects.
 
-- 83-response 2026-08 training survey;
-- normalized Problem Cards in `docs/validation/SURVEY_DERIVED_PROBLEM_CARDS_01.md`.
+These cover materially different artifact classes: text, structured visual, data/computation, interactive UI and code/repository reasoning.
 
-The survey validates demand, not recommendation outcome.
+Observed stable behavior across cards:
 
-Default evidence flow:
+- starts from the real job rather than a preferred Tool;
+- can correctly conclude “plain AI / existing Agent is enough”;
+- introduces specialist capability only when adoption benefit is material;
+- separates practical evidence, implementation evidence and current facts;
+- uses runtime testing only when it can change the decision;
+- stops when colleague advice is stable rather than maximizing research activity.
+
+Therefore Curator-method validation is sufficient for Minimal Curator V0.1.
+
+## 3. Current product — Minimal Curator V0.1
+
+Primary implementation:
+
+- `skills/curating-erp-ai-resources/SKILL.md`
+- metadata version `0.5.0`
+
+The Skill has been simplified from the earlier Gate/scoring-oriented curation workflow into a user-facing decision flow:
 
 ```text
-practical guide / review / case / field experience
-→ actual Skill / Tool / repo / method
-→ current official/original fact check where needed
-→ limitations / counter-evidence
+understand real task
+→ AI leverage judgement
+→ general AI enough?
+    yes → give minimum viable workflow and stop
+    no  → targeted practical discovery
+→ necessary fact/safety check
+→ 0–1 main recommendation by default
+→ concrete “try now” guidance
+→ stop
 ```
 
-Practical-value-first does not mean independent-third-party-at-all-costs. Author/maintainer material may be primary when genuinely strongest, but evidence roles must be labeled honestly.
+Default user-facing output:
 
-Discovery is problem-driven, not platform-quota-driven. One failed platform route does not prove content absence.
+1. conclusion;
+2. why;
+3. recommended workflow (`input → operation → output → review`);
+4. 0–1 main practical resource, second only for a materially different boundary;
+5. main failure/adoption risks;
+6. what to try now.
 
-## 3. Curator before Builder
+Internal evidence machinery should remain mostly invisible to normal users.
 
-Reuse existing PM/BA Skill libraries, Agent tutorials, WorkBuddy guides, creator series and task-specific repositories when they already solve the job well.
+## 4. Current retained lessons
 
-Curator value is:
+These are method evidence, not permanent tool whitelists.
 
-```text
-real ERP Problem Card
-→ find the relevant few
-→ remove hype / stale / mismatch
-→ connect practice to Tool/Skill
-→ verify only facts that matter
-→ retain a small actionable package
-```
+- **P01:** specialized working method can improve structure/traceability, but evidence role must be honest.
+- **P04:** clarify semantics before generating; editable diagram is a review artifact, not business truth.
+- **P06:** plain code-first Agent can be enough if deterministic replay, row/amount/control-total checks and no-guess review routing are present.
+- **P03:** coded prototype is the generic B-end default; prefer Figma Make when an existing Figma/design-system workflow is already the organizational source.
+- **P07:** repo-aware code Agent is the generic default; reliability comes from source/test/log grounding and verification, not an extra architecture Skill.
 
-Curator-created methods are allowed only when a real gap remains and must be labeled `Curator synthesis`.
+## 5. Immediate next phase — REAL USER PILOT
 
-## 4. Safety and testing boundary
+The next product-learning loop is not another synthetic/representative card.
 
-Runtime testing is exceptional, not default.
+Use real ERP / enterprise colleagues and real work tasks.
 
-For executable third-party Skill/MCP/plugin/script, use proportional lightweight static inspection before recommending installation when relevant.
+For each pilot, capture only evidence that improves the product:
 
-Runtime is justified only when it can plausibly change an adoption decision, exact reproducibility matters, or material safety/privacy uncertainty remains.
+- what real task/material the user brought;
+- what Curator recommended;
+- whether they actually tried it;
+- whether it reduced search/learning time or rework;
+- what recommendation was wrong/useless;
+- what risk was missed;
+- whether they would use Curator again.
 
-Do not create new validation frameworks, Gates or benchmark systems for one-off candidates.
+Do not build a heavy feedback database before real usage volume justifies it.
 
-## 5. Current retained evidence
+## 6. Cloud / local split
 
-### P01 — workshop/minutes → requirement package
+Cloud/ChatGPT owns product judgement, current Web/GitHub research, evidence-role judgement, fact checks, proportional static inspection, GitHub maintenance and final recommendation/stop decisions.
 
-Retained:
-
-- `Convert Notes to Requirements Working Skill`
-
-Classification:
-
-> **high task fit / low independent validation**
-
-Useful working method; not independently proven industry standard or REAL_USER outcome validation.
-
-### P04 — business logic → editable process diagram
-
-Status:
-
-> **CLOSED — RECOMMENDATION STABLE WITH EXPLICIT COVERAGE GAPS**
-
-Authority:
-
-- `docs/validation/P04_PRACTITIONER_CURATION_RESULT_02.md`
-
-Retained package combines practitioner workflow evidence, a low-friction text → Draw.io path, `Castaldo-Solutions/process-builder`, official `jgraph/drawio-mcp`, and optional technical troubleshooting material.
-
-Do not reopen P04 unless a later real adoption decision exposes a new material risk.
-
-### P06 — Excel / CSV / system export → reconcile and validate
-
-Status:
-
-> **CLOSED — PLAIN CODE-FIRST DEFAULT, WITH EXPLICIT RECONCILIATION CONTROLS**
-
-Authorities:
-
-- `docs/validation/DELIVERY_P06_DATA_RECONCILIATION.md`
-- `docs/validation/P06_LOCAL_RUNTIME_RESULT_01.md`
-
-Final cloud judgement:
-
-- for ordinary ERP multi-file reconciliation, a competent local code-first Agent is sufficient as the default path;
-- this does **not** mean free-form code with no controls is enough;
-- the default method must include deterministic/replayable execution, explicit row/amount checks, source control-total/subtotal back-checks when available, no-guess handling for ambiguous matches, and human-review routing for unresolved cases;
-- current spreadsheet-native AI remains a valid low-friction option for one-off lower-risk workbook work;
-- `alchaincyf/huashu-excel` is useful as an optional audit/checklist method for recurring or high-consequence jobs, but the bounded P06 test does not justify mandatory Skill adoption.
-
-Local runtime evidence:
-
-- baseline and with-Skill produced identical record-level reconciliation outcomes across all 9 expected keys;
-- Huashu uniquely surfaced a legacy `TOTAL` difference of 10;
-- the pinned Huashu scripts first misclassified three subtotal rows and required manual repair, plus Windows UTF-8 output adjustment;
-- therefore the durable value is primarily the **control-check discipline**, which can be carried into plain code-first execution without requiring the Skill itself.
-
-Do not rerun P06 unless later real-user adoption reveals a materially different risk or workload boundary.
-
-## 6. Immediate next action
-
-P06 has reached the controlled single-card review checkpoint.
-
-Next planned heterogeneous validation card:
-
-> **P03 — requirements / rules → clickable prototype / UI demo**
-
-Why P03 next:
-
-- it tests a materially different resource/tool ecosystem from P01/P04/P06;
-- acceptance depends on interaction fidelity, editability and iteration cost rather than only text or data correctness;
-- it helps test whether Curator logic generalizes across another delivery-artifact class.
-
-Do **not** start unattended multi-card execution. Start P03 as a new controlled card in the next execution cycle.
-
-After P03, select one engineering-type card such as P07 code understanding or P10 testing before deciding whether the Curator is stable enough to move toward a minimal user-facing product.
-
-## 7. Loop Engine position
-
-Current decision:
-
-> **Use controlled single-card Loop thinking; do not authorize unattended self-governing multi-card loops yet.**
-
-```text
-Problem Card
-→ practitioner discovery
-→ inspect serious Tool/Skill/method
-→ fact/safety check only where needed
-→ material evidence gap?
-    yes → targeted delta
-    no  → recommendation package
-→ adversarial stop check
-→ review checkpoint / stop
-```
-
-Loop readiness is behavior-based, not card-count-based.
-
-Broader bounded batching only becomes reasonable when heterogeneous jobs repeatedly show that the process can:
-
-- avoid early stopping;
-- classify evidence roles correctly;
-- use delta search/tests only when they can change the decision;
-- stop based on decision quality;
-- avoid framework/governance expansion and tool-centric drift.
-
-## 8. Cloud / local split
-
-Cloud/ChatGPT owns product judgement, Web/GitHub research, source prioritization, current fact checks, adversarial review, proportional static inspection, GitHub maintenance and final stop/recommendation decisions.
-
-Use local Agent only when local capability materially adds evidence: local-only source acquisition, justified runtime checks, local files/environment, or reproducibility evidence.
+Use local Agent only when local capability materially adds evidence: local repository/runtime, inaccessible source acquisition, local files/environment, or a justified reproducibility check.
 
 For bounded local tasks:
 
-- **fixed:** real job, decision question, hard boundaries, escalation conditions, evidence return;
-- **flexible:** exact fixture, tools, scripts, output format and internal iteration unless evidence validity requires otherwise.
+- fixed: objective, hard boundaries, escalation conditions, evidence return;
+- flexible: execution path, tools, scripts and internal iteration unless evidence validity requires otherwise.
 
-Remote GitHub branch + readable remote commit is the completion boundary for local work intended as repository evidence.
+Remote GitHub branch + readable remote commit is the completion boundary for local repository evidence.
 
-## 9. Anti-drift
+## 7. What not to build yet
 
-Stop and correct if work becomes:
+Until real-user usage proves need, do not add:
 
-- a new framework/Gate per Tool;
-- official-document gravity;
-- independent evidence treated as a mandatory gate;
-- platform/source-count optimization;
-- author self-tests presented as independent field evidence;
-- runtime testing used by default;
-- specialized Skills recommended when plain deterministic Agent work is already enough;
-- technical completeness mistaken for colleague usefulness;
-- unattended Loop activity replacing judgement.
+- more Problem Card validation for its own sake;
+- unattended multi-card Loop;
+- large resource database;
+- fixed taxonomy;
+- universal scores / Gates;
+- mandatory runtime benchmarks;
+- automated refresh infrastructure;
+- influencer/source rankings;
+- new governance for one-off failures.
 
-The success test remains:
+## 8. Success criterion now
 
-> **Would we directly send this small package to a colleague because it saves search/learning time and helps them act on real project material?**
+The next milestone is no longer “another card passes”.
+
+It is:
+
+> **A real ERP colleague brings a real task, receives a Curator recommendation, actually uses it, and reports that it reduced search/learning/rework enough that they would use Curator again.**
