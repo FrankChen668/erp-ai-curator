@@ -86,19 +86,32 @@ Authorities:
 - `docs/validation/DELIVERY_P06_DATA_RECONCILIATION.md`
 - `docs/validation/P06_LOCAL_RUNTIME_RESULT_01.md`
 
-## 2026-08-30 纠错：P03 / P07 结论已撤回
+### P03 — 需求/规则 → 可点击原型
 
-最近一次长上下文冲刺中，P03 和 P07 被过早写成 `CLOSED`，随后又据此宣告“验证完成 / Minimal Curator V0.1 / REAL USER PILOT”。
+状态：
 
-重新审计后发现，两份结果没有保留足够可信的来源 URL / 引用 / acquisition trail，无法区分真实研究证据与模型综合。
+> **CLOSED — spec-first code prototype default; Figma Make conditional upgrade**
 
-因此：
+Authority:
+
+- `docs/validation/P03_PROTOTYPE_CURATION_RESULT_02.md`
+
+当前可信结论是：先把角色、字段、状态、校验和异常变成可执行的交互契约，再生成有边界的可点击原型；普通代码型 Agent 已可作为默认路径。Figma Make 的主要增益在既有 Figma / 设计系统 / 协作链路，不是所有原型任务的必选项。
+
+## 2026-08-30 纠错仍然有效
+
+长上下文冲刺中产生的以下文件仍然无效：
 
 - `docs/validation/P03_PROTOTYPE_CURATION_RESULT_01.md` — **INVALIDATED**
 - `docs/validation/P07_CODEBASE_UNDERSTANDING_RESULT_01.md` — **INVALIDATED**
-- “验证阶段已经完成” — **撤回**
-- “Minimal Curator V0.1 已验证” — **撤回**
-- “当前已经正式进入 REAL USER PILOT” — **撤回**
+
+P03 的新 Result 02 不会“洗白”Result 01。
+
+仍然撤回：
+
+- “验证阶段已经完成”；
+- “Minimal Curator V0.1 已验证”；
+- “当前已经正式进入 REAL USER PILOT”。
 
 完整纠错记录：
 
@@ -111,30 +124,32 @@ Authorities:
 - `skills/curating-erp-ai-resources/SKILL.md`
 - metadata version: `0.5.1`
 
-它保留了“真实任务 → AI 杠杆判断 → 必要时才找专门资源”的简化方向，但当前只是：
+状态仍然是：
 
 > **experimental candidate — validation incomplete**
 
-不是已经验证完成的产品。
+P03 支持“普通 Agent 足够时不要强推专门 Skill”的方向，但还不足以宣告整个 Skill 已验证完成。
 
 ## 当前阶段
 
-最后一个可信受控检查点是：
+当前可信受控检查点是：
 
-> **P06 已关闭，下一步重新执行 P03。**
+> **P03 已可信关闭，下一步重新执行 P07。**
 
-P03 必须从头重新做，保留：
+P07 必须从头重新做，不能把旧 Result 01 的“repo-aware Agent 默认 / 专门 code-understanding Skill 不必要”等判断当搜索先验。
+
+P07 需要保留：
 
 - 具体 practitioner URL；
 - 实际读到的内容与 discovery-only 的区别；
-- Tool / Skill / implementation 证据；
+- code-Agent / Skill / MCP / implementation 证据；
 - 必要的当前事实核验；
-- 限制 / 反证；
+- 上下文丢失、幻觉、误改、安全/隐私等反证；
 - 为什么可以停止。
 
 只有存在真正会改变采用判断的材料缺口时，才做 local/runtime delta。
 
-P03 可信关闭后，再做一个工程型异构卡（例如 P07 或 P10），之后才重新判断是否进入最小真实用户 Pilot。
+P07 可信关闭后，再重新判断异构证据是否足以进入最小真实用户 Pilot。
 
 ## 当前不做
 
@@ -155,12 +170,10 @@ P03 可信关闭后，再做一个工程型异构卡（例如 P07 或 P10），�
 - `docs/PROJECT_NORTH_STAR.md` — 长期产品边界
 - `docs/CURRENT_EXECUTION_PLAN_V3.md` — 当前执行主线
 - `docs/validation/EVIDENCE_STATUS.md` — 当前证据状态
-- `docs/REBASE_AUDIT_20260830.md` — 本次上下文漂移纠错
+- `docs/REBASE_AUDIT_20260830.md` — 上下文漂移纠错记录
 - `docs/SESSION_HANDOFF_CURRENT.md` — 新会话交接
 - `skills/curating-erp-ai-resources/SKILL.md` — 实验性候选 Skill
 
 ## 当前成功标准
 
-当前不是证明“用户已经喜欢产品”。当前先完成可信的异构验证：
-
-> **P03 用可审计证据得出稳定采用建议，再完成一个工程型异构卡；然后重新裁决是否进入 Minimal Curator 的真实用户 Pilot。**
+> **P07 用可审计证据得出稳定的工程型采用建议，然后重新裁决是否进入 Minimal Curator 的真实用户 Pilot。**
