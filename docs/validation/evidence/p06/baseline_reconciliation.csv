@@ -1,0 +1,10 @@
+key,status,detail,source_rows,target_row,source_amount,target_amount
+123,MATCH,all compared fields equal after normalization/mapping,3,2,1000.0,1000.0
+124,MATCH,all compared fields equal after normalization/mapping,4,3,1500.0,1500.0
+ABC-009,MATCH,all compared fields equal after normalization/mapping,5,4,2000.0,2000.0
+456,FIELD_MISMATCH_AMOUNT,amount,6,5,1230.0,1235.0
+888,DUPLICATE_SOURCE_REVIEW,2 source candidates; no automatic choice,8|9,6,950.0,950.0
+77,AMBIGUOUS_SOURCE_REVIEW,2 source candidates; no automatic choice,10|11,7,400.0,400.0
+321,FIELD_MISMATCH_STATUS,status,12,8,2300.0,2300.0
+999,TARGET_ONLY,no source candidate,,9,,600.0
+777,MISSING_TARGET,source record has no target row,7,,800.0,

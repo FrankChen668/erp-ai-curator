@@ -1,0 +1,75 @@
+{
+  "context": "baseline_plain_code_first",
+  "approach": "Explicit Python reconciliation: detected the header row, excluded rows labelled SUBTOTAL/TOTAL/NOTE, normalized keys by trim/case/numeric leading-zero rule, applied plant_mapping.csv, indexed both sides, and routed non-unique matches to review.",
+  "source_detail_count": 10,
+  "target_count": 8,
+  "source_detail_amount": 11530.0,
+  "target_amount": 9985.0,
+  "amount_delta_target_minus_source": -1545.0,
+  "status_counts": {
+    "MATCH": 3,
+    "FIELD_MISMATCH_AMOUNT": 1,
+    "DUPLICATE_SOURCE_REVIEW": 1,
+    "AMBIGUOUS_SOURCE_REVIEW": 1,
+    "FIELD_MISMATCH_STATUS": 1,
+    "TARGET_ONLY": 1,
+    "MISSING_TARGET": 1
+  },
+  "checks": {
+    "source_rows_read": {
+      "expected": 10,
+      "actual": 10,
+      "passed": true
+    },
+    "target_rows_read": {
+      "expected": 8,
+      "actual": 8,
+      "passed": true
+    },
+    "source_amount": {
+      "expected": 11530,
+      "actual": 11530.0,
+      "passed": true
+    },
+    "target_amount": {
+      "expected": 9985,
+      "actual": 9985.0,
+      "passed": true
+    },
+    "source_control_total_check": {
+      "status": "NOT_RUN",
+      "reason": "summary rows were excluded from the population and not compared back to their stated amounts"
+    }
+  },
+  "summary_rows_excluded_without_reconciliation": [
+    {
+      "excel_row": 13,
+      "label": "SUBTOTAL WH01",
+      "amount": 6400.0
+    },
+    {
+      "excel_row": 14,
+      "label": "SUBTOTAL WH02",
+      "amount": 3900.0
+    },
+    {
+      "excel_row": 15,
+      "label": "SUBTOTAL WH03",
+      "amount": 1230.0
+    },
+    {
+      "excel_row": 16,
+      "label": "TOTAL",
+      "amount": 11540.0
+    },
+    {
+      "excel_row": 17,
+      "label": "Note: control totals are exported by the legacy system; detail rows are the reconciliation population.",
+      "amount": null
+    }
+  ],
+  "rework": [
+    "No second pass was triggered by a failed control-total check because the baseline did not perform that check."
+  ],
+  "artifact": "C:\\Users\\CHENHU\\AppData\\Local\\Temp\\erp-ai-curator-p06-runtime-delta\\baseline_context\\baseline\\reconciliation.csv"
+}

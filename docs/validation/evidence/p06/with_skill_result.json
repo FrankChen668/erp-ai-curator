@@ -1,0 +1,115 @@
+{
+  "context": "with_pinned_huashu_excel_skill",
+  "candidate_commit": "9348581a87cc03ed8d0b30706631088e922c6027",
+  "approach": "Ran profile_table, verify_numbers, and clean_table; inspected their outputs; manually corrected the pinned profile's failure to classify 13-character group subtotal labels; then performed the same deterministic keyed reconciliation on the cleaned, source-row-traceable detail population.",
+  "skill_behavior_changes": [
+    "Raw-cell profiling surfaced title/header location, text-formatted amounts, whitespace, duplicate row 9, and TOTAL row 16 before reconciliation.",
+    "verify_numbers created a master-check failure instead of allowing the stated TOTAL to pass; the first failure was inflated because SUBTOTAL WH01/02/03 were not auto-classified.",
+    "The agent did not guess: it inspected the failure, reclassified the subtotal rows, and retained the corrected TOTAL mismatch as a $10 control exception.",
+    "clean_table emitted a replayable cleaned CSV; after the manual subtotal reclassification, 10 detail rows were retained (duplicates were not deleted)."
+  ],
+  "source_detail_count": 10,
+  "target_count": 8,
+  "source_detail_amount": 11530.0,
+  "target_amount": 9985.0,
+  "amount_delta_target_minus_source": -1545.0,
+  "status_counts": {
+    "MATCH": 3,
+    "FIELD_MISMATCH_AMOUNT": 1,
+    "DUPLICATE_SOURCE_REVIEW": 1,
+    "AMBIGUOUS_SOURCE_REVIEW": 1,
+    "FIELD_MISMATCH_STATUS": 1,
+    "TARGET_ONLY": 1,
+    "MISSING_TARGET": 1
+  },
+  "checks": {
+    "source_rows_read": {
+      "expected": 10,
+      "actual": 10,
+      "passed": true
+    },
+    "target_rows_read": {
+      "expected": 8,
+      "actual": 8,
+      "passed": true
+    },
+    "source_amount": {
+      "expected": 11530,
+      "actual": 11530.0,
+      "passed": true
+    },
+    "target_amount": {
+      "expected": 9985,
+      "actual": 9985.0,
+      "passed": true
+    },
+    "corrected_source_control_total": {
+      "expected_from_detail": 11530.0,
+      "stated_total": 11540,
+      "difference": 10,
+      "passed": false
+    },
+    "initial_verify_numbers_master_check": false,
+    "initial_verify_numbers_error_count": 1
+  },
+  "profile_summary": {
+    "header_rows": [
+      2
+    ],
+    "title_rows": [
+      1
+    ],
+    "profile_summary_rows": [
+      {
+        "row": 16,
+        "label": "TOTAL",
+        "reason": "\u6807\u7b7e\u542b\u6c47\u603b\u7c7b\u8bcd\u6c47"
+      }
+    ],
+    "duplicate_rows": [
+      {
+        "row": 9,
+        "same_as": 8,
+        "preview": "000888 | C-006 | 2026-01-20 | WH02 | 950.00 | Released | REF-006"
+      }
+    ],
+    "warnings": [
+      "\u8868\u5934\u4e0d\u5728\u7b2c 1 \u884c\uff1a\u7b2c 1 \u884c\u662f\u6807\u9898/\u8bf4\u660e\uff0c\u771f\u8868\u5934\u5728\u7b2c 2 \u884c\u3002\u76f4\u63a5 pd.read_excel() \u4f1a\u628a\u6807\u9898\u5f53\u6210\u5217\u540d\u3002",
+      "\u53d1\u73b0 1 \u4e2a\u6c47\u603b/\u5c0f\u8ba1\u884c\uff08\u7b2c 16 \u884c\uff09\u6df7\u5728\u6570\u636e\u533a\u3002\u4e0d\u6392\u9664\u7684\u8bdd\uff0c\u6c42\u548c\u4f1a\u628a\u603b\u8ba1\u518d\u52a0\u4e00\u904d\u3002",
+      "1 \u884c\u4e0e\u524d\u9762\u5b8c\u5168\u91cd\u590d\uff08\u7b2c 9 \u884c\uff09\u3002\u5148\u786e\u8ba4\u662f\u771f\u5b9e\u91cd\u590d\u4e1a\u52a1\u8fd8\u662f\u7c98\u8d34\u4e8b\u6545\u3002"
+    ]
+  },
+  "manual_summary_reclassification": [
+    {
+      "row": 13,
+      "label": "SUBTOTAL WH01",
+      "amount": 6400
+    },
+    {
+      "row": 14,
+      "label": "SUBTOTAL WH02",
+      "amount": 3900
+    },
+    {
+      "row": 15,
+      "label": "SUBTOTAL WH03",
+      "amount": 1230
+    },
+    {
+      "row": 16,
+      "label": "TOTAL",
+      "amount": 11540
+    }
+  ],
+  "rework": [
+    "One repair pass was required after verify_numbers misclassified group subtotal labels at the pinned commit.",
+    "Windows default console encoding required PYTHONIOENCODING=utf-8 for JSON/checkmark output."
+  ],
+  "artifacts": {
+    "reconciliation": "C:\\Users\\CHENHU\\AppData\\Local\\Temp\\erp-ai-curator-p06-runtime-delta\\with_skill_context\\with-skill\\reconciliation.csv",
+    "cleaned": "C:\\Users\\CHENHU\\AppData\\Local\\Temp\\erp-ai-curator-p06-runtime-delta\\with_skill_context\\with-skill\\cleaned.csv",
+    "profile_stdout": "C:\\Users\\CHENHU\\AppData\\Local\\Temp\\erp-ai-curator-p06-runtime-delta\\with_skill_context\\with-skill\\profile.stdout.txt",
+    "verify_stdout": "C:\\Users\\CHENHU\\AppData\\Local\\Temp\\erp-ai-curator-p06-runtime-delta\\with_skill_context\\with-skill\\verify_numbers.stdout.txt",
+    "clean_stdout": "C:\\Users\\CHENHU\\AppData\\Local\\Temp\\erp-ai-curator-p06-runtime-delta\\with_skill_context\\with-skill\\clean.stdout.txt"
+  }
+}

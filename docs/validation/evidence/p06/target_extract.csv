@@ -1,0 +1,9 @@
+target_key,posting_date,mapped_plant,amount_cny,customer_code,status,target_reference
+123,2026-01-15,T-WH-01,1000,C-001,Released,TGT-001
+124,2026-01-16,T-WH-01,1500,C-002,Released,TGT-002
+ABC-009,2026-01-17,T-WH-02,2000,C-003,Closed,TGT-003
+456,2026-01-18,T-WH-03,1235,C-004,Open,TGT-004
+888,2026-01-20,T-WH-02,950,C-006,Released,TGT-006
+77,2026-01-21,T-WH-01,400,C-007,Open,TGT-007
+321,2026-01-22,T-WH-01,2300,C-008,On Hold,TGT-008
+999,2026-01-23,T-WH-01,600,C-009,Released,TGT-009

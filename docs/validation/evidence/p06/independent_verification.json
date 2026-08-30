@@ -1,0 +1,64 @@
+{
+  "ground_truth": {
+    "source_detail_rows": 10,
+    "source_detail_amount": 11530,
+    "target_rows": 8,
+    "target_amount": 9985,
+    "source_control_totals": {
+      "WH01": 6400,
+      "WH02": 3900,
+      "WH03": 1230,
+      "TOTAL": 11530
+    },
+    "observed_control_total": 11540,
+    "expected_statuses": {
+      "77": "AMBIGUOUS_SOURCE_REVIEW",
+      "123": "MATCH",
+      "124": "MATCH",
+      "321": "FIELD_MISMATCH_STATUS",
+      "456": "FIELD_MISMATCH_AMOUNT",
+      "777": "MISSING_TARGET",
+      "888": "DUPLICATE_SOURCE_REVIEW",
+      "999": "TARGET_ONLY",
+      "ABC-009": "MATCH"
+    },
+    "expected_deltas": {
+      "missing_source_amount": 800,
+      "duplicate_source_extra_amount": 950,
+      "ambiguous_source_extra_amount": 400,
+      "target_only_amount": 600,
+      "amount_change_target_minus_source": 5
+    }
+  },
+  "reports": {
+    "baseline": {
+      "expected_keys": 9,
+      "actual_keys": 9,
+      "status_mismatches": [],
+      "extra_keys": [],
+      "unrecognized_statuses": [],
+      "passed": true
+    },
+    "with_skill": {
+      "expected_keys": 9,
+      "actual_keys": 9,
+      "status_mismatches": [],
+      "extra_keys": [],
+      "unrecognized_statuses": [],
+      "passed": true
+    }
+  },
+  "numeric_reports": {
+    "baseline": {
+      "mismatches": {},
+      "passed": true
+    },
+    "with_skill": {
+      "mismatches": {},
+      "passed": true
+    },
+    "baseline_control_check_is_not_run": true,
+    "with_skill_control_mismatch_is_found": true
+  },
+  "same_expected_status_coverage": true
+}
