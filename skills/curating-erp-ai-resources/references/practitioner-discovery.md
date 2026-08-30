@@ -40,6 +40,16 @@ For Bilibili/Xiaohongshu, saves, coins and substantive comments can help decide 
 
 When search results already contain plausible practitioner/creator candidates, open the strongest one or few before spending the answer budget on official standards or feature pages. Do not leave practitioner candidates at snippet level and then synthesize from official sources alone.
 
+## How to choose among inspected candidates
+
+Prefer **audience/work-context fit + required-artifact fit** before generic polish, global popularity or novelty.
+
+If the user's language, region or professional ecosystem is clear, prefer practitioner evidence from that ecosystem when quality is comparable. Cross-language material is valuable when it is materially stronger or when the local ecosystem has a real coverage gap; do not promote it merely because it looks more authoritative or novel.
+
+Check the actual deliverable. If the user needs an editable draw.io source, a resource that only generates SVG/PNG is not an equivalent match unless it includes a credible editable bridge. Apply the same rule to PPTX, Word, BPMN, Visio, Markdown, code or other required artifacts.
+
+A tutorial/best-practice request does not itself justify recommending an installable Tool/Skill. Only introduce one when it is integral to the selected practice and directly solves a concrete gap in the user's current workflow.
+
 ## How to use sources
 
 Practitioner content answers **how people actually work**.
@@ -59,9 +69,9 @@ Use an already approved read-only source adapter only when it can materially fil
 For explicit tutorial/best-practice requests, normally keep 1–3 resources and say:
 
 - what it is and where to open it;
-- why it matches this user/task;
+- why it matches this user's role/context/task/artifact;
 - which one to start with;
-- any material author/promotion/version/access boundary.
+- any material author/promotion/version/language/access boundary.
 
 Then add only the short synthesis needed to connect the resources.
 
