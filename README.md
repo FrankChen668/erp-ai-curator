@@ -1,187 +1,141 @@
 # ERP AI Curator
 
-面向 **泛 ERP / 企业信息化从业者** 的 AI 工作方式与高质量资源 Curator。
+面向 **SAP / Oracle / ERP / 企业信息化从业者** 的 AI 工作方式导航器。
 
-目标用户包括：
+目标不是做 AI 工具大全，而是帮助实施顾问、项目经理、产品经理、解决方案人员和开发人员回答：
 
-- SAP / Oracle 标准实施、二开与集成；
-- Java / .NET 等技术栈建设的定制供应链、财务、采购、制造等企业系统；
-- 实施 / 业务顾问、项目经理、产品经理、解决方案人员、开发人员。
+> **面对这个真实工作任务，普通 AI 是否已经够用？如果不够，什么现成 Tool / Skill / 方法 / 教程最值得采用？**
 
-## 当前产品目标
+## 真实任务优先
 
-面对一个真实项目工作任务，帮助用户判断：
-
-> **AI 应该怎样介入？现有 AI / 工具链是否已经够用？如果需要外部能力或学习资源，哪些现成 Skill / Tool / 方法 / 教程 / 实战经验最值得采用？**
-
-当前基本单元不是“需求分析 / PPT / 原型 / 数据处理”这种宽标签，而是：
+基本输入不是“需求分析 / PPT / 原型 / 数据处理”这种宽标签，而是：
 
 ```text
 真实项目情境
 + 手头已有材料
 + 当前必须完成的动作
 + 下一份明确交付物
-+ 时间 / 评审 / 数据边界
++ 真正影响方案的约束
 ```
 
 例如：
 
-> 客户 Workshop 已结束，手里有会议纪要、现状流程、RFP、Excel/Word 附件；第二天上午需要形成第一版可评审需求包。
+> 客户 Workshop 已结束，手里有会议纪要、现状流程和附件；第二天上午要形成第一版可评审需求包。
 
-## 默认资源采编顺序
+## Curator 的核心判断
 
-对“怎么做 / 值不值得学 / 有什么坑”这类采用问题，当前原则是：
+### A — 普通 AI / 现有 Agent 已经够用
+
+不搜索、不凑 Skill，直接给最小可行工作方式。
+
+### B — 专门能力有明显增益
+
+只有当 Tool / Skill / 方法能明显改善交付格式、准确性、重复劳动、专业交互、本地/隐私适配或现有系统连接时，才定向发现和比较。
+
+### C — 暂不值得引入复杂方案
+
+给低成本试验路径，并说明什么时候再升级。
+
+## 外部资源发现原则
+
+需要外部资源时，默认顺序：
 
 ```text
-第三方实操 / 测评 / 攻略 / 案例
-→ 对应原始 Skill / Tool / 方法 / 仓库
-→ 必要的官方当前事实核验
+真实 practitioner 实操 / 复盘 / 案例
+→ 对应 Tool / Skill / repo / 方法原始来源
+→ 必要的当前官方事实核验
+→ 限制 / 反证
 ```
 
-第三方内容优先回答：
+Bilibili、微信公众号、小红书、YouTube、社区、博客、GitHub 等都是发现池，不设平台配额。
 
-- 别人怎么用；
-- 输入、Prompt、步骤、Workflow；
-- 实际输出；
-- 返工、失败点和适用边界；
-- 是否真的值得顾问投入时间学习。
+搜索摘要只能用于发现，不能冒充已读原文；读不到的平台记录 `Coverage gap`，不能推断平台没有好内容。
 
-官方/原始事实重点核验：
+## 当前产品：Minimal Curator V0.1
 
-- 版本；
-- 当前安装方式；
-- 兼容；
-- 价格；
-- 隐私 / 安全政策；
-- 许可证；
-- 当前原生能力。
+主 Skill：
 
-官方不是默认主推荐，但第三方作者、粉丝、收藏、点赞、播放、Stars 也不是质量结论。
+- `skills/curating-erp-ai-resources/SKILL.md`
+- metadata version: `0.5.0`
 
-## 第三方来源
+当前用户路径已经从旧版的 Gate / 评分 / staging 采编系统，收敛成：
 
-可作为高价值实操来源的包括：
+```text
+理解真实任务
+→ 判断 AI 杠杆
+→ 普通 AI 是否够用？
+    是 → 给最小工作方式并停止
+    否 → 定向寻找实操/Tool/Skill
+→ 只核验必要事实和风险
+→ 默认 0–1 个主推荐
+→ 给今天/明天就能执行的路径
+→ 停止
+```
 
-- Bilibili / YouTube；
-- 微信公众号；
-- 小红书；
-- 知乎、掘金、CSDN、人人都是产品经理等社区；
-- AI 产品经理 / 企业咨询 / Agent 实践作者；
-- GitHub PM / BA / Agent / Skill 库；
-- WorkBuddy / Codex / Claude Code 等现成教程、社区手册、蓝皮书。
+旧 `references/`、`evals/` 和脚本保留作为历史验证/回归资产，正常用户咨询不应默认全部加载。
 
-原则：
+## 已完成的异构验证
 
-> **Creator reputation may decide what to inspect first; only the specific content decides what to recommend.**
+目前方法已覆盖五种明显不同的任务：
 
-如果普通 Web 能发现内容但拿不到完整正文/字幕，才考虑已批准的来源 Adapter；仍无法读取则记录 Coverage Gap。
+- **P01**：Workshop / 会议纪要 → 需求包
+- **P04**：业务逻辑 → 可编辑流程图
+- **P06**：Excel / CSV → 对账与验证
+- **P03**：需求 / 规则 → 可点击 B 端原型
+- **P07**：代码库 → 业务逻辑理解 / FS / 缺陷定位
 
-不能因为当前 Agent 读不到某个平台，就推断该平台没有优质内容。
+跨卡片得到的核心结论不是某个 Tool 永远最好，而是：
 
-## 不重复造轮子
+> **Curator 必须允许“现有 AI / Agent 已经够用”成为正式答案。**
 
-已经存在的：
+几个稳定边界：
 
-- PM / BA Skill 库；
-- Agent / Codex / WorkBuddy 实战教程；
-- PRD / 原型 / 流程图 / PPT / 数据处理工作流；
-- 社区蓝皮书、作者专题和教程系列；
+- 流程图：先澄清业务语义，AI 图是评审对象，不是业务真相；
+- 数据对账：plain code-first 可以够用，但必须可复跑、有行数/金额/控制总额检查，模糊匹配不能猜；
+- B 端原型：默认优先可持续修改的 coded prototype；已有成熟 Figma 设计体系时再倾向 Figma Make；
+- 代码理解：repo-aware code Agent 通常已经够用，可靠性来自源码/测试/日志 grounding，而不是再叠加一个架构 Skill。
 
-都优先作为 **feeder ecosystem**。
+详细证据见 `docs/validation/`。
 
-ERP AI Curator 的价值不是复制它们，而是：
+## 当前阶段：真实用户试用
 
-> **把已有互联网生态映射到真实 ERP 工作问题，并只留下少量真正值得用的内容。**
+停止为了覆盖率继续刷 Problem Card。
 
-只有现成资源明确不足时，才补 `Curator synthesis`，并且必须显式标注。
+下一阶段只回答一个更重要的问题：
 
-## 本地实测不是默认流水线
+> **真实 ERP 同事会不会真的采用 Curator 的建议，并觉得它节省了搜索、学习或返工时间？**
 
-不再默认对每个候选执行：
+真实试用重点记录：
 
-`静态审查 → 安装 → runtime → artifact → cleanup`
+- 用户带来的真实任务和材料；
+- Curator 给了什么建议；
+- 用户是否真的尝试；
+- 是否降低搜索/学习/返工成本；
+- 哪些建议无效或错误；
+- 是否遗漏关键风险；
+- 用户是否愿意再次使用。
 
-只有以下情况才做最小实测：
+## 当前不做
 
-- 高质量第三方证据不足；
-- 不同测评结论冲突；
-- 安装 / 权限 / 隐私 / 安全风险高；
-- 准备作为公司内部长期标准推荐；
-- 关键能力仅靠文档无法确认。
-
-否则，**第三方实操 + 原始实现 + 必要官方事实**已经足够做资源推荐。
-
-## 当前真实需求来源
-
-2026-08 培训问卷提供了 83 份目标用户反馈。
-
-当前主要对象是实施顾问和项目经理；大量用户已经经常使用 AI，真正反复出现的问题是：
-
-> **怎样把手头真实项目材料稳定变成可以评审、编辑、交付的成果，并减少返工。**
-
-当前优先 Problem Cards 包括：
-
-- Workshop / 纪要 → 需求包；
-- 需求 → PRD / FS；
-- 需求 / 规则 → 可点击原型；
-- 业务逻辑 → 可编辑流程图；
-- 项目材料 → 客户汇报 PPT；
-- Excel / CSV → 清洗、核对、异常；
-- 代码库 → 功能逻辑 / FS / Debug；
-- 需求 → 测试场景 / 测试用例；
-- Codex / WorkBuddy 等工具如何服务以上真实任务。
-
-这些只是当前需求队列，不是永久 taxonomy。
-
-## 当前状态
-
-**V3 实际资源采编阶段。新的正式 Curator Skill 尚未实现。**
-
-已经确认：
-
-- 旧 V0.2–V0.4 的重 Gate / 评分 / validator 路线不回归；
-- Survey-derived Problem Cards 已成为真实需求源；
-- P01 已找到可实践的会议纪要 → 需求提炼资源，但成熟度仍需谨慎表述；
-- P04A 找到强 draw.io 候选，同时暴露了官网重力、Codex 环境偏置、实测过度等问题；
-- 来源策略已改为 **practitioner-first**；
-- 微信 Search → Reader 已证明可受控组合，但 Adapter 只是按需获取能力；
-- B站等平台的普通 Web discovery 与完整正文/字幕 acquisition 必须分开判断；
-- P04B 这类 runtime pilot 不再自动成为下一步，只在真正存在材料不确定性时恢复。
-
-当前重点不是继续扩测试框架，而是围绕真实 Problem Cards **持续采集和筛选高质量实操资源**。
-
-## 当前权威文档
-
-- `docs/PROJECT_NORTH_STAR.md`：长期产品边界
-- `docs/CURRENT_EXECUTION_PLAN_V3.md`：当前执行主线
-- `docs/SOURCE_STRATEGY_V3.md`：practitioner-first 来源策略
-- `docs/CREATOR_PRIOR_STRATEGY_V3.md`：优质作者 discovery prior 边界
-- `docs/ADVERSARIAL_REVIEW_V3.md`：长期反偏航检查
-- `docs/SKILL_BLUEPRINT_V3.md`：未来 Curator Skill 设计，尚未实现
-- `docs/validation/SURVEY_DERIVED_PROBLEM_CARDS_01.md`：真实问卷问题卡
-- `docs/validation/EVIDENCE_STATUS.md`：已证明 / 未证明内容
-- `docs/SOURCE_ADAPTER_ARCHITECTURE_V3.md`：来源 Adapter 架构边界
-- `docs/SOURCE_ADAPTER_LIFECYCLE_V3.md`：来源 Adapter 安装/更新/调用规则
-- `docs/history/`：历史设计与失败经验
-
-## 当前反偏航原则
-
-不要为了“系统完整”提前建设：
+没有真实使用证明必要性之前，不建设：
 
 - 大型资源数据库；
 - 固定场景 taxonomy；
-- 自动 Refresh；
-- 统一评分；
-- Gate / candidate JSON；
-- 固定搜索次数；
-- 多 Agent 编排；
-- 固定平台覆盖配额；
-- 影响者排行榜；
-- 每个候选强制 runtime / artifact test；
-- 自建另一个 PM Skills / WorkBuddy / Codex 教程库；
-- 因 acquisition 工具受限而降低 B站 / 微信 / 小红书等平台价值；
-- 把 Curator synthesis 包装成第三方最佳实践。
+- 自动 Refresh 系统；
+- 统一评分 / Gate；
+- 每个候选强制 runtime test；
+- unattended multi-card Loop；
+- UP主/作者排行榜；
+- 为单一失败案例增加一套新治理框架。
 
-最终检查始终是：
+## 当前权威文档
 
-> **如果今晚把这个资源发给一个泛 ERP 同事，他明天能不能拿自己的真实项目材料开始用？**
+- `docs/PROJECT_NORTH_STAR.md` — 长期产品边界
+- `docs/CURRENT_EXECUTION_PLAN_V3.md` — 当前执行阶段
+- `docs/validation/EVIDENCE_STATUS.md` — 当前证据状态
+- `docs/SESSION_HANDOFF_CURRENT.md` — 新会话交接
+- `skills/curating-erp-ai-resources/SKILL.md` — Minimal Curator V0.1
+
+## 当前成功标准
+
+> **一个真实 ERP / 企业信息化同事带着真实任务来，拿到建议后真的去用了，并认为节省的搜索/学习/返工成本足以让他下次继续使用。**
