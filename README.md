@@ -18,11 +18,7 @@
 + 真正影响方案的约束
 ```
 
-## 当前真实需求来源
-
-2026-08 培训问卷提供了 83 份目标用户反馈。
-
-当前需求基线见：
+2026-08 培训问卷提供了 83 份目标用户反馈，需求基线见：
 
 - `docs/validation/SURVEY_DERIVED_PROBLEM_CARDS_01.md`
 
@@ -36,103 +32,105 @@
 
 ### B — 专门能力有明显增益
 
-只有当 Tool / Skill / 方法能明显改善交付格式、准确性、重复劳动、专业交互、本地/隐私适配或现有系统连接时，才定向发现和比较。
+只有当 Tool / Skill / 方法解决了一个具体能力缺口，例如可编辑格式、可验证性、专业交互、本地/隐私、系统访问或深度集成时，才定向发现和比较。
 
 ### C — 暂不值得引入复杂方案
 
-给低成本试验路径，并说明什么时候再升级。
+给低成本试验路径，并说明什么条件出现后再升级。
 
 ## 外部资源发现原则
 
-需要外部资源时，默认顺序：
+真正需要外部资源时，默认顺序：
 
 ```text
-真实 practitioner 实操 / 复盘 / 案例
-→ 对应 Tool / Skill / repo / 方法原始来源
-→ 必要的当前官方事实核验
+真实 practitioner 实操 / 复盘 / 失败案例
+→ 对应 Tool / Skill / repo / 方法原始实现
+→ 只核验会改变采用判断的当前官方事实
 → 限制 / 反证
 ```
 
-关键结论必须能够回到具体来源。搜索摘要只能用于发现，不能冒充已读原文。
+搜索摘要只能用于发现，不能冒充已读原文。
 
 ## 当前可信证据
 
-### P01 — 会议/Workshop → 需求包
+已完成一组异构真实任务/代表性任务验证：
 
-> **high task fit / low independent validation**
+- **P01 会议/Workshop → 需求包**：高任务匹配 / 低独立验证；
+- **P04 业务逻辑 → 可编辑流程图**：CLOSED；
+- **P06 Excel/CSV → 对账与验证**：CLOSED，包含受控 runtime delta；
+- **P03 需求/规则 → 可点击原型**：CLOSED，clean Result 02；
+- **P07 代码库/程序 → 理解逻辑、反推 FS、缺陷假设**：CLOSED，clean Result 02。
 
-保留用于实践，不作为强验证证据。
+当前证据状态：
 
-### P04 — 业务逻辑 → 可编辑流程图
+- `docs/validation/EVIDENCE_STATUS.md`
 
-> **CLOSED — recommendation stable with explicit coverage gaps**
+P03/P07 的旧 Result 01 仍然 **INVALIDATED**，不得作为产品证据。
 
-Authority: `docs/validation/P04_PRACTITIONER_CURATION_RESULT_02.md`.
+## 跨卡片结论
 
-### P06 — Excel/CSV → 对账与验证
+Authority:
 
-> **CLOSED — plain code-first default with explicit reconciliation controls; Huashu optional**
+- `docs/validation/CROSS_CARD_METHOD_REASSESSMENT_20260830.md`
 
-Authorities:
+当前结论：
 
-- `docs/validation/DELIVERY_P06_DATA_RECONCILIATION.md`
-- `docs/validation/P06_LOCAL_RUNTIME_RESULT_01.md`
+> **METHOD READY FOR REAL-USER PILOT — PRODUCT OUTCOME NOT YET VALIDATED**
 
-### P03 — 需求/规则 → 可点击原型
+不同任务反复支持同一最小方法：
 
-> **CLOSED — spec-first code prototype default; Figma Make conditional upgrade**
+1. 从真实任务、材料、交付物和约束出发；
+2. 普通 AI / 现有 Agent 是基线，不是退而求其次；
+3. 专门方案必须对应具体瓶颈；
+4. 重要产物必须回到项目/source/system 证据；
+5. 事实、推断和未知不要混写；
+6. runtime/local test 只在可能改变采用判断时做；
+7. 同事下一步行动稳定后停止，不继续堆资源。
 
-Authority: `docs/validation/P03_PROTOTYPE_CURATION_RESULT_02.md`.
+因此当前不再默认继续做 P10 等内部验证卡片。
 
-### P07 — 代码库/程序 → 理解逻辑、反推 FS、缺陷假设
+## Minimal Curator V0.1
 
-> **CLOSED — traceable read-only repo exploration default; conditional LSP/semantic or ERP-native MCP upgrade**
-
-Authority: `docs/validation/P07_CODEBASE_UNDERSTANDING_RESULT_02.md`.
-
-当前可信结论：普通本地 Git 仓库先用 repo-aware Agent 做范围明确、只读、可追溯的分层理解；只有文本搜索/跨符号关系成为真实瓶颈时才升级 LSP/语义导航。若权威代码、where-used、ATC、测试等信息位于系统侧，ERP-native MCP 才形成实质能力增益，SAP ABAP 是当前明确例子。代码解释不等于业务意图，反推 FS 必须区分事实、推断和待业务确认项。
-
-## 2026-08-30 纠错仍然有效
-
-以下旧长上下文产物仍然无效：
-
-- `docs/validation/P03_PROTOTYPE_CURATION_RESULT_01.md` — **INVALIDATED**
-- `docs/validation/P07_CODEBASE_UNDERSTANDING_RESULT_01.md` — **INVALIDATED**
-
-只有 Result 02 是当前权威。
-
-原来的“验证完成 / Minimal Curator V0.1 已验证 / 已进入 REAL USER PILOT”不会因为新 Result 02 出现而自动恢复；现在需要重新做一次跨卡片审查。
-
-## 当前 Skill 状态
-
-主候选：
+当前 Skill：
 
 - `skills/curating-erp-ai-resources/SKILL.md`
-- metadata version: `0.5.1`
+- version: `0.6.0`
+- status: **Minimal Curator V0.1 — real-user pilot candidate**
 
-当前状态：
+这表示**方法已经足够稳定进入 Pilot**，不表示真实用户价值已经被证明。
 
-> **experimental candidate — cross-card reassessment pending**
+Skill 保留跨任务稳定原则，不把 P03/P04/P06/P07 的具体答案积累成永久场景规则。
 
-多张可信卡片已经反复支持“真实任务优先、普通 AI 够用时不强推 Skill、只有真实能力缺口才升级”的方向，但还要检查候选 Skill 是否存在卡片过拟合、矛盾或框架膨胀。
+## 当前阶段 — REAL_USER Pilot
 
-## 当前阶段
+Pilot 说明：
 
-当前可信受控检查点：
+- `docs/REAL_USER_PILOT_V1.md`
 
-> **P03、P07 均已可信关闭；下一步不是默认继续做 P10，而是重新审查整个 Curator 方法是否已经足够稳定进入最小真实用户 Pilot。**
+当前最重要的未知已经从：
 
-立即要回答：
+> “这套方法能不能在不同任务上成立？”
 
-- 不同任务是否反复支持相同的最小判断逻辑？
-- 候选 Skill 是否忠实表达这个逻辑，而没有夹带 P03/P06/P07 的专用规则？
-- 当前主要未知是否已经从“方法是否成立”转为“真实同事是否愿意采用、是否真的改善交付”？
+转为：
 
-如果答案成立，就应该进入小范围真实用户验证，而不是继续为了“更有把握”而机械增加验证卡片。
+> **“真实 ERP/企业信息化同事会不会采用这个建议，它是否真的减少选错工具、搜索/配置成本或后续返工？”**
+
+下一份有效证据应该来自真实同事的真实任务：
+
+```text
+真实任务
+→ Curator 推荐
+→ 同事实际尝试 / 修改 / 拒绝
+→ 可用结果或失败原因
+→ 检查节省/新增的搜索、配置、返工成本
+→ 必要时窄修正方法
+```
+
+不要求用户先选择 Problem Card，也不为了覆盖类别制造测试题。
 
 ## 当前不做
 
-没有证据证明必要性之前，不建设：
+在真实使用证明必要性之前，不建设：
 
 - 大型资源数据库；
 - 固定 taxonomy；
@@ -141,18 +139,21 @@ Authority: `docs/validation/P07_CODEBASE_UNDERSTANDING_RESULT_02.md`.
 - 每个候选强制 runtime test；
 - unattended multi-card Loop；
 - UP主/作者排行榜；
-- 为了让本地 Agent 有事做而制造任务；
-- 没有来源证据链却写完整 `CLOSED` 报告。
+- 多 Agent 编排；
+- 为了保持 Agent 忙碌而制造任务；
+- 没有真实用户阻塞却重新回到内部验证卡片积累。
 
 ## 当前权威文档
 
 - `docs/PROJECT_NORTH_STAR.md` — 长期产品边界
 - `docs/CURRENT_EXECUTION_PLAN_V3.md` — 当前执行主线
 - `docs/validation/EVIDENCE_STATUS.md` — 当前证据状态
-- `docs/REBASE_AUDIT_20260830.md` — 上下文漂移纠错记录
+- `docs/validation/CROSS_CARD_METHOD_REASSESSMENT_20260830.md` — Pilot readiness 裁决
+- `docs/REAL_USER_PILOT_V1.md` — 当前真实用户 Pilot 合同
 - `docs/SESSION_HANDOFF_CURRENT.md` — 新会话交接
-- `skills/curating-erp-ai-resources/SKILL.md` — 实验性候选 Skill
+- `docs/REBASE_AUDIT_20260830.md` — 历史上下文漂移纠错
+- `skills/curating-erp-ai-resources/SKILL.md` — Minimal Curator V0.1 Pilot Candidate
 
 ## 当前成功标准
 
-> **完成跨卡片方法审查：若候选 Curator 已足够稳定/最小，则正式进入一个有边界的 REAL_USER adoption pilot；若存在实质矛盾，只做必要的窄修正后再决定。**
+> **让真实同事把 Minimal Curator V0.1 用在真实工作任务上，取得第一批 adoption/outcome 证据；不要再用更多内部自测替代真实使用。**
