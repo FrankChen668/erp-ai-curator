@@ -5,17 +5,7 @@ Status: **CURRENT / CONTROLLED REAL-USER USE**
 
 > 新会话先读 `docs/PROJECT_MAP.md`，不要从历史聊天恢复当前状态。
 
-## 1. 最小读取顺序
-
-```text
-docs/PROJECT_MAP.md
-→ docs/PROJECT_NORTH_STAR.md
-→ docs/OWNER_EXECUTION_RULES.md
-→ docs/CURRENT_EXECUTION_PLAN_V3.md
-→ docs/validation/EVIDENCE_STATUS.md
-```
-
-## 2. 当前产品
+## 1. 当前产品
 
 ERP AI Curator 是**真实 ERP / ToB / 企业信息化工作问题的 AI 实践与现成资源 Curator**。
 
@@ -23,17 +13,13 @@ ERP AI Curator 是**真实 ERP / ToB / 企业信息化工作问题的 AI 实践�
 
 > **替用户找到最值得学习/采用的现成 AI 实践与资源，并判断是否真的需要新增能力。**
 
-不是工具目录、执行 SOP、用户测试协议、资源数据库或工具实验室。
-
-## 3. Current Skill — 0.8.0
+## 2. Current Skill — 0.8.1
 
 - `skills/curating-erp-ai-resources/SKILL.md`
 - release class: **CONTROLLED USER TRIAL**
 - user-use value: **UNVALIDATED**
 
-0.8.0 是一次 runtime simplification。
-
-主流程只有：
+Runtime 仍保持简化主链：
 
 ```text
 理解真实任务
@@ -43,66 +29,45 @@ ERP AI Curator 是**真实 ERP / ToB / 企业信息化工作问题的 AI 实践�
 → 选择少量高匹配资源/做法并停止
 ```
 
-不再要求 runtime 先产生 A/B/C，也不再加载 adoption-consistency / decision-boundaries。
+0.8.1 只增加两个由真实日志直接证明必要的执行要求：
 
-只保留两个按需 reference：
+1. **Query intent preservation**：如果原问题是“用 AI/Agent/Tool 改善某工作”，practitioner discovery 至少保留一条 `AI/tool × role/industry/artifact` query，不能退化成纯领域最佳实践搜索；
+2. **Candidate investigation**：明确找实践/教程时，必须实际打开至少一个 practitioner/creator 候选；如果宿主 policy/coverage/access 阻止，则明确 `coverage/policy gap`，不能用官网补位后声称完成。
+
+Runtime references 仍只有：
 
 - `references/practitioner-discovery.md`
 - `references/evidence-and-safety.md`
 
-关键行为仍然必须成立：
+## 3. Triggering evidence
 
-- 明确找最佳实践/教程时，真正给 practitioner 资源，不用官网+自写教程代替；
-- 当前工具已经够用时，不因为 Curator 身份强推 Tool/Skill；
-- author self-practice 不冒充独立验证；
-- official 主要核验当前事实；
-- 强匹配优先，少推荐，结论稳定即停；
-- 诊断/理解默认 read-only，权限最小化。
+Codex Desktop 本地执行日志显示：
 
-## 4. Why 0.8.0
+- 运行前半段先用了旧 `0.6.1` 并发生一次拟议 `0.6.2` 修改，随后才同步到 `0.8.0`，因此整次运行不是干净的 0.8.0 独立测试；
+- 但同步后 `SKILL.md 0.8.0`、`practitioner-discovery.md` 和 `evidence-and-safety.md` 确实被读取；
+- 第二批 query 仍丢掉 AI / 产品经理 / ToB / ERP 语境；
+- Bilibili、公众号、小红书、知乎、人人都是产品经理、掘金/CSDN 未实际定向搜索；
+- 已出现的中文 practitioner 候选基本未打开；
+- 最终来源仍由 official/standard/implementation 主导。
 
-流程图真实试用缺陷证明 practitioner discovery 必须加强；但继续对每个缺陷增加分类、reference 和自检会形成 patch-on-patch。
+Authority：`docs/validation/CURATOR_081_PRACTITIONER_EXECUTION_PATCH.md`。
 
-对照 OpenAI / Anthropic Skill Creator 的简洁、适当自由度和 progressive disclosure 原则，当前结论是：
+## 4. Host risks — do not push into Skill without more evidence
 
-> **项目研究/治理可以复杂；runtime Skill 只保留模型真正需要的程序性知识。**
+- Codex Web policy 可能存在 technical→primary-source-only 冲突；
+- Graph Engineering 被错误触发，属于宿主 Skill collision；
+- Browser/Chrome 可用但未调用，是否需要 fallback 仍未知。
 
-Authority：`docs/validation/CURATOR_080_RUNTIME_SIMPLIFICATION.md`。
+这些不是 0.8.1 runtime 规则。
 
-## 5. Historical evidence
-
-Curation Pack 01 保持关闭。旧 A/B/C 标签仅是历史分析记录，不再定义 runtime：
-
-- Case 001 — ERP 操作手册；
-- Case 002 — Oracle EBS AI 开发；
-- Case 003 — 周报/PPT 汇总；
-- Case 004 — SAP Bug/system evidence access。
-
-不要重新启动 pre-user case accumulation。
-
-## 6. Current release
+## 5. Current release
 
 > **CONTROLLED USER TRIAL GO / BROAD RELEASE NO**
 
-试用入口：`docs/USER_TRIAL_GUIDE_V1.md`。
+产品价值仍未验证。
 
-当前真正未验证的是：Curator 是否比普通 AI/自搜索更稳定地找到高价值实践、减少噪声/错选，并让用户愿意再次使用。
+## 6. Next
 
-## 7. Cloud / Local / Owner
+0.8.1 合并后，下一条高价值 evidence：在**全新 Codex Desktop 上下文**同步最新 `main` 后，用同一句自然问题重跑，不修改 Skill、不复用旧搜索上下文，并返回实际 query/reference/打开候选/最终来源角色。
 
-Cloud 能做就继续，包括 Web/GitHub discovery、真实反馈审查、窄缺陷修正和 authority/Harness 维护。
-
-Local Agent 只在真实决策依赖本地 repo/runtime/ERP 环境/受保护 evidence，或必须验证某个宿主的 Skill/reference 行为时接力。
-
-Owner 当前唯一潜在明确裁决项仍是 repository license（仅当要声明 open-source release complete 时）。
-
-## 8. Do not revive without evidence
-
-- Gate / scoring / taxonomy / validator；
-- synthetic benchmark loop；
-- resource DB / auto refresh；
-- creator ranking；
-- source-adapter framework as default architecture；
-- multi-Agent orchestration；
-- user tool-test protocol；
-- card-specific permanent rules。
+若仍失败，再区分：Skill execution、host source policy、search coverage、Skill collision 或 source acquisition；不要继续靠最终答案猜根因。
