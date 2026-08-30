@@ -2,28 +2,35 @@
 
 Date: 2026-08-30
 Status: **CONTROLLED TRIAL ENTRYPOINT**
-Skill: `curating-erp-ai-resources` `0.7.0`
+Skill: `curating-erp-ai-resources` `0.7.1`
 
 > 本文面向真实试用用户/管理员，不要求用户理解项目历史、P01–P07、Gate、Harness 或 validation 文档。
 
 ## 1. 这是什么
 
-ERP AI Curator 用于回答一种问题：
+ERP AI Curator 用于回答两类相邻问题：
 
 > **“我这个真实 ERP / 企业信息化工作，当前 AI/Agent 已经够不够？如果不够，什么现成实践、Tool、Skill、MCP、方法或教程值得优先采用？”**
+
+以及：
+
+> **“这类工作别人已经有哪些值得学的 AI 实战/教程/最佳实践？帮我筛出真正值得看的。”**
 
 它不是：
 
 - AI 工具大全；
 - ERP 知识问答库；
 - 自动替用户完成所有工作的 Agent；
-- 必须推荐新工具的搜索器。
+- 必须推荐新工具的搜索器；
+- 用几个官网链接重写一篇通用教程的摘要器。
 
 它可以合法回答：
 
 - A — 你现有工具已经够，不要再装；
 - B — 某个专门能力确实值得引入；
 - C — 可能有价值，但当前先不要复杂化。
+
+**A/B/C 只决定要不要新增专门能力，不决定是否要帮用户找实践资源。**用户明确说“帮我找最佳实践/教程”时，即使结论是 A，也应该完成 practitioner/resource curation。
 
 ## 2. 谁适合试用
 
@@ -54,7 +61,8 @@ curating-erp-ai-resources/
 └── references/
     ├── adoption-consistency.md
     ├── decision-boundaries.md
-    └── evidence-and-safety.md
+    ├── evidence-and-safety.md
+    └── practitioner-discovery.md
 ```
 
 ### 支持 Agent Skills 的宿主
@@ -65,7 +73,7 @@ OpenAI 当前 Skills 使用 `SKILL.md + resources` 的可分享结构，并可�
 
 - https://academy.openai.com/public/clubs/work-users-ynjqu/resources/skills
 
-本项目内部工程回归已经在 Codex 独立上下文中执行过旧版本 Skill，证明这种包结构在 Codex 路径可用；**这不等于 0.7.0 已在所有宿主上完成兼容性验证。**
+本项目内部工程回归已经在 Codex 独立上下文中执行过旧版本 Skill，证明这种包结构在 Codex 路径可用；**这不等于 0.7.1 已在所有宿主上完成兼容性验证。**
 
 如果目标宿主不支持 Agent Skills，或无法让 Skill 访问 references / Web，则不能假装完整兼容。
 
@@ -79,7 +87,7 @@ OpenAI 当前 Skills 使用 `SKILL.md + resources` 的可分享结构，并可�
 - “我要维护几十份 ERP 操作手册，有没有别人已经跑通的 AI 做法？”
 - “Oracle EBS 二开现在用什么 AI 工作方式更合理？”
 - “SAP 程序报错，我已经有 dump 和代码，是否值得接 MCP/Joule？”
-- “我们已经有 Codex/WorkBuddy，这个原型工作还值得再装 Skill 吗？”
+- “给我找下产品经理/ToB 场景下，用 AI 提升流程图工作的最佳实践和高质量教程。”
 
 用户最好自然提供会改变判断的事实：
 
@@ -94,25 +102,41 @@ OpenAI 当前 Skills 使用 `SKILL.md + resources` 的可分享结构，并可�
 
 ## 5. 用户应该得到什么
 
+### 采用判断类问题
+
 一个合格回答应该让用户很快知道：
 
-1. **当前工具链够不够；**
+1. 当前工具链够不够；
 2. 如果不够，真正缺的能力是什么；
 3. 当前任务下最值得优先借鉴的实践；
-4. 默认 0–1 个最值得看的外部资源；
+4. 少量真正改变选择的资源；
 5. 什么条件下不要采用；
 6. 从哪里开始。
+
+### “帮我找最佳实践/教程”类问题
+
+一个合格回答应该优先给：
+
+1. **1–3 个真正值得看的 practitioner/creator 实操资源**；
+2. 平台、作者和可点击链接；
+3. 每个资源为什么匹配当前角色/任务/交付物；
+4. 如果只能看一个，明确优先级；
+5. 作者自实践、营销倾向、版本过时或访问 coverage gap；
+6. 最后再给 Curator synthesis。
+
+中文泛 ERP / ToB / 产品经理/顾问语境，应优先检查 Bilibili、微信公众号、小红书、知乎/人人都是产品经理/掘金/CSDN/独立博客等 practitioner 生态；官方/规范主要用于核验能力、版本、兼容、权限和标准语义。
 
 用户不需要收到：
 
 - 十几个工具；
 - 统一打分表；
 - 为了项目验证而设计的测试协议；
-- 没有证据却声称“全球最佳”的结论。
+- 没有证据却声称“全球最佳”的结论；
+- 明确要实战资源却只收到官网/标准文档 + 模型自己写的教程。
 
 ## 6. Web / 外部资源边界
 
-完整的 B 类 curation 通常需要宿主具备可用的 Web/search/fetch 能力。
+完整 curation 通常需要宿主具备可用的 Web/search/fetch 能力。
 
 如果宿主没有网络能力：
 
@@ -120,6 +144,8 @@ OpenAI 当前 Skills 使用 `SKILL.md + resources` 的可分享结构，并可�
 - 可以分析用户已经提供的资源；
 - 但不得冒充已完成当前互联网最佳实践搜索；
 - 应明确 `coverage gap`。
+
+如果普通 Web 可以发现 Bilibili/公众号/小红书候选但无法读取足够正文/字幕，应明确 coverage gap；只有已有批准、已安装的 read-only source adapter 能实质补证据时才按需使用，不因为平台存在就自动安装高权限第三方组件。
 
 ## 7. 企业安全边界
 
@@ -174,7 +200,8 @@ OpenAI 当前 Skills 使用 `SKILL.md + resources` 的可分享结构，并可�
 
 - Skill 经常不触发或误触发；
 - 明显 over-tooling / under-tooling；
+- 用户明确找最佳实践/教程，却退化成官网优先 + 模型自写教程；
 - 证据角色反复标错；
 - 漏掉数据/权限/版本边界；
-- 用户看完仍不知道怎么选；
+- 用户看完仍不知道怎么选/看什么；
 - 某宿主反复出现安装/reference/Web 兼容问题。
