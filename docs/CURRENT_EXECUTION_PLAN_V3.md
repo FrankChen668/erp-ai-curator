@@ -77,11 +77,13 @@ This is sufficient method readiness for a pilot. It is not evidence that real us
 Current Skill:
 
 - `skills/curating-erp-ai-resources/SKILL.md`
-- version `0.6.0`
+- version `0.6.1`
 
 Status:
 
 > **Minimal Curator V0.1 — real-user pilot candidate**
+
+`0.6.1` is a bounded runtime hardening release, not a new method claim. It removes project-governance/runtime coupling, compresses duplicated principles, adds a few decision-boundary examples and moves V0.4 Gate/scoring/taxonomy/runtime assets out of the distributable Skill.
 
 The Skill intentionally contains recurring method principles rather than accumulating P03/P04/P06/P07 scenario answers.
 
