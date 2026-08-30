@@ -86,12 +86,14 @@ No material contradiction was found across the trusted cards.
 
 `skills/curating-erp-ai-resources/SKILL.md`:
 
-- version: `0.6.0`
+- version: `0.6.1`
 - status: **Minimal Curator V0.1 — real-user pilot candidate**
 
-This means method readiness, not validated user value.
+`0.6.1` is a bounded runtime hardening release. It does not add a new product claim or change the validated recurring method. The runtime Skill is now decoupled from project-governance documents, uses four compressed core principles, includes a few decision-boundary examples, and keeps only two active on-demand references.
 
-The Skill deliberately avoids carrying P03/P04/P06/P07-specific answer tables. Detailed card conclusions remain under `docs/validation/`.
+Legacy V0.4 Gate/scoring/taxonomy/validator/eval assets are archived under `archive/curator-v0.4-runtime-assets/` and are not current runtime authority.
+
+This still means method readiness, not validated user value.
 
 ## 6. Correct current checkpoint
 
