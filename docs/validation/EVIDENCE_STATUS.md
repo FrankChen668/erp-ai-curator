@@ -25,7 +25,7 @@ Authority:
 Boundary:
 
 - closed-choice aggregates are direct demand evidence;
-- free-text is treated as semantic evidence and may contain platform-side wording cleanup;
+- free-text is semantic evidence and may contain platform-side wording cleanup;
 - the survey validates demand, not recommendation outcome.
 
 ## 2. Accepted card evidence
@@ -77,9 +77,32 @@ Supported bounded judgement:
 - required discipline includes deterministic/replayable execution, row/amount checks, control-total/subtotal back-checks when available, conservative normalization/mapping, no-guess handling of ambiguity and traceability;
 - Huashu contributed useful control-check discipline but did not show enough Skill-specific advantage in the bounded fixture to justify mandatory adoption.
 
-Boundary:
+Boundary: this remains one bounded synthetic fixture, not universal production proof.
 
-- this remains one bounded synthetic fixture, not universal production proof.
+### P03 — requirements/rules → clickable prototype / UI demo
+
+Status:
+
+> **CLOSED — SPEC-FIRST CODE PROTOTYPE DEFAULT; FIGMA MAKE CONDITIONAL UPGRADE**
+
+Authority:
+
+- `P03_PROTOTYPE_CURATION_RESULT_02.md`
+
+Supported judgement:
+
+- the primary quality control is to turn roles, permissions, fields, validation, states, transitions and exception paths into a bounded interaction contract before generating UI;
+- a competent code-capable Agent can be the default path for a reviewable local HTML/React prototype when the goal is requirement clarification rather than production UI;
+- Figma Make has material added value when existing Figma/design-system context and shared Figma review matter;
+- Lovable or similar hosted builders are conditional when hosted app behavior/backend/state/external sharing justify their cloud/platform constraints;
+- inspected prototype Skills solve useful adjacent transformations, but none showed enough direct requirements/rules → prototype advantage to become mandatory;
+- runtime A/B was not justified because the unresolved decision was adoption boundary/workflow, not raw generation capability.
+
+Evidence boundary:
+
+- Chinese practical workflow evidence, independent practitioner failure evidence, current platform facts and original Skill implementations are all retained with concrete URLs and limitations;
+- no independent ERP-specific controlled benchmark proves prototype business correctness;
+- human rule/exception review remains required.
 
 ## 3. Invalidated evidence — DO NOT USE FOR PRODUCT CONCLUSIONS
 
@@ -93,13 +116,13 @@ Status:
 
 > **INVALIDATED — NOT PRODUCT EVIDENCE**
 
+Its prior verdict remains withdrawn. It has **not** been rehabilitated by the new P03 close; only Result 02 is authoritative.
+
 Reason:
 
 - practitioner/source claims were retained without a sufficient concrete URL/citation/acquisition trail;
 - current tool capability claims were not tied to traceable current-fact sources;
 - the file was produced during a long-context sprint where researched evidence cannot be reliably separated from model synthesis.
-
-Its prior verdict is withdrawn. P03 must be rerun from scratch.
 
 ### P07 codebase sprint result
 
@@ -116,42 +139,41 @@ Reason:
 - broad claims about major code-Agent ecosystems, practitioner workflows and legacy-system practice lack concrete retained source links/citations;
 - there is no auditable evidence chain sufficient to support a `CLOSED` verdict.
 
-Its prior verdict is withdrawn. P07 is not closed.
+Its prior verdict is withdrawn. P07 must be rerun from scratch if selected next.
 
-## 4. Withdrawn cross-card conclusion
+## 4. Cross-card conclusion — still not complete
 
-The following conclusion is no longer supported:
+P03 Result 02 restores one trustworthy heterogeneous artifact class, but the project still has not earned the earlier validation-complete claim.
 
-> “P01 + P04 + P06 + P03 + P07 provide sufficient heterogeneous evidence to declare Curator-method validation complete.”
+Do **not** yet claim:
 
-Because P03 and P07 are invalidated, the project has **not** yet earned that transition.
-
-Therefore also withdraw:
-
+- “Curator-method validation complete”;
 - “Minimal Curator V0.1 is validated”;
 - “current authoritative phase is REAL USER PILOT”.
 
+Reason: the current plan still requires one trustworthy engineering-type heterogeneous card after P03.
+
 ## 5. Candidate Skill status
 
-`skills/curating-erp-ai-resources/SKILL.md` remains a useful **experimental candidate** because its leverage-first direction is consistent with the North Star.
+`skills/curating-erp-ai-resources/SKILL.md` remains an **experimental candidate**.
 
-However:
+P03 supports its leverage-first direction — especially “general AI/Agent may be enough” and “specialized capability only for a concrete missing capability” — but one new card does not independently validate the whole Skill.
 
-- it is not validated Minimal Curator V0.1;
-- P03/P07-specific behavior claims are not accepted evidence;
-- future changes must be driven by trustworthy card evidence, not by making the Skill appear complete.
+Do not add prototype-specific rules merely to encode this one result.
 
 ## 6. Main uncertainty now
 
-The dominant uncertainty is again:
+The dominant uncertainty is:
 
-> **Does the Curator decision method generalize cleanly to another materially different delivery artifact class when the evidence chain is trustworthy?**
+> **Does the Curator decision method remain stable on an engineering-type task where repository context, correctness and technical evidence matter more than visible artifact generation?**
 
-Next card:
+Next controlled card:
 
-> **P03 — requirements / rules → clickable prototype / UI demo**
+> **P07 — codebase/program → understand logic, generate FS, find defects**
 
-After a trustworthy P03 close, execute one engineering-type card such as P07 or P10 before deciding whether the method is ready for a minimal real-user pilot.
+P07 is preferred over P10 because its invalid prior close creates a direct opportunity to test whether the corrected evidence discipline can survive a materially different engineering task without reusing the old conclusion.
+
+After a trustworthy P07 close, reassess whether heterogeneous evidence is sufficient to package a minimal user-facing Curator and move into real-user adoption validation.
 
 ## 7. Evidence acceptance rule
 
