@@ -1,162 +1,169 @@
 # Pilot Case 001 — ERP 操作手册批量制作与版本维护
 
 Date: 2026-08-30
-Status: **RECOMMENDATION READY — AWAITING REAL COLLEAGUE ACTION**
-Skill: `curating-erp-ai-resources` `0.6.2`
+Status: **BEST-PRACTICE CURATION READY — AWAITING REAL USER FEEDBACK / ADOPTION**
+Skill: `curating-erp-ai-resources` `0.6.3`
 
-> 这是来自 2026-08 训前调研的真实同事工作问题。当前只形成了行动前推荐；在同事实际尝试、修改或拒绝之前，不属于 REAL_USER adoption evidence。
+> 这是来自 2026-08 训前调研的真实同事工作问题。本文件的产品输出是“最佳实践 / 现成资源 Curator”，不是让同事替项目测试某个工具。真实用户后续是否采用、修改或拒绝推荐，只用于验证 Curator 的产品价值。
 
-## 1. 真实任务
+## 1. 真实问题
 
 角色：实施顾问。
 
-详细问题聚焦操作手册：
+操作手册场景：
 
 - 多部门需要分别制作 ERP 操作手册；
 - 通常几十份，每份约 50–80 页；
 - 当前人工截屏、粘贴、画箭头/方框/编号、写步骤；
 - 系统 UI 改动后，需要反复替换截图并同步修改文字；
-- 主要痛点是截图/文字版本漂移、大量重复劳动、不同部门版本碎片化。
+- 主要痛点是截图/文字版本漂移、大量重复劳动、不同部门版本碎片化；
+- 希望最终仍能得到可编辑 Word / Markdown，而不是只能看视频或云端链接。
 
-期望：形成可编辑 Word / Markdown 操作手册初稿，包含截图、标注、步骤说明、角色化结构，并在 UI 变化后尽量局部更新而不是整本重做。
+## 2. Curator 0.6.3 结论
 
-## 2. Curator 0.6.2 判断
+> **B — 值得学习和采用“capture-assisted task documentation（操作捕获辅助的任务型文档）”最佳实践；但不要把自动截图工具当成完整 ERP 操作手册生成器。**
 
-> **条件化 B — 已存在明确专业能力缺口，值得试用专门的流程捕获/文档生成能力；具体主方案由截图数据是否允许进入云端决定。**
+真正值得吸收的不是某个产品名，而是下面这套工作方式：
 
-这次不再停留在“普通 AI 先试试看”，原因是已经观察到普通 AI 无法单独解决的能力缺口：
+1. **按任务/角色拆小文档，而不是维护超长单体手册**；
+2. **用流程捕获工具承担点击、截图、基础标注等机械劳动**；
+3. **业务目的、角色权限、前置条件、异常和注意事项仍由顾问/AI基于真实项目材料补充**；
+4. **截图只服务于确实需要视觉定位的步骤，不必机械地每一步一张图**；
+5. **把易变化的 UI 层与相对稳定的业务说明尽量分开，降低界面变化后的维护成本**；
+6. **云端/本地工具选择首先服从客户截图与数据边界。**
 
-1. **桌面 ERP 实际操作捕获**：需要跟随真实点击生成步骤和截图，而不是事后逐张整理；
-2. **截图与步骤绑定**：需要自动建立“第 N 步 ↔ 对应界面”的关系；
-3. **可编辑交付**：最终要进入 Word / Markdown，而不是只生成视频或分享链接；
-4. **变更维护**：核心价值不只是第一次生成，而是 UI 变化后能局部替换/更新；
-5. **企业数据边界**：截图可能包含客户/业务信息，决定能否采用云端方案。
+这是 Curator synthesis：来自 practitioner 讨论中的正反经验，再结合当前工具实际能力进行压缩，不冒充某个单一来源的“行业标准”。
 
-上述能力缺口已经足以跨过“是否值得评估专业能力”的门槛，因此 `Specialized resource: none` 不再自洽。
+## 3. 最值得看的 practitioner 经验
 
-## 3. 当前最小推荐
+### 主资源：Technical Writing 社区 — “Which is better: Tango or Scribe?”
 
-### Branch A — 项目允许将脱敏/测试环境截图上传到批准的云端服务
+https://www.reddit.com/r/technicalwriting/comments/1bjvacf/which_is_better_tango_or_scribe/
 
-**主候选：Guidde Desktop（Business / Enterprise 路线）**
+为什么值得看：原问题与 ERP 顾问的痛点高度接近——手工截图、标注、制作软件使用文档太耗时。
 
-为什么进入主候选：
+讨论中出现了有价值的分歧：
 
-- 官方文档显示 Windows/macOS Desktop App 可直接捕获桌面工作流；
-- 捕获后会生成 step-by-step 文档，可编辑文字、图片和布局；
-- 支持导出 Word、Markdown、PDF、PPTX 等；
-- 可替换单个步骤图片而保留其他内容；
-- Enterprise 提供版本历史能力。
+- 有实际使用者认为 capture 工具能更快捕获步骤、减少持续更新时的清理工作；
+- 也有团队试过后认为，对正式 client-facing 文档并没有明显优于现有流程；
+- 有技术写作者指出，这类工具更适合简单、任务型 step-by-step 文档，不应替代完整 technical writing；
+- 一个非常重要的反证是：如果每一步都绑定截图，任何 UI 视觉变化都会扩大维护量，而纯文本更可搜索、更稳定；
+- 因此真正需要优化的是“哪些东西自动捕获、哪些东西保持稳定文本”，而不是追求全自动生成整本手册。
 
-Decision-changing official evidence:
+这组正反经验比单纯看厂商功能表更能改变采用判断。
 
-- Desktop capture: https://help.guidde.com/en/articles/9760354-desktop-application
-- Word / Markdown export: https://help.guidde.com/en/articles/7003131-export-guiddes-and-playlists
-- Document editor / image replacement: https://help.guidde.com/en/articles/9997243-the-document-editor
-- Version history: https://help.guidde.com/en/articles/10696558-version-history-control
+## 4. 原始能力核验：现成工具能实现到什么程度
 
-边界：这些是厂商能力说明，不等于已经证明适合当前 ERP 项目；必须通过一个真实短流程试用确认截图、文字、标注、导出和更新返工是否真的下降。
+### Guidde — 云端 / 企业批准环境候选
 
-### Branch B — 客户/项目截图不能进入云端，或尚未批准
+当前官方资料显示：
 
-**替代候选：Folge（local-first）**
+- Windows/macOS Desktop App 可直接记录桌面工作流并生成 step-by-step guide；
+- 可根据点击生成静态步骤与 callout；
+- 文档可编辑；
+- 支持 Word、Markdown、PDF、PPTX 等导出；
+- Desktop App 当前位于 Business / Enterprise 路线。
 
-为什么是不同边界的备选：
+官方资料：
 
-- 官方说明它在 Windows/macOS 本地捕获鼠标点击并生成截图步骤；
-- 支持标注、重排；
+- https://help.guidde.com/en/articles/9760354-desktop-application
+- https://help.guidde.com/en/articles/7003131-export-guiddes-and-playlists
+
+适用含义：它能明显减少“截图 + 步骤绑定 + 基础文档生成”的机械劳动，但官方功能不能证明它理解客户的 ERP 业务规则、角色权限和例外。
+
+### Folge — local-first 边界候选
+
+当前官方资料显示：
+
+- Windows/macOS 桌面捕获；
+- 鼠标点击时自动截图；
+- 可编辑步骤、重排、标注、模糊敏感内容；
 - 支持 Word、Markdown、PDF、PPT 等导出；
-- 官方明确宣称全部在本机处理、无需强制云端。
+- 官方明确描述为本机处理，不需要把捕获内容发送到云端。
 
-Evidence:
+官方资料：
 
 - https://folge.me/
-- https://folge.me/help/guide/
 
-边界：Folge 更偏“本地捕获/标注/导出”，并不能从当前公开证据证明它会像 AI 工具一样自动生成高质量 ERP 业务步骤文字。若需要文字生成，应在组织批准的本地/企业 AI 中处理导出的步骤和截图。
+适用含义：如果 ERP 截图不能离开项目环境，local-first 的捕获/标注/导出能力比云端 AI 自动写作更关键；文字智能化可再交给组织批准的本地/企业 AI。
 
-## 4. 为什么没有继续列 Scribe / Tango / 更多工具
+## 5. 最佳实践卡片
 
-当前目标不是做工具大全。
-
-现有公开信息已经足以形成一个可执行采用决策：
-
-- 云端可用 → 先试能覆盖“桌面捕获 + 文档生成 + Word/Markdown + 局部更新”的 Guidde；
-- 云端不可用 → 先试 local-first Folge，再配合批准的本地/企业 AI。
-
-继续扩充候选不会改变本轮下一步，只会增加比较成本。
-
-## 5. Practitioner 反证 / 限制
-
-公开 technical-writing 社区讨论对这类 capture-based 工具有两个反复出现的提醒：
-
-- 对简单、任务型 step-by-step 文档确实有价值；
-- 真正困难往往不是“第一次生成”，而是产品/UI 持续变化后的维护、复核和重做。
-
-这正是为什么本 Pilot 不以“生成了一份漂亮手册”为成功，而必须故意测试一次 UI 变化后的局部维护。
-
-References:
-
-- https://www.reddit.com/r/technicalwriting/comments/1bjvacf/which_is_better_tango_or_scribe/
-- https://www.reddit.com/r/software/comments/1vkg1d9/looking_for_a_scribe_alternative_that_is_easy_to/
-
-这些是 practitioner/community evidence，不是产品能力权威事实。
-
-## 6. 给真实同事的最小试用动作
-
-不要拿整套几十份手册开始。
-
-只选 **1 个真实、可脱敏/测试环境执行、5–10 页规模的典型流程**，最好包含 8–15 个操作步骤。
-
-执行：
+### 推荐模式
 
 ```text
-真实 ERP 流程
-→ 用批准的 Branch A 或 Branch B 工具完整走一遍并捕获
-→ 导出 Word 或 Markdown
-→ 顾问修正步骤文字、截图标注、角色/权限说明
-→ 人为制造/选择一个已有 UI 变化（1–2 个步骤）
-→ 只更新受影响步骤
-→ 记录实际返工
+真实 ERP 任务/角色
+→ 按任务拆分，而非整本大手册一次生成
+→ capture tool 处理点击 / 截图 / 基础标注
+→ 稳定文本承载业务目的、前置条件、角色、异常和注意事项
+→ 只在需要视觉定位处保留截图
+→ 输出到 Word / Markdown / 知识库等可维护载体
+→ UI 变化时优先更新受影响的任务模块，而非整本重做
 ```
 
-### 必须观察的不是“好不好看”，而是：
+### 为什么比“直接让 AI 写操作手册”更合理
 
-1. 是否减少了手工截图、裁图、画标注、编号；
-2. 自动生成的步骤文字有多少需要重写；
-3. Word / Markdown 是否真的可继续编辑和交付；
-4. UI 变化后能否只改受影响步骤；
-5. 是否出现权限、截图敏感数据、云端上传等阻塞；
-6. 同事下次是否愿意继续用这个方法。
+普通多模态 AI 很擅长：
 
-不要求打分；短文本事实即可。
+- 组织章节；
+- 润色步骤；
+- 从截图解释界面；
+- 生成角色化说明。
 
-## 7. 同事试完后只需返回
+但它不会天然解决：
 
-```text
-实际用了：Guidde / Folge / 其他 / 没有试
-是否按推荐执行：照做 / 修改 / 拒绝
-得到的产物：
-最省事的地方：
-最费事或错误的地方：
-UI 改动后更新是否更轻：
-是否有隐私/权限/环境问题：
-下次是否还会用：会 / 不会 / 看情况，因为……
-```
+- 实际操作过程中连续截图；
+- 点击与截图自动绑定；
+- 大量截图的重复标注；
+- UI 变化后的截图维护；
+- 企业截图不能上传云端的边界。
 
-如同事直接拒绝，也要记录具体原因；例如截图不能上传、安装受限、导出格式不满足、维护反而更麻烦。具体拒绝同样是有效 Pilot evidence。
+因此最佳实践是 **AI + capture/documentation capability 分工**，而不是“再换一个更强聊天模型”。
 
-## 8. Stop / next actor
+## 6. 采用边界
 
-Cloud 已完成：任务重构、0.6.2 采用判断、当前资源核验、最小试用设计。
+优先考虑专门 capture/documentation 能力，当：
 
-**下一执行者：真实同事。**
+- 手册数量和截图量大；
+- 主要时间耗在捕获、标注、排版和维护，而不是业务内容本身；
+- 需要 Word / Markdown 等可继续编辑的输出；
+- 同类任务会反复发生。
 
-在同事实际执行或明确拒绝之前，不再做内部 benchmark，不扩充工具清单，不调用 Local Agent 模拟用户行为。
+不一定值得引入，当：
 
-结果返回后，Cloud 立即继续：
+- 只是偶尔做几页说明；
+- 产品 UI 变化极频繁且每次文档都必须重新审核；
+- 正式交付高度依赖复杂业务解释，截图只是很小一部分；
+- 安装/云端权限成本高于节省的机械劳动。
 
-- 判断推荐是否真正有增量；
-- 检查 0.6.2 是否仍 over/under-tooling；
-- 必要时做最窄 Harness/Skill 修正；
-- 否则进入下一条真实任务。
+企业环境里，截图/数据是否允许离开本地，应先于“哪个 AI 更强”。
+
+## 7. 给用户的最小输出
+
+如果把这条 Curator 结果发给提出问题的顾问，应该传达的是：
+
+> **不要把目标设成“AI 自动写完整 ERP 手册”。更成熟的做法是把操作手册拆成任务型模块，让 capture 工具接管截图/点击/基础标注，让 AI 和顾问负责业务上下文与文字；截图只用于真正需要视觉定位的地方。云端允许时可看 Guidde 这类方案，截图不能外发时优先看 Folge 这类 local-first 方案。**
+
+用户可以从上面的 practitioner 讨论和 1 个符合自身数据边界的实现开始，不需要先参加一轮“工具测试项目”。
+
+## 8. Evidence / validation boundary
+
+当前完成的是：
+
+- 真实问题重构；
+- practitioner 正反经验筛选；
+- 原始工具能力核验；
+- Curator synthesis；
+- ERP 场景采用边界压缩。
+
+这已经是 Curator 的产品输出。
+
+真实同事后续如果实际学习、采用、修改或拒绝这套最佳实践，可以继续记录：
+
+- 哪一条建议真正有用；
+- 哪个资源值得看 / 不值得看；
+- 是否减少了自己搜索和选型的时间；
+- 是否有重要能力或企业约束被漏掉；
+- 是否愿意继续把其他真实问题交给 Curator。
+
+这些是**产品验证证据**，不是要求用户替我们执行一套测试协议。

@@ -5,6 +5,7 @@ Date: 2026-08-30
 > Current execution authority: `docs/CURRENT_EXECUTION_PLAN_V3.md`.
 > Rebase audit: `docs/REBASE_AUDIT_20260830.md`.
 > Cross-card reassessment: `docs/validation/CROSS_CARD_METHOD_REASSESSMENT_20260830.md`.
+> North Star: `docs/PROJECT_NORTH_STAR.md`.
 
 ## 1. Demand evidence — accepted
 
@@ -77,24 +78,31 @@ The heterogeneous trustworthy cards repeatedly support a minimal recurring metho
 1. start from the real job, artifacts, deliverable and material constraints;
 2. treat ordinary AI/existing Agent as the baseline;
 3. discover specialized capability only for a concrete bottleneck;
-4. use practitioner workflow/failure evidence when external adoption evidence matters;
-5. ground generated work in source/project/system evidence and expose unknowns;
+4. when external evidence matters, prioritize practitioner workflow/review/failure evidence;
+5. verify original Tool / Skill / repo and only decision-changing current facts;
 6. run local/runtime tests only when their result can change the recommendation;
-7. stop when the colleague’s next action is stable.
+7. stop when the user has a stable small set of best practices/resources worth learning or adopting.
 
 ## 5. Minimal Curator status
 
 `skills/curating-erp-ai-resources/SKILL.md`:
 
-> **Minimal Curator V0.1 — real-user pilot candidate / version 0.6.2**
+> **Minimal Curator V0.1 — real-user pilot candidate / version 0.6.3**
 
 This means method readiness, not product validation.
 
-0.6.2 is a narrow Harness consistency patch. It does not add new ERP scenario knowledge; it adds an on-demand consistency check when a concrete capability gap is already visible but the run is still preparing to recommend no specialized capability.
+0.6.2 is the narrow adoption-consistency Harness patch.
 
-Authority:
+0.6.3 adds a **product-boundary Harness correction** grounded in the existing North Star and explicit Owner instruction:
+
+> **The Curator's default output is best-practice / existing-resource curation, not a complete execution SOP or user tool-testing protocol.**
+
+Authorities:
 
 - `CURATOR_062_HARNESS_PATCH.md`
+- `CURATOR_063_BEST_PRACTICE_BOUNDARY_PATCH.md`
+
+This is an engineering/scope correction, not REAL_USER adoption evidence.
 
 ## 6. 0.6.1 boundary regression — closed internal evidence
 
@@ -103,46 +111,63 @@ Authorities:
 - `CURATOR_061_BOUNDARY_REGRESSION_PLAN.md`
 - `CURATOR_061_BOUNDARY_REGRESSION_RESULT_01.md`
 
-Bounded findings from five paired isolated Baseline-vs-Curator cases:
+Bounded findings:
 
 - no over-tooling signal;
 - under-tooling appeared in Case 5 and Case 38, with a lighter signal in Case 8;
 - `C` misuse as “information missing” was not confirmed;
 - recurring multi-problem decomposition defect was not confirmed;
-- Curator showed no clear repeatable adoption-decision advantage over ordinary Baseline Agent in this bounded exercise;
-- the under-tooling misses were already covered by permanent method rules, so a missing domain-rule defect was not established.
+- Curator showed no clear repeatable adoption-decision advantage over ordinary Baseline Agent in this bounded exercise.
 
-Harness interpretation: the repeated miss is still useful engineering feedback because an existing rule can be too easy for an Agent to skip. 0.6.2 therefore improves decision-boundary legibility/enforcement without encoding the case answers.
+This remains internal engineering evidence, not REAL_USER adoption/product evidence.
 
-Evidence boundary: the regression and 0.6.2 patch are internal engineering evidence, not REAL_USER adoption/product evidence.
+## 7. Active Pilot Case 001
 
-## 7. Current dominant uncertainty
+Authority:
 
-The main uncertainty remains:
+- `docs/pilot/PILOT_CASE_001_ERP_OPERATING_MANUAL.md`
 
-> **Will real ERP / enterprise-information-system colleagues act on the recommendation, and does it materially reduce wrong-tool selection, search/setup effort or avoidable downstream rework?**
+Status:
+
+> **BEST-PRACTICE CURATION READY — AWAITING REAL USER FEEDBACK / ADOPTION**
+
+Case 001 is the first corrected real-problem Curator output:
+
+- practitioner evidence first;
+- original capability verification second;
+- Curator synthesis clearly labeled;
+- no mandatory user test protocol.
+
+It is not evidence that Guidde, Folge or the synthesized practice has already delivered user value.
+
+## 8. Current dominant uncertainty
+
+The main uncertainty is now expressed more precisely:
+
+> **Can the Curator turn real ERP work problems into small, trustworthy best-practice recommendations that users consider worth learning/adopting, while saving them from noisy search, wrong-tool selection and avoidable setup/rework?**
 
 Authority for the current phase: `docs/REAL_USER_PILOT_V1.md`.
 
-## 8. Next accepted evidence
+## 9. Next accepted evidence
 
 Prefer:
 
 - a real colleague’s real task;
-- recommendation actually given by Minimal Curator 0.6.2;
-- what the colleague actually tried/rejected/changed;
-- concrete artifact/result or failure reason;
-- observed search/setup/rework/adoption effect;
+- best-practice/resource recommendation actually given by Minimal Curator 0.6.3;
+- whether the user found the resource/method worth learning, adopting, modifying or rejecting;
+- concrete reason for adoption/rejection;
+- observed reduction or increase in search/selection/setup effort;
 - missed constraints or unsafe/wrong recommendation if any.
 
 Do **not** substitute:
 
 - another invented card;
+- a user tool-test protocol designed mainly to prove Curator;
 - another synthetic boundary/smoke/readiness regression without a real-use defect;
 - owner/agent opinion that the output “looks good”;
-- more resource collection without user action.
+- more resource collection without a real user problem.
 
-## 9. Evidence acceptance rule remains
+## 10. Evidence acceptance rule remains
 
 External claims must remain traceable to concrete acquired evidence. Search snippets are discovery only. Author self-tests are not independent validation. Runtime evidence is bounded to what was actually tested.
 

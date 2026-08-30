@@ -27,160 +27,121 @@ When stopping, explicitly state who acts next, what they must execute/return, an
 - North Star: `docs/PROJECT_NORTH_STAR.md`
 - Current execution: `docs/CURRENT_EXECUTION_PLAN_V3.md`
 - Current evidence: `docs/validation/EVIDENCE_STATUS.md`
-- Cross-card reassessment: `docs/validation/CROSS_CARD_METHOD_REASSESSMENT_20260830.md`
 - Pilot contract: `docs/REAL_USER_PILOT_V1.md`
 - Active Pilot Case 001: `docs/pilot/PILOT_CASE_001_ERP_OPERATING_MANUAL.md`
-- Closed 0.6.1 regression result: `docs/validation/CURATOR_061_BOUNDARY_REGRESSION_RESULT_01.md`
-- 0.6.2 Harness patch decision: `docs/validation/CURATOR_062_HARNESS_PATCH.md`
-- Context-drift correction: `docs/REBASE_AUDIT_20260830.md`
+- 0.6.2 Harness patch: `docs/validation/CURATOR_062_HARNESS_PATCH.md`
+- 0.6.3 best-practice boundary patch: `docs/validation/CURATOR_063_BEST_PRACTICE_BOUNDARY_PATCH.md`
 - Pilot Skill: `skills/curating-erp-ai-resources/SKILL.md`
 
-## 2. Product objective
+## 2. Product objective — do not drift
 
-ERP AI Curator serves SAP / Oracle / ERP / enterprise-information-system practitioners.
+ERP AI Curator is fundamentally a **best-practice / existing-resource curator for real ERP work**.
 
 Core question:
 
-> **面对一个真实工作任务，普通 AI 是否已经够用？如果不够，什么现成 Tool / Skill / 方法 / 教程最值得采用？**
+> **面对真实工作问题，普通 AI 是否够用？如果不够，互联网上已经存在的实操经验、Tool / Skill / MCP / 方法 / 教程中，什么最值得学习和采用？**
 
-Atomic unit:
+Main chain:
 
 ```text
-real project situation
-+ actual input artifacts
-+ concrete work action/problem
-+ expected deliverable
-+ material constraints
-→ practical AI working-method recommendation
+real problem
+→ AI leverage judgement
+→ practitioner practice / review / failure evidence
+→ original implementation verification
+→ decision-changing official facts
+→ small curated recommendation
 ```
 
-The product is not a generic AI tool directory, Prompt library, tutorial encyclopedia or tool-certification lab.
+The default deliverable is **not** a complete execution SOP, user training plan, or tool-test protocol.
 
-## 3. Trusted evidence checkpoint
+Real-user adoption/modification/rejection is product-validation evidence after the recommendation is delivered; it is not the Curator output itself.
 
-Demand:
-
-- 83-response 2026-08 training survey;
-- `docs/validation/SURVEY_DERIVED_PROBLEM_CARDS_01.md`.
-
-Trusted heterogeneous task evidence:
-
-- P01 — **high task fit / low independent validation**;
-- P04 — **CLOSED**;
-- P06 — **CLOSED**, with bounded runtime delta;
-- P03 — **CLOSED** via clean Result 02;
-- P07 — **CLOSED** via clean Result 02.
-
-Invalid P03/P07 Result 01 files remain invalid and must not be used as product evidence.
-
-## 4. Cross-card reassessment — completed
-
-Authority: `docs/validation/CROSS_CARD_METHOD_REASSESSMENT_20260830.md`.
-
-Verdict:
-
-> **METHOD READY FOR REAL-USER PILOT — PRODUCT OUTCOME NOT YET VALIDATED**
-
-## 5. Minimal Curator status
+## 3. Minimal Curator status
 
 `skills/curating-erp-ai-resources/SKILL.md`:
 
-- version: `0.6.2`
+- version: `0.6.3`
 - status: **Minimal Curator V0.1 — real-user pilot candidate**
 
-`0.6.2` is a narrow Harness consistency patch. It does not add ERP scenario answers. It adds one on-demand consistency check for the specific execution failure observed in 0.6.1: a concrete capability gap is recognized, but the final recommendation still defaults to no specialized capability without a clear adoption-cost justification.
+0.6.3 keeps the 0.6.2 adoption-consistency check and adds one scope guardrail:
 
-This still means method readiness, not validated user value.
+> **Do not silently turn best-practice curation into execution coaching/testing unless the user's task explicitly asks for execution/test design.**
 
-## 6. 0.6.1 regression and 0.6.2 Harness response
+## 4. Why 0.6.3 exists
 
-0.6.1 regression authority:
+Pilot Case 001 initially drifted into:
 
-- `docs/validation/CURATOR_061_BOUNDARY_REGRESSION_RESULT_01.md`
+```text
+choose tool
+→ ask colleague to run a bounded trial
+→ compare UI-change maintenance
+```
 
-Observed:
+That was a validation workflow, not the product's primary output.
 
-- no over-tooling signal;
-- under-tooling appeared in Case 5/38 and lightly in Case 8;
-- C-as-missing-information and recurring decomposition defects were not confirmed;
-- no clear repeatable Curator adoption advantage over ordinary Agent was demonstrated.
+The Owner corrected the boundary, and this matches the existing North Star. The durable correction is recorded in `CURATOR_063_BEST_PRACTICE_BOUNDARY_PATCH.md`.
 
-The regression did not prove a missing domain rule. Harness review then asked a different question: **if the rule is present but Agents still skip it, is the decision boundary sufficiently legible/enforceable?**
-
-Authority:
-
-- `docs/validation/CURATOR_062_HARNESS_PATCH.md`
-
-Decision:
-
-> **0.6.2 adds only an adoption-consistency execution checkpoint; no new scenario rules, Gate, scoring or synthetic retest.**
-
-## 7. Correct current checkpoint
-
-> **The project is in the REAL_USER adoption pilot with no active internal regression.**
-
-Do not reopen P10 or another synthetic boundary round merely to validate 0.6.2.
-
-## 8. Active Pilot Case 001 — ERP operating manual
+## 5. Active Pilot Case 001 — corrected
 
 Authority:
 
 - `docs/pilot/PILOT_CASE_001_ERP_OPERATING_MANUAL.md`
 
-Source: anonymous real colleague task from the 2026-08 training survey.
+Status:
 
-Curator 0.6.2 decision:
+> **BEST-PRACTICE CURATION READY — AWAITING REAL USER FEEDBACK / ADOPTION**
 
-> **CONDITIONAL B — a specialized desktop process-capture/document-generation capability is worth trying; cloud-vs-local choice depends on screenshot/data policy.**
+The curated result is now:
 
-Current branch:
+- task/role-based modular operating documentation;
+- capture-assisted screenshot/annotation work;
+- stable text for business purpose, roles, permissions, exceptions and notes;
+- selective screenshots instead of screenshot-per-step by default;
+- change-oriented maintenance;
+- cloud/local choice based on enterprise data boundary.
 
-- approved cloud/test screenshots → Guidde is the primary candidate for the first bounded trial;
-- screenshots cannot enter cloud → Folge is the local-first alternative, optionally paired with an approved local/enterprise AI for step text.
+Practitioner evidence comes first. Guidde / Folge are only implementation examples for different boundaries.
 
-Cloud has completed task reconstruction, current resource research, adoption decision and the smallest usable trial design.
+Do not tell the user they must run a tool experiment just to validate the Curator.
 
-**External dependency now active:** a real colleague must actually try, modify or reject the recommendation. Until then this case is not REAL_USER adoption evidence.
+## 6. Current checkpoint
 
-The colleague only needs to return:
+> **REAL_USER best-practice curation / adoption is the governing phase.**
 
-- what they actually tried;
-- usable artifact/result or rejection reason;
-- what became easier/harder;
-- whether UI-change maintenance improved;
-- any privacy/permission/environment blocker;
-- whether they would use the method again.
+For a genuine colleague problem:
 
-After that result returns, Cloud resumes automatically and either accepts the evidence, makes a narrow Harness/Skill correction, or moves to the next real task.
+1. curate the best existing practice/resource;
+2. give a compact evidence-backed recommendation;
+3. stop when the user knows what is worth learning/adopting;
+4. if the user later adopts/modifies/rejects it, capture that as validation evidence.
 
-## 9. Cloud / local boundary
+## 7. Cloud / local boundary
 
-Cloud should continue automatically on any cloud-executable real task, research, review or GitHub maintenance.
+Cloud should continue automatically on cloud-executable best-practice research, curation, evidence review and GitHub maintenance.
 
-Use a Local Agent only when a real task materially requires local files/repository/runtime, enterprise environment or environment-specific reproducibility.
+Use a Local Agent only when a curation decision genuinely needs local files/repository/runtime or an enterprise environment.
 
 Do not dispatch local work merely because an Agent is available.
 
-## 10. Anti-drift
+## 8. Anti-drift
 
-During Pilot, avoid:
+Do not default to:
 
-- returning to validation-card accumulation without a real blocker;
-- new synthetic boundary regressions without a real-use defect;
-- new taxonomy/Gate/scoring frameworks;
-- resource database construction;
+- user test protocols;
+- synthetic benchmark loops;
+- large tool/resource directories;
+- fixed scenario taxonomies;
+- scoring/Gate systems;
 - mandatory runtime tests;
-- card-specific rules added to the permanent Skill;
-- claiming product success before real colleague action exists.
+- card-specific rules in the permanent Skill.
 
-## 11. New-session start instruction
+## 9. New-session start instruction
 
 When a fresh cloud conversation starts:
 
 1. inspect current `main`;
-2. read Owner Execution Rules + this handoff + Current Plan + Evidence Status + Pilot contract;
-3. continue cloud-executable work automatically;
-4. do not reopen settled P03/P04/P06/P07 or the closed 0.6.1 boundary regression without a new material reason;
-5. use `0.6.2` as the current distributable Skill;
-6. treat Pilot Case 001 as active until a colleague acts/rejects or the Owner replaces it with another genuine task;
-7. stop only for a genuine Owner decision, Local Agent handoff or external evidence barrier, and always make the next actor explicit.
+2. read Owner Execution Rules + North Star + Current Plan + this Handoff + Evidence Status;
+3. use `0.6.3` as the current distributable Skill;
+4. remember: **Curator first = find and compress best existing practices; execution coaching only when explicitly requested**;
+5. continue cloud-executable work automatically;
+6. stop only for a genuine Owner decision, Local Agent handoff or external evidence barrier, and make the next actor explicit.
