@@ -4,14 +4,36 @@ Date: 2026-08-30
 
 > **Fresh-session authority after context reset.** Always inspect current `main` first. Do not rely on prior chat summaries when they conflict with repository evidence.
 
+## 0. Owner execution rule — mandatory
+
+Authority:
+
+- `docs/OWNER_EXECUTION_RULES.md`
+
+Hard rule:
+
+> **If Cloud/ChatGPT can complete the next useful project step with cloud capabilities, continue executing it directly. Do not stop merely to describe the next step or leave the next actor ambiguous.**
+
+Cloud stops only for:
+
+1. a genuine Owner decision;
+2. a genuine Local Agent handoff because local files/repository/runtime/enterprise environment are required;
+3. an external evidence barrier such as real-user action, protected access or permission.
+
+When stopping, explicitly state who acts next, what they must execute/return, and what Cloud will do after the result returns.
+
+This rule does not justify busywork. Continue the highest-value current milestone only.
+
 ## 1. Repository / authority
 
 - GitHub: `FrankChen668/erp-ai-curator`
+- Owner execution rules: `docs/OWNER_EXECUTION_RULES.md`
 - North Star: `docs/PROJECT_NORTH_STAR.md`
 - Current execution: `docs/CURRENT_EXECUTION_PLAN_V3.md`
 - Current evidence: `docs/validation/EVIDENCE_STATUS.md`
 - Cross-card reassessment: `docs/validation/CROSS_CARD_METHOD_REASSESSMENT_20260830.md`
 - Pilot contract: `docs/REAL_USER_PILOT_V1.md`
+- Active bounded regression: `docs/validation/CURATOR_061_BOUNDARY_REGRESSION_PLAN.md`
 - Context-drift correction: `docs/REBASE_AUDIT_20260830.md`
 - Pilot Skill: `skills/curating-erp-ai-resources/SKILL.md`
 
@@ -68,19 +90,7 @@ Verdict:
 
 > **METHOD READY FOR REAL-USER PILOT — PRODUCT OUTCOME NOT YET VALIDATED**
 
-The recurring method is now stable enough to expose to real colleagues:
-
-- real-task-first;
-- ordinary AI/existing Agent as baseline;
-- specialized capability only for a concrete bottleneck;
-- practitioner evidence first when the question is real adoption/workflow;
-- implementation/current official facts used for the claims they actually support;
-- important outputs grounded in project/source/system evidence;
-- unknowns exposed rather than guessed;
-- runtime/local tests only when decision-changing;
-- stop when the colleague's next action is stable.
-
-No material contradiction was found across the trusted cards.
+The recurring method is stable enough to expose to real colleagues: real-task-first; ordinary AI/existing Agent as baseline; specialized capability only for a concrete bottleneck; evidence grounded; runtime/local tests only when decision-changing; stop when the colleague's next action is stable.
 
 ## 5. Minimal Curator status
 
@@ -89,66 +99,84 @@ No material contradiction was found across the trusted cards.
 - version: `0.6.1`
 - status: **Minimal Curator V0.1 — real-user pilot candidate**
 
-`0.6.1` is a bounded runtime hardening release. It does not add a new product claim or change the validated recurring method. The runtime Skill is now decoupled from project-governance documents, uses four compressed core principles, includes a few decision-boundary examples, and keeps only two active on-demand references.
-
-Legacy V0.4 Gate/scoring/taxonomy/validator/eval assets are archived under `archive/curator-v0.4-runtime-assets/` and are not current runtime authority.
+`0.6.1` is a bounded runtime hardening release. Legacy V0.4 Gate/scoring/taxonomy/validator/eval assets are archived and are not current runtime authority.
 
 This still means method readiness, not validated user value.
 
-## 6. Correct current checkpoint
+## 6. Current checkpoint — REAL_USER pilot remains the milestone
 
-> **The project has moved from internal method validation to a bounded real-user adoption pilot.**
+> **The project remains in a bounded real-user adoption pilot. Do not default back to P10 or broad internal validation.**
 
-This is a newly earned transition based on the corrected P03/P07 reruns plus the fresh cross-card reassessment. It is not the unsupported old sprint claim.
+However, the first survey-based local exercise exposed a bounded defect candidate worth checking before using `0.6.1` broadly:
 
-Do not default back to P10 or more internal validation cards.
+- Curator correctly avoided unnecessary tools;
+- but it may be **under-tooling** — overusing A/C and failing to recognize specialized capability when it is genuinely useful;
+- `C` may also be getting misused as “information is missing”.
 
-## 7. Immediate next action — real colleague task
+This is not real-user adoption evidence and does not reopen the validation-card program.
 
-Pilot authority:
+## 7. Active bounded regression — 0.6.1 boundary discrimination
 
-- `docs/REAL_USER_PILOT_V1.md`
+Authority:
 
-The next decision-changing evidence requires a real colleague with a real task.
+- `docs/validation/CURATOR_061_BOUNDARY_REGRESSION_PLAN.md`
 
-For each case, capture:
+Cases are derived from real survey responses: 65, 8, 5, 75, 38.
 
-1. task in the colleague's own words;
-2. real materials/constraints that affect the choice;
-3. Curator recommendation actually given;
-4. what the colleague actually tried, changed or rejected;
-5. usable artifact/result or concrete failure reason;
-6. saved/added search, setup or rework;
-7. missed environment/privacy/permission/capability constraints;
-8. whether they would use this type of recommendation again.
+Test design:
 
-Do not require Problem Card classification and do not manufacture tasks to cover categories.
+```text
+same raw real-user problem
+→ fresh Baseline context without Curator
+vs
+→ separate fresh Curator 0.6.1 context
+→ freeze both answers
+→ fresh independent evaluator
+→ compare adoption judgement, not prose quality
+```
 
-## 8. What cloud should do now
+Key question:
 
-When a real pilot task arrives:
+> **Can 0.6.1 avoid over-tooling without becoming under-tooling?**
 
-1. run Minimal Curator V0.1 against the actual task;
-2. use current Web/GitHub research only if the task genuinely needs external resource discovery;
-3. keep the recommendation compact and actionable;
-4. capture post-action evidence when available;
-5. fix only concrete method defects exposed by real use;
-6. maintain repository authorities.
+The regression must not be presented as REAL_USER adoption evidence.
 
-If no real pilot task is available, do not invent internal work to keep the project busy.
+## 8. Immediate next actor
 
-## 9. Local Agent boundary
+The cloud-side design and repository preparation for this regression is complete.
 
-Use a local Agent only when the real pilot task materially needs:
+The next step requires a **Local Agent** only because the experiment needs isolated fresh contexts/runs outside the current cloud conversation.
 
-- local project files;
-- repository/runtime access;
-- inaccessible-source acquisition;
-- environment-specific reproducibility evidence.
+Local Agent must execute `docs/validation/CURATOR_061_BOUNDARY_REGRESSION_PLAN.md` exactly and return:
 
-Do not dispatch local tasks merely because an Agent is available.
+1. five frozen Baseline answers;
+2. five frozen Curator 0.6.1 answers;
+3. the fresh evaluator's cross-case comparison;
+4. no repository/Skill modifications.
 
-## 10. Anti-drift
+After those results return, Cloud/ChatGPT resumes immediately: adversarially reviews the evidence, determines whether the issue is Skill-level or execution/eval-level, and if justified makes one narrow patch through GitHub.
+
+## 9. REAL_USER pilot evidence rule
+
+Actual pilot evidence still requires a real colleague to act on a recommendation. Capture:
+
+- task in the colleague's own words;
+- recommendation actually given;
+- what they actually tried/changed/rejected;
+- artifact/result or rejection reason;
+- saved/added search/setup/rework;
+- missed capability/privacy/permission/environment constraints;
+- whether they would bring another task.
+
+Do not manufacture tasks to claim adoption evidence.
+
+## 10. Local Agent boundary
+
+Use a Local Agent only when it materially adds access/execution unavailable to Cloud: local project files, repository/runtime, enterprise environment, isolated experimental contexts, or environment-specific reproducibility.
+
+Do not dispatch local work merely because an Agent is available.
+
+## 11. Anti-drift
 
 During Pilot, avoid:
 
@@ -160,13 +188,14 @@ During Pilot, avoid:
 - card-specific rules added to the permanent Skill;
 - claiming product success before real colleague action exists.
 
-## 11. New-session start instruction
+## 12. New-session start instruction
 
 When a fresh cloud conversation starts:
 
 1. inspect current `main`;
-2. read this handoff + Current Plan + Evidence Status + Cross-Card Reassessment + Pilot contract;
-3. do not reopen settled P03/P04/P06/P07 without a new material reason;
-4. treat **REAL_USER pilot** as the current phase;
-5. execute real submitted tasks directly and capture adoption/outcome evidence;
-6. stop only for a genuine Owner decision or external evidence barrier.
+2. read Owner Execution Rules + this handoff + Current Plan + Evidence Status + Pilot contract;
+3. continue cloud-executable work automatically;
+4. do not reopen settled P03/P04/P06/P07 without a new material reason;
+5. treat REAL_USER pilot as the governing phase;
+6. if the 0.6.1 boundary regression is not yet resolved, use its plan as the active bounded exception;
+7. stop only for a genuine Owner decision, Local Agent handoff or external evidence barrier, and always make the next actor explicit.
