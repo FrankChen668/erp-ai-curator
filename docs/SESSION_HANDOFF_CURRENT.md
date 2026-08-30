@@ -29,6 +29,7 @@ When stopping, explicitly state who acts next, what they must execute/return, an
 - Current evidence: `docs/validation/EVIDENCE_STATUS.md`
 - Cross-card reassessment: `docs/validation/CROSS_CARD_METHOD_REASSESSMENT_20260830.md`
 - Pilot contract: `docs/REAL_USER_PILOT_V1.md`
+- Active Pilot Case 001: `docs/pilot/PILOT_CASE_001_ERP_OPERATING_MANUAL.md`
 - Closed 0.6.1 regression result: `docs/validation/CURATOR_061_BOUNDARY_REGRESSION_RESULT_01.md`
 - 0.6.2 Harness patch decision: `docs/validation/CURATOR_062_HARNESS_PATCH.md`
 - Context-drift correction: `docs/REBASE_AUDIT_20260830.md`
@@ -120,22 +121,37 @@ Decision:
 
 Do not reopen P10 or another synthetic boundary round merely to validate 0.6.2.
 
-## 8. Immediate next action
+## 8. Active Pilot Case 001 — ERP operating manual
 
-Pilot authority: `docs/REAL_USER_PILOT_V1.md`.
+Authority:
 
-The next decision-changing evidence requires a **real colleague using a real work task**.
+- `docs/pilot/PILOT_CASE_001_ERP_OPERATING_MANUAL.md`
 
-For each genuine use, capture:
+Source: anonymous real colleague task from the 2026-08 training survey.
 
-1. task in the colleague's own words;
-2. real materials/constraints that affect the choice;
-3. Curator 0.6.2 recommendation actually given;
-4. what the colleague actually tried, changed or rejected;
-5. usable artifact/result or concrete failure reason;
-6. saved/added search, setup or rework;
-7. missed environment/privacy/permission/capability constraints;
-8. whether they would use this type of recommendation again.
+Curator 0.6.2 decision:
+
+> **CONDITIONAL B — a specialized desktop process-capture/document-generation capability is worth trying; cloud-vs-local choice depends on screenshot/data policy.**
+
+Current branch:
+
+- approved cloud/test screenshots → Guidde is the primary candidate for the first bounded trial;
+- screenshots cannot enter cloud → Folge is the local-first alternative, optionally paired with an approved local/enterprise AI for step text.
+
+Cloud has completed task reconstruction, current resource research, adoption decision and the smallest usable trial design.
+
+**External dependency now active:** a real colleague must actually try, modify or reject the recommendation. Until then this case is not REAL_USER adoption evidence.
+
+The colleague only needs to return:
+
+- what they actually tried;
+- usable artifact/result or rejection reason;
+- what became easier/harder;
+- whether UI-change maintenance improved;
+- any privacy/permission/environment blocker;
+- whether they would use the method again.
+
+After that result returns, Cloud resumes automatically and either accepts the evidence, makes a narrow Harness/Skill correction, or moves to the next real task.
 
 ## 9. Cloud / local boundary
 
@@ -166,5 +182,5 @@ When a fresh cloud conversation starts:
 3. continue cloud-executable work automatically;
 4. do not reopen settled P03/P04/P06/P07 or the closed 0.6.1 boundary regression without a new material reason;
 5. use `0.6.2` as the current distributable Skill;
-6. treat REAL_USER pilot as the governing phase;
+6. treat Pilot Case 001 as active until a colleague acts/rejects or the Owner replaces it with another genuine task;
 7. stop only for a genuine Owner decision, Local Agent handoff or external evidence barrier, and always make the next actor explicit.
