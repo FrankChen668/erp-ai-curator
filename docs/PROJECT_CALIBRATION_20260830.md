@@ -287,3 +287,52 @@ README / Current Plan / Handoff / Evidence Status 同步到 0.7.0 和两 Lane �
 不要预设 Case 003/004 的 A/B/C；结果必须从真实问题、当前 baseline 和证据重新判断。
 
 REAL_USER_USE 反馈只要自然出现，立即进入 Evidence Status；不要求用户替项目执行测试。
+
+## 11. 整改后的实际验证结果
+
+本轮不是只写“应该通过”，而是实际做了两层验证。
+
+### 11.1 Mechanical verification
+
+PR #59 的 `Project Contract` GitHub Action 已在整改分支 head 上实际运行并通过。
+
+检查范围包括：
+
+- current authority 文件存在；
+- Skill `metadata.version` 与 README / Current Plan / Handoff / Evidence Status 一致；
+- Skill references 全部存在；
+- runtime Skill 目录不再包含历史 README；
+- 旧 `docs/pilot/PILOT_CASE_001/002` 路径已经消失；
+- 新 curation cases 明确标注 `NOT USER-USE EVIDENCE`；
+- `PROJECT_MAP.md` 相对 Markdown 链接有效。
+
+第一次编写 checker 后，对抗性复审还发现了脚本自身的引号/变量初始化风险；已修正后才把 CI 结果当有效证据。
+
+### 11.2 Semantic / adversarial verification
+
+PR diff 复审又发现一个容易偷换证据的点：Case 001/002 原本由 0.6.3 生成，如果直接拿它们证明 0.7.0 稳定，就会混淆版本。
+
+因此没有无脑重跑搜索，而是按 0.7.0 对两份现有 curation 做重新审查：
+
+- Case 001：B 仍成立；capability gap 是连续桌面捕获/点击绑定/大量截图维护，Guidde/Folge 只代表 cloud/local 不同采用边界；来源角色和“当前优先实践”措辞已校准；
+- Case 002：B 仍成立；capability gap 是持久项目/EBS 上下文，JMJ Cloud 保持 author self-practice，Oracle/GitHub 只承担 implementation/current-fact 角色，DB/MCP 仍只在真实系统访问成为瓶颈时升级。
+
+两份文件现在都明确记录：
+
+> `Originally produced with Skill: 0.6.3`  
+> `Re-reviewed against Skill: 0.7.0 — recommendation stable`
+
+### 11.3 Adversarial acceptance
+
+最终 diff 没有重新引入：
+
+- scoring/Gate；
+- fixed taxonomy；
+- recommendation-quality validator；
+- Source Adapter 默认架构；
+- multi-Agent pipeline；
+- synthetic benchmark loop；
+- user test protocol；
+- universal “best tool” claim。
+
+因此，本轮整改可以被接受为**项目/Harness 校准完成**，但不能被描述为**产品价值验证完成**。
