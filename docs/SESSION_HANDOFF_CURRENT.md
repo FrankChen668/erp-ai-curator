@@ -28,7 +28,8 @@ When stopping, explicitly state who acts next, what they must execute/return, an
 - Current execution: `docs/CURRENT_EXECUTION_PLAN_V3.md`
 - Current evidence: `docs/validation/EVIDENCE_STATUS.md`
 - Pilot contract: `docs/REAL_USER_PILOT_V1.md`
-- Active Pilot Case 001: `docs/pilot/PILOT_CASE_001_ERP_OPERATING_MANUAL.md`
+- Pilot Case 001: `docs/pilot/PILOT_CASE_001_ERP_OPERATING_MANUAL.md`
+- Pilot Case 002: `docs/pilot/PILOT_CASE_002_ORACLE_EBS_DEVELOPMENT.md`
 - 0.6.2 Harness patch: `docs/validation/CURATOR_062_HARNESS_PATCH.md`
 - 0.6.3 best-practice boundary patch: `docs/validation/CURATOR_063_BEST_PRACTICE_BOUNDARY_PATCH.md`
 - Pilot Skill: `skills/curating-erp-ai-resources/SKILL.md`
@@ -67,33 +68,15 @@ Real-user adoption/modification/rejection is product-validation evidence after t
 
 > **Do not silently turn best-practice curation into execution coaching/testing unless the user's task explicitly asks for execution/test design.**
 
-## 4. Why 0.6.3 exists
+## 4. Current real-problem curation outputs
 
-Pilot Case 001 initially drifted into:
+### Case 001 — ERP operating manual
 
-```text
-choose tool
-→ ask colleague to run a bounded trial
-→ compare UI-change maintenance
-```
+Status: **BEST-PRACTICE CURATION READY — AWAITING REAL USER FEEDBACK / ADOPTION**
 
-That was a validation workflow, not the product's primary output.
+Curated practice:
 
-The Owner corrected the boundary, and this matches the existing North Star. The durable correction is recorded in `CURATOR_063_BEST_PRACTICE_BOUNDARY_PATCH.md`.
-
-## 5. Active Pilot Case 001 — corrected
-
-Authority:
-
-- `docs/pilot/PILOT_CASE_001_ERP_OPERATING_MANUAL.md`
-
-Status:
-
-> **BEST-PRACTICE CURATION READY — AWAITING REAL USER FEEDBACK / ADOPTION**
-
-The curated result is now:
-
-- task/role-based modular operating documentation;
+- task/role-based modular documentation;
 - capture-assisted screenshot/annotation work;
 - stable text for business purpose, roles, permissions, exceptions and notes;
 - selective screenshots instead of screenshot-per-step by default;
@@ -102,20 +85,32 @@ The curated result is now:
 
 Practitioner evidence comes first. Guidde / Folge are only implementation examples for different boundaries.
 
-Do not tell the user they must run a tool experiment just to validate the Curator.
+### Case 002 — Oracle EBS AI-assisted development
 
-## 6. Current checkpoint
+Status: **BEST-PRACTICE CURATION READY — AWAITING REAL USER FEEDBACK / ADOPTION**
+
+Curated practice:
+
+> **EBS Context Engineering + Coding Agent, rather than hunting for a magical EBS-specific AI.**
+
+Direct EBS practitioner evidence shows a reusable pattern: organize custom extensions/integrations, DDL, PL/SQL, object maps, deployment rules and team conventions into a predictable repository and persistent Agent instructions; then let a mainstream Coding Agent work against that grounded context.
+
+Oracle EBS Developer's Guide is the authoritative standards source. Oracle Code Assist remains a current PL/SQL/Oracle-native candidate, but public evidence does not establish it as the default EBS-specific winner.
+
+## 5. Current checkpoint
 
 > **REAL_USER best-practice curation / adoption is the governing phase.**
 
-For a genuine colleague problem:
+For each genuine colleague problem:
 
 1. curate the best existing practice/resource;
 2. give a compact evidence-backed recommendation;
 3. stop when the user knows what is worth learning/adopting;
 4. if the user later adopts/modifies/rejects it, capture that as validation evidence.
 
-## 7. Cloud / local boundary
+Cloud should continue to the next real survey problem while public evidence is sufficient; it does not need to wait for feedback on Case 001/002 before curating additional genuine problems.
+
+## 6. Cloud / local boundary
 
 Cloud should continue automatically on cloud-executable best-practice research, curation, evidence review and GitHub maintenance.
 
@@ -123,7 +118,7 @@ Use a Local Agent only when a curation decision genuinely needs local files/repo
 
 Do not dispatch local work merely because an Agent is available.
 
-## 8. Anti-drift
+## 7. Anti-drift
 
 Do not default to:
 
@@ -135,7 +130,7 @@ Do not default to:
 - mandatory runtime tests;
 - card-specific rules in the permanent Skill.
 
-## 9. New-session start instruction
+## 8. New-session start instruction
 
 When a fresh cloud conversation starts:
 
@@ -143,5 +138,5 @@ When a fresh cloud conversation starts:
 2. read Owner Execution Rules + North Star + Current Plan + this Handoff + Evidence Status;
 3. use `0.6.3` as the current distributable Skill;
 4. remember: **Curator first = find and compress best existing practices; execution coaching only when explicitly requested**;
-5. continue cloud-executable work automatically;
+5. continue cloud-executable work automatically, including more genuine survey-problem curation;
 6. stop only for a genuine Owner decision, Local Agent handoff or external evidence barrier, and make the next actor explicit.
