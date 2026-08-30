@@ -2,7 +2,7 @@
 
 Date: 2026-08-30
 
-> Current execution authority. Context-drift correction remains recorded in `docs/REBASE_AUDIT_20260830.md`. P03/P07 reruns, cross-card reassessment and the bounded 0.6.1 regression are complete. Minimal Curator V0.1 remains in a bounded real-user pilot.
+> Current execution authority. Context-drift correction remains recorded in `docs/REBASE_AUDIT_20260830.md`. Minimal Curator V0.1 remains in a bounded real-user pilot.
 
 ## 0. Owner execution continuity rule
 
@@ -14,23 +14,24 @@ This does not authorize busywork; continue the highest-value current milestone.
 
 ## 1. Product objective
 
-ERP AI Curator helps SAP / Oracle / ERP / enterprise-information-system practitioners choose the **right AI working method for a real delivery task**.
+ERP AI Curator helps SAP / Oracle / ERP / enterprise-information-system practitioners find the **best existing AI working method for a real delivery task**.
 
 Core question:
 
-> **面对这个真实工作任务，普通 AI 是否已经够用？如果不够，什么现成 Tool / Skill / 方法 / 教程最值得采用？**
+> **面对这个真实工作任务，普通 AI 是否已经够用？如果不够，互联网上已经存在的实操经验、Tool / Skill / MCP / 方法 / 教程中，什么最值得学习和采用？**
 
-Atomic input:
+Main chain:
 
 ```text
-real project situation
-+ actual input artifacts
-+ concrete work action/problem
-+ expected deliverable
-+ material constraints
+real task
+→ AI leverage judgement
+→ practitioner workflow / review / failure evidence
+→ original Tool / Skill / repo verification
+→ decision-changing official facts
+→ small curated best-practice recommendation
 ```
 
-The product is not a generic AI tool directory, Prompt library, tutorial encyclopedia or tool-certification lab.
+The default product output is **best-practice / existing-resource curation**, not a full execution SOP and not a user tool-testing program.
 
 ## 2. Trustworthy evidence baseline
 
@@ -64,91 +65,93 @@ The recurring method remains:
 1. start from the real job, actual artifacts, deliverable and material constraints;
 2. ordinary AI / existing Agent is the baseline;
 3. specialized capability is introduced only for a concrete bottleneck;
-4. important outputs remain source/project/system grounded and unknowns are explicit;
-5. external adoption evidence prioritizes practitioner workflow/failure evidence and original implementation;
-6. local/runtime testing is used only when the result can change the adoption recommendation;
-7. stop when the colleague's next action is stable.
+4. when external evidence matters, practitioner workflow/failure evidence comes before vendor feature lists;
+5. verify original Tool / Skill / repo and only decision-changing current facts;
+6. local/runtime testing is used only when the result can change the recommendation;
+7. stop when the user has a stable small set of best practices/resources worth learning or adopting.
 
 ## 4. Minimal Curator V0.1 status
 
 Current Skill:
 
 - `skills/curating-erp-ai-resources/SKILL.md`
-- version `0.6.2`
+- version `0.6.3`
 
 Status:
 
 > **Minimal Curator V0.1 — real-user pilot candidate**
 
-`0.6.2` is a narrow Harness consistency patch, not a new domain method. It preserves 0.6.1 and adds one on-demand adoption-consistency check when a concrete capability gap has been identified but the run is still preparing to recommend no specialized capability.
-
-Authority:
-
-- `docs/validation/CURATOR_062_HARNESS_PATCH.md`
-
-Do not describe it as a validated product yet.
-
-## 5. 0.6.1 boundary regression — closed
+0.6.2 added the adoption-consistency Harness check. 0.6.3 adds a product-boundary Harness correction after Pilot Case 001 drifted from Curator work into execution/test coaching.
 
 Authorities:
 
-- `docs/validation/CURATOR_061_BOUNDARY_REGRESSION_PLAN.md`
-- `docs/validation/CURATOR_061_BOUNDARY_REGRESSION_RESULT_01.md`
+- `docs/validation/CURATOR_062_HARNESS_PATCH.md`
+- `docs/validation/CURATOR_063_BEST_PRACTICE_BOUNDARY_PATCH.md`
 
-Bounded result:
+Do not describe it as a validated product yet.
 
-- no over-tooling signal;
-- under-tooling appeared in Case 5 / 38 and lightly in Case 8;
-- `C` semantic misuse and recurring decomposition defect were not confirmed;
-- no clear repeatable adoption advantage over ordinary Agent was demonstrated.
+## 5. Correct current checkpoint
 
-The result did not establish a missing permanent domain rule. Harness review instead identified an execution-legibility gap: the rule existed but could still be skipped at the final adoption boundary. This is why 0.6.2 adds a narrow consistency checkpoint without adding scenario rules.
+> **REAL_USER best-practice curation / adoption remains the active product milestone.**
 
-This remains internal evidence only, not REAL_USER adoption evidence.
+The product must first give a real colleague a high-value curated answer to a real task. User adoption/modification/rejection is then captured as validation evidence.
 
-## 6. Correct current checkpoint
+Do not invert this order by making the user perform a test protocol as the Curator's main output.
 
-> **REAL_USER adoption/outcome is the only active product milestone.**
+## 6. Active Pilot Case 001 — ERP operating manual
 
-Do not run another synthetic boundary regression merely to verify 0.6.2. The next decision-changing feedback loop must come from real colleague use unless a concrete blocker appears.
+Authority:
 
-## 7. Immediate next action — REAL_USER pilot
+- `docs/pilot/PILOT_CASE_001_ERP_OPERATING_MANUAL.md`
 
-Pilot authority: `docs/REAL_USER_PILOT_V1.md`.
+Current status:
+
+> **BEST-PRACTICE CURATION READY — AWAITING REAL USER FEEDBACK / ADOPTION**
+
+Case 001 now curates the reusable practice rather than prescribing a test:
+
+- task/role-based modular documentation;
+- capture-assisted screenshot/annotation work;
+- stable text for business context, permissions, exceptions and notes;
+- selective screenshots instead of image-per-step by default;
+- change-oriented maintenance;
+- cloud/local choice driven by enterprise data boundaries.
+
+Guidde / Folge are implementation candidates for different boundaries, not the product itself.
+
+## 7. Immediate next action — real-user curation loop
 
 For each genuine case:
 
 ```text
 real colleague task/materials/constraints
-→ Minimal Curator 0.6.2 recommendation
-→ colleague actually tries / modifies / rejects it
-→ capture usable result or concrete failure
-→ inspect saved search/setup/rework or missed constraint
+→ Minimal Curator 0.6.3 finds and compresses best practices
+→ user receives 0–1 primary resource / method by default
+→ user may learn / adopt / modify / reject naturally
+→ capture concrete feedback if available
 → narrow method/harness correction only if evidence requires it
 ```
 
-Capture only decision-changing evidence:
+Capture only decision-changing validation evidence:
 
-- task in the colleague's own words;
-- recommendation actually given;
-- what they actually did;
-- artifact/result or rejection reason;
-- where the recommendation saved or added effort;
-- missed capability, privacy, permission or environment constraints;
-- whether they would bring another real task.
+- which recommendation/resource the user actually found useful or useless;
+- whether it reduced search/selection effort;
+- whether an important capability/privacy/permission/environment constraint was missed;
+- whether they adopted, modified or rejected it and why;
+- whether they would bring another real problem to Curator.
 
 ## 8. Cloud / local split
 
 Cloud/ChatGPT owns:
 
 - continued execution whenever cloud capabilities are sufficient;
-- running Curator recommendations for submitted real tasks;
-- current Web/GitHub research when external resources are actually needed;
+- current Web/GitHub best-practice/resource research;
+- practitioner/original/official evidence separation;
 - product/adoption judgement;
 - evidence review and narrow method/harness corrections;
 - GitHub authority maintenance.
 
-Use a Local Agent only when it materially adds access/execution unavailable to Cloud, including local files/repository/runtime, enterprise environment or environment-specific reproducibility.
+Use a Local Agent only when a real curation decision materially depends on local files/repository/runtime, enterprise environment or environment-specific reproducibility.
 
 Agent availability is not a reason to create work.
 
@@ -157,15 +160,16 @@ Agent availability is not a reason to create work.
 Do not add without real-user evidence of need:
 
 - new validation cards by default;
-- new boundary regressions by default;
+- new synthetic boundary regressions by default;
 - fixed scenario taxonomy;
 - scoring/Gate systems;
 - mandatory runtime benchmarks;
 - resource databases or automatic refresh;
 - multi-Agent orchestration;
 - source/influencer rankings;
-- card-specific rules in the permanent Skill.
+- card-specific rules in the permanent Skill;
+- user test protocols as the default Curator deliverable.
 
 ## 10. Current milestone
 
-> **Run Minimal Curator 0.6.2 on genuine colleague tasks and obtain the first real adoption/outcome evidence. Do not substitute more internal proof for this milestone.**
+> **Use Minimal Curator 0.6.3 to turn genuine colleague problems into small, evidence-backed best-practice recommendations, then observe whether colleagues actually find them worth learning/adopting.**
