@@ -6,9 +6,7 @@
 
 ERP AI Curator exists for **real ERP / enterprise-information-system delivery work**.
 
-Its basic unit is not a broad label such as `requirements analysis`, `PPT`, `prototype`, `data processing`, nor a tool name.
-
-Use:
+Its basic unit is:
 
 ```text
 real project situation
@@ -17,38 +15,25 @@ real project situation
 + expected reviewable deliverable
 + time / privacy / environment constraints
 → decide how AI should help
-→ discover only the external Skill / Tool / method / tutorial / case that adds material value
+→ discover external Skill / Tool / method / tutorial / case only when it adds material value
 → read original evidence
-→ compare task fit, maturity and adoption cost separately
+→ separate task fit, maturity, runtime proof and adoption cost
 → return a small practical package
 ```
 
-Curator owns judgement. Source adapters only acquire evidence.
+Curator synthesis must be labelled as synthesis, not presented as external capability.
 
-Curator-created usage guidance must be labelled as synthesis, not presented as an external resource.
+## 2. Demand source
 
-## 2. Demand source — survey-driven Problem Cards
-
-Current REAL_USER demand evidence:
-
-- 83 survey responses;
-- implementation consultants and project managers are the main audience;
-- 78 respondents supplied at least one non-empty concrete work problem in Q18;
-- 224 non-empty issue slots were normalized into repeated work patterns.
+The primary demand source is the 83-response training survey and its normalized Problem Cards.
 
 Authority:
 
 - `docs/validation/SURVEY_DERIVED_PROBLEM_CARDS_01.md`
 
-The survey shows the main need is not AI introduction. Many users already use AI; the harder problem is:
+The survey supports a practical-delivery focus: users already use AI, but need repeatable ways to turn real Word/PDF/PPT/Excel/minutes/screenshots/code/logs into reviewable deliverables with less rework.
 
-> **How do I use AI reliably on the material already on my desk to produce something I can review, edit and hand over with less rework?**
-
-Typical inputs include Word/PDF, PPT, Excel, meeting transcripts, screenshots, code and logs.
-
-## 3. Current first-wave Problem Cards
-
-Do not curate all at once.
+## 3. First-wave Problem Cards
 
 - P01 — workshop/minutes → requirement package
 - P02 — requirements → PRD / FS / functional design
@@ -61,9 +46,9 @@ Do not curate all at once.
 
 This is a provisional queue, not a permanent taxonomy.
 
-## 4. Source strategy
+## 4. Source / creator strategy
 
-Current source authority:
+Authority:
 
 - `docs/SOURCE_STRATEGY_V3.md`
 - `docs/CREATOR_PRIOR_STRATEGY_V3.md`
@@ -72,16 +57,17 @@ Rules:
 
 - original/current evidence before recommendation;
 - official/original is a fact anchor, not an automatic winner;
-- practitioner content matters when it adds real operating steps, prompts, templates, examples, failure modes or adoption lessons;
-- Creator Prior may improve discovery order but never determines recommendation;
-- popularity/engagement is a weak discovery signal only;
-- specific original content must still be read;
-- open discovery must remain available so niche creators can win;
-- task fit and source maturity must be judged separately.
+- practitioner content matters when it adds operating steps, prompts, templates, examples, failure modes or adoption lessons;
+- Creator Prior changes discovery order only;
+- popularity is a weak discovery signal;
+- open discovery remains available so niche creators can win;
+- task fit and source maturity are separate.
 
-Adversarial creator test:
+For a generalized ERP audience, also guard against **execution-environment bias**:
 
-> **If author name and engagement metrics were hidden, would this specific resource still deserve recommendation?**
+> Before concluding that a Codex/Agent-native solution is the only useful boundary, inspect at least one materially different lower-friction path when one plausibly exists (for example browser/SaaS collaborative workflow).
+
+This is a comparison discipline, not a quota. The alternative may still lose.
 
 ## 5. Source-adapter state
 
@@ -94,138 +80,129 @@ Xiaohongshu first provider → REMOVED
 Xiaohongshu replacement → none approved
 ```
 
-Adapters are optional acquisition capabilities, not product goals.
+Do not expand adapters merely for platform coverage.
 
-Do not expand adapter footprint merely for platform coverage.
-
-## 6. Completed — P01 / J02
+## 6. Completed — P01
 
 Status: **CURATION COMPLETE / KEEP FOR PRACTICAL PILOT**
 
-Result authority:
+Authority:
 
 - `docs/validation/P01_CURATION_RESULT_01.md`
 
-P01 found a low-setup practitioner working method for:
-
-> workshop notes / transcripts → source-grounded requirement brief + traceability + conflict log + open questions
-
-Main resource:
+Main retained resource:
 
 - `Convert Notes to Requirements Working Skill`
 
-Cloud adversarial review confirmed:
-
-- strong task fit;
-- explicit source/speaker traceability;
-- conflict and ambiguity discipline;
-- practical templates/checklists;
-- no requirement to install a new Agent/Skill.
-
-But maturity is limited:
-
-- the source itself calls the method a public working interpretation, not an official BABOK/SAP/vendor method;
-- only one observed file commit exists;
-- it was introduced in a batch of related working skills;
-- no independent ERP-project adoption evidence was established.
-
-Use the maturity label:
+Classification:
 
 > **high task fit / low independent validation**
 
-Also corrected from the local run:
+P01 proved useful discovery behavior, not real-user outcome improvement.
 
-- `T-/P-/R-/A-` numbering;
-- multi-file ERP packaging conventions;
-- generic confidence fields;
-- combined next-morning output schema;
+## 7. Completed — P04A curation
 
-are **Curator synthesis/application guidance**, not direct claims from the main resource.
+Status: **PROMISING DISCOVERY / RUNTIME UNPROVEN**
 
-P01 proves useful discovery behaviour, not real-user outcome improvement.
+Authority:
 
-Creator Prior and WeChat uplift were not tested because neither was needed.
+- `docs/validation/P04A_CURATION_RESULT_01.md`
 
-## 7. Immediate next test — P04A editable business process diagram
+Strong retained candidate:
+
+- official `jgraph/drawio-mcp` Codex draw.io Skill
+- cloud review pin: `14b318b19cc37b159f841227b9d11fbd18ce18ea`
+
+Documentary evidence strongly supports native `.drawio` generation and editing paths.
+
+But P04A intentionally prohibited installation, so it did **not** prove:
+
+- local installation/runtime;
+- non-trivial swimlane/branch/exception output quality;
+- edit-and-correct workflow;
+- lower rework than manual drawing;
+- semantic fidelity on ERP process prose.
+
+Therefore documentary curation alone must not be reported as `Tomorrow usefulness = Yes` for an executable candidate.
+
+Use:
+
+> **plausible / promising from source evidence**
+
+until runtime evidence exists.
+
+### P04A adversarial corrections
+
+1. `.drawio` editability is not ERP semantic correctness.
+2. draw.io XML with BPMN-like shapes is not automatically BPMN 2.0 semantic XML.
+3. the anti-hallucination prompt in the local result is `Curator synthesis`.
+4. `Optional second solution: none` was not established strongly enough; current browser/collaborative alternatives exist with materially different adoption boundaries.
+5. the official Codex Skill fetches shared GitHub references at runtime, creating network/reproducibility considerations for enterprise adoption.
+6. `Agents365-ai/drawio-skill` is a useful second Skill candidate but does not replace independent practitioner/case evidence.
+
+## 8. Immediate next test — P04B pinned runtime pilot
 
 Status: **NEXT / LOCAL**
 
 Protocol:
 
-- `docs/validation/DELIVERY_P04A_EDITABLE_PROCESS_DIAGRAM.md`
+- `docs/validation/DELIVERY_P04B_DRAWIO_RUNTIME_PILOT.md`
 
-Concrete job:
+Unique purpose:
 
-> A consultant has confirmed business requirements / process description, roles, major documents/system touchpoints and exception scenarios. By tomorrow they need an editable process diagram for customer review. AI may generate the first draft, but the result must remain editable and correctable rather than a flat image.
+> Test whether the pinned official draw.io Codex Skill actually works in the current Windows/Codex environment on a representative ERP process, produces a valid editable `.drawio`, survives one controlled revision, and cleans up without disturbing unrelated Codex plugin state.
 
-Why P04A next:
+This is not a new search.
 
-- it is a different artifact type from P01;
-- survey respondents repeatedly mention flow/process diagram work and manual formatting effort;
-- it naturally tests executable Skills, draw.io/BPMN/Visio workflows and practical tutorials;
-- it gives Creator Prior / Chinese practitioner discovery a natural opportunity without forcing any platform;
-- it directly tests editability and semantic fidelity, two major user acceptance conditions.
+Do not search for more diagram tools during P04B.
 
-Do **not** broaden P04A into architecture-diagram catalogs in this run.
+Do not move to another Problem Card before cloud review of P04B.
 
-## 8. P04A success evidence
+## 9. Evidence ladder for executable resources
 
-The final package should make it possible to answer:
+For executable Skills/Tools, keep these levels distinct:
 
-- What source material does the consultant provide?
-- What actual steps/tool calls produce the first diagram?
-- What structured editable artifact is returned?
-- Can roles/swimlanes, decisions, exceptions and system handoffs be represented?
-- How does the workflow avoid inventing missing process relationships?
-- How does a consultant review and correct the output?
-- What install/learning/privacy cost exists?
-- Is the workflow faster than manual drawing after correction cost is included?
+```text
+Discovery evidence
+→ Original documentation inspected
+→ Static dependency/permission review
+→ Pinned local runtime proof
+→ Representative work artifact proof
+→ Real-user project outcome evidence
+```
 
-Image-generation-only tools cannot be the main recommendation.
+Do not jump from documentation directly to `validated practical workflow`.
 
-## 9. Cloud / local / Owner split
+For non-executable methods/tutorials, runtime installation is not required; use an equivalent artifact/application check instead.
+
+## 10. Cloud / local / Owner split
 
 ### Cloud / ChatGPT
 
-Owns:
-
-- product direction;
-- first-principles/adversarial review;
-- survey interpretation;
-- source/provider/creator research;
-- maturity and evidence interpretation;
-- GitHub maintenance;
-- final KEEP / CONDITIONAL / REMOVE decisions.
+Owns product direction, adversarial review, survey interpretation, source/provider/creator research, maturity/evidence interpretation, GitHub maintenance and final KEEP/CONDITIONAL/REMOVE decisions.
 
 ### Local Codex
 
-Owns:
-
-- fresh curation runs;
-- observable source evidence;
-- use of already approved installed adapters when the task genuinely needs them;
-- local runtime/install tests only when explicitly assigned.
-
-It does not redefine V3 or install arbitrary adapters.
+Owns fresh curation runs, observable source evidence and explicitly assigned local runtime/install tests. It does not redefine V3 or install arbitrary dependencies.
 
 ### Product Owner
 
 Only unavoidable login/privacy/business-semantics decisions and final human usefulness judgement.
 
-## 10. Anti-drift
+## 11. Anti-drift
 
 Stop if work turns into:
 
-- broad consulting-stage labels detached from actual artifacts;
+- broad consulting labels detached from actual artifacts;
 - AI/tool feature catalogs;
-- generic ERP knowledge learning as the mainline;
 - mandatory platform coverage;
-- influencer ranking / closed creator whitelist;
-- endless A/B machinery;
+- influencer rankings;
 - link-count scoring;
-- calling a polished personal method an industry best practice without maturity evidence;
-- Curator synthesis presented as discovered content;
-- local PASS treated as real-user outcome validation;
-- more validation framework without better practical resources.
+- Codex-native answers chosen merely because the test Agent is Codex;
+- documentation claims treated as runtime proof;
+- editable file format treated as semantic correctness;
+- Curator synthesis presented as discovered capability;
+- local success treated as real-user outcome validation;
+- more framework without better practical evidence.
 
 The project advances only when the next action helps a real ERP colleague solve a real delivery problem better.
