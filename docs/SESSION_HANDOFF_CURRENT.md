@@ -1,7 +1,7 @@
 # ERP AI Curator — Current Session Handoff
 
 Date: 2026-08-30
-Status: **CURRENT / MINIMAL HANDOFF**
+Status: **CURRENT / CONTROLLED REAL-USER USE**
 
 > 新会话不要从历史聊天或旧 validation 文档恢复状态。先读 `docs/PROJECT_MAP.md`。
 
@@ -15,7 +15,7 @@ docs/PROJECT_MAP.md
 → docs/validation/EVIDENCE_STATUS.md
 ```
 
-只有具体任务需要时再读 runtime Skill、Pilot、AI Leverage、Adversarial Review 或历史材料。
+只有具体任务需要时再读 runtime Skill、Trial Guide、Real User Use Validation、AI Leverage、Adversarial Review 或历史材料。
 
 ## 2. 当前产品
 
@@ -31,7 +31,8 @@ ERP AI Curator 是**真实 ERP / 企业信息化工作问题的 AI 实践与现�
 
 - `skills/curating-erp-ai-resources/SKILL.md`
 - version: **0.7.0**
-- stage: **Curation pilot — user-use value unvalidated**
+- release class: **CONTROLLED USER TRIAL**
+- user-use value: **UNVALIDATED**
 
 关键 runtime 边界：
 
@@ -45,52 +46,77 @@ ERP AI Curator 是**真实 ERP / 企业信息化工作问题的 AI 实践与现�
 - runtime/local test 只在 decision-changing 时做；
 - Curator != execution coach / test coordinator。
 
-## 4. 两条 Lane
+## 4. Curation Pack 01 — CLOSED
 
-### REAL_USER_ORIGIN CURATION
+Authority：`docs/validation/CURATION_PACK_01_ADVERSARIAL_REVIEW.md`。
 
-真实问题来源，由 Cloud 完成研究/推荐。当前：
+- Case 001 — ERP 操作手册：B；
+- Case 002 — Oracle EBS AI 开发：B；
+- Case 003 — 周报/PPT 汇总：A；
+- Case 004 — SAP Bug / system evidence access：A → conditional B。
 
-- `docs/curation-cases/CASE_001_ERP_OPERATING_MANUAL.md`
-- `docs/curation-cases/CASE_002_ORACLE_EBS_DEVELOPMENT.md`
+结论：
 
-这些**不是用户使用证据**。
+> **STOP INTERNAL PACK EXPANSION. MOVE TO CONTROLLED REAL-USER USE.**
 
-### REAL_USER_USE VALIDATION
+这四条都是 REAL_USER_ORIGIN，不是用户采用证据。
 
-真实同事实际收到并自然学习/采用/修改/拒绝推荐。Authority：`docs/REAL_USER_PILOT_V1.md`。
+## 5. 当前发布裁决
 
-只有这条 Lane 用于证明产品真实价值。
+Authority：`docs/validation/RELEASE_READINESS_ADVERSARIAL_20260830.md`。
 
-## 5. 当前近阶段
+> **CONTROLLED USER TRIAL GO / BROAD RELEASE NO**
 
-Authority：`docs/CURRENT_EXECUTION_PLAN_V3.md`。
+试用入口：`docs/USER_TRIAL_GUIDE_V1.md`。
 
-完成 bounded Curation Pack 01：
+不要再把“能投用户试用”写成“产品目标已经验证完成”。
 
-1. Case 001/002 已完成；
-2. Cloud 下一步直接做 Case 003：多顾问周报/PPT 汇总与数据准确性；
-3. 再做 Case 004：程序 Bug / ERP 系统真实访问边界；
-4. 然后停止批量 curation，做 Pack 01 adversarial review。
+## 6. 两个目标层级
 
-不要提前预设 A/B/C。
+### 已完成
 
-## 6. Owner execution rule
+- 方法/Skill/Harness 的 pre-user 构建；
+- 0.7.0 的受控试用准备；
+- A/B/system-access 基本区分度；
+- 用户试用入口。
 
-Cloud 能做就继续直接做。只有以下情况停：
+### 未完成
 
-- genuine Owner decision；
-- Local Agent-only file/repo/runtime/ERP environment；
-- external evidence barrier。
+North Star 用户结果：
 
-停时必须明确下一 actor、任务、返回结果和 Cloud 后续动作。
+- 是否比普通 AI/自搜索省判断成本；
+- 是否少选错工具；
+- 是否降低配置/返工；
+- 是否更可信；
+- 用户是否愿意再次使用。
 
-## 7. 绝对不要复活
+这些只能由 REAL_USER_USE 证明。
 
-除非当前 evidence 证明必要，不要重新启动：
+## 7. 当前下一步
 
-- V0.4 Gate/scoring/taxonomy/validator 流程；
+> **把 0.7.0 给少量真实 ERP/企业信息化用户自然使用。**
+
+用户不需要执行项目测试协议，也不要求长问卷。
+
+只记录自然出现的：采用/修改/拒绝/忽略 + 原因 + 漏项/收益。
+
+如果真实反馈暴露明确缺陷，Cloud 继续做窄修正；否则不继续内部润色 Skill。
+
+## 8. Cloud / Local / Owner
+
+Cloud 能做就继续直接做，包括：真实反馈证据审查、当前 Web/GitHub 核验、窄缺陷修正、GitHub authority 维护。
+
+Local Agent 只在真实决策依赖本地 repo/runtime/ERP 环境/受保护 evidence 时接力。
+
+Owner 当前只有一个潜在明确裁决项：**如果要声明 public/open-source release complete，需要选择 repository license。** Agent 不擅自选择许可证。
+
+## 9. 绝对不要复活
+
+除非真实 evidence 证明必要，不要重新启动：
+
+- V0.4 Gate/scoring/taxonomy/validator；
 - synthetic benchmark loop；
+- 更多 pre-user Curation Card；
 - resource DB / auto refresh；
 - source-adapter framework as default architecture；
 - multi-Agent orchestration；
