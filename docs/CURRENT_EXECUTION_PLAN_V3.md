@@ -1,7 +1,7 @@
 # ERP AI Curator — Current Execution Plan
 
 Date: 2026-08-30
-Status: **CURRENT**
+Status: **CURRENT — CONTROLLED REAL-USER USE**
 
 > Navigation authority: `docs/PROJECT_MAP.md`. Product authority: `docs/PROJECT_NORTH_STAR.md`.
 
@@ -28,109 +28,126 @@ Curator 不是工具目录、资源数据库、执行 SOP 生成器或工具认�
 
 ## 2. 当前方法结论
 
-历史异构任务 P01/P03/P04/P06/P07 与后续边界回归已经足以支持一个稳定方法骨架：
+历史异构任务、边界回归与 Curation Pack 01 已足以支持一个稳定的 pre-user 方法骨架：
 
 1. 从真实任务、材料、当前 baseline、交付物和硬约束开始；
 2. A/B/C 由 capability gap + adoption cost 决定；
-3. external adoption question 优先 practitioner experience，再核验 implementation / current facts；
+3. external adoption question 优先 practitioner experience，再核验 implementation/current facts；
 4. source-grounded analysis 优先于模型记忆；
 5. runtime/local test 只在 decision-changing 时出现；
 6. 0 个资源合法；强匹配优先于覆盖率；
 7. 结论稳定即停止。
 
-**没有证据支持重建 Gate、评分、taxonomy、资源数据库或多 Agent pipeline。**
+没有证据支持重建 Gate、评分、taxonomy、资源数据库或多 Agent pipeline。
 
 ## 3. 当前 Skill
 
 - `skills/curating-erp-ai-resources/SKILL.md`
 - version: **0.7.0**
-- stage: **Curation pilot — user-use value unvalidated**
+- release class: **CONTROLLED USER TRIAL**
+- product value: **UNVALIDATED**
 
-0.7.0 是项目级校准后的 runtime 版本：
+0.7.0 在真实 baseline、A/B/C、证据角色、C 边界、权限/系统访问和 Curator/执行教练边界上已完成预用户校准。
 
-- 用真实 baseline，不和裸模型比较；
-- 默认说“当前任务下优先推荐实践”，不滥用“最佳/唯一/已验证”；
-- `信息不足 != C`；
-- C 默认给低成本学习/采用路径，不把用户变成测试员；
-- Skill 主体只保留稳定流程，详细边界按需进 references。
+**默认不再继续预用户修改 Skill。**
 
-## 4. 两条证据 Lane
+只有真实用户暴露明确缺陷或宿主兼容 blocker，才触发下一版。
 
-### Lane A — REAL_USER_ORIGIN CURATION（当前 Cloud 可持续推进）
+## 4. Curation Pack 01 — closed
 
-真实同事/问卷/Owner 的真实问题 → Curator 研究与推荐。
+Authority: `docs/validation/CURATION_PACK_01_ADVERSARIAL_REVIEW.md`.
 
-当前已形成：
+Pack：
 
-- `docs/curation-cases/CASE_001_ERP_OPERATING_MANUAL.md`
-- `docs/curation-cases/CASE_002_ORACLE_EBS_DEVELOPMENT.md`
+- Case 001 — ERP 操作手册：B；
+- Case 002 — Oracle EBS AI 开发：B；
+- Case 003 — 多顾问周报/PPT 汇总：A；
+- Case 004 — SAP Bug 诊断/系统 evidence access：A → conditional B。
 
-这类结果是**真实来源 curation output**，不是用户采用证据。
+结论：
 
-### Lane B — REAL_USER_USE VALIDATION（外部反馈 Lane）
+> **STOP INTERNAL PACK EXPANSION. MOVE TO CONTROLLED REAL-USER USE.**
 
-真实同事收到推荐后自然学习、采用、修改、拒绝或忽略。
+这些仍是 REAL_USER_ORIGIN，不是用户采用证据。
 
-Authority: `docs/REAL_USER_PILOT_V1.md`。
+## 5. 当前里程碑 — Controlled REAL_USER_USE
 
-只有 Lane B 能证明真实用户价值、节省搜索/判断成本、减少错选或返工。
+受控试用入口：`docs/USER_TRIAL_GUIDE_V1.md`。
 
-## 5. 近阶段目标 — bounded Curation Pack 01
+Release verdict：`docs/validation/RELEASE_READINESS_ADVERSARIAL_20260830.md`。
 
-不要无限把 83 份问卷全部“做一遍”。只再补两个**高区分度**真实来源问题，使当前 curation pack 同时覆盖：
+允许：
 
-- 已确认需要专业能力的 B 类：Case 001 / 002；
-- 一个应明确说“无需新增 Tool/Skill”的 A 类控制案例；
-- 一个企业系统/权限/真实访问会改变推荐的边界案例。
+- 少量真实 ERP/企业信息化用户；
+- 用户用自己的自然问题；
+- 已知/批准的 Agent Skills 宿主；
+- 自然接受、修改、拒绝或忽略建议；
+- 记录真正会改变产品判断的反馈。
 
-目的不是覆盖率，而是确认 0.7.0 能在不同采用边界上稳定做 Curator。
+不要求：
 
-完成 Pack 01 后，默认停止继续批量 curation，回看：
+- 固定 benchmark；
+- 用户跑工具测试协议；
+- 长问卷或评分；
+- 为了覆盖类别继续制造 Case。
 
-- 推荐是否真的比普通自搜索更有信息密度；
-- 是否仍出现 over/under-tooling；
-- 是否还会把 author self-practice 写成独立验证；
-- 是否还会把 Curator 变成执行教练；
-- 是否存在值得真实同事优先看到的结果。
+## 6. 当前最重要的未验证目标
 
-这仍属于 Lane A，不冒充 Lane B 产品验证。
+North Star 成功标准是用户结果，不是 Skill/Harness 完成度。
 
-## 6. 下一执行动作
+当前最大问题：
 
-Cloud 下一步直接完成：
+> **Curator 是否能持续给出比普通 AI/用户自己搜索更高信任、更低噪声的采用判断，并且这个差异足以让真实用户再次使用？**
 
-1. **Case 003 — 多顾问周报/PPT 汇总与数据准确性检查**：优先验证 A/no-new-tool 是否成立；
-2. **Case 004 — SAP/ERP 程序 Bug 定位或运维系统访问边界**：验证什么时候 ordinary repo/log analysis 足够，什么时候真实系统/元数据访问才值得升级。
+需要 REAL_USER_USE 回答：
 
-不要预设 A/B/C；按 0.7.0 从原始问题重新判断。
+- 是否减少搜索/选型成本；
+- 是否减少错装/错选工具；
+- 是否漏掉企业环境/版本/权限；
+- 是否降低后续返工；
+- 用户是否愿意再次使用。
 
 ## 7. Cloud / Local Agent 边界
 
 Cloud owns：
 
-- public Web/GitHub research；
-- practitioner / implementation / official fact separation；
-- product judgement and adversarial review；
-- GitHub authority maintenance；
-- cloud-executable curation cases。
+- 对自然真实反馈做证据审查；
+- 必要的当前 Web/GitHub 核验；
+- 窄缺陷修正；
+- GitHub authority/Harness 维护。
 
 Local Agent 只在真实决策依赖以下内容时接力：
 
-- 本地项目文件 / repo / runtime；
+- 本地项目文件/repo/runtime；
 - 企业 ERP 环境；
 - 当前系统元数据/日志/权限；
 - Cloud 无法获得且会改变结论的受保护 evidence。
 
 Agent 可用性本身不是派活理由。
 
-## 8. Anti-drift
+## 8. Release boundary
 
-除非真实使用/明确 blocker 证明必要，不新增：
+### GO
+
+- controlled user trial。
+
+### HOLD
+
+- organization-wide mandatory standard；
+- “产品价值已验证”声明；
+- 全宿主兼容声明；
+- public/open-source release completion。
+
+公开/open-source 发布还需要 Owner 明确 repository license；Agent 不擅自选择。
+
+## 9. Anti-drift
+
+真实用户未暴露必要性前，不新增：
 
 - synthetic validation loop；
 - fixed scenario taxonomy；
-- scoring / Gate；
-- resource database / refresh；
+- scoring/Gate；
+- resource database/refresh；
 - mandatory runtime benchmark；
 - multi-Agent orchestration；
 - creator ranking；
@@ -138,10 +155,12 @@ Agent 可用性本身不是派活理由。
 - card-specific permanent rules；
 - user test protocol as Curator default output。
 
-Source Adapter 设计目前只是 conditional design，只有重复、material acquisition gap 真正影响推荐时才重新激活。
+## 10. 下一步
 
-## 9. 当前完成标准
+> **把 0.7.0 投给少量真实用户自然使用。**
 
-近阶段完成不是“更多 Case 数量”，而是：
+如果没有真实反馈，Cloud 不用内部 busywork 替代它。
 
-> **完成 4 个高区分度 REAL_USER_ORIGIN curation 后，能明确说明 0.7.0 在 A/B/系统访问边界上是否稳定；同时保持 REAL_USER_USE 仍为唯一产品价值验证 Lane。**
+如果出现真实反馈，Cloud 立即：
+
+`classify evidence → identify recurring/narrow defect → fix only if needed → update Evidence Status`。
