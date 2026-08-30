@@ -2,7 +2,7 @@
 
 Date: 2026-08-30
 
-> Current execution authority. Context-drift correction remains recorded in `docs/REBASE_AUDIT_20260830.md`. P03/P07 were rerun from scratch, the cross-card reassessment is complete, and Minimal Curator V0.1 is in a bounded real-user pilot.
+> Current execution authority. Context-drift correction remains recorded in `docs/REBASE_AUDIT_20260830.md`. P03/P07 reruns and the cross-card reassessment are complete. Minimal Curator V0.1 is in a bounded real-user pilot.
 
 ## 0. Owner execution continuity rule
 
@@ -10,7 +10,7 @@ Authority: `docs/OWNER_EXECUTION_RULES.md`.
 
 > **Cloud/ChatGPT must continue any useful next step it can execute itself. It stops only for a genuine Owner decision, a genuine Local Agent handoff, or an external evidence barrier. When it stops, the next actor/task/result must be explicit.**
 
-This does not authorize busywork; always continue the highest-value current milestone.
+This does not authorize busywork; continue the highest-value current milestone.
 
 ## 1. Product objective
 
@@ -64,12 +64,10 @@ The recurring method survived materially different tasks without contradictory p
 1. start from the real job, actual artifacts, deliverable and material constraints;
 2. ordinary AI / existing Agent is the baseline;
 3. specialized capability is introduced only for a concrete bottleneck;
-4. when external adoption evidence matters, prefer practitioner workflow/failure evidence → original implementation → decision-changing current official facts;
-5. important outputs remain source/project/system grounded and unknowns are explicit;
+4. important outputs remain source/project/system grounded and unknowns are explicit;
+5. external adoption evidence prioritizes practitioner workflow/failure evidence and original implementation;
 6. local/runtime testing is used only when the result can change the adoption recommendation;
 7. stop when the colleague's next action is stable.
-
-This is method readiness, not evidence that real users already gain time, quality or adoption value.
 
 ## 4. Minimal Curator V0.1 status
 
@@ -82,82 +80,44 @@ Status:
 
 > **Minimal Curator V0.1 — real-user pilot candidate**
 
-`0.6.1` is a bounded runtime hardening release. It removes project-governance/runtime coupling, compresses duplicated principles, adds a few decision-boundary examples and moves V0.4 Gate/scoring/taxonomy/runtime assets out of the distributable Skill.
-
 Do not describe it as a validated product yet.
 
-## 5. Correct current checkpoint
+## 5. 0.6.1 boundary regression — resolved
 
-> **REAL_USER adoption/outcome remains the dominant uncertainty. Do not add P10 or broad internal validation by default.**
-
-A bounded exception is currently active because the first survey-based local exercise exposed a concrete defect candidate:
-
-- good resistance to over-tooling;
-- possible **under-tooling** — failing to recognize a specialized capability when it is materially useful;
-- possible misuse of `C` as a proxy for missing information.
-
-This is sufficiently specific to justify one narrow regression. It does not reopen the internal validation program.
-
-## 6. Active bounded regression — Curator 0.6.1 boundary discrimination
-
-Authority:
+Authorities:
 
 - `docs/validation/CURATOR_061_BOUNDARY_REGRESSION_PLAN.md`
+- `docs/validation/CURATOR_061_BOUNDARY_REGRESSION_RESULT_01.md`
 
-Question:
+Verdict:
 
-> **Can 0.6.1 avoid over-tooling without becoming under-tooling?**
+> **CLOSED — KEEP 0.6.1 UNCHANGED; RETURN TO REAL_USER PILOT**
 
-Cases: survey responses 65, 8, 5, 75, 38.
+Observed:
 
-Method:
+- no over-tooling signal;
+- under-tooling appeared in Case 5 / 38 and lightly in Case 8;
+- `C` semantic misuse was not confirmed;
+- recurring decomposition defect was not confirmed;
+- Curator did not show a clear repeatable adoption advantage over ordinary Agent in this bounded exercise.
 
-```text
-same raw case
-→ isolated ordinary-Agent Baseline
-vs
-→ isolated Curator 0.6.1 run
-→ freeze answers
-→ independent evaluator
-→ compare adoption judgement, decomposition, critical unknowns, safety proportionality and actionability
-```
+Adversarial attribution: the strongest under-tooling misses are already covered by current Skill/reference rules, so a permanent Skill-text defect is not established. Do not add more wording or another internal regression by default.
 
-Do not pre-seed expected A/B/C answers.
+This result is internal bounded regression evidence only, not REAL_USER adoption evidence.
 
-Important semantic check:
+## 6. Correct current checkpoint
 
-- A/B/C is an adoption decision;
-- missing decision-changing information should be exposed explicitly;
-- do not automatically convert “missing information” into `C`.
+> **REAL_USER adoption/outcome is again the only active product milestone.**
 
-The regression is **not REAL_USER adoption evidence**.
+The next decision-changing evidence must come from a real colleague using the Curator on a real work task.
 
-## 7. Immediate next action / actor
+Do not return to P10, broad internal validation, or another boundary regression unless real use exposes a concrete blocker/defect.
 
-Cloud preparation is complete for the regression: raw cases, isolation rules and evaluator contract are versioned in GitHub.
-
-The next execution step requires a **Local Agent** because the paired experiment needs independent fresh contexts outside the current cloud conversation.
-
-Local Agent returns:
-
-1. five frozen Baseline answers;
-2. five frozen Curator 0.6.1 answers;
-3. one fresh evaluator comparison;
-4. no repository or Skill changes.
-
-Then Cloud/ChatGPT resumes automatically to:
-
-- adversarially review whether the observed difference is real;
-- distinguish Skill defect from Agent/eval execution error;
-- if justified, make only one narrow Skill/reference correction;
-- otherwise leave `0.6.1` unchanged;
-- return to REAL_USER pilot rather than continue internal testing.
-
-## 8. REAL_USER pilot
+## 7. Immediate next action — REAL_USER pilot
 
 Pilot authority: `docs/REAL_USER_PILOT_V1.md`.
 
-For genuine real-user use:
+For each genuine case:
 
 ```text
 real colleague task/materials/constraints
@@ -168,9 +128,17 @@ real colleague task/materials/constraints
 → narrow method correction only if evidence requires it
 ```
 
-Actual adoption evidence must come from real colleague action, not this regression.
+Capture only decision-changing evidence:
 
-## 9. Cloud / local split
+- task in the colleague's own words;
+- recommendation actually given;
+- what they actually did;
+- artifact/result or rejection reason;
+- where the recommendation saved or added effort;
+- missed capability, privacy, permission or environment constraints;
+- whether they would bring another real task.
+
+## 8. Cloud / local split
 
 Cloud/ChatGPT owns:
 
@@ -181,17 +149,16 @@ Cloud/ChatGPT owns:
 - evidence review and narrow method corrections;
 - GitHub authority maintenance.
 
-Use a Local Agent only when it materially adds access/execution unavailable to Cloud, including local files/repository/runtime, enterprise environment, isolated experimental contexts or environment-specific reproducibility.
+Use a Local Agent only when it materially adds access/execution unavailable to Cloud, including local files/repository/runtime, enterprise environment or environment-specific reproducibility.
 
 Agent availability is not a reason to create work.
 
-## 10. Anti-drift during pilot
-
-Do not return to internal validation work merely because it is easier to execute.
+## 9. Anti-drift during pilot
 
 Do not add without real-user evidence of need:
 
 - new validation cards by default;
+- new boundary regressions by default;
 - fixed scenario taxonomy;
 - scoring/Gate systems;
 - mandatory runtime benchmarks;
@@ -200,8 +167,6 @@ Do not add without real-user evidence of need:
 - source/influencer rankings;
 - card-specific rules in the permanent Skill.
 
-Synthetic/internal testing is justified only to fix a concrete defect exposed by use or remove a concrete pilot blocker. The current 0.6.1 regression is such a bounded defect check and must stop after its decision is made.
+## 10. Current milestone
 
-## 11. Current milestone
-
-> **Resolve the bounded 0.6.1 under-tooling/C-boundary defect candidate, then continue Minimal Curator V0.1 on genuine colleague tasks to obtain real adoption/outcome evidence.**
+> **Run Minimal Curator V0.1 on genuine colleague tasks and obtain the first real adoption/outcome evidence. Do not substitute more internal proof for this milestone.**
