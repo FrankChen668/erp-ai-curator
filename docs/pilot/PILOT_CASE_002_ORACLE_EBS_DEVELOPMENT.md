@@ -149,7 +149,7 @@ EBS 版本 / 模块 / 真实需求
 
 如果把结论发给提出问题的 EBS 开发人员，应传达：
 
-> **先别急着找“EBS 专用 AI”。更成熟的实践是把 EBS custom code、DDL、接口、部署脚本和团队规范集中成 Agent 可读的项目上下文，再用成熟 Coding Agent 工作。直接 EBS 实践已经证明这比让通用 AI 猜团队规范更合理；Oracle 官方 Developer's Guide 应作为规范源。Claude Code/Codex/Copilot 都可以承载这种模式。Oracle Code Assist 可以继续关注，但目前公开证据不足以证明它应该取代这套方法成为默认选择。**
+> **先别急着找“EBS 专用 AI”。更成熟的实践是把 EBS custom code、DDL、接口、部署脚本和团队规范集中成 Agent 可读的项目上下文，再用成熟 Coding Agent 工作。当前直接 EBS 实践提供了一个很有参考价值的落地案例，但还不是独立对照证明；Oracle 官方 Developer's Guide 应作为规范源。Claude Code/Codex/Copilot 都可以承载这种模式。Oracle Code Assist 可以继续关注，但目前公开证据不足以证明它应该取代这套方法成为默认选择。**
 
 最值得先看的实操资源：JMJ Cloud 的 EBS monorepo + Claude Code 案例。
 
