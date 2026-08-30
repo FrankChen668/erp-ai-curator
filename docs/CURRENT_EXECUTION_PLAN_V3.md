@@ -129,7 +129,7 @@ Runtime/artifact testing is justified only when a material decision cannot be re
 
 `runtime test not required` does not mean `executable safety can be ignored`.
 
-## 7. Current retained evidence
+## 7. Current retained / active evidence
 
 ### P01 — workshop/minutes → requirement package
 
@@ -155,36 +155,56 @@ Authority:
 
 Retained package:
 
-- `冰冰酱 — 从一张白纸到交付PRD：我的全自动 AI 产品工作流` — independent practitioner workflow/judgement evidence; real product context, semantic correction, multi-round rework and Draw.io in the actual toolchain;
-- `健彬的产品Live / 北沐而川 — 3分钟绘制流程图！这个AI+绘图工具的神仙组合` — independent practitioner-style low-friction walkthrough: CRM/product text → AI-generated XML → Draw.io import → manual adjustment;
-- `Castaldo-Solutions/process-builder` — strongest enterprise-process-specific method/implementation retained; author self-practice, not independent validation;
+- `冰冰酱 — 从一张白纸到交付PRD：我的全自动 AI 产品工作流` — independent practitioner workflow/judgement evidence;
+- `健彬的产品Live / 北沐而川 — 3分钟绘制流程图！这个AI+绘图工具的神仙组合` — independent practitioner-style low-friction walkthrough;
+- `Castaldo-Solutions/process-builder` — strongest enterprise-process-specific method/implementation retained; author self-practice;
 - official `jgraph/drawio-mcp` — implementation/current-fact anchor;
 - Anttu draw.io MCP article — optional technical operation/troubleshooting companion.
 
-Coverage boundary:
+Do not reopen P04 unless a later real adoption decision exposes a new material risk.
 
-- ordinary public Web surfaced additional relevant Bilibili Draw.io / PM practice content;
-- some full original pages/transcripts remain intermittently inaccessible (412), so this remains an explicit coverage gap rather than absence evidence;
-- the gap is no longer decision-blocking because the recommendation package is stable.
+### P06 — Excel / CSV / system export → reconcile and validate
 
-Do not reopen P04 or rerun technical/static/runtime work unless a later real adoption decision exposes a new material risk.
+Current status:
 
-## 8. Immediate next action — select the next real Problem Card
+> **ACTIVE — cloud practitioner/fact research done; one bounded local runtime delta justified**
 
-P04 is closed. Return to REAL_USER demand evidence and select the next concrete Problem Card based on expected colleague value and evidence gap, not on a fixed sequence.
+Authority / task envelope:
 
-Likely candidate areas include:
+- `docs/validation/DELIVERY_P06_DATA_RECONCILIATION.md`
 
-- P03 prototype;
-- P02 PRD/FS;
-- P05 PPT;
-- Excel/data;
-- testing;
-- a concrete Codex/WorkBuddy workflow tied to real work.
+Current cloud judgement:
 
-These are candidates, not a mandated order.
+- direct conversational reconciliation can be useful for one-off low-risk work, but independent practice shows recurring reconciliation needs a frozen procedure, deterministic execution, explicit checks and exception routing;
+- current spreadsheet-native AI is materially stronger than older chat-only workflows, so P06 must not assume `Python + Skill` is always required;
+- `alchaincyf/huashu-excel` is the strongest currently discovered packaged audit-oriented method, but it is recent and primarily author self-practice;
+- the only local test currently justified is whether Huashu-Excel materially improves ERP-style multi-file reconciliation over a competent plain code-first Agent.
 
-For the next card, preserve the atomic real-work structure and use the controlled single-card loop below. Do not carry P04-specific Draw.io rules into a new framework.
+Do not run broad local Web discovery or build a benchmark framework.
+
+## 8. Immediate next action — finish P06 with cloud/local split
+
+Cloud has already done the discovery/fact layer for the current P06 delta.
+
+Local Agent should execute only the bounded comparison defined in:
+
+- `docs/validation/DELIVERY_P06_DATA_RECONCILIATION.md`
+
+Local freedom:
+
+- fixture details, code, output format and internal iteration are flexible;
+- use fresh isolated contexts for baseline vs with-Skill;
+- temporary candidate checkout is allowed;
+- do not globally install or modify project governance.
+
+After local evidence returns, cloud will:
+
+1. inspect the compact evidence package and key artifacts;
+2. compare it with current practitioner evidence;
+3. decide whether the final recommendation is spreadsheet-native AI, plain code-first Agent, Huashu-Excel, or a differentiated boundary between them;
+4. stop P06 when the user decision is stable.
+
+Do not start P03/P07/P10 in parallel.
 
 ## 9. Loop Engine — controlled execution pattern only
 
@@ -208,30 +228,18 @@ Problem Card
 
 The loop optimizes **decision completeness**, not number of iterations, sources or platforms.
 
-### Loop readiness is behavior-based, not card-count-based
+Loop readiness is behavior-based, not card-count-based. Broader controlled batching becomes reasonable only when heterogeneous real jobs repeatedly show that the process can:
 
-Do not enable broader batching merely because `1–2 more cards` were completed.
-
-Broader controlled batching becomes reasonable only when several heterogeneous real jobs demonstrate that the process can repeatedly:
-
-- avoid early stopping after the first technically complete candidate;
-- distinguish practical usefulness, independence, implementation evidence and official fact anchors correctly;
-- use targeted delta search only when it can plausibly change the decision;
-- stop with an explicit decision-quality rationale rather than a source-count threshold;
-- avoid framework/governance expansion during execution;
+- avoid early stopping;
+- distinguish practical usefulness, evidence independence, implementation evidence and official facts correctly;
+- use delta search/tests only when they can plausibly change the decision;
+- stop based on decision quality;
+- avoid framework/governance expansion;
 - preserve the real Problem Card rather than drifting into tool-centric research.
 
-Even then, use small bounded batches with a review checkpoint between cards/batches when judgement is uncertain.
+Even then, use small bounded batches with review checkpoints when judgement is uncertain.
 
-### Loop must not autonomously
-
-- change project principles/governance;
-- install new Skills/MCPs/adapters;
-- trigger runtime tests without an explicit material reason;
-- declare the product PASS;
-- process cards indefinitely;
-- maximize source/platform/iteration counts;
-- convert historical retained resources into permanent recommendations.
+Loop must not autonomously change project principles, install Skills/MCPs/adapters, trigger runtime tests without material reason, declare product PASS, maximize source/platform counts or process cards indefinitely.
 
 ## 10. What good looks like
 
@@ -256,7 +264,7 @@ Cloud/ChatGPT should directly perform work it can do well: product judgement, We
 
 Use local Agent only when local capability materially adds evidence, such as local-only adapters, inaccessible source acquisition, justified runtime checks or evidence requiring the user's environment.
 
-This is a capability/cost boundary, not an ideological cloud-vs-local rule.
+For bounded local tasks, fix the objective, hard boundaries, escalation conditions and evidence return; leave search/execution details flexible unless a specific control is needed to preserve evidence validity.
 
 ## 12. Anti-drift
 
@@ -266,8 +274,7 @@ Stop and correct if work becomes:
 - official-document gravity;
 - independent-third-party evidence treated as a mandatory gate even when the best practical resource is first-party;
 - one failed platform URL treated as platform absence;
-- Bilibili/WeChat/Xiaohongshu treated as quotas;
-- influencer popularity substituted for content evidence;
+- platform quotas or influencer popularity substituted for content evidence;
 - duplicate social reposts counted as corroboration;
 - stale setup presented as current truth;
 - executable resources recommended with no proportional safety inspection;

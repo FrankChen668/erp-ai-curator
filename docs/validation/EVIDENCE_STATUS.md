@@ -41,23 +41,22 @@ Authority:
 
 Observed in current cloud research:
 
-- Bilibili public Web search can surface practical tutorials, descriptions and engagement metadata for WorkBuddy, Codex, draw.io Skills and AI PM workflows;
-- direct Bilibili page opening/transcript acquisition can still intermittently hit 412/anti-bot, so discovery availability and full-content availability must be distinguished;
-- one failed Bilibili URL path is not enough to conclude that practitioner evidence is unavailable;
-- WeChat Search → Reader remains a qualified path for original public-article evidence;
+- ordinary public Web can surface useful Chinese and international practitioner material without treating any platform as a quota;
+- direct Bilibili page/transcript acquisition can still intermittently hit anti-bot limits, so discovery and full-content access must be distinguished;
+- WeChat Search → Reader remains a qualified path when a concrete article needs full text;
 - Xiaohongshu remains an acquisition/indexing coverage gap; do not infer content scarcity from access difficulty.
 
-Therefore adapter failure/status must not be used as a proxy for platform value.
+Adapter failure/status must not be used as a proxy for platform value.
 
 ## 4. Existing upstream ecosystems discovered
 
 Current evidence shows that ERP AI Curator can reuse existing ecosystems rather than rebuild them, including:
 
-- Chinese AI Product Manager Skill libraries covering PRD, PRD review, UI/prototype, Draw.io and solution challenge;
-- broader PM Agent Skill libraries with dozens of reusable workflows;
-- WorkBuddy community practical bluebooks organized around real tasks;
-- Bilibili creator series covering Draw.io Skills, Codex, PM Skills and WorkBuddy practical operation;
-- practitioner articles describing end-to-end AI PM workflows.
+- Chinese AI Product Manager Skill libraries;
+- broader PM Agent Skill libraries;
+- WorkBuddy community practical bluebooks;
+- practitioner creator series;
+- task-specific GitHub Skills and workflow repositories.
 
 These are feeder pools, not final recommendations by themselves.
 
@@ -97,67 +96,68 @@ Authority:
 
 - `P04_PRACTITIONER_CURATION_RESULT_02.md`
 
-New retained practitioner evidence:
+Retained practitioner evidence includes:
 
-- `冰冰酱 — 从一张白纸到交付PRD：我的全自动 AI 产品工作流`
-  - role: independent practitioner workflow/judgement evidence;
-  - material evidence: real product context, multi-round correction, rework after semantic/model errors, Draw.io in the actual toolchain, explicit remaining layout defects;
-  - value: establishes the correct quality boundary — clarify semantics first, then generate/review/iterate.
+- `冰冰酱 — 从一张白纸到交付PRD：我的全自动 AI 产品工作流` — independent practitioner workflow/judgement evidence with real semantic correction and rework;
+- `健彬的产品Live / 北沐而川 — 3分钟绘制流程图！这个AI+绘图工具的神仙组合` — independent practitioner-style operational guide for text → XML → Draw.io → manual adjustment.
 
-- `健彬的产品Live / 北沐而川 — 3分钟绘制流程图！这个AI+绘图工具的神仙组合`
-  - role: independent practitioner-style operational guide;
-  - material evidence: CRM/product text → AI-generated XML → Draw.io import → manual adjustment → editable artifact;
-  - caveat: shallow demo; “3 minutes”/“standard” claims are not treated as validated outcomes; DeepSeek UI/setup details are version-coupled.
+Remaining Bilibili full-content gaps are explicit but no longer decision-blocking.
 
-Bilibili delta:
+P04 demonstrated the desired stopping behavior: targeted delta, evidence-role discipline, explicit coverage gap, then stop once recommendation is stable.
 
-- `AI辅导员小宇` Cursor + draw.io walkthrough is useful but does not materially improve the selected package;
-- `产品老兵杰哥` exposes several highly relevant PM/ERP-adjacent Draw.io Skill videos through public search, but full original content remains intermittently inaccessible; record as a coverage gap rather than absence evidence.
+## 8. P06 data reconciliation — ACTIVE
 
-Adversarial rejection:
+Status: **CLOUD CURATION DONE / ONE BOUNDED LOCAL RUNTIME DELTA JUSTIFIED**
 
-- a detailed 2026 CSDN `DeepSeek + Draw.io` article was not retained because unsupported quantitative claims, inconsistent setup statements and incomplete runnable code reduce evidence reliability.
+Authority / task envelope:
 
-Why P04 can close:
+- `DELIVERY_P06_DATA_RECONCILIATION.md`
 
-- real business/product input: covered;
-- actual workflow: covered;
-- editable output: covered;
-- correction/rework and failure boundary: covered;
-- low-cost first trial: covered;
-- deeper enterprise process mapping method: covered;
-- current implementation/fact anchor: covered;
-- remaining platform acquisition gap: explicit;
-- additional search is unlikely to change what a colleague should learn/use first.
+Current cloud evidence:
 
-## 8. Runtime-testing policy
+- independent practitioner experience shows recurring multi-file reconciliation becomes unreliable when treated as free-form chat; stable procedure, deterministic execution, explicit validation and human-review routing materially improve repeatability;
+- current spreadsheet-native AI can now inspect/update workbooks directly and is a legitimate low-friction option, so P06 must not assume dedicated Skills are always necessary;
+- `alchaincyf/huashu-excel` is the strongest currently discovered packaged audit-oriented spreadsheet method, inspected at commit `9348581a87cc03ed8d0b30706631088e922c6027`;
+- its strongest current evidence is author-created method + implementation + author-run pressure testing, not independent ERP field validation.
+
+Current decision gap:
+
+> **Does Huashu-Excel materially improve ERP-style multi-file reconciliation over a competent plain code-first local Agent enough to justify the adoption overhead?**
+
+Only this runtime comparison is currently justified. Local broad Web discovery, benchmark-framework construction and global Skill installation are out of scope.
+
+## 9. Runtime-testing policy
 
 Do not use a technical test ladder as a mandatory pipeline for every resource.
 
-Local runtime test is justified only when:
+Local runtime test is justified only when it can plausibly change an adoption decision, for example:
 
-- credible practical evidence is absent/contradictory after reasonable practitioner discovery;
+- credible practical evidence remains insufficient or contradictory;
 - install/permission/privacy risk matters and static review cannot resolve it;
-- exact local reproducibility is essential to training;
-- the candidate may become a repeated internal standard.
+- exact reproducibility is essential;
+- a candidate may become a repeated internal standard.
 
-Otherwise curation should stop earlier.
+P06 meets this threshold narrowly because a new self-authored Skill is competing with an already-capable plain code-first workflow on a correctness-sensitive task.
 
-## 9. Main remaining uncertainties
+## 10. Main remaining uncertainties
 
-- can practitioner-first discovery consistently find share-worthy material across other real Problem Cards without stopping early;
-- which practitioner sources/creators consistently produce the best resources for ERP delivery jobs;
+Immediate:
+
+- P06: whether Huashu-Excel produces a material accuracy/auditability/rework advantage over plain code-first Agent execution on the same ERP-like reconciliation fixture.
+
+Product-level:
+
+- whether practitioner-first curation remains stable across additional heterogeneous Problem Cards;
 - whether curated packages are genuinely useful to colleagues on real material;
-- which existing PM/Agent/WorkBuddy resource ecosystems deserve recurring feeder status;
-- whether platform-specific acquisition gaps materially harm recall;
+- which feeder ecosystems deserve recurring discovery prior;
 - whether a minimal production Curator Skill is eventually worth packaging.
 
-## 10. Main risk now
+## 11. Main risk now
 
 The dominant risk is not insufficient technical validation.
 
 It is:
 
-> **premature search stopping or source-role confusion causing the Curator to return a technically strong candidate before it has found enough practical evidence to support the user's adoption decision.**
+> **doing extra research/tests that do not change the colleague's adoption decision, or recommending a specialized Skill when plain deterministic Agent work is already enough.**
 
-P04 now demonstrates the desired stopping behavior: do a targeted evidence delta, reject dense-but-unreliable material, make the remaining coverage gap explicit, and stop once the recommendation is stable.
+P06 should therefore stop immediately once the bounded local comparison stabilizes that decision.

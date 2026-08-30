@@ -11,10 +11,15 @@ Date: 2026-08-30
 - Product contract: `docs/PROJECT_NORTH_STAR.md`
 - Source strategy: `docs/SOURCE_STRATEGY_V3.md`
 - Creator prior: `docs/CREATOR_PRIOR_STRATEGY_V3.md`
-- Adversarial review: `docs/ADVERSARIAL_REVIEW_V3.md`
 - Current evidence: `docs/validation/EVIDENCE_STATUS.md`
 
-Do not rely on this handoff if the repository has changed; current `main` wins.
+Current main before this P06 branch started: `32ce5c82e4d9963c4188bd463f1fbbd39bc2bb7d`.
+
+Current P06 task envelope:
+
+- `docs/validation/DELIVERY_P06_DATA_RECONCILIATION.md`
+
+Current `main` always wins if newer.
 
 ## 2. Product intent
 
@@ -37,22 +42,9 @@ real project situation
 → practical resource curation
 ```
 
-## 3. Demand evidence boundary
+## 3. Source / evidence boundary
 
-The 83-response 2026-08 training survey is the primary REAL_USER demand source.
-
-Important boundary:
-
-- closed-choice aggregates are direct evidence;
-- free-text responses are mainly semantic/pattern evidence because the survey platform may have performed second-level summarization or polishing;
-- do not treat polished free text as guaranteed verbatim user wording;
-- the survey validates **demand**, not solution outcome or recommendation quality.
-
-Problem Cards are normalized search/judgement units, not a permanent scenario taxonomy.
-
-## 4. Source principle
-
-For adoption/learning questions, default evidence flow is:
+For adoption questions, use:
 
 ```text
 practical guide / review / case / field experience
@@ -61,52 +53,23 @@ practical guide / review / case / field experience
 → limitations / counter-evidence
 ```
 
-Interpret this as **practical-value-first**, not `independent-third-party-at-all-costs`.
+Practical-value-first does not mean independent-third-party-at-all-costs. Author/maintainer tutorials may be primary when genuinely strongest, but label evidence roles correctly.
 
-An author, maintainer, official team or original repository may be the best practical resource if it contains the strongest workflow, examples, artifacts and failure guidance. If so, it can be the primary recommendation, but label its evidence role honestly.
+Official/current sources mainly verify volatile facts such as version, install, compatibility, privacy/data flow and native output format.
 
-Independent practitioner evidence is valuable when it changes confidence, comparative judgement, failure understanding or adoption cost. It is not a mandatory gate.
+Survey evidence validates demand, not solution quality or outcome.
 
-Official/current sources mainly verify volatile facts such as version, install, compatibility, price/license, privacy/data flow and native output format.
+## 4. Safety / testing / platform boundary
 
-## 5. Discovery/platform boundary
+- Runtime testing is exceptional, not default.
+- Executable resources require proportional lightweight static inspection before install/run recommendations.
+- One failed platform route does not prove content absence.
+- No platform quotas, source-count targets or influencer ranking.
+- Historical retained resources are search priors, not permanent approvals.
 
-Relevant discovery pools may include Bilibili, WeChat, Xiaohongshu, YouTube, PM/BA/consulting communities, blogs, GitHub Skill collections and existing Agent/PM ecosystems.
+## 5. P01 / P04 retained state
 
-Rules:
-
-- one failed page/adapter does not mean a platform lacks useful content;
-- ordinary Web discovery before special adapters;
-- WeChat Search → Reader only when a concrete high-value public article needs full text;
-- Xiaohongshu access limitations are a Coverage Gap, not content-scarcity evidence;
-- no platform quota;
-- popularity metrics are discovery hints only;
-- derivative reposts of one demo are one evidence family;
-- do not stop merely because one technically complete candidate has been found.
-
-## 6. Curator before Builder
-
-Existing PM/BA Skill libraries, Agent tutorials, WorkBuddy guides/bluebooks, creator series and tool-specific practical collections are feeder ecosystems.
-
-Curator value is:
-
-> real ERP/enterprise Problem Card → find the relevant few → remove hype/stale/mismatch → connect practice to Tool/Skill → verify necessary current facts → recommend a small actionable package.
-
-Do not rebuild generic PM Skill libraries, WorkBuddy manuals, Codex handbooks or tutorial encyclopedias when strong upstream material exists.
-
-Curator-created methods must be labeled `Curator synthesis`.
-
-## 7. Safety/testing boundary
-
-Runtime/artifact testing is exceptional, not default.
-
-For executable third-party Skill/MCP/plugin/script, use proportional lightweight static inspection before recommending installation when relevant: install/dependencies, credentials, filesystem/network/browser/shell access, writes, data egress, license/maintenance.
-
-Runtime testing is justified only when a material decision cannot be resolved through practitioner evidence + original implementation + current facts.
-
-## 8. Current evidence
-
-### P01 — workshop/minutes → requirement package
+### P01
 
 Retained:
 
@@ -116,11 +79,9 @@ Classification:
 
 > **high task fit / low independent validation**
 
-Useful working method; not an independently proven industry standard and not REAL_USER outcome validation.
+### P04
 
-### P04 — business description/requirements → editable process diagram
-
-Current verdict:
+Verdict:
 
 > **CLOSED — RECOMMENDATION STABLE WITH EXPLICIT COVERAGE GAPS**
 
@@ -128,50 +89,78 @@ Authority:
 
 - `docs/validation/P04_PRACTITIONER_CURATION_RESULT_02.md`
 
-Retained package:
+Do not reopen P04 unless later real adoption exposes a new material risk.
 
-- `冰冰酱 — 从一张白纸到交付PRD：我的全自动 AI 产品工作流` — independent practitioner workflow/judgement evidence; real product context, semantic correction, multi-round rework and Draw.io in the actual toolchain;
-- `健彬的产品Live / 北沐而川 — 3分钟绘制流程图！这个AI+绘图工具的神仙组合` — independent practitioner-style low-friction walkthrough: CRM/product text → AI-generated XML → Draw.io import → manual adjustment;
-- `Castaldo-Solutions/process-builder` — strongest enterprise-process-specific method/implementation retained; author self-practice, not independent validation;
-- official `jgraph/drawio-mcp` — implementation/current-fact anchor;
-- Anttu draw.io MCP article — optional technical operation/troubleshooting companion.
+## 6. P06 — current active card
 
-Coverage boundary:
+Problem:
 
-- ordinary Web discovery surfaced additional relevant Bilibili Draw.io / PM practice videos;
-- some full original pages/transcripts remain intermittently inaccessible (412), so this is an explicit coverage gap, not evidence of platform absence;
-- the gap is no longer decision-blocking.
+> **Several legacy / target / mapping Excel or CSV files must be reconciled into a reviewable, reproducible ERP migration/data-validation result. Which AI working method is actually worth adopting?**
 
-Adversarial check:
+Authority / local task envelope:
 
-- a detailed 2026 CSDN `DeepSeek + Draw.io` article was rejected because unsupported quantitative claims, inconsistent setup statements and an incomplete claimed runnable path reduced evidence reliability.
+- `docs/validation/DELIVERY_P06_DATA_RECONCILIATION.md`
 
-Do not reopen P04 or rerun its technical/static/runtime work unless a later real adoption decision exposes a new material risk.
+### Cloud work already completed
 
-## 9. Immediate next action
+Cloud practitioner/current-fact research has established:
 
-P04 is closed.
+- direct conversational reconciliation can work for one-off low-risk jobs, but recurring/high-consequence reconciliation needs a fixed procedure, deterministic execution, explicit checks and exception routing;
+- current spreadsheet-native AI is materially stronger than older chat-only workflows, so `Python + Skill` must not be assumed as the only valid answer;
+- `alchaincyf/huashu-excel` is the strongest discovered packaged audit-oriented method so far, but it is recent and its strongest evidence is author self-practice / author-run pressure testing;
+- candidate was inspected at commit `9348581a87cc03ed8d0b30706631088e922c6027`.
 
-Return to the REAL_USER demand evidence and select the next concrete Problem Card based on expected colleague value and evidence gap, not a fixed sequence.
+### Why one local runtime delta is justified
 
-Possible candidates include P03 prototype, P02 PRD/FS, P05 PPT, Excel/data, testing, or a concrete Codex/WorkBuddy workflow tied to real work. They are candidates only.
+The remaining decision is narrow:
 
-For the next card:
+> **Does Huashu-Excel materially improve ERP-style multi-file reconciliation over a competent plain code-first local Agent, enough to justify adoption overhead?**
 
-- preserve the real situation + actual input + concrete action + expected deliverable + material constraints;
-- start practitioner discovery before tool-centric research;
-- inspect original Tool/Skill and current facts only where they change the decision;
-- do a targeted delta only when a material evidence gap remains;
-- stop when the recommendation is decision-stable;
-- do not carry P04-specific Draw.io details into a new framework.
+This can change the recommendation and cannot be settled confidently from author evidence alone.
 
-## 10. Loop Engine position
+### Local Agent should do only this
+
+Use the Task Envelope in `DELIVERY_P06_DATA_RECONCILIATION.md`.
+
+Core comparison:
+
+- fresh baseline context: plain local Agent + code execution, no Huashu knowledge;
+- fresh with-Skill context: same task/data, allowed to read/use pinned Huashu repository in a temporary isolated checkout;
+- hidden ground truth kept out of both execution contexts;
+- synthetic ERP-like data only;
+- stop when the comparison changes or stabilizes the adoption decision.
+
+Do not broadly search the Web, globally install the Skill, modify project principles, build a benchmark framework or start another Problem Card.
+
+## 7. Cloud/local collaboration rule
+
+For local Task Envelopes:
+
+- **fixed:** real job, decision question, hard boundaries, escalation conditions, evidence return;
+- **flexible:** exact fixture, tools, scripts, output format, search/execution details and internal iteration unless evidence validity requires otherwise.
+
+Local Agent escalates only when the task would change project direction, require credentials/risky installation, or cross a hard boundary. Minor execution choices should be made locally.
+
+Cloud does not rerun completed local work by default; it inspects key evidence, does the adversarial decision check, and owns the current stop/final recommendation judgement.
+
+## 8. Immediate next action
+
+Wait only for the bounded P06 local evidence package if the local Agent is being used.
+
+After it returns, cloud should:
+
+1. inspect the evidence and key artifacts;
+2. compare against existing practitioner/current-fact evidence;
+3. decide the P06 recommendation boundary: spreadsheet-native AI vs plain code-first Agent vs Huashu-Excel (or a clearly differentiated combination);
+4. close P06 when further work is unlikely to change what an ERP colleague should do.
+
+Do not start P03/P07/P10 in parallel.
+
+## 9. Loop Engine position
 
 Current decision:
 
-> **Use Loop Engine thinking as a controlled single-card pattern; do not authorize unattended self-governing multi-card loops yet.**
-
-Safe pattern:
+> **Use controlled single-card Loop thinking; do not authorize unattended self-governing multi-card loops.**
 
 ```text
 Problem Card
@@ -179,44 +168,24 @@ Problem Card
 → inspect serious Tool/Skill/method
 → fact/safety check only where needed
 → material evidence gap?
-    yes → targeted delta discovery
+    yes → targeted delta
     no  → recommendation package
 → adversarial stop check
 → review checkpoint / stop
 ```
 
-Loop readiness is **behavior-based**, not `after 1–2 more cards`.
+Loop readiness is behavior-based, not card-count-based.
 
-Broader controlled batching only becomes reasonable when heterogeneous real jobs repeatedly show that the process can:
+## 10. Anti-drift
 
-- avoid early stopping;
-- classify evidence roles correctly;
-- use delta search only when it can change the decision;
-- stop based on decision quality, not source count;
-- avoid tool-centric drift and governance expansion.
+- do not add scoring/Gates/databases/taxonomies for one-off failures;
+- do not mistake technical completeness for colleague usefulness;
+- do not require independent evidence when it adds no decision value;
+- do not let author self-tests masquerade as independent field evidence;
+- do not turn runtime testing into the default;
+- do not maximize sources/tests/iterations;
+- do not autonomously modify project principles.
 
-Even then, batches stay small and bounded, with review checkpoints when judgement is uncertain.
-
-Loop must not autonomously change project principles, install Skills/MCPs/adapters, trigger runtime tests without material reason, declare product PASS, maximize source/platform counts or process cards indefinitely.
-
-## 11. Cloud/local split
-
-Cloud/ChatGPT should directly do what it can do well: product judgement, Web/GitHub practitioner research, source prioritization, current fact checks, adversarial review, lightweight static inspection, GitHub maintenance and final curation decisions.
-
-Use local Agent only when local capability materially adds evidence: local-only adapters, inaccessible source acquisition, justified runtime checks or evidence requiring the user's environment.
-
-This is a capability/cost boundary, not a rigid ideology.
-
-## 12. Working style / anti-drift
-
-- Chinese; concise, practical.
-- First principles + adversarial review for solution changes.
-- Inspect actual repo/docs before project claims.
-- Do not proliferate frameworks, scores, gates, databases or taxonomies.
-- Do not fabricate REAL_USER evidence.
-- Do not turn `practitioner-first` into `independent-third-party-only`.
-- Do not turn a known Bilibili recall gap into a new Bilibili quota.
-- Do not turn Loop into an activity-maximizing automation.
-- The success test remains:
+Success test:
 
 > **Would we directly send this small package to a colleague because it saves search/learning time and helps them act on real project material?**
