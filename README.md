@@ -59,25 +59,17 @@
 
 ### P01 — 会议/Workshop → 需求包
 
-状态：
-
 > **high task fit / low independent validation**
 
 保留用于实践，不作为强验证证据。
 
 ### P04 — 业务逻辑 → 可编辑流程图
 
-状态：
-
 > **CLOSED — recommendation stable with explicit coverage gaps**
 
-Authority:
-
-- `docs/validation/P04_PRACTITIONER_CURATION_RESULT_02.md`
+Authority: `docs/validation/P04_PRACTITIONER_CURATION_RESULT_02.md`.
 
 ### P06 — Excel/CSV → 对账与验证
-
-状态：
 
 > **CLOSED — plain code-first default with explicit reconciliation controls; Huashu optional**
 
@@ -88,34 +80,28 @@ Authorities:
 
 ### P03 — 需求/规则 → 可点击原型
 
-状态：
-
 > **CLOSED — spec-first code prototype default; Figma Make conditional upgrade**
 
-Authority:
+Authority: `docs/validation/P03_PROTOTYPE_CURATION_RESULT_02.md`.
 
-- `docs/validation/P03_PROTOTYPE_CURATION_RESULT_02.md`
+### P07 — 代码库/程序 → 理解逻辑、反推 FS、缺陷假设
 
-当前可信结论是：先把角色、字段、状态、校验和异常变成可执行的交互契约，再生成有边界的可点击原型；普通代码型 Agent 已可作为默认路径。Figma Make 的主要增益在既有 Figma / 设计系统 / 协作链路，不是所有原型任务的必选项。
+> **CLOSED — traceable read-only repo exploration default; conditional LSP/semantic or ERP-native MCP upgrade**
+
+Authority: `docs/validation/P07_CODEBASE_UNDERSTANDING_RESULT_02.md`.
+
+当前可信结论：普通本地 Git 仓库先用 repo-aware Agent 做范围明确、只读、可追溯的分层理解；只有文本搜索/跨符号关系成为真实瓶颈时才升级 LSP/语义导航。若权威代码、where-used、ATC、测试等信息位于系统侧，ERP-native MCP 才形成实质能力增益，SAP ABAP 是当前明确例子。代码解释不等于业务意图，反推 FS 必须区分事实、推断和待业务确认项。
 
 ## 2026-08-30 纠错仍然有效
 
-长上下文冲刺中产生的以下文件仍然无效：
+以下旧长上下文产物仍然无效：
 
 - `docs/validation/P03_PROTOTYPE_CURATION_RESULT_01.md` — **INVALIDATED**
 - `docs/validation/P07_CODEBASE_UNDERSTANDING_RESULT_01.md` — **INVALIDATED**
 
-P03 的新 Result 02 不会“洗白”Result 01。
+只有 Result 02 是当前权威。
 
-仍然撤回：
-
-- “验证阶段已经完成”；
-- “Minimal Curator V0.1 已验证”；
-- “当前已经正式进入 REAL USER PILOT”。
-
-完整纠错记录：
-
-- `docs/REBASE_AUDIT_20260830.md`
+原来的“验证完成 / Minimal Curator V0.1 已验证 / 已进入 REAL USER PILOT”不会因为新 Result 02 出现而自动恢复；现在需要重新做一次跨卡片审查。
 
 ## 当前 Skill 状态
 
@@ -124,32 +110,25 @@ P03 的新 Result 02 不会“洗白”Result 01。
 - `skills/curating-erp-ai-resources/SKILL.md`
 - metadata version: `0.5.1`
 
-状态仍然是：
+当前状态：
 
-> **experimental candidate — validation incomplete**
+> **experimental candidate — cross-card reassessment pending**
 
-P03 支持“普通 Agent 足够时不要强推专门 Skill”的方向，但还不足以宣告整个 Skill 已验证完成。
+多张可信卡片已经反复支持“真实任务优先、普通 AI 够用时不强推 Skill、只有真实能力缺口才升级”的方向，但还要检查候选 Skill 是否存在卡片过拟合、矛盾或框架膨胀。
 
 ## 当前阶段
 
-当前可信受控检查点是：
+当前可信受控检查点：
 
-> **P03 已可信关闭，下一步重新执行 P07。**
+> **P03、P07 均已可信关闭；下一步不是默认继续做 P10，而是重新审查整个 Curator 方法是否已经足够稳定进入最小真实用户 Pilot。**
 
-P07 必须从头重新做，不能把旧 Result 01 的“repo-aware Agent 默认 / 专门 code-understanding Skill 不必要”等判断当搜索先验。
+立即要回答：
 
-P07 需要保留：
+- 不同任务是否反复支持相同的最小判断逻辑？
+- 候选 Skill 是否忠实表达这个逻辑，而没有夹带 P03/P06/P07 的专用规则？
+- 当前主要未知是否已经从“方法是否成立”转为“真实同事是否愿意采用、是否真的改善交付”？
 
-- 具体 practitioner URL；
-- 实际读到的内容与 discovery-only 的区别；
-- code-Agent / Skill / MCP / implementation 证据；
-- 必要的当前事实核验；
-- 上下文丢失、幻觉、误改、安全/隐私等反证；
-- 为什么可以停止。
-
-只有存在真正会改变采用判断的材料缺口时，才做 local/runtime delta。
-
-P07 可信关闭后，再重新判断异构证据是否足以进入最小真实用户 Pilot。
+如果答案成立，就应该进入小范围真实用户验证，而不是继续为了“更有把握”而机械增加验证卡片。
 
 ## 当前不做
 
@@ -176,4 +155,4 @@ P07 可信关闭后，再重新判断异构证据是否足以进入最小真实�
 
 ## 当前成功标准
 
-> **P07 用可审计证据得出稳定的工程型采用建议，然后重新裁决是否进入 Minimal Curator 的真实用户 Pilot。**
+> **完成跨卡片方法审查：若候选 Curator 已足够稳定/最小，则正式进入一个有边界的 REAL_USER adoption pilot；若存在实质矛盾，只做必要的窄修正后再决定。**
