@@ -2,7 +2,7 @@
 
 Date: 2026-08-30
 
-> Current execution authority. This file was rebased after a context-length audit. `docs/REBASE_AUDIT_20260830.md` records the correction.
+> Current execution authority. This file was rebased after a context-length audit. `docs/REBASE_AUDIT_20260830.md` records the correction. P03 was subsequently rerun from scratch with a trustworthy evidence trail.
 
 ## 1. Product objective
 
@@ -53,8 +53,6 @@ Authority:
 
 - `docs/validation/P04_PRACTITIONER_CURATION_RESULT_02.md`
 
-Reason: concrete source URLs, evidence roles, limitations and coverage gaps are retained and auditable.
-
 ### P06 — accepted closed card
 
 Status:
@@ -67,81 +65,95 @@ Authorities:
 - `docs/validation/P06_LOCAL_RUNTIME_RESULT_01.md`
 - `docs/validation/evidence/p06/`
 
-Reason: bounded runtime evidence exists with a pinned candidate commit, isolated baseline/with-Skill runs, hidden truth and retained artifacts.
+### P03 — accepted closed card after clean rerun
 
-## 3. Invalidated sprint conclusions
+Status:
 
-The following recent sprint conclusions are **not accepted product evidence**:
+> **CLOSED — SPEC-FIRST CODE PROTOTYPE DEFAULT; FIGMA MAKE CONDITIONAL UPGRADE**
 
-- `docs/validation/P03_PROTOTYPE_CURATION_RESULT_01.md`
-- `docs/validation/P07_CODEBASE_UNDERSTANDING_RESULT_01.md`
+Authority:
 
-Why:
+- `docs/validation/P03_PROTOTYPE_CURATION_RESULT_02.md`
 
-- the retained files do not provide a trustworthy source-acquisition/citation trail for the external claims they use;
-- some conclusions were produced during an overloaded long-context sprint and cannot be distinguished reliably from model synthesis;
-- therefore their `CLOSED` verdicts were unsupported.
+Reason accepted:
 
-Consequently, these statements are withdrawn:
+- the rerun starts from the survey-derived task, not the invalid prior conclusion;
+- retained external sources have concrete URLs and evidence roles;
+- Chinese practical workflow, independent practitioner failure evidence, current platform facts and original Skill implementations are separated;
+- limitations and enterprise-data boundaries are explicit;
+- the stop decision explains why synthetic runtime A/B would not change the adoption decision.
 
-- “P03 is closed”;
+Do not use `P03_PROTOTYPE_CURATION_RESULT_01.md` as supporting evidence.
+
+## 3. Invalidated sprint conclusions remain invalid
+
+The following files remain **not accepted product evidence**:
+
+- `docs/validation/P03_PROTOTYPE_CURATION_RESULT_01.md`;
+- `docs/validation/P07_CODEBASE_UNDERSTANDING_RESULT_01.md`.
+
+P03 Result 02 does not rehabilitate Result 01.
+
+The earlier claims remain withdrawn:
+
 - “P07 is closed”;
 - “five heterogeneous cards prove Curator-method validation complete”;
 - “Minimal Curator V0.1 is validated”;
 - “the project has already entered REAL USER PILOT as the current authoritative phase”.
 
-The simplified Skill produced in that sprint remains only an **experimental candidate implementation**, not validated product evidence.
+The simplified Skill remains an **experimental candidate implementation**.
 
 ## 4. Correct current checkpoint
 
-The last trustworthy controlled checkpoint is:
+> **P03 is now closed with trustworthy evidence. P07 is the next controlled engineering-type validation card.**
 
-> **P06 closed. P03 is the next controlled heterogeneous validation card.**
+Do not restart P04, P06 or P03 without a new material reason.
 
-This is the same checkpoint that existed before the invalid sprint close.
+P07 is preferred over P10 because:
 
-Do not restart P04 or P06 without a new material reason.
+- it is materially different from prototype/diagram/data artifact work;
+- repository context, code correctness and technical evidence dominate;
+- the previous P07 close was invalid, so a clean rerun directly tests whether the corrected evidence discipline survives an engineering task.
 
-## 5. Immediate next action — rerun P03 correctly
+## 5. Immediate next action — rerun P07 correctly
 
-P03:
+P07 real job from survey semantics:
 
-> **requirements / rules → clickable prototype / UI demo**
+> A consultant/developer inherits an SAP/Oracle/custom-system codebase or enhancement and must understand structure, business logic, call chains, potential changes/defects/performance issues and sometimes reverse-generate functional logic/specification.
 
-Run it from scratch. Do not use the invalid P03 verdict as a search prior or answer.
+Run P07 from scratch. Do not use the invalid P07 verdict as a search prior or answer.
 
 Required evidence flow:
 
 ```text
 survey-derived real job
-→ practitioner discovery with concrete source URLs
-→ actually read serious sources
-→ inspect relevant Tool / Skill / implementation
+→ practitioner-first discovery with concrete URLs
+→ actually read serious workflows/cases
+→ inspect relevant code-Agent / Skill / MCP implementations
 → verify only current facts that affect adoption
-→ record limitations / counter-evidence
-→ material evidence gap?
-    yes → targeted delta
+→ retain failure / context / safety / correctness counter-evidence
+→ decide whether plain repo-aware Agent is enough or specialist capability materially helps
+→ material unresolved evidence gap?
+    yes → targeted static/runtime/local delta
     no  → recommendation package
 → adversarial stop check
 ```
 
-For every retained external source, preserve enough information to audit:
+For every retained external source, preserve:
 
 - concrete URL/source identity;
-- whether content was actually read or only discovered;
+- actually read vs discovery-only;
 - evidence role;
 - material claim supported;
-- important limitation/counter-evidence.
+- limitation/counter-evidence.
 
-A plausible synthesis without traceable sources is not accepted evidence.
+Runtime/local testing is **not default**. Use it only if a concrete unresolved adoption decision can change because of the result.
 
-Runtime/local A/B is **not default**. Use it only if a concrete unresolved adoption decision could change because of the result.
+## 6. After P07
 
-## 6. After P03
+After a trustworthy P07 close, reassess heterogeneous evidence as a whole.
 
-After a trustworthy P03 close, select one engineering-type card such as P07 code understanding or P10 testing and execute it with the same evidence discipline.
-
-Only then reassess whether heterogeneous evidence is sufficient to package a minimal user-facing Curator and move into real-user adoption validation.
+Only then decide whether the method is stable enough to package a minimal user-facing Curator and enter real-user adoption validation.
 
 Do not predeclare that transition now.
 
@@ -151,9 +163,13 @@ Current candidate:
 
 - `skills/curating-erp-ai-resources/SKILL.md`
 
-Its simplified leverage-first direction is broadly aligned with the North Star, but it is **experimental** until the validation sequence is trustworthy again.
+Status:
 
-Do not describe it as proven Minimal Curator V0.1.
+> **experimental candidate — not validated Minimal Curator V0.1**
+
+P03 supports the leverage-first direction but does not justify adding prototype-specific rules or claiming general validation.
+
+Future changes must be driven by repeated trustworthy evidence, not by completing a framework.
 
 ## 8. Cloud / local split
 
@@ -210,8 +226,4 @@ Do not add without evidence of need:
 
 ## 11. Current milestone
 
-Current milestone is **not** “real users love the product” yet.
-
-It is:
-
-> **Complete P03 with a trustworthy, auditable evidence chain and a stable colleague recommendation; then test one engineering-type heterogeneous card before deciding whether the method is ready for a minimal real-user pilot.**
+> **Complete P07 with a trustworthy, auditable evidence chain and a stable colleague recommendation. Then reassess whether the heterogeneous evidence base is sufficient for a minimal real-user pilot.**
