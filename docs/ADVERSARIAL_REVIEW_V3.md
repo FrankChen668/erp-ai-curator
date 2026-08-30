@@ -1,6 +1,6 @@
 # Adversarial Review V3 — AI Leverage Model
 
-Date: 2026-08-29
+Date: 2026-08-30
 
 Question: if `AI_LEVERAGE_MODEL_V3` is wrong, how will it fail?
 
@@ -162,8 +162,6 @@ Mode C 只能在“专门方案增量价值不确定且引入成本不可忽略�
 
 没有这两项就不是合法 Mode C。
 
-**Already in blueprint.**
-
 ---
 
 ## A8 — Hidden setup cost
@@ -174,15 +172,13 @@ Mode C 只能在“专门方案增量价值不确定且引入成本不可忽略�
 
 ### Finding
 
-Important and currently under-emphasized.
+Important.
 
 ### Correction
 
 Mode B comparison 必须把 **adoption cost** 当成增量价值的一部分。
 
 不是“能力更强”就自动值得推荐。
-
-Current blueprint already asks whether startup cost is worth it; retain prominently.
 
 ---
 
@@ -194,7 +190,7 @@ Current blueprint already asks whether startup cost is worth it; retain prominen
 
 ### Finding
 
-High-impact omission.
+High-impact.
 
 ### Correction
 
@@ -204,9 +200,7 @@ Task understanding must capture material data constraints when relevant:
 - whether source code / customer data can leave environment;
 - enterprise approval / account constraints.
 
-This is not a universal security audit. It is a **hard usability constraint**: a solution that cannot legally/operationally receive the user's data is not a solution.
-
-**Add to V3 blueprint and North Star as a key constraint example.**
+这不是 universal security audit，而是**可用性硬约束**。
 
 ---
 
@@ -214,25 +208,15 @@ This is not a universal security audit. It is a **hard usability constraint**: a
 
 ### Attack
 
-User says “find me a Skill”, but the right answer may be “you don't need one”. Should explicit resource requests always force Mode B?
+用户说“find me a Skill”，但正确答案可能是“不需要装”。
 
 ### Finding
 
-No.
+Yes.
 
 ### Correction
 
-Explicit request creates a fast path, but the Skill should still detect obvious over-tooling.
-
-Example:
-
-> “Find me a Skill to summarize this one paragraph.”
-
-Correct answer can remain Mode A.
-
-Fast path means less ceremony, not automatic acceptance of the user's solution hypothesis.
-
-**Blueprint needs a small wording correction.**
+Explicit request creates a fast path, not automatic Mode B acceptance.
 
 ---
 
@@ -240,7 +224,7 @@ Fast path means less ceremony, not automatic acceptance of the user's solution h
 
 ### Attack
 
-After avoiding official-document gravity, could the system underweight official sources for product capabilities?
+避免官网重力以后，会不会反过来低估官方事实？
 
 ### Finding
 
@@ -248,12 +232,10 @@ Possible.
 
 ### Correction
 
-Separate two questions:
+分开两个问题：
 
-1. **Best user working resource** — official has no automatic priority;
-2. **Truth of volatile/native capability claims** — official/current original source has high priority.
-
-Current V3 preserves this distinction.
+1. **Best user working resource** — 官方没有默认优先权；
+2. **Truth of volatile/native capability claims** — 官方 / 当前原始来源优先。
 
 ---
 
@@ -261,25 +243,25 @@ Current V3 preserves this distinction.
 
 ### Attack
 
-A strong model may already reason exactly this way if asked once. Is the Skill unnecessary?
+强模型本身可能已经能完成这些判断，Skill 是否多余？
 
 ### Finding
 
-Still the largest unresolved product risk.
+Still a major unresolved risk.
 
 ### Decision
 
-Do not implement merely because the blueprint looks good.
+不要因为 blueprint 看起来完整就实现 Skill。
 
-The future Skill is justified only if fresh real tasks show ordinary conversations repeatedly:
+只有真实任务反复证明普通对话会：
 
-- over-tool;
-- search too early;
-- miss capability gaps;
-- fail to distinguish A/B/C;
-- recommend resources with unclear incremental value.
+- over-tool；
+- search too early；
+- miss capability gaps；
+- 推荐资源但说不清增量价值；
+- 在来源与证据选择上反复偏航；
 
-If not, keep the model as a training method / prompt framework rather than a Skill.
+才值得封装。
 
 ---
 
@@ -287,7 +269,7 @@ If not, keep the model as a training method / prompt framework rather than a Ski
 
 ### Attack
 
-Even without a taxonomy, repeated examples may slowly become de facto hard-coded scenarios.
+示例会不会慢慢变成事实上的 hard-coded scenario？
 
 ### Finding
 
@@ -295,15 +277,7 @@ Real long-term risk.
 
 ### Correction
 
-Only codify a lesson if it can be stated as a **general capability principle**.
-
-Good:
-
-> editable output format can justify specialization.
-
-Bad:
-
-> draw.io tasks always use jgraph.
+只固化**通用能力原则**，不固化“某类任务必用某工具”。
 
 ---
 
@@ -311,7 +285,7 @@ Bad:
 
 ### Attack
 
-Owner-generated tasks + cloud reasoning can still prove its own model.
+Owner-generated tasks + cloud reasoning 会不会继续证明自己的模型？
 
 ### Finding
 
@@ -319,24 +293,192 @@ Yes.
 
 ### Decision
 
-OWNER_REAL replay is design falsification only.
+OWNER_REAL replay 只用于 design falsification。
 
-Primary product validation remains independent REAL_USER behavior / judgement when available.
+Primary product validation 仍来自真实用户问题、真实资源使用和实际 judgement。
 
-Do not invent user quotas or synthetic coverage to compensate for missing data.
+---
+
+## A15 — Official gravity: 把官网当用户答案
+
+### Attack
+
+Agent 为了“可信”会不会优先返回厂商文档，而用户真正需要的是别人怎么用、有哪些坑、值不值得学？
+
+### Finding
+
+Historically observed.
+
+### Correction
+
+对采用/学习型问题，默认顺序应是：
+
+```text
+第三方实操 / 测评 / 案例
+→ 原始 Skill / Tool / 仓库
+→ 官方当前事实兜底
+```
+
+官方可以证明“功能存在”，不能自动证明“这是最值得用户学习的资源”。
+
+**Permanent boundary.**
+
+---
+
+## A16 — Practitioner-first overcorrection: 把网红经验当事实
+
+### Attack
+
+第三方优先后，会不会被高赞视频、公众号、UP主测评带偏？
+
+### Finding
+
+Real risk.
+
+### Correction
+
+第三方实操优先解决“怎么用 / 有什么坑”，但：
+
+- 必须实际读取具体内容；
+- engagement 只影响 discovery order；
+- 版本、安装、兼容、价格、隐私、许可证等事实必须回原始/官方核验；
+- 如果隐藏作者名和互动数据后内容不值得推荐，则淘汰。
+
+**Practitioner-first ≠ practitioner-authority.**
+
+---
+
+## A17 — Access failure ≠ content absence
+
+### Attack
+
+当前 Agent 读不到 B站字幕、小红书正文或某公众号时，会不会得出“这个平台没好内容”或干脆不搜？
+
+### Finding
+
+Historically observed.
+
+### Correction
+
+必须分开：
+
+```text
+Discovery available?
+Full-content acquisition available?
+Content quality if acquired?
+```
+
+普通 Web 能发现就先发现；完整内容拿不到时再按需使用已批准 Adapter；仍拿不到则记录 Coverage gap。
+
+**任何 acquisition failure 都不能直接转化成平台价值判断。**
+
+---
+
+## A18 — Validation-lab drift: 每个候选都要自己测
+
+### Attack
+
+为了避免误推荐，会不会形成：发现一个 Skill → 静态审查 → 安装 → runtime → artifact → 再测一轮，最终 Curator 变成工具实验室？
+
+### Finding
+
+Already happened.
+
+### Correction
+
+本地实测是**例外**，不是默认流水线。
+
+仅当：
+
+- 高价值第三方证据缺失；
+- 第三方结论冲突；
+- 安装/权限/安全风险高；
+- 准备作为内部长期标准；
+- 关键能力仅靠文档无法确认；
+
+才做最小实测。
+
+否则 `第三方实操 + 原始实现 + 必要官方事实` 足以进入推荐。
+
+**Do not prove every recommendation from scratch.**
+
+---
+
+## A19 — Ecosystem reinvention: 重复建设别人已有的知识库
+
+### Attack
+
+项目会不会开始自己整理 PM Skills、WorkBuddy 教程、Codex 手册、PRD/原型/流程图方法论，最后变成另一个内容库？
+
+### Finding
+
+High risk.
+
+### Correction
+
+现有 PM/BA Skill 库、Agent 教程、社区蓝皮书、作者专题、实战系列首先作为 **feeder ecosystem**。
+
+Curator 的价值是：
+
+> **把已有生态映射到真实 ERP 工作问题，并筛到少量最值得用的内容。**
+
+只有现有生态有明确缺口时才补 Curator synthesis，而且必须标注。
+
+**Curator before Builder.**
+
+---
+
+## A20 — Research-environment bias
+
+### Attack
+
+本地研究 Agent 是 Codex，会不会自然更容易发现和推荐 Codex Plugin / GitHub Skill，而忽略普通顾问更低摩擦的浏览器、SaaS、视频教程和社区工作流？
+
+### Finding
+
+Observed in P04A.
+
+### Correction
+
+当一个任务存在明显不同的采用边界时，至少审视一个**非当前研究环境原生**的可行路径。
+
+不是为了凑方案，而是为了防止“我用什么研究，就推荐什么”。
+
+---
+
+## A21 — Platform checklist drift
+
+### Attack
+
+既然强调 B站、微信、小红书，会不会又变成“每题必须三平台都搜一遍”？
+
+### Finding
+
+Possible.
+
+### Correction
+
+第三方实操优先是**证据角色原则**，不是平台配额。
+
+如果一个高质量 B站教程已经给出完整实操，不需要为了形式再搜小红书；反之亦然。
+
+来源数量和平台覆盖率都不是 KPI。
 
 ---
 
 # Final adversarial conclusion
 
-V3 is materially better aligned with the original product intent than the resource-first Phase 2/3 model, but only if three boundaries remain explicit:
+V3 只有在以下边界同时成立时才不会再次偏航：
 
-1. **Work-method navigation, not universal task execution**;
-2. **General AI sufficiency must still consider true capability gaps and source grounding**;
-3. **Specialized capability must justify its adoption/privacy cost, not merely be more feature-rich.**
+1. **真实工作问题驱动，而不是工具/场景目录驱动；**
+2. **用户采用问题优先看第三方实操/测评，官方主要负责易变化事实核验；**
+3. **平台获取能力与平台内容价值严格分开；**
+4. **现有 PM/Agent/WorkBuddy/Skill 生态优先复用，Curator before Builder；**
+5. **runtime / artifact test 是必要时的最小补证，不是默认流水线；**
+6. **研究环境、作者名气、互动量都不能替代任务匹配和具体内容证据。**
 
-The biggest unresolved question remains:
+最大的产品风险已经从“能不能搜到资源”转成：
 
-> **Does this need to be a Skill at all, or is it already a good reusable working method for a strong model?**
+> **能否稳定从大量现成互联网经验中，挑出真正能解决当前 ERP 项目问题的少量内容，而不重新造轮子。**
 
-Do not resolve that question by adding more architecture. Resolve it later with fresh real tasks.
+下一阶段应该用持续真实采编来回答，而不是继续增加验证架构。
