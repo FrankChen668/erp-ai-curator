@@ -1,0 +1,83 @@
+{
+  "path": "C:\\Users\\CHENHU\\AppData\\Local\\Temp\\erp-ai-curator-p06-runtime-delta\\with_skill_context\\inputs\\legacy_extract.xlsx",
+  "sheet": "Legacy Extract",
+  "checks": [
+    {
+      "name": "行数守恒",
+      "passed": true,
+      "detail": "数据区跨 13 行 = 明细 13 + 已排除 0 + 空行 0",
+      "severity": "error",
+      "evidence": {
+        "span": 13,
+        "detail": 13,
+        "blank": 0
+      }
+    },
+    {
+      "name": "对账 · E列「Amount (CNY)」 vs 第16行「TOTAL」",
+      "passed": false,
+      "detail": "表内写 11,540.00，按「全表明细」取 13 行算得 23,060.00  ✗ 差 11,520.00（99.83%）",
+      "severity": "error",
+      "evidence": {
+        "claimed": 11540.0,
+        "actual": 23060.0,
+        "basis": "全表明细",
+        "rows": [
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "cell": "E16"
+      }
+    },
+    {
+      "name": "去重影响 · E列「Amount (CNY)」",
+      "passed": true,
+      "detail": "含重复 23,060.00，去重后 22,110.00，相差 4.12% —— 这两个数都对，取哪个取决于业务口径。必须明确声明用的是哪个。",
+      "severity": "warn",
+      "evidence": {
+        "with_dup": 23060.0,
+        "dedup": 22110.0
+      }
+    },
+    {
+      "name": "异常值 · E列「Amount (CNY)」",
+      "passed": true,
+      "detail": "2 个值落在 IQR 1.5 倍之外：3,900, 6,400。Twyman's Law：看起来异常的数字通常是错的 —— 逐个确认它们是真实业务（大客户、大促）还是脏数据（单位错、多打一个零）。",
+      "severity": "warn",
+      "evidence": {
+        "outliers": [
+          3900.0,
+          6400.0
+        ]
+      }
+    }
+  ],
+  "master_check": false,
+  "caliber": {
+    "明细行范围": "第 3-15 行",
+    "明细行数": 13,
+    "已排除行": [
+      16,
+      17
+    ],
+    "重复行": [
+      9
+    ],
+    "去重后行数": 12,
+    "表头行": [
+      2
+    ],
+    "说明": "以下所有数字均基于「明细行、未去重」口径。若业务上应当去重，结果会变化，见「去重影响」检查项。"
+  }
+}
