@@ -24,7 +24,7 @@ The survey validates demand, not solution outcome.
 
 ## 2. Major source-strategy correction
 
-New supported direction:
+Supported direction:
 
 > **For practical delivery questions, third-party practitioner guides/reviews/cases should normally be the first discovery lane; original Tool/Skill and official docs are supporting verification layers.**
 
@@ -46,6 +46,7 @@ Observed in current cloud research:
 
 - Bilibili public Web search can surface current practical tutorials, descriptions and engagement metadata for WorkBuddy, Codex, draw.io Skills and AI PM workflows;
 - direct Bilibili page opening/transcript acquisition can still intermittently hit 412/anti-bot, so discovery availability and full-content availability must be distinguished;
+- one failed Bilibili URL path is not enough to conclude that practitioner evidence is unavailable; later cloud falsification immediately surfaced relevant draw.io / PM Skill walkthroughs through ordinary public Web;
 - WeChat Search → Reader remains a qualified path for original public-article evidence;
 - Xiaohongshu remains an acquisition/indexing coverage gap; do not infer content scarcity from access difficulty.
 
@@ -95,31 +96,58 @@ The previously prepared `P04B` runtime pilot is now:
 
 It should run only if practitioner evidence + original implementation + current fact checks leave a material unresolved risk.
 
-## 7. Runtime-testing policy
+## 7. P04 practitioner-first curation wave
 
-Do not use this ladder as a mandatory pipeline for every resource.
+Status: **USEFUL WITH GAPS / GOAL NOT YET COMPLETE**
+
+Result authority:
+
+- `P04_PRACTITIONER_CURATION_RESULT_01.md`
+
+Useful retained assets:
+
+- `Castaldo-Solutions/process-builder` — strong task-fit implementation/method candidate, but author self-practice rather than independent practitioner validation;
+- official `jgraph/drawio-mcp` — strong implementation/current-fact anchor;
+- Anttu draw.io MCP article — useful independent technical operation/troubleshooting companion, but not sufficiently matched to ERP/business-process mapping.
+
+Why the goal is not complete:
+
+- the main practical guide is still the tool/method author's own write-up;
+- the independent companion is too technical to cover the business-process consulting job end-to-end;
+- the run stopped Bilibili discovery too early after a 412 path even though ordinary public Web can surface relevant PM/draw.io practical videos;
+- the conclusion “interview → JSON → local generator is the most reliable path” is stronger than current comparative evidence supports;
+- the run partially reframed the task into rejecting “one-click enterprise BPMN”, which was not the actual user success criterion.
+
+Next step is **delta practitioner discovery only**, not a repeat of repository/runtime verification.
+
+## 8. Runtime-testing policy
+
+Do not use a technical test ladder as a mandatory pipeline for every resource.
 
 Local runtime test is justified only when:
 
-- credible practical evidence is absent/contradictory;
-- install/permission/privacy risk matters;
+- credible practical evidence is absent/contradictory after reasonable practitioner discovery;
+- install/permission/privacy risk matters and static review cannot resolve it;
 - exact local reproducibility is essential to training;
 - the candidate may become a repeated internal standard.
 
 Otherwise curation should stop earlier.
 
-## 8. Main remaining uncertainties
+## 9. Main remaining uncertainties
 
+- can practitioner-first discovery consistently find a genuinely share-worthy guide, not only a strong self-authored Tool/Skill explanation;
 - which practitioner sources/creators consistently produce the best resources for ERP delivery jobs;
 - whether the curated package is genuinely useful to colleagues on real material;
 - which existing PM/Agent/WorkBuddy resource ecosystems deserve recurring feeder status;
 - whether platform-specific acquisition gaps materially harm recall;
 - whether a minimal production Curator Skill is eventually worth packaging.
 
-## 9. Main risk now
+## 10. Main risk now
 
-The dominant risk is no longer “insufficient validation”.
+The dominant risk is not insufficient technical validation.
 
 It is:
 
-> **over-validation and framework-building causing the project to miss the actual value: finding and curating existing practical experience faster than colleagues can find it themselves.**
+> **premature search stopping or source-role confusion causing the Curator to return a strong implementation candidate before it has actually found the practitioner experience the user asked for.**
+
+The project should improve this through real curation work, not by adding another governance framework.
