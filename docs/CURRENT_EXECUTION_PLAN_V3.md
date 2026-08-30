@@ -5,180 +5,129 @@ Status: **CURRENT — CONTROLLED REAL-USER USE**
 
 > Navigation authority: `docs/PROJECT_MAP.md`. Product authority: `docs/PROJECT_NORTH_STAR.md`.
 
-## 0. Owner execution rule
-
-Cloud/ChatGPT continues every useful cloud-executable next step. It stops only for a genuine Owner decision, Local Agent-only access/runtime, or external evidence barrier. Authority: `docs/OWNER_EXECUTION_RULES.md`.
-
 ## 1. Product objective
 
-> **面对真实 ERP / 企业信息化工作任务，判断当前 AI / 工具链是否已经够用；如果不够，或用户明确要找现成实践资源，从互联网上已经存在的实践、Tool / Skill / MCP / 方法 / 教程中筛出少量真正值得优先学习和采用的方案。**
+> **面对真实 ERP / ToB / 企业信息化工作任务，帮用户找到最值得学习/采用的现成 AI 实践与资源，并判断是否真的需要新增能力。**
 
-Main chain:
+Runtime main chain:
 
 ```text
-real task + current baseline + hard constraints
-→ distinguish adoption decision vs explicit practice-resource intent
-→ AI leverage / capability-gap judgement
-→ practitioner discovery when requested/decision-changing
-→ original implementation verification
-→ decision-changing official facts
-→ compact adoption/resource recommendation
+real task / role / artifact / current toolchain / hard constraints
+→ understand whether the user wants practices, adoption advice, or both
+→ practitioner-first discovery when practices are requested/material
+→ verify serious candidates and decision-changing current facts
+→ select a small number of high-fit recommendations
+→ stop
 ```
 
 Curator 不是工具目录、资源数据库、执行 SOP 生成器或工具认证实验室。
 
-## 2. 当前方法结论
-
-历史异构任务、边界回归与 Curation Pack 01 已足以支持稳定的 pre-user 方法骨架：
-
-1. 从真实任务、材料、当前 baseline、交付物和硬约束开始；
-2. A/B/C 由 capability gap + adoption cost 决定；
-3. **是否新增工具**和**是否明确要求找最佳实践/教程**是两个不同 intent；
-4. 用户明确找实践/教程时，即使 A，也要完成 practitioner curation；
-5. external practice/adoption question 优先 practitioner experience，再核验 implementation/current facts；
-6. source-grounded analysis 优先于模型记忆；
-7. runtime/local test 只在 decision-changing 时出现；
-8. 强匹配优先于覆盖率，结论稳定即停止。
-
-没有证据支持重建 Gate、评分、taxonomy、资源数据库或多 Agent pipeline。
-
-## 3. 当前 Skill
+## 2. Current Skill — 0.8.0
 
 - `skills/curating-erp-ai-resources/SKILL.md`
-- version: **0.7.1**
 - release class: **CONTROLLED USER TRIAL**
 - product value: **UNVALIDATED**
 
-### 0.7.1 — real controlled-trial defect correction
+0.8.0 是 runtime simplification，不是新方法扩张。
 
-真实用户用 0.7.0 请求“给我找做流程图的最佳实践”，结果：
+已移出 runtime 主流程：
 
-- 很快判 A；
-- 主要引用 OMG / Camunda / Microsoft / ASQ 等官方/规范；
-- 自己写了通用流程图教程和 Prompt；
-- 没有真正筛出 Bilibili/公众号/小红书/产品经理/ToB practitioner 实战资源。
+- A/B/C 强制分类；
+- adoption-consistency reference；
+- decision-boundaries reference；
+- 多套固定输出结构和重复自检。
 
-公开 Web 随后能直接发现多个高度相关、互动量明显的 Bilibili 实操资源，因此这不是“互联网缺资源”，而是 runtime discovery 没有执行到位。
+仍保留的核心行为：
 
-根因：0.7.0 中 `A — 外部资源默认 0` 容易被误执行为“判 A 后无需继续实践资源发现”。
+1. 从用户真实任务、当前工具和关键约束出发；
+2. 用户明确找最佳实践/教程时，真正完成 practitioner/resource curation；
+3. 新 Tool/Skill 只有在当前工具存在重要能力缺口且值得采用成本时才推荐；
+4. practitioner/author/implementation/official/synthesis 证据角色不混淆；
+5. 只核验 serious candidates 和会改变选择的当前事实；
+6. 强匹配优先，少推荐，结论稳定即停。
 
-0.7.1 修正：
+Runtime references 只保留：
 
-> **A/B/C 只决定是否新增专门能力；用户明确请求最佳实践/教程时，practitioner discovery 是任务本身。**
+- `references/practitioner-discovery.md`
+- `references/evidence-and-safety.md`
 
-新增按需 reference：
+## 3. 为什么做 0.8.0
 
-- `skills/curating-erp-ai-resources/references/practitioner-discovery.md`
+0.7.0/0.7.1 的真实使用暴露了一个更高层问题：每次失败后加规则虽然局部正确，但逐渐形成 patch-on-patch 的认知复杂度。
 
-它规定中文泛 ERP / ToB / 产品经理/顾问语境的 practitioner discovery、互动信号、候选准入、平台 coverage 与 link-first 输出顺序。
+对照 OpenAI / Anthropic Skill Creator 和 Agent Skills progressive-disclosure 范式，本轮校准结论是：
 
-## 4. Curation Pack 01 — closed
+> **项目仓库可以复杂；runtime Skill 必须只保留模型真正需要的核心程序性知识。**
 
-Authority: `docs/validation/CURATION_PACK_01_ADVERSARIAL_REVIEW.md`.
+0.8.0 不用另一套新 taxonomy 替换旧 taxonomy，而是恢复高自由度 judgment skill 应有的少量启发式。
 
-Pack：
+Authority：`docs/validation/CURATOR_080_RUNTIME_SIMPLIFICATION.md`。
 
-- Case 001 — ERP 操作手册：B；
-- Case 002 — Oracle EBS AI 开发：B；
-- Case 003 — 多顾问周报/PPT 汇总：A；
-- Case 004 — SAP Bug 诊断/系统 evidence access：A → conditional B。
+## 4. Historical evidence remains valid but not runtime logic
 
-结论仍是：
+Curation Pack 01 已关闭：
 
-> **STOP INTERNAL PACK EXPANSION. MOVE TO CONTROLLED REAL-USER USE.**
+- Case 001 — ERP 操作手册：历史 B；
+- Case 002 — Oracle EBS AI 开发：历史 B；
+- Case 003 — 多顾问周报/PPT 汇总：历史 A；
+- Case 004 — SAP Bug/system evidence access：历史 A → conditional B。
 
-0.7.1 不重新打开 pre-user case accumulation；它由真实受控试用缺陷触发。
+这些标签保留为当时的分析记录，不再要求 0.8.0 runtime 先产生 A/B/C。
 
-## 5. 当前里程碑 — Controlled REAL_USER_USE
+## 5. Current milestone — Controlled REAL_USER_USE
 
-受控试用入口：`docs/USER_TRIAL_GUIDE_V1.md`。
+真实用户直接用自然问题。
 
-允许：
+重点观察：
 
-- 少量真实 ERP/企业信息化用户；
-- 用户用自己的自然问题；
-- 已知/批准的 Agent Skills 宿主；
-- 自然接受、修改、拒绝或忽略建议；
-- 记录真正会改变产品判断的反馈。
-
-不要求：
-
-- 固定 benchmark；
-- 用户跑工具测试协议；
-- 长问卷或评分；
-- 为了覆盖类别继续制造 Case。
-
-## 6. 当前最重要的未验证目标
-
-North Star 成功标准仍是用户结果，不是 Skill/Harness 完成度。
-
-当前最大问题：
-
-> **Curator 是否能持续给出比普通 AI/用户自己搜索更高信任、更低噪声、更值得点击的采用/学习建议，并且这个差异足以让真实用户再次使用？**
-
-需要 REAL_USER_USE 回答：
-
-- 是否真正发现用户自己不容易筛到的高价值实践；
-- 是否减少搜索/选型成本；
-- 是否减少错装/错选工具；
-- 是否漏掉企业环境/版本/权限；
-- 是否降低后续返工；
+- 是否真正找到用户想看的 practitioner 实践；
+- 是否减少搜索和筛选成本；
+- 是否过度推荐新工具；
+- 是否漏掉版本/权限/数据边界；
 - 用户是否愿意再次使用。
 
-## 7. Cloud / Local Agent 边界
+不要求用户跑固定 benchmark、工具测试协议或复杂评分。
 
-Cloud owns：
+## 6. Cloud / Local boundary
 
-- 对自然真实反馈做证据审查；
-- 当前 Web/GitHub practitioner discovery 与事实核验；
+Cloud 自动处理：
+
+- Web/GitHub discovery 与事实核验；
+- 真实反馈的证据审查；
 - 窄缺陷修正；
 - GitHub authority/Harness 维护。
 
-Local Agent 只在真实决策依赖以下内容时接力：
+Local Agent 仅在推荐真正依赖本地 repo/runtime、企业 ERP 环境、受保护 evidence，或必须验证某具体宿主的 Skill/reference 路由时接力。
 
-- 本地项目文件/repo/runtime；
-- 企业 ERP 环境；
-- 当前系统元数据/日志/权限；
-- Cloud 无法获得且会改变结论的受保护 evidence；
-- 需要在某个具体宿主中验证 Skill/reference 路由是否真正执行。
+## 7. Anti-drift
 
-Agent 可用性本身不是派活理由。
+真实使用未证明必要前，不新增：
 
-## 8. Release boundary
-
-### GO
-
-- controlled user trial。
-
-### HOLD
-
-- organization-wide mandatory standard；
-- “产品价值已验证”声明；
-- 全宿主兼容声明；
-- public/open-source release completion。
-
-公开/open-source 发布还需要 Owner 明确 repository license；Agent 不擅自选择。
-
-## 9. Anti-drift
-
-真实用户未暴露必要性前，不新增：
-
-- synthetic validation loop；
-- fixed scenario taxonomy；
-- scoring/Gate；
-- resource database/refresh；
-- mandatory runtime benchmark；
-- multi-Agent orchestration；
+- 新分类框架 / Gate / scoring；
+- synthetic benchmark loop；
+- resource database / auto refresh；
 - creator ranking；
 - source-adapter framework as default architecture；
-- card-specific permanent rules；
-- user test protocol as Curator default output。
+- multi-Agent orchestration；
+- card-specific permanent rules。
 
-0.7.1 practitioner discovery 是**真实缺陷修复**，不是 creator database 或平台配额。
+任何新 runtime 规则进入 Skill 前先问：
 
-## 10. 下一步
+> **删掉它，真实用户结果会明显变差吗？**
 
-1. 完成 0.7.1 窄修正并通过 Project Contract；
-2. 用同一个真实失败 Prompt 做一次 bounded regression，验收 practitioner-link discovery / prioritization / official-role；
-3. 原宿主真实重跑结果若随后返回，用作 cross-host/runtime evidence；
-4. 继续 controlled REAL_USER_USE，不恢复内部 case 扩张。
+不能明确回答“会”，默认不加。
+
+## 8. Current next
+
+> **用 0.8.0 继续 controlled real-user use；不再为了内部完整性继续润色 Skill。**
+
+新的真实反馈出现时，Cloud 立即：
+
+```text
+classify actual user behavior
+→ decide whether it is a product defect, coverage gap or one-off preference
+→ make the smallest correction only if evidence justifies it
+→ update Evidence Status
+```
+
+如果没有新的真实使用证据，不用 synthetic case、benchmark 或额外规则替代当前产品里程碑。

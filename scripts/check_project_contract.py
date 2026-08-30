@@ -2,7 +2,7 @@
 """Deterministic repository-contract checks for ERP AI Curator.
 
 This script intentionally checks only machine-verifiable project facts.
-It does NOT score recommendation quality or validate product value.
+It does NOT score recommendation quality or enforce arbitrary prompt-size targets.
 """
 
 from __future__ import annotations
@@ -22,6 +22,16 @@ CURATION_CASES = [
     ROOT / "docs" / "curation-cases" / "CASE_004_SAP_BUG_DIAGNOSIS_SYSTEM_ACCESS.md",
 ]
 
+RUNTIME_REFERENCES = [
+    SKILL_DIR / "references" / "practitioner-discovery.md",
+    SKILL_DIR / "references" / "evidence-and-safety.md",
+]
+
+REMOVED_RUNTIME_REFERENCES = [
+    SKILL_DIR / "references" / "adoption-consistency.md",
+    SKILL_DIR / "references" / "decision-boundaries.md",
+]
+
 REQUIRED = [
     ROOT / "docs" / "PROJECT_MAP.md",
     ROOT / "docs" / "PROJECT_NORTH_STAR.md",
@@ -34,10 +44,9 @@ REQUIRED = [
     ROOT / "docs" / "PROJECT_CALIBRATION_20260830.md",
     ROOT / "docs" / "validation" / "CURATION_PACK_01_ADVERSARIAL_REVIEW.md",
     ROOT / "docs" / "validation" / "RELEASE_READINESS_ADVERSARIAL_20260830.md",
+    ROOT / "docs" / "validation" / "CURATOR_080_RUNTIME_SIMPLIFICATION.md",
     SKILL,
-    SKILL_DIR / "references" / "adoption-consistency.md",
-    SKILL_DIR / "references" / "decision-boundaries.md",
-    SKILL_DIR / "references" / "evidence-and-safety.md",
+    *RUNTIME_REFERENCES,
     *CURATION_CASES,
 ]
 
@@ -91,6 +100,9 @@ if SKILL.is_file():
 
 check(not (SKILL_DIR / "README.md").exists(), "runtime Skill package must not contain README.md")
 
+for old in REMOVED_RUNTIME_REFERENCES:
+    check(not old.exists(), f"removed runtime reference reappeared: {old.relative_to(ROOT)}")
+
 for old in OLD_PILOT_CASES:
     check(not old.exists(), f"legacy Pilot case path still exists: {old.relative_to(ROOT)}")
 
@@ -112,7 +124,6 @@ if map_path.is_file():
 readme = ROOT / "README.md"
 if readme.is_file():
     readme_text = readme.read_text(encoding="utf-8")
-    check("version: `0.6.0`" not in readme_text, "README contains known stale Skill version 0.6.0")
     check("CONTROLLED USER TRIAL" in readme_text.upper(), "README missing controlled-user-trial release boundary")
 
 release_review = ROOT / "docs" / "validation" / "RELEASE_READINESS_ADVERSARIAL_20260830.md"
@@ -129,8 +140,8 @@ if errors:
 print("PROJECT CONTRACT: PASS")
 print(f"- skill: {skill_name or 'unknown'}")
 print(f"- version: {version or 'unknown'}")
-print(f"- required files: {len(REQUIRED)}")
+print(f"- runtime skill lines (informational): {len(SKILL.read_text(encoding='utf-8').splitlines()) if SKILL.is_file() else 'unknown'}")
+print(f"- runtime references: {len(RUNTIME_REFERENCES)}")
 print(f"- curation cases: {len(CURATION_CASES)}")
 print("- curation/user-use evidence lanes: explicit")
 print("- release boundary: controlled trial only")
-print("- runtime Skill README: absent")
