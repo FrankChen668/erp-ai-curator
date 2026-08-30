@@ -2,7 +2,8 @@
 
 Date: 2026-08-30
 Status: **REAL_USER_ORIGIN CURATION READY — NOT USER-USE EVIDENCE**
-Produced with Skill: `curating-erp-ai-resources` `0.6.3`
+Originally produced with Skill: `0.6.3`  
+Re-reviewed against Skill: `0.7.0` — **recommendation stable**
 
 > 来源是 2026-08 训前调研中的真实开发人员问题——“找到一款更适合 EBS 开发的 AI 工具”。本文是对真实来源问题形成的 Curator 推荐，不代表该开发人员已经看到、采用或验证了推荐。
 
@@ -125,7 +126,18 @@ EBS 版本 / 模块 / 真实需求
 
 > **先别急着找“EBS 专用 AI”。当前更值得借鉴的是把 EBS custom code、DDL、接口、部署脚本和团队规范集中成 Agent 可读的项目上下文，再用成熟 Coding Agent 工作。JMJ Cloud 提供了一个直接 EBS 落地案例，但它是作者自实践，不是独立对照证明；Oracle 官方 Developer's Guide 应作为规范源。Claude Code/Codex/Copilot 都可以承载这种模式。Oracle Code Assist 可以继续关注，但目前公开证据不足以证明它应该取代这套方法成为默认选择。**
 
-## 10. Evidence boundary
+## 10. 0.7.0 re-review
+
+按 0.7.0 重新检查 current baseline、capability gap、adoption cost、来源角色和 high-evidence wording 后：
+
+- B 仍成立：问卷中的 baseline 是把需求拆开交给通用 AI 再人工整合，持久项目上下文仍是明确缺口；
+- 推荐重点是 Context Engineering 方法，不把 Claude/Codex/Copilot 任一工具写成 universal winner；
+- JMJ Cloud 明确保持 `author self-practice`，Oracle/GitHub 页面只承担 implementation/current-fact 角色；
+- 更重 DB/MCP 连接只在真实系统访问成为瓶颈时升级，默认不授予写权限。
+
+因此 recommendation stable，无需重跑工具排行榜式搜索。
+
+## 11. Evidence boundary
 
 已完成：真实问题重构、直接 EBS author self-practice、相邻 practitioner evidence、Oracle 官方规范、当前 Coding Agent 上下文能力与 Oracle Code Assist 边界核验。
 
