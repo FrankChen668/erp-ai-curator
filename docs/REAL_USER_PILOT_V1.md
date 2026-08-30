@@ -1,23 +1,46 @@
-# ERP AI Curator — Real User Pilot V1
+# ERP AI Curator — Real User Use Validation V1
 
 Date: 2026-08-30
-Status: **ACTIVE — best-practice curation on real colleague tasks**
+Status: **OPEN FOR NATURAL REAL-USER FEEDBACK**
 
-## 1. Pilot objective
+> 本文件只定义真实用户使用后的产品验证证据。真实问卷问题本身、Cloud 对真实问题做出的 Curator 推荐，不等于用户已经使用了产品。
 
-Do not prove that the Skill can produce polished answers or that users can follow a tool-test protocol.
+## 1. 两条 Lane 必须分开
 
-Test the actual product question:
+### Lane A — REAL_USER_ORIGIN CURATION
 
-> **When a real ERP / enterprise-information-system colleague has a real work problem, can the Curator find and compress the best existing AI practices/resources into a small recommendation that is more useful than noisy self-search or generic AI advice?**
+输入来自真实同事/问卷/Owner 的真实工作问题，但研究和推荐由 Curator/Cloud 完成。
 
-User adoption/modification/rejection is then used to validate that curation.
+价值：
 
-## 2. Pilot input
+- 验证产品确实从真实问题出发；
+- 暴露搜索、判断、证据和产品边界问题；
+- 形成可以真正发给用户的推荐。
 
-Use real colleague work only.
+不能声称：
 
-Each run starts from:
+- 用户采用了；
+- 节省时间；
+- 降低返工；
+- 比普通 AI / 自己搜索更好。
+
+这类产物放在 `docs/curation-cases/`。
+
+### Lane B — REAL_USER_USE VALIDATION
+
+真实同事实际收到 Curator 推荐后，自然地学习、采用、修改、忽略或拒绝。
+
+只有这条 Lane 才能形成产品价值证据。
+
+## 2. Validation question
+
+> **真实 ERP / 企业信息化同事收到 Curator 的小而可信的实践/资源推荐后，是否觉得它比普通 AI 或自己漫无目的搜索更值得使用？**
+
+观察的是 curation value，不是用户是否能完成我们设计的测试协议。
+
+## 3. 最小输入
+
+真实用户问题保持原始语境：
 
 ```text
 role / project context
@@ -27,129 +50,74 @@ role / project context
 + material constraints
 ```
 
-Do not require the user to classify the task into P01–P14.
+不要求用户先选择 Problem Card，也不要求为了验证项目提供敏感材料。
 
-Do not upload confidential artifacts unless organizational policy permits it. Descriptions or redacted samples are acceptable when sufficient for curation.
+## 4. 用户先收到什么
 
-## 3. Minimal pilot shape
+使用当前 `skills/curating-erp-ai-resources/SKILL.md` 输出：
 
-Start with a few genuine colleague problems. Prefer natural diversity rather than quotas.
+- A/B/C 结论；
+- 当前任务下优先推荐的实践；
+- 真正改变选择的证据；
+- 默认 0–1 个最值得看的资源；
+- 适用/不适用边界；
+- 从哪里开始学习/采用。
 
-Do not manufacture tasks merely to cover categories.
+**不要默认附带“请按以下步骤测试并回报结果”。**
 
-## 4. What the Curator returns
+## 5. 自然反馈即可
 
-Use `skills/curating-erp-ai-resources/SKILL.md`.
+用户后续如果有反馈，只记录会改变产品判断的事实：
 
-The default output is **best-practice / existing-resource curation**, not an execution SOP.
+- 哪条建议/哪个资源有用、没用或错误；
+- 是否采用、修改、拒绝或忽略，为什么；
+- 是否减少了搜索/选择/配置成本；
+- 是否漏掉重要能力、环境、权限、隐私或版本约束；
+- 如果真的用于工作，是否出现可观察的返工增减；
+- 是否愿意再带另一个真实问题回来。
 
-Keep it compact:
+不要求打分，不要求长问卷。
 
-1. conclusion — ordinary AI enough / specialized option worth it / low-cost adoption first;
-2. best practice — the most useful existing workflow/method pattern;
-3. why — practitioner evidence + capability/constraint evidence that changes the choice;
-4. 0–1 primary external resource by default, second only for a materially different boundary;
-5. applicability/risk boundary;
-6. how to start learning/adopting from that resource or method.
+## 6. 证据强弱
 
-Do not automatically turn the answer into “run this experiment and report back”. A test protocol is only appropriate if the user explicitly asks for testing/validation or if a decision-changing technical uncertainty genuinely requires minimal runtime validation.
+### 强证据
 
-## 5. What to capture after the colleague receives/uses the curation
+- 用户实际采用/修改推荐，并有具体工作结果或返工事实；
+- 用户能明确说明 Curator 替他省掉了什么搜索/选型判断；
+- 用户指出了一个具体错误/遗漏，能直接驱动方法修正。
 
-Do not create a long survey. Capture only evidence that can change the product.
+### 有用的负证据
 
-### Before / at recommendation
+- 用户明确拒绝推荐，并给出具体原因：错误环境、过时、权限/数据不允许、安装成本高、资源质量低、已有更好做法等。
 
-- real task in the colleague’s own words;
-- materials/constraints that affected the recommendation;
-- best-practice/resource recommendation actually given.
+### 不是产品价值证据
 
-### After natural user response/use
+- 问卷里出现了真实问题；
+- Cloud 为真实问题写出了一份漂亮 curation；
+- Owner/Agent 说“看起来不错”；
+- synthetic benchmark 通过；
+- 为了证明项目，要求用户专门跑工具测试。
 
-- which part/resource they found useful, useless or wrong;
-- whether they learned, adopted, modified or rejected it, and why;
-- whether it reduced search/selection/setup effort;
-- whether it caused wrong-tool adoption, missing capability or extra work;
-- any enterprise/privacy/permission issue missed by the Curator;
-- whether they would bring another real task to Curator.
+## 7. 失败信号
 
-If they later use the method on real work, artifact/result and downstream rework are stronger evidence, but the Curator does not require them to become a tester first.
+出现以下任一情况就值得窄修正：
 
-## 6. Pilot evidence hierarchy
+- Curator 比用户自己搜还重；
+- 推荐仍像工具目录；
+- practitioner 证据缺失却强写“最佳”；
+- 现有 AI 明显够用仍强推工具；
+- 明确 capability gap 却一律退回普通 AI；
+- 推荐资源与真实 artifact/environment 不匹配；
+- 漏掉企业数据/权限/版本边界；
+- 用户看完仍不知道什么值得关注；
+- Curator 变成执行教练/测试协调器。
 
-Strong evidence:
+修最窄、可复现的问题，不为单一奇例建立新框架。
 
-- real colleague says the curated practice/resource materially improved a real decision or real work path;
-- the colleague actually adopts/modifies it and concrete result/rework can be inspected;
-- the curation clearly saved search/selection/setup effort.
+## 8. 当前关系
 
-Useful negative evidence:
+`REAL_USER_ORIGIN CURATION` 可以由 Cloud 持续推进，不需要等 Lane B 反馈才能研究下一个真实问题。
 
-- colleague rejects the recommendation with a concrete reason: outdated practice, wrong environment, missing permission, poor resource quality, excessive setup, or better existing practice.
+`REAL_USER_USE VALIDATION` 是外部证据 Lane，只在真实反馈自然出现时记录。
 
-Not product evidence:
-
-- Curator answers an invented prompt successfully;
-- Owner/Agent says the answer “looks good”;
-- another synthetic benchmark passes;
-- user is made to execute a test primarily so Curator can claim validation;
-- links are collected without a real user problem.
-
-## 7. Failure signals to act on immediately
-
-A real case can justify correction when it exposes a clear product defect, for example:
-
-- Curator becomes a workflow coach/test coordinator instead of finding best practices;
-- Curator searches for tools although ordinary AI is obviously enough;
-- practitioner evidence is skipped and vendor feature lists dominate;
-- important task input/constraint is ignored;
-- recommended resource cannot handle the actual artifact/environment;
-- privacy/write/permission boundary is missed;
-- user still does not know which practice/resource is worth their attention;
-- curation adds more search/selection effort than it saves;
-- source evidence is overstated or not actually acquired.
-
-Fix the narrow recurring defect. Do not create a new framework for one unusual case.
-
-## 8. What success looks like
-
-Do not declare PASS from a numeric threshold in advance.
-
-The pilot is moving in the right direction when real colleagues repeatedly show that:
-
-- the Curator surfaces practices/resources they would not easily find themselves;
-- the recommendation is small enough to act on;
-- noisy or irrelevant tools are filtered out;
-- practitioner limitations are visible before adoption;
-- specialized capability is recommended for an observable reason;
-- the result is useful enough that they would bring another real problem.
-
-The strongest negative signal is repeated “this is no better than asking my existing AI or searching myself”.
-
-## 9. Current cloud/local responsibility
-
-Cloud/ChatGPT can continue to:
-
-- curate current best practices/resources for submitted real tasks;
-- research practitioner evidence, original implementations and current facts;
-- inspect user feedback and update the method;
-- maintain GitHub authorities.
-
-A local Agent is used only when a curation decision genuinely depends on local files/repository/runtime or an enterprise environment.
-
-## 10. Stop / next decision
-
-Do not return to internal card accumulation while real-user curation opportunities exist.
-
-After several genuine cases, reassess from observed patterns:
-
-- keep V0.1 unchanged;
-- make a narrow method/Harness correction;
-- add one reusable support artifact because users repeatedly need it;
-- or conclude that Curator adds too little value over ordinary AI/search.
-
-## 11. External dependency
-
-Cloud can complete the curation work itself for tasks whose evidence is publicly accessible.
-
-Actual product-validation evidence still depends on real colleagues' feedback/adoption/rejection and cannot be synthesized internally.
+产品不能用 Lane A 冒充 Lane B，也不能为了制造 Lane B 把用户变成测试员。
