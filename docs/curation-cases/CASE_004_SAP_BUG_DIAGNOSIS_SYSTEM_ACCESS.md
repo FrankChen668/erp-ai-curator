@@ -88,21 +88,28 @@ AI 不应把“可能原因”写成已经确认的系统事实。
 
 此时升级原因是“真实系统 evidence access”，不是“SAP 标签”。
 
-## 5. 当前 SAP AI / Agentic 能力边界
+## 5. 当前 SAP AI / Agentic 能力与采用证据边界
 
 SAP 2026 当前官方资料显示，Joule for Developers / ABAP AI 已有 code explanation、code completion、unit-test/generation 等能力，并正在通过 MCP/agentic tools 扩展 ABAP 开发任务；官方材料中还出现 ATC check/fix、object creation、activation、unit-test 等工具方向。
 
 - https://help.sap.com/docs/abap-cloud/abap-development-tools-for-visual-studio-code/capabilities
 - https://www.sap.com/documents/2025/02/b4f714de-f57e-0010-bca6-c68f7e60039b.html
 
-但这些事实**不能直接证明**：
+但这些官方能力事实**不能直接证明**：
 
 - 非 ABAP 实施顾问可以无门槛获得；
 - 它已经是日常生产 Bug 根因定位的默认最佳选择；
 - 它适用于所有 ECC / S/4HANA / on-prem / cloud 版本；
 - 它应该获得写权限。
 
-近期 SAP 社区实践讨论仍显示明显的 availability/licensing/实际效果分歧，因此当前不把 Joule 或 ABAP MCP 作为默认用户推荐。
+当前 practitioner/community signal 也没有形成稳定的“Joule 应作为默认 ABAP 诊断入口”结论：
+
+- 2025-03 SAP 社区讨论中，有开发者明确反馈可用性/许可门槛，并表示自己仍主要使用 GitHub Copilot/Sonnet 等通用 Coding AI；这类评论属于 practitioner experience，不是正式 benchmark。
+  - https://www.reddit.com/r/SAP/comments/1jgb9up/sap_introduces_joule_for_developers/
+- 2026-08 关于真实项目使用 Joule 的讨论仍出现明显分歧，有用户处于 PoC，也有人认为当前开发侧实际帮助有限。
+  - https://www.reddit.com/r/SAP/comments/1vj3ipl/are_you_using_joule_or_other_ai_tools_in_your_sap/
+
+因此当前最稳妥的采用判断仍是：**先看是否缺真实系统 evidence access，再决定是否值得引入 SAP-native/Joule/MCP；不要从产品宣传反推默认采用。**
 
 ## 6. 当前最值得采用的实践
 
@@ -134,4 +141,4 @@ SAP 2026 当前官方资料显示，Joule for Developers / ABAP AI 已有 code e
 
 本 Case 支持的是**采用边界判断**：何时 current AI + exported evidence 足够，何时系统 evidence access 才构成真实 capability gap。
 
-它没有证明 Joule、任何 ABAP MCP 或某个 Coding Agent在真实用户项目里已经减少诊断时间，也没有形成 REAL_USER_USE 产品价值证据。
+它没有证明 Joule、任何 ABAP MCP 或某个 Coding Agent 在真实用户项目里已经减少诊断时间，也没有形成 REAL_USER_USE 产品价值证据。
