@@ -107,20 +107,75 @@ For each pilot, capture only evidence that improves the product:
 
 Do not build a heavy feedback database before real usage volume justifies it.
 
-## 6. Cloud / local split
+### Valid work in this phase
+
+A task is valid only if it does at least one of the following:
+
+1. **serves an actual real-user / owner-real work task now** and produces a recommendation the person can actually use;
+2. **fixes a material defect exposed by real use**;
+3. **removes a concrete blocker preventing a real pilot from happening**.
+
+The following do **not** count as product progress by themselves:
+
+- synthetic/smoke/readiness tests;
+- generic Quickstart or documentation polish;
+- creating work merely because a local/cloud Agent is available;
+- more validation cards for coverage;
+- internal PASS/score/readiness labels;
+- implementation cleanup that no real pilot currently depends on.
+
+Engineering smoke/regression checks are allowed after a justified product change, but they are implementation verification — **not product evidence and not a milestone substitute**.
+
+## 6. Mandatory task preflight — milestone first
+
+Before cloud or local Agent starts any non-trivial task, answer these four questions privately and concretely:
+
+1. **What is the current milestone?**
+2. **What observable evidence will this task create for that milestone?**
+3. **If the task succeeds perfectly but no real user behavior/decision changes, are we actually closer to the milestone?**
+4. **Why must this task happen now instead of directly serving the next real user problem?**
+
+If question 2 has no concrete answer, or question 3 is “no” without a real blocker being removed, **do not execute the task**.
+
+Goal hierarchy is fixed:
+
+```text
+North Star
+→ current milestone
+→ real user outcome/evidence
+→ task
+→ artifact / test / commit / Agent
+```
+
+Never reverse it.
+
+In particular:
+
+> **“We have a local Agent, what should it do?” is not a product reason to create work.**
+
+Agent capacity is a means. It can be idle when no milestone-relevant local work exists.
+
+## 7. Cloud / local split
 
 Cloud/ChatGPT owns product judgement, current Web/GitHub research, evidence-role judgement, fact checks, proportional static inspection, GitHub maintenance and final recommendation/stop decisions.
 
-Use local Agent only when local capability materially adds evidence: local repository/runtime, inaccessible source acquisition, local files/environment, or a justified reproducibility check.
+Use local Agent only when local capability materially adds evidence or execution needed by a valid current-phase task: local repository/runtime, inaccessible source acquisition, local files/environment, or a justified reproducibility check.
 
 For bounded local tasks:
 
 - fixed: objective, hard boundaries, escalation conditions, evidence return;
 - flexible: execution path, tools, scripts and internal iteration unless evidence validity requires otherwise.
 
-Remote GitHub branch + readable remote commit is the completion boundary for local repository evidence.
+Every delegated local task must be traceable to:
 
-## 7. What not to build yet
+- `milestone_link`: which current milestone it advances;
+- `user_evidence_created`: what real-user evidence or concrete blocker removal it produces.
+
+If either is empty, do not delegate.
+
+Remote GitHub branch + readable remote commit is the completion boundary for local repository evidence; it is not itself evidence of product value.
+
+## 8. What not to build yet
 
 Until real-user usage proves need, do not add:
 
@@ -132,12 +187,15 @@ Until real-user usage proves need, do not add:
 - mandatory runtime benchmarks;
 - automated refresh infrastructure;
 - influencer/source rankings;
-- new governance for one-off failures.
+- new governance for one-off failures;
+- pilot-readiness machinery whose only purpose is to prove the product is ready.
 
-## 8. Success criterion now
+## 9. Success criterion now
 
-The next milestone is no longer “another card passes”.
+The next milestone is no longer “another card passes”, “Skill loads”, “smoke tests pass” or “local Agent completed a task”.
 
 It is:
 
 > **A real ERP colleague brings a real task, receives a Curator recommendation, actually uses it, and reports that it reduced search/learning/rework enough that they would use Curator again.**
+
+Until that happens, prefer serving the next real task over polishing the system that serves it.
