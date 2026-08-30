@@ -2,7 +2,7 @@
 
 Date: 2026-08-30
 
-> Always inspect current `main` first. Current repository authority wins over this handoff.
+> **Fresh-session authority after context reset.** Always inspect current `main` first. Do not rely on prior chat summaries when they conflict with repository evidence.
 
 ## 1. Repository / authority
 
@@ -10,9 +10,10 @@ Date: 2026-08-30
 - North Star: `docs/PROJECT_NORTH_STAR.md`
 - Current execution: `docs/CURRENT_EXECUTION_PLAN_V3.md`
 - Current evidence: `docs/validation/EVIDENCE_STATUS.md`
-- User-facing Skill: `skills/curating-erp-ai-resources/SKILL.md`
+- Context-drift correction: `docs/REBASE_AUDIT_20260830.md`
+- Candidate Skill: `skills/curating-erp-ai-resources/SKILL.md`
 
-## 2. Product position
+## 2. Product objective
 
 ERP AI Curator serves SAP / Oracle / ERP / enterprise-information-system practitioners.
 
@@ -20,146 +21,175 @@ Core question:
 
 > **面对一个真实工作任务，普通 AI 是否已经够用？如果不够，什么现成 Tool / Skill / 方法 / 教程最值得采用？**
 
-It is not a generic tool directory, Prompt library, tutorial encyclopedia or tool-certification lab.
-
-## 3. Validation status
-
-Curator-method validation is **sufficient for Minimal Curator V0.1**.
-
-Heterogeneous retained cards:
-
-- P01 — workshop/minutes → requirement package;
-- P04 — business logic → editable process diagram;
-- P06 — Excel/CSV → reconciliation and validation;
-- P03 — requirements/rules → clickable prototype/UI demo;
-- P07 — codebase → understand logic / support FS / locate defects.
-
-Authorities for newer cards:
-
-- `docs/validation/P03_PROTOTYPE_CURATION_RESULT_01.md`
-- `docs/validation/P07_CODEBASE_UNDERSTANDING_RESULT_01.md`
-
-Do not continue additional Problem Cards merely for coverage.
-
-## 4. Cross-card lessons
-
-Stable behavior now observed:
-
-- start from the real job, not a preferred Tool;
-- “plain AI / existing Agent is enough” is a valid final answer;
-- introduce specialist capability only for material adoption benefit;
-- practitioner evidence is usually the first adoption-learning lane;
-- author/implementation/official evidence roles stay explicit;
-- runtime testing is exceptional and only used when it can change the recommendation;
-- stop when colleague advice is stable.
-
-Important card boundaries:
-
-- P04: clarify semantics before diagram generation; generated diagrams remain review artifacts.
-- P06: plain code-first is enough only with deterministic replay, row/amount/control-total checks and no-guess exception routing.
-- P03: generic B-end default is coded prototype; Figma Make is preferable when mature Figma/design-system collaboration already exists.
-- P07: repo-aware code Agent is the default; source/test/log grounding matters more than a separate architecture Skill.
-
-## 5. Minimal Curator V0.1
-
-Current Skill metadata version: `0.5.0`.
-
-The previous V0.4 Gate/scoring/staging-heavy workflow has been simplified.
-
-Current flow:
+Atomic unit:
 
 ```text
-understand real task
-→ AI leverage judgement
-→ general AI enough?
-    yes → minimum viable workflow and stop
-    no  → targeted practical discovery
-→ necessary current fact / safety check
-→ 0–1 main recommendation by default
-→ concrete try-now guidance
-→ stop
+real project situation
++ actual input artifacts
++ concrete work action/problem
++ expected deliverable
++ material constraints
+→ practical AI working-method recommendation
 ```
 
-Normal user output should be compact:
+The product is not a generic AI tool directory, Prompt library, tutorial encyclopedia or tool-certification lab.
 
-1. conclusion;
-2. why;
-3. recommended workflow (`input → operation → output → review`);
-4. 0–1 main resource, second only for a materially different boundary;
-5. main risks;
-6. what to try now.
+## 3. Demand baseline — trusted
 
-Old `references/`, `evals/`, scripts and historical validation files remain regression/history assets. Do not automatically load them for a normal user consultation.
+Primary REAL_USER demand source:
 
-## 6. Immediate next phase — REAL USER PILOT
+- 83-response 2026-08 training survey;
+- `docs/validation/SURVEY_DERIVED_PROBLEM_CARDS_01.md`.
 
-Do not start another synthetic/representative validation card.
+Important boundary:
 
-Use real colleagues and real work tasks.
+- aggregate closed-choice data is direct evidence;
+- free-text is semantic evidence and may contain platform-side wording cleanup;
+- survey demand does not prove recommendation outcomes.
 
-Capture only high-value feedback:
+Problem Cards P01–P14 are normalized demand units, not permanent taxonomy.
 
-- real task/material;
-- Curator recommendation;
-- whether user actually tried it;
-- whether search/learning/rework time decreased;
-- what advice was wrong/useless;
-- what risk was missed;
-- whether user would use it again.
+## 4. Trusted card evidence
 
-The next milestone is:
+### P01
 
-> **A real ERP colleague uses Curator advice on a real task and says it saved enough search/learning/rework time that they would return.**
+Status:
 
-### Mandatory preflight before doing or delegating work
+> **KEEP FOR PRACTICAL PILOT — high task fit / low independent validation**
 
-Before any non-trivial cloud/local task, check:
+Do not overstate maturity.
 
-1. current milestone;
-2. concrete milestone evidence the task will create;
-3. whether success still matters if no document/test/commit is counted;
-4. why direct service of the next real user problem is not the better action.
+### P04
 
-If the task creates no real-user evidence and removes no concrete pilot blocker, do not do it.
+Status:
 
-In this phase, **smoke/readiness/synthetic tests, Quickstart polish, internal PASS labels and “give the local Agent something to do” are not valid substitutes for a real pilot.**
+> **CLOSED — recommendation stable with explicit coverage gaps**
 
-Engineering regression checks may follow a justified product change, but do not count them as product progress.
+Authority:
 
-## 7. Cloud / local collaboration
+- `docs/validation/P04_PRACTITIONER_CURATION_RESULT_02.md`
 
-Cloud owns product judgement, Web/GitHub research, evidence-role judgement, current fact checks, adversarial review, GitHub maintenance and stop/recommendation decisions.
+Why trusted: concrete URLs, evidence roles, limitations and coverage gaps are retained.
 
-Use local Agent only when a valid current-phase task actually needs local-only evidence or execution: repo/runtime, local files/environment, inaccessible-source acquisition or justified reproducibility checks.
+### P06
 
-**Agent availability is not a reason to create a task. Local Agent may correctly have nothing to do.**
+Status:
 
-Every local Task Envelope must state:
+> **CLOSED — plain code-first default with explicit reconciliation controls; Huashu optional**
 
-- `milestone_link` — which current milestone it advances;
-- `user_evidence_created` — what real-user evidence or concrete blocker removal it produces.
+Authorities:
 
-If either is empty, do not delegate.
+- `docs/validation/DELIVERY_P06_DATA_RECONCILIATION.md`
+- `docs/validation/P06_LOCAL_RUNTIME_RESULT_01.md`
+- `docs/validation/evidence/p06/`
 
-Remote GitHub branch + readable commit is the delivery boundary for repository evidence, not product-value evidence.
+Why trusted: pinned candidate commit, isolated baseline/with-Skill runs, hidden truth and retained runtime artifacts.
 
-## 8. Anti-drift
+## 5. Critical correction — DO NOT REUSE INVALID SPRINT CONCLUSIONS
 
-Do not add without real-user evidence:
+During the previous long-context sprint, cloud rapidly produced P03/P07 close reports and then inferred that validation was complete.
 
-- more validation cards for their own sake;
-- universal scores/Gates;
-- large resource database/taxonomy;
-- automatic refresh system;
-- mandatory runtime benchmarks;
-- unattended multi-card Loop;
-- source/influencer rankings;
-- pilot-readiness machinery whose primary purpose is proving the product is ready.
+Re-audit found the evidence trail was insufficient.
 
-Goal hierarchy:
+Therefore:
 
-```text
-North Star → current milestone → real user outcome/evidence → task → artifact/test/Agent
-```
+- `docs/validation/P03_PROTOTYPE_CURATION_RESULT_01.md` = **INVALIDATED / NOT PRODUCT EVIDENCE**;
+- `docs/validation/P07_CODEBASE_UNDERSTANDING_RESULT_01.md` = **INVALIDATED / NOT PRODUCT EVIDENCE**;
+- “P03 closed” = withdrawn;
+- “P07 closed” = withdrawn;
+- “five heterogeneous cards prove validation complete” = withdrawn;
+- “Minimal Curator V0.1 is validated” = withdrawn;
+- “current authoritative phase is REAL USER PILOT” = withdrawn.
 
-Never reverse it.
+Do not use prior P03 claims such as “coded prototype default / Figma Make boundary” as established facts.
+
+Do not use prior P07 claims such as “repo-aware Agent default / specialist code-understanding Skill unnecessary” as established facts.
+
+They must be independently rediscovered and supported if they are to return.
+
+## 6. Candidate Skill status
+
+`skills/curating-erp-ai-resources/SKILL.md` is version `0.5.1`.
+
+Status:
+
+> **experimental candidate — validation incomplete**
+
+Its leverage-first structure is directionally consistent with the North Star, but it is not accepted proof of product readiness.
+
+The Skill must not carry P03/P07 sprint-specific conclusions as validated behavior.
+
+## 7. Correct current checkpoint
+
+> **P06 is closed. P03 is next.**
+
+This is the last trustworthy controlled checkpoint before the invalid sprint.
+
+Current milestone:
+
+> **Complete P03 with a trustworthy, auditable evidence chain and stable colleague recommendation. Then execute one engineering-type heterogeneous card such as P07 or P10 before deciding whether to enter a minimal real-user pilot.**
+
+## 8. Immediate next cloud action — start P03 from scratch
+
+P03 real job from survey semantics:
+
+> A consultant/PM has requirements, fields, roles, states and exceptions and needs a clickable prototype for requirement clarification or solution review. They need a reviewable and iteratable artifact, not merely a pretty mockup.
+
+Do not reuse the invalid P03 result as an answer or search prior.
+
+Cloud should:
+
+1. search practitioner-first for current real workflows/cases;
+2. retain concrete URLs and distinguish discovery-only vs actually-read sources;
+3. inspect serious Tool / Skill / implementation candidates;
+4. verify only current facts that affect adoption (input/output, editability, collaboration, pricing/availability/privacy where material);
+5. look for failure/rework/counter-evidence;
+6. decide whether the adoption boundary is stable;
+7. use local/runtime testing only if a material unresolved decision could change because of it;
+8. write one concise P03 authority with auditable evidence and stop.
+
+## 9. Evidence acceptance discipline
+
+For every retained external source, preserve enough to answer:
+
+- exact source/URL;
+- was it actually read or only discovered?;
+- evidence role;
+- material claim supported;
+- limitation/counter-evidence.
+
+Source-less synthesis may be useful reasoning but is not product evidence.
+
+A card cannot be `CLOSED` because the conclusion sounds plausible.
+
+## 10. Cloud / local split
+
+Cloud owns product judgement, Web/GitHub research, source prioritization, current fact checks, adversarial review, static inspection and final stop/recommendation decisions.
+
+Use local Agent only when local capability materially adds evidence: local files/repo/runtime, inaccessible-source acquisition, environment-specific evidence or justified reproducibility.
+
+Do not create tasks merely to keep a local Agent busy.
+
+## 11. Anti-drift
+
+Avoid:
+
+- new Gate/benchmark/framework per candidate;
+- official-document gravity;
+- platform/source quotas;
+- author self-tests presented as independent proof;
+- runtime testing by default;
+- specialized Skill recommendations when plain AI is sufficient;
+- synthetic/readiness work presented as product evidence;
+- undocumented external claims;
+- long-context synthesis silently promoted to evidence.
+
+## 12. New-session start instruction
+
+When a fresh cloud conversation starts:
+
+1. inspect current `main`;
+2. read this handoff + Current Plan + Evidence Status + Rebase Audit;
+3. do not reopen settled P04/P06;
+4. immediately begin a trustworthy P03 cloud curation cycle;
+5. stop only for a genuine Owner decision or evidence barrier.

@@ -18,9 +18,15 @@
 + 真正影响方案的约束
 ```
 
-例如：
+## 当前真实需求来源
 
-> 客户 Workshop 已结束，手里有会议纪要、现状流程和附件；第二天上午要形成第一版可评审需求包。
+2026-08 培训问卷提供了 83 份目标用户反馈。
+
+当前需求基线见：
+
+- `docs/validation/SURVEY_DERIVED_PROBLEM_CARDS_01.md`
+
+问卷证明需求存在，但不证明某个 Tool / Skill / 工作流就是正确答案。
 
 ## Curator 的核心判断
 
@@ -47,95 +53,114 @@
 → 限制 / 反证
 ```
 
-Bilibili、微信公众号、小红书、YouTube、社区、博客、GitHub 等都是发现池，不设平台配额。
+关键结论必须能够回到具体来源。搜索摘要只能用于发现，不能冒充已读原文。
 
-搜索摘要只能用于发现，不能冒充已读原文；读不到的平台记录 `Coverage gap`，不能推断平台没有好内容。
+## 当前可信证据
 
-## 当前产品：Minimal Curator V0.1
+### P01 — 会议/Workshop → 需求包
 
-主 Skill：
+状态：
+
+> **high task fit / low independent validation**
+
+保留用于实践，不作为强验证证据。
+
+### P04 — 业务逻辑 → 可编辑流程图
+
+状态：
+
+> **CLOSED — recommendation stable with explicit coverage gaps**
+
+Authority:
+
+- `docs/validation/P04_PRACTITIONER_CURATION_RESULT_02.md`
+
+### P06 — Excel/CSV → 对账与验证
+
+状态：
+
+> **CLOSED — plain code-first default with explicit reconciliation controls; Huashu optional**
+
+Authorities:
+
+- `docs/validation/DELIVERY_P06_DATA_RECONCILIATION.md`
+- `docs/validation/P06_LOCAL_RUNTIME_RESULT_01.md`
+
+## 2026-08-30 纠错：P03 / P07 结论已撤回
+
+最近一次长上下文冲刺中，P03 和 P07 被过早写成 `CLOSED`，随后又据此宣告“验证完成 / Minimal Curator V0.1 / REAL USER PILOT”。
+
+重新审计后发现，两份结果没有保留足够可信的来源 URL / 引用 / acquisition trail，无法区分真实研究证据与模型综合。
+
+因此：
+
+- `docs/validation/P03_PROTOTYPE_CURATION_RESULT_01.md` — **INVALIDATED**
+- `docs/validation/P07_CODEBASE_UNDERSTANDING_RESULT_01.md` — **INVALIDATED**
+- “验证阶段已经完成” — **撤回**
+- “Minimal Curator V0.1 已验证” — **撤回**
+- “当前已经正式进入 REAL USER PILOT” — **撤回**
+
+完整纠错记录：
+
+- `docs/REBASE_AUDIT_20260830.md`
+
+## 当前 Skill 状态
+
+主候选：
 
 - `skills/curating-erp-ai-resources/SKILL.md`
-- metadata version: `0.5.0`
+- metadata version: `0.5.1`
 
-当前用户路径已经从旧版的 Gate / 评分 / staging 采编系统，收敛成：
+它保留了“真实任务 → AI 杠杆判断 → 必要时才找专门资源”的简化方向，但当前只是：
 
-```text
-理解真实任务
-→ 判断 AI 杠杆
-→ 普通 AI 是否够用？
-    是 → 给最小工作方式并停止
-    否 → 定向寻找实操/Tool/Skill
-→ 只核验必要事实和风险
-→ 默认 0–1 个主推荐
-→ 给今天/明天就能执行的路径
-→ 停止
-```
+> **experimental candidate — validation incomplete**
 
-旧 `references/`、`evals/` 和脚本保留作为历史验证/回归资产，正常用户咨询不应默认全部加载。
+不是已经验证完成的产品。
 
-## 已完成的异构验证
+## 当前阶段
 
-目前方法已覆盖五种明显不同的任务：
+最后一个可信受控检查点是：
 
-- **P01**：Workshop / 会议纪要 → 需求包
-- **P04**：业务逻辑 → 可编辑流程图
-- **P06**：Excel / CSV → 对账与验证
-- **P03**：需求 / 规则 → 可点击 B 端原型
-- **P07**：代码库 → 业务逻辑理解 / FS / 缺陷定位
+> **P06 已关闭，下一步重新执行 P03。**
 
-跨卡片得到的核心结论不是某个 Tool 永远最好，而是：
+P03 必须从头重新做，保留：
 
-> **Curator 必须允许“现有 AI / Agent 已经够用”成为正式答案。**
+- 具体 practitioner URL；
+- 实际读到的内容与 discovery-only 的区别；
+- Tool / Skill / implementation 证据；
+- 必要的当前事实核验；
+- 限制 / 反证；
+- 为什么可以停止。
 
-几个稳定边界：
+只有存在真正会改变采用判断的材料缺口时，才做 local/runtime delta。
 
-- 流程图：先澄清业务语义，AI 图是评审对象，不是业务真相；
-- 数据对账：plain code-first 可以够用，但必须可复跑、有行数/金额/控制总额检查，模糊匹配不能猜；
-- B 端原型：默认优先可持续修改的 coded prototype；已有成熟 Figma 设计体系时再倾向 Figma Make；
-- 代码理解：repo-aware code Agent 通常已经够用，可靠性来自源码/测试/日志 grounding，而不是再叠加一个架构 Skill。
-
-详细证据见 `docs/validation/`。
-
-## 当前阶段：真实用户试用
-
-停止为了覆盖率继续刷 Problem Card。
-
-下一阶段只回答一个更重要的问题：
-
-> **真实 ERP 同事会不会真的采用 Curator 的建议，并觉得它节省了搜索、学习或返工时间？**
-
-真实试用重点记录：
-
-- 用户带来的真实任务和材料；
-- Curator 给了什么建议；
-- 用户是否真的尝试；
-- 是否降低搜索/学习/返工成本；
-- 哪些建议无效或错误；
-- 是否遗漏关键风险；
-- 用户是否愿意再次使用。
+P03 可信关闭后，再做一个工程型异构卡（例如 P07 或 P10），之后才重新判断是否进入最小真实用户 Pilot。
 
 ## 当前不做
 
-没有真实使用证明必要性之前，不建设：
+没有证据证明必要性之前，不建设：
 
 - 大型资源数据库；
-- 固定场景 taxonomy；
-- 自动 Refresh 系统；
+- 固定 taxonomy；
+- 自动 Refresh；
 - 统一评分 / Gate；
 - 每个候选强制 runtime test；
 - unattended multi-card Loop；
 - UP主/作者排行榜；
-- 为单一失败案例增加一套新治理框架。
+- 为了让本地 Agent 有事做而制造任务；
+- 没有来源证据链却写完整 `CLOSED` 报告。
 
 ## 当前权威文档
 
 - `docs/PROJECT_NORTH_STAR.md` — 长期产品边界
-- `docs/CURRENT_EXECUTION_PLAN_V3.md` — 当前执行阶段
+- `docs/CURRENT_EXECUTION_PLAN_V3.md` — 当前执行主线
 - `docs/validation/EVIDENCE_STATUS.md` — 当前证据状态
+- `docs/REBASE_AUDIT_20260830.md` — 本次上下文漂移纠错
 - `docs/SESSION_HANDOFF_CURRENT.md` — 新会话交接
-- `skills/curating-erp-ai-resources/SKILL.md` — Minimal Curator V0.1
+- `skills/curating-erp-ai-resources/SKILL.md` — 实验性候选 Skill
 
 ## 当前成功标准
 
-> **一个真实 ERP / 企业信息化同事带着真实任务来，拿到建议后真的去用了，并认为节省的搜索/学习/返工成本足以让他下次继续使用。**
+当前不是证明“用户已经喜欢产品”。当前先完成可信的异构验证：
+
+> **P03 用可审计证据得出稳定采用建议，再完成一个工程型异构卡；然后重新裁决是否进入 Minimal Curator 的真实用户 Pilot。**
