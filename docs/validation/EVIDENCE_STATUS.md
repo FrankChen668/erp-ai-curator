@@ -86,9 +86,15 @@ The heterogeneous trustworthy cards repeatedly support a minimal recurring metho
 
 `skills/curating-erp-ai-resources/SKILL.md`:
 
-> **Minimal Curator V0.1 — real-user pilot candidate / version 0.6.1**
+> **Minimal Curator V0.1 — real-user pilot candidate / version 0.6.2**
 
 This means method readiness, not product validation.
+
+0.6.2 is a narrow Harness consistency patch. It does not add new ERP scenario knowledge; it adds an on-demand consistency check when a concrete capability gap is already visible but the run is still preparing to recommend no specialized capability.
+
+Authority:
+
+- `CURATOR_062_HARNESS_PATCH.md`
 
 ## 6. 0.6.1 boundary regression — closed internal evidence
 
@@ -97,10 +103,6 @@ Authorities:
 - `CURATOR_061_BOUNDARY_REGRESSION_PLAN.md`
 - `CURATOR_061_BOUNDARY_REGRESSION_RESULT_01.md`
 
-Status:
-
-> **CLOSED — KEEP 0.6.1 UNCHANGED; RETURN TO REAL_USER PILOT**
-
 Bounded findings from five paired isolated Baseline-vs-Curator cases:
 
 - no over-tooling signal;
@@ -108,11 +110,11 @@ Bounded findings from five paired isolated Baseline-vs-Curator cases:
 - `C` misuse as “information missing” was not confirmed;
 - recurring multi-problem decomposition defect was not confirmed;
 - Curator showed no clear repeatable adoption-decision advantage over ordinary Baseline Agent in this bounded exercise;
-- the under-tooling misses are already covered by current permanent Skill/reference rules, so a Skill-text defect was **not established**.
+- the under-tooling misses were already covered by permanent method rules, so a missing domain-rule defect was not established.
 
-Decision: do not patch `SKILL.md` from this regression. Treat the misses as execution sensitivity/model variance unless real use demonstrates a recurring permanent-rule defect.
+Harness interpretation: the repeated miss is still useful engineering feedback because an existing rule can be too easy for an Agent to skip. 0.6.2 therefore improves decision-boundary legibility/enforcement without encoding the case answers.
 
-Evidence boundary: this is internal bounded regression evidence, not REAL_USER adoption/product evidence.
+Evidence boundary: the regression and 0.6.2 patch are internal engineering evidence, not REAL_USER adoption/product evidence.
 
 ## 7. Current dominant uncertainty
 
@@ -127,7 +129,7 @@ Authority for the current phase: `docs/REAL_USER_PILOT_V1.md`.
 Prefer:
 
 - a real colleague’s real task;
-- recommendation actually given by Minimal Curator V0.1;
+- recommendation actually given by Minimal Curator 0.6.2;
 - what the colleague actually tried/rejected/changed;
 - concrete artifact/result or failure reason;
 - observed search/setup/rework/adoption effect;
@@ -136,7 +138,7 @@ Prefer:
 Do **not** substitute:
 
 - another invented card;
-- another boundary/smoke/readiness regression without a real-use defect;
+- another synthetic boundary/smoke/readiness regression without a real-use defect;
 - owner/agent opinion that the output “looks good”;
 - more resource collection without user action.
 
