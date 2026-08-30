@@ -1,48 +1,50 @@
-# ERP 顾问 AI 资源采编 Skill V0.4
+# ERP AI Curator — Minimal Curator V0.1
 
-面向 SAP / Oracle / ERP 顾问的 AI 实战资源采编 Skill。
+当前 Skill 版本：`0.5.0`
 
-核心目标不变：
+定位：
 
-> 搜索不是成果；经过淘汰后还能站得住的 0–2 个原始链接才是成果。
+> 面对真实 ERP / 企业信息化工作任务，先判断普通 AI 是否已经够用；只有存在明显增益时，才推荐少量 Tool / Skill / 方法 / 教程。
 
-## V0.4 为什么改
+## 与 V0.4 的核心变化
 
-V0.3 已明显修复 fork/upstream、官方事实冲突、错主题、强行填满等问题，但真实回归仍暴露三类语义错误：
+V0.4 主要服务“资源采编系统验证”，包含较多 Gate、评分、搜索预算、staging/change-set 等机制。
 
-1. **资源类型错标**：完整工具 OpenDesign 被写成 Skill；
-2. **目标产出错配**：BPM 工作流配置教程被放进“业务流程图绘制教程”；
-3. **能力层级偷换**：用“官方支持开发自定义 Joule Skill”去证明“标准 Joule 原生可以自动完成 SPRO 配置链”。
+V0.5 / Minimal Curator V0.1 转向**同事直接使用**：
 
-因此 V0.4 不增加工程复杂度，只增加两道语义纪律：
+- 从真实工作任务开始，不从工具开始；
+- 允许结论是“现有 AI/Agent 已经够用”；
+- 只有需要时才搜索外部资源；
+- 默认 0–1 个主推荐，不凑链接；
+- practitioner 实操优先，官方事实只做必要兜底；
+- runtime test 只在会改变采用建议时触发；
+- 不向普通用户暴露内部证据治理复杂度；
+- 以“同事明天能不能直接开始”为停止条件。
 
-> **Resource Type Contract + Capability Boundary**
+## 已完成的异构验证
 
-并把 G1 从单纯 Topic Fit 收紧为：
+当前方法已经在五类任务上形成可用证据：
 
-> **Task Fit + Output Fit + Resource Type Fit**
+- P01：会议/需求文本 → 需求包；
+- P04：业务逻辑 → 可编辑流程图；
+- P06：Excel/CSV → 对账与验证；
+- P03：需求/规则 → 可点击 B 端原型；
+- P07：代码库 → 业务逻辑理解 / FS / 缺陷定位。
 
-## V0.4 新规则
+这些验证支持一个重要结论：
 
-- GitHub 只是承载平台，不代表仓库就是 Skill；
-- resource_type 必须是资源客观类型：tool / skill / tutorial / official_doc / case / collection / prompt_framework / other；
-- 用户明确只找 Skill/教程时，完整 tool 不得占位，可 reroute 到工具主题；
-- 资源最终产出必须与当前任务 expected_output 一致；
-- 产品能力 claim 必须区分 standard_product / custom_extension / third_party_wrapper；
-- capability mode、平台、edition、部署范围不一致时不能互证；
-- 厂商自报效率数字只能作为 vendor_claim，不自动视为独立事实。
+> Curator 不应默认推荐 Skill。多个任务的正确答案就是“普通 AI / 现有 Agent 足够，但必须采用正确工作纪律”。
 
-## 回归测试
+## 当前阶段
 
-继续使用原 5 个主题，不扩库。重点看：
+停止继续刷 Problem Card。
 
-- OpenDesign 是否被正确归为 tool；
-- JeecgBoot BPM 工作流教程是否从“流程图绘制”移出；
-- LearnToSAP Joule 自动配置能力是否因能力边界证据不足而被 reject/review；
-- KTern 的效率数字是否改成厂商自报，而不是客观事实。
+下一步进入真实同事试用：让 ERP/企业信息化从业者带真实任务使用 Minimal Curator，重点观察：
 
-详见 `RETEST_INSTRUCTIONS.md` 与 `evals/scenarios.md`。
+- 推荐是否真的被采用；
+- 是否减少搜索/学习时间；
+- 哪些建议无用或错误；
+- 是否遗漏关键风险；
+- 用户是否愿意再次使用。
 
-## 默认仍是 review-first
-
-V0.4 的目标仍不是马上自治，而是先证明本地 Agent 的**语义分类和事实边界**稳定。
+旧 `references/`、`evals/`、脚本等保留作为历史验证/回归资产，但 Minimal Curator 默认不应为了完成一次用户咨询而全部加载或执行。
