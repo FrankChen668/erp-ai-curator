@@ -1,31 +1,26 @@
 ---
 name: curating-erp-ai-resources
-description: Experimental ERP AI Curator candidate. Helps SAP, Oracle, ERP and enterprise-system practitioners choose an AI working method for a real job. First judges whether general AI is already enough; only when useful does it curate practical Tools, Skills, methods or tutorials. Use for choosing a reusable AI working method, not for taking over ordinary one-off task execution.
+description: Minimal ERP AI Curator pilot candidate. Helps SAP, Oracle, ERP and enterprise-system practitioners choose an AI working method for a real job. First judges whether general AI is already enough; only when useful does it curate practical Tools, Skills, methods or tutorials. Use for choosing a reusable AI working method, not for taking over ordinary one-off task execution.
 compatibility: Network search/fetch is useful for current resource discovery. Local repository/file/runtime access is only needed when a material decision depends on local evidence. Never bypass login, paywall, CAPTCHA or access controls.
 metadata:
-  version: "0.5.1"
-  product_stage: "experimental candidate — validation incomplete"
+  version: "0.6.0"
+  product_stage: "Minimal Curator V0.1 — real-user pilot candidate"
   language: "zh-CN"
 ---
 
-# ERP AI Curator — Experimental Candidate
+# ERP AI Curator — Minimal Curator V0.1
 
 ## 当前状态
 
-本文件是**候选实现**，不是已经验证完成的 Minimal Curator V0.1。
+本 Skill 已通过跨任务方法审查，可以进入**真实用户 Pilot**；这不等于产品效果已经被真实用户验证。
 
-当前可信项目证据只有：
+当前方法证据与边界见：
 
-- P01：高任务匹配 / 低独立验证；
-- P04：已关闭，可审计；
-- P06：已关闭，有受控 runtime 证据。
+- `docs/validation/CROSS_CARD_METHOD_REASSESSMENT_20260830.md`
+- `docs/validation/EVIDENCE_STATUS.md`
+- `docs/PROJECT_NORTH_STAR.md`
 
-2026-08-30 冲刺产生的 P03 / P07 `CLOSED` 结论已被撤回，因为没有保留足够可信的来源/引用链。不得把那两张卡的具体答案作为“已验证行为模式”。
-
-当前执行权威：
-
-- `docs/CURRENT_EXECUTION_PLAN_V3.md`
-- `docs/REBASE_AUDIT_20260830.md`
+详细卡片结论留在 `docs/validation/`，不写进本 Skill，避免把通用方法变成场景答案表。
 
 ## 目标
 
@@ -87,34 +82,36 @@ metadata:
 
 ### B — 专门能力有明显增益
 
-只有当专门能力能明显改善至少一项时才继续发现：
+只有存在**具体能力缺口**且专门方案能明显改善至少一项时才继续发现：
 
 - 交付格式/可编辑性；
 - 准确性/可验证性；
 - 大量重复劳动；
 - 专业交互/可视化能力；
 - 本地/隐私/权限适配；
-- 与现有设计系统、代码库、平台深度连接；
-- 普通 AI 明显做不到的操作能力。
+- 与现有设计系统、代码库或业务系统深度连接；
+- 普通 AI 明显做不到的操作/系统访问能力。
+
+能力更强不等于值得采用；同时考虑安装、学习、迁移、权限、数据和长期维护成本。
 
 ### C — 暂不值得引入复杂方案
 
-给一个低成本试验路径，并说明什么条件出现后再升级。
+给低成本试验路径，并说明什么条件出现后再升级。
 
 ## 第三步：只有需要时才发现外部资源
 
 默认顺序：
 
 ```text
-真实 practitioner 实操 / 复盘 / 案例
-→ 对应 Tool / Skill / repo / 方法原始来源
+真实 practitioner 实操 / 复盘 / 失败案例
+→ 对应 Tool / Skill / repo / 方法原始实现
 → 只核验会改变采用判断的当前官方事实
 → 限制 / 反证
 ```
 
 优先找能回答：
 
-- 用户拿什么输入开始；
+- 用户拿什么真实输入开始；
 - 实际做了哪些步骤；
 - 最终得到什么可用产物；
 - 哪里返工/失败/需要人工修正；
@@ -130,7 +127,7 @@ Bilibili、微信公众号、小红书、YouTube、社区、博客、GitHub 都�
 每个进入正式推荐判断的关键外部来源，至少要能回答：
 
 - 具体 URL / 来源是什么；
-- 实际读到了什么，还是只发现了标题/摘要；
+- 实际读到了什么，还是只发现标题/摘要；
 - 它属于 independent practitioner / author self-practice / implementation / official fact / curator synthesis 中哪一类；
 - 它支持哪个重要结论；
 - 最大限制/反证是什么。
@@ -162,14 +159,17 @@ Bilibili、微信公众号、小红书、YouTube、社区、博客、GitHub 都�
 - 写操作和明显数据外发；
 - license / 维护状态。
 
+系统连接能力越强，越要按任务需要限制权限；“能写”不等于“理解任务时应该写”。
+
 ### Runtime test 是例外
 
-只有当它可能改变采用建议时才测试，例如：
+只有当结果可能改变采用建议时才测试，例如：
 
 - 实践证据明显冲突；
 - 安装/权限/隐私风险无法静态判断；
 - 精确本地复现是采用前提；
-- 准备作为内部长期标准。
+- 准备作为内部长期标准；
+- 两种方案的真实差异无法通过现有证据判断。
 
 否则不要为了“更严谨”而测试。
 
@@ -184,15 +184,19 @@ Bilibili、微信公众号、小红书、YouTube、社区、博客、GitHub 都�
 5. **主要风险** — 只写会导致返工、错误采用或企业风险的事项；
 6. **现在怎么试** — 今天/明天可以执行的小动作。
 
-## 当前有证据支持的行为模式
+重要业务/代码/数据结论优先基于用户材料、项目文档、代码、配置、测试或可信知识源，不把模型记忆当权威事实。
 
-这些只是已有证据边界，不是永久答案：
+## 跨任务稳定原则
 
-- **会议/需求文本（P01）**：专门工作法可能提升结构与追溯，但独立验证仍弱，必须诚实标注；
-- **业务流程图（P04）**：先澄清业务语义，再生成可编辑图；AI 产物是评审对象，不是业务真相；
-- **Excel/数据对账（P06）**：plain code-first 可以胜任受控任务，但必须有确定性执行、行数/金额/控制总额检查、保守匹配和模糊项人工复核。
+这些是已通过多类任务反复检验的方法原则，不是具体场景答案：
 
-**P03 原型、P07 代码理解目前没有已接受的项目结论。** 不得机械复用被撤回的 sprint 答案。
+- **真实任务优先**：先明确材料、动作、交付物和关键约束；
+- **普通 AI 是基线**：专门方案必须证明自己解决了一个具体缺口；
+- **专业能力按瓶颈升级**：格式、系统访问、专业交互、可验证性、隐私/权限等缺口不同，升级方式也不同；
+- **产物不是业务真相**：AI 生成的图、表、原型、文档、代码解释都需要与源证据/规则/测试对照；
+- **未知要暴露**：事实、推断和待业务/系统确认项不要混写；
+- **验证强度与决策匹配**：只有会改变采用判断时才增加 runtime/local test；
+- **停止优先于堆资源**：当同事下一步行动已稳定，就停止搜索。
 
 ## 停止条件
 
