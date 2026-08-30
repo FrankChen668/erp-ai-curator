@@ -2,7 +2,7 @@
 
 Date: 2026-08-30
 
-> Current execution authority. This file was rebased after a context-length audit. `docs/REBASE_AUDIT_20260830.md` records the correction. P03 was subsequently rerun from scratch with a trustworthy evidence trail.
+> Current execution authority. The context-drift correction remains recorded in `docs/REBASE_AUDIT_20260830.md`. P03 and P07 have since been rerun from scratch with auditable evidence trails.
 
 ## 1. Product objective
 
@@ -28,34 +28,22 @@ The product is not a generic AI tool directory, Prompt library, tutorial encyclo
 
 ### Demand — accepted
 
-Primary REAL_USER demand source:
-
 - 83-response 2026-08 training survey;
 - normalized semantics in `docs/validation/SURVEY_DERIVED_PROBLEM_CARDS_01.md`.
 
-The survey validates demand, not recommendation outcome. Free-text is semantic evidence and may contain platform-side wording cleanup.
+The survey validates demand, not recommendation outcome.
 
 ### P01 — retained, low maturity
 
-Status:
-
 > **KEEP FOR PRACTICAL PILOT — HIGH TASK FIT / LOW INDEPENDENT VALIDATION**
-
-Do not treat P01 as independent proof of a general method.
 
 ### P04 — accepted closed card
 
-Status:
-
 > **CLOSED — RECOMMENDATION STABLE WITH EXPLICIT COVERAGE GAPS**
 
-Authority:
-
-- `docs/validation/P04_PRACTITIONER_CURATION_RESULT_02.md`
+Authority: `docs/validation/P04_PRACTITIONER_CURATION_RESULT_02.md`.
 
 ### P06 — accepted closed card
-
-Status:
 
 > **CLOSED — PLAIN CODE-FIRST DEFAULT WITH EXPLICIT RECONCILIATION CONTROLS; HUASHU OPTIONAL**
 
@@ -67,23 +55,24 @@ Authorities:
 
 ### P03 — accepted closed card after clean rerun
 
-Status:
-
 > **CLOSED — SPEC-FIRST CODE PROTOTYPE DEFAULT; FIGMA MAKE CONDITIONAL UPGRADE**
 
-Authority:
+Authority: `docs/validation/P03_PROTOTYPE_CURATION_RESULT_02.md`.
 
-- `docs/validation/P03_PROTOTYPE_CURATION_RESULT_02.md`
+### P07 — accepted closed engineering card after clean rerun
+
+> **CLOSED — TRACEABLE READ-ONLY REPO EXPLORATION DEFAULT; CONDITIONAL LSP/SEMANTIC OR ERP-NATIVE MCP UPGRADE**
+
+Authority: `docs/validation/P07_CODEBASE_UNDERSTANDING_RESULT_02.md`.
 
 Reason accepted:
 
-- the rerun starts from the survey-derived task, not the invalid prior conclusion;
-- retained external sources have concrete URLs and evidence roles;
-- Chinese practical workflow, independent practitioner failure evidence, current platform facts and original Skill implementations are separated;
-- limitations and enterprise-data boundaries are explicit;
-- the stop decision explains why synthetic runtime A/B would not change the adoption decision.
-
-Do not use `P03_PROTOTYPE_CURATION_RESULT_01.md` as supporting evidence.
+- rerun began from survey semantics rather than the invalid prior verdict;
+- professional comprehension research, practitioner success/failure evidence and Chinese practical workflow were actually read;
+- current large-repository Agent guidance and serious semantic/graph implementations were inspected;
+- SAP system-native MCP capability and security/write-risk boundaries were separately verified;
+- the result distinguishes implemented code facts from inferred business intent;
+- no synthetic runtime test was manufactured when no representative real legacy/system-native repository was available.
 
 ## 3. Invalidated sprint conclusions remain invalid
 
@@ -92,72 +81,53 @@ The following files remain **not accepted product evidence**:
 - `docs/validation/P03_PROTOTYPE_CURATION_RESULT_01.md`;
 - `docs/validation/P07_CODEBASE_UNDERSTANDING_RESULT_01.md`.
 
-P03 Result 02 does not rehabilitate Result 01.
+Only Result 02 files are authoritative for P03/P07.
 
-The earlier claims remain withdrawn:
-
-- “P07 is closed”;
-- “five heterogeneous cards prove Curator-method validation complete”;
-- “Minimal Curator V0.1 is validated”;
-- “the project has already entered REAL USER PILOT as the current authoritative phase”.
-
-The simplified Skill remains an **experimental candidate implementation**.
+The old claims “validation complete / Minimal Curator V0.1 validated / REAL USER PILOT already started” do not become true merely because the replacement cards are now closed. They require a fresh cross-card reassessment.
 
 ## 4. Correct current checkpoint
 
-> **P03 is now closed with trustworthy evidence. P07 is the next controlled engineering-type validation card.**
+> **P03 and P07 are now trustworthy closed cards. The next task is cross-card method reassessment, not another default validation card.**
 
-Do not restart P04, P06 or P03 without a new material reason.
+The corrected evidence discipline has now been exercised across materially different work:
 
-P07 is preferred over P10 because:
+- requirement/workshop packaging (P01, lower maturity);
+- business-process diagramming (P04);
+- ERP-like data reconciliation with bounded runtime evidence (P06);
+- requirements/rules → clickable prototype (P03);
+- engineering/codebase understanding (P07).
 
-- it is materially different from prototype/diagram/data artifact work;
-- repository context, code correctness and technical evidence dominate;
-- the previous P07 close was invalid, so a clean rerun directly tests whether the corrected evidence discipline survives an engineering task.
+This is sufficient to ask the next product question, but not to prejudge its answer.
 
-## 5. Immediate next action — rerun P07 correctly
+## 5. Immediate next action — cross-card reassessment
 
-P07 real job from survey semantics:
+Reassess whether the candidate Curator method is stable enough for a minimal real-user pilot.
 
-> A consultant/developer inherits an SAP/Oracle/custom-system codebase or enhancement and must understand structure, business logic, call chains, potential changes/defects/performance issues and sometimes reverse-generate functional logic/specification.
-
-Run P07 from scratch. Do not use the invalid P07 verdict as a search prior or answer.
-
-Required evidence flow:
+Required sequence:
 
 ```text
-survey-derived real job
-→ practitioner-first discovery with concrete URLs
-→ actually read serious workflows/cases
-→ inspect relevant code-Agent / Skill / MCP implementations
-→ verify only current facts that affect adoption
-→ retain failure / context / safety / correctness counter-evidence
-→ decide whether plain repo-aware Agent is enough or specialist capability materially helps
-→ material unresolved evidence gap?
-    yes → targeted static/runtime/local delta
-    no  → recommendation package
-→ adversarial stop check
+trustworthy P01/P04/P06/P03/P07 evidence
+→ candidate Skill current text
+→ extract recurring rules only
+→ test for contradictions / overfitting / framework creep
+→ identify any narrowly necessary Skill correction
+→ decide:
+    stable enough → package minimal user-facing Curator + bounded REAL_USER pilot
+    material contradiction → correct only that contradiction, then reassess
 ```
 
-For every retained external source, preserve:
+Questions to answer:
 
-- concrete URL/source identity;
-- actually read vs discovery-only;
-- evidence role;
-- material claim supported;
-- limitation/counter-evidence.
+1. Do the cards repeatedly support “ordinary AI first, specialized capability only for a concrete gap”?
+2. Is practitioner-first discovery consistently useful when external resources are actually needed?
+3. Does runtime testing add value only when a material adoption decision remains unresolved?
+4. Does the current Skill preserve source/evidence discipline without becoming a rigid framework?
+5. Are there any card-specific rules that were accidentally generalized?
+6. Is the next uncertainty now **real-user adoption/outcome**, rather than more synthetic method validation?
 
-Runtime/local testing is **not default**. Use it only if a concrete unresolved adoption decision can change because of the result.
+Do not add P10 or another card by default before answering these questions.
 
-## 6. After P07
-
-After a trustworthy P07 close, reassess heterogeneous evidence as a whole.
-
-Only then decide whether the method is stable enough to package a minimal user-facing Curator and enter real-user adoption validation.
-
-Do not predeclare that transition now.
-
-## 7. Candidate Skill status
+## 6. Candidate Skill status
 
 Current candidate:
 
@@ -165,13 +135,13 @@ Current candidate:
 
 Status:
 
-> **experimental candidate — not validated Minimal Curator V0.1**
+> **experimental candidate — cross-card reassessment pending**
 
-P03 supports the leverage-first direction but does not justify adding prototype-specific rules or claiming general validation.
+Repeated evidence supports its leverage-first direction, but validation status must come from the reassessment, not from naming/versioning.
 
-Future changes must be driven by repeated trustworthy evidence, not by completing a framework.
+If changes are needed, keep them minimal and derived from repeated evidence. Do not encode P03/P07-specific implementation details into the permanent method.
 
-## 8. Cloud / local split
+## 7. Cloud / local split
 
 Cloud/ChatGPT owns:
 
@@ -189,14 +159,14 @@ Use local Agent only when local capability materially adds evidence: local repos
 
 Agent availability is not a reason to create work.
 
-## 9. Task preflight
+## 8. Task preflight
 
 Before any non-trivial task, confirm:
 
 1. current milestone;
 2. concrete evidence the task will create;
 3. why the evidence can change a product/adoption decision;
-4. why the task is preferable to directly executing the current card.
+4. why the task is preferable to directly executing the current milestone.
 
 Goal hierarchy:
 
@@ -208,9 +178,7 @@ North Star
 → artifact / test / commit / Agent
 ```
 
-Do not reverse it.
-
-## 10. Anti-drift
+## 9. Anti-drift
 
 Do not add without evidence of need:
 
@@ -224,6 +192,6 @@ Do not add without evidence of need:
 - synthetic/smoke/readiness work presented as product evidence;
 - conclusions that cannot be traced back to actually acquired evidence.
 
-## 11. Current milestone
+## 10. Current milestone
 
-> **Complete P07 with a trustworthy, auditable evidence chain and a stable colleague recommendation. Then reassess whether the heterogeneous evidence base is sufficient for a minimal real-user pilot.**
+> **Determine whether the recurring Curator method is now stable enough to become a minimal user-facing Curator and enter a bounded real-user adoption pilot. Make that decision from the trustworthy cross-card evidence before doing more card validation.**
