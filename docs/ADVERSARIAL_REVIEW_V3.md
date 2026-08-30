@@ -534,6 +534,100 @@ Real risk.
 
 ---
 
+## A27 — Proxy-goal substitution: 用工程完成感替代产品进展
+
+### Attack
+
+当当前目标已经变成“真实用户实际采用”后，Agent 会不会因为 smoke test、readiness、Quickstart、PR、PASS 更容易完成，而把这些代理指标当成下一步？
+
+### Finding
+
+**Observed. High risk.**
+
+### Correction
+
+所有任务必须先映射当前里程碑，并通过反事实检查：
+
+> **如果任务完美完成，但真实用户没有因此更快做选择/开始工作/减少返工，也没有解除真实 Pilot 的明确阻塞，项目是否更接近目标？**
+
+若否，不执行。
+
+文档、测试、Commit、PASS 都是手段，不能单独成为产品进度。
+
+---
+
+## A28 — Agent-utilization bias: 因为有本地 Agent 就制造任务
+
+### Attack
+
+Owner 问“本地 Agent 做什么”时，Cloud 会不会默认必须给它安排任务，从而制造原本不存在的工作？
+
+### Finding
+
+**Observed.**
+
+### Correction
+
+本地 Agent 是能力，不是待填满的产能。
+
+> **“Agent 现在没有里程碑相关任务”是合法且可能最优的结论。**
+
+任何本地 Task Envelope 都必须明确：
+
+- `milestone_link`；
+- `user_evidence_created`。
+
+任一为空，不下发。
+
+---
+
+## A29 — Phase regression: 已进入真实用户阶段又退回自我验证
+
+### Attack
+
+项目在某阶段已经完成方法验证后，会不会因为新的不确定感，再回到 synthetic card、smoke、benchmark、readiness 流水线？
+
+### Finding
+
+**Observed immediately after V0.1.**
+
+### Correction
+
+阶段升级后默认单向推进。
+
+回退到验证阶段只允许两种理由：
+
+1. 真实用户使用暴露了一个会改变核心产品假设的 material failure；
+2. 一个真实 Pilot 被具体技术/安全问题阻断，且必须用最小验证解除。
+
+“想再确认一下”不够。
+
+---
+
+## A30 — Self-test mutation: 自己出的测试又驱动自己改产品
+
+### Attack
+
+Cloud/Local 自己设计测试、自己判失败、再据此修改 Skill，会不会形成自洽但脱离用户的闭环？
+
+### Finding
+
+High risk; closely related to A14 but stronger after productization.
+
+### Correction
+
+Synthetic/smoke/regression 主要用于：
+
+- 实现回归；
+- design falsification；
+- 修复真实使用已暴露的问题。
+
+它们不能单独触发新的产品方向、功能体系或治理机制。
+
+真实用户阶段的产品变化，优先由**真实使用摩擦**触发。
+
+---
+
 # Final adversarial conclusion
 
 V3 只有在以下边界同时成立时才不会再次偏航：
@@ -546,10 +640,16 @@ V3 只有在以下边界同时成立时才不会再次偏航：
 6. **runtime / artifact test 是必要时的最小补证，但可执行资源在推荐安装前仍需最低限度静态安全审查；**
 7. **教程的稳定经验和版本耦合操作必须分开；**
 8. **已留存资源是 search prior，不是永久批准；**
-9. **研究环境、作者名气、互动量都不能替代任务匹配和具体内容证据。**
+9. **研究环境、作者名气、互动量都不能替代任务匹配和具体内容证据；**
+10. **任何任务先证明它推进当前里程碑，禁止用工程产物、PASS 或 Agent 利用率替代产品进展；**
+11. **阶段升级后不因“再确认一下”退回自我验证，真实用户摩擦才是产品化后的主要学习源。**
 
-最大的产品风险已经从“能不能搜到资源”转成：
+当前最大的执行风险不再是“能不能搜到资源”，而是：
 
-> **能否稳定从大量现成互联网经验中，识别真正独立、当前、可复现、适合企业使用的少量内容，而不被营销、复读、过时教程或自建冲动带偏。**
+> **是否会在已经进入真实用户阶段后，又因为 AI Agent 擅长生成测试、文档和工程任务，而重新优化那些容易完成、但不改变真实用户结果的代理目标。**
 
-下一阶段应该用持续真实采编来回答，而不是继续增加验证架构。
+对此的主防线不是更多测试，而是固定目标层级：
+
+```text
+North Star → current milestone → real user outcome/evidence → task → artifact/test/Agent
+```

@@ -111,18 +111,37 @@ The next milestone is:
 
 > **A real ERP colleague uses Curator advice on a real task and says it saved enough search/learning/rework time that they would return.**
 
-## 7. Cloud / local split
+### Mandatory preflight before doing or delegating work
 
-Cloud/ChatGPT owns product judgement, Web/GitHub research, evidence-role judgement, current fact checks, adversarial review, GitHub maintenance and stop/recommendation decisions.
+Before any non-trivial cloud/local task, check:
 
-Use local Agent only when local-only evidence materially matters: repo/runtime, local files/environment, inaccessible-source acquisition or justified reproducibility checks.
+1. current milestone;
+2. concrete milestone evidence the task will create;
+3. whether success still matters if no document/test/commit is counted;
+4. why direct service of the next real user problem is not the better action.
 
-For local Task Envelopes:
+If the task creates no real-user evidence and removes no concrete pilot blocker, do not do it.
 
-- fixed: objective, hard boundaries, escalation conditions, evidence return;
-- flexible: execution path/tools/scripts/internal iteration unless evidence validity requires otherwise.
+In this phase, **smoke/readiness/synthetic tests, Quickstart polish, internal PASS labels and “give the local Agent something to do” are not valid substitutes for a real pilot.**
 
-Remote GitHub branch + readable commit is the delivery boundary for repository evidence.
+Engineering regression checks may follow a justified product change, but do not count them as product progress.
+
+## 7. Cloud / local collaboration
+
+Cloud owns product judgement, Web/GitHub research, evidence-role judgement, current fact checks, adversarial review, GitHub maintenance and stop/recommendation decisions.
+
+Use local Agent only when a valid current-phase task actually needs local-only evidence or execution: repo/runtime, local files/environment, inaccessible-source acquisition or justified reproducibility checks.
+
+**Agent availability is not a reason to create a task. Local Agent may correctly have nothing to do.**
+
+Every local Task Envelope must state:
+
+- `milestone_link` — which current milestone it advances;
+- `user_evidence_created` — what real-user evidence or concrete blocker removal it produces.
+
+If either is empty, do not delegate.
+
+Remote GitHub branch + readable commit is the delivery boundary for repository evidence, not product-value evidence.
 
 ## 8. Anti-drift
 
@@ -134,4 +153,13 @@ Do not add without real-user evidence:
 - automatic refresh system;
 - mandatory runtime benchmarks;
 - unattended multi-card Loop;
-- source/influencer rankings.
+- source/influencer rankings;
+- pilot-readiness machinery whose primary purpose is proving the product is ready.
+
+Goal hierarchy:
+
+```text
+North Star → current milestone → real user outcome/evidence → task → artifact/test/Agent
+```
+
+Never reverse it.
