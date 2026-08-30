@@ -3,44 +3,67 @@
 Date: 2026-08-30
 
 > Current execution authority: `docs/CURRENT_EXECUTION_PLAN_V3.md`.
+> Rebase audit: `docs/REBASE_AUDIT_20260830.md`.
 
-## 1. Demand evidence
+## 1. Demand evidence — accepted
 
-The 83-response 2026-08 training survey remains the primary REAL_USER demand source.
+The 2026-08 training survey remains the primary REAL_USER demand source.
 
 Supported conclusions:
 
+- 83 responses;
 - implementation consultants and project managers are the main audience;
-- users already use AI heavily;
-- the major gap is practical delivery quality, not AI introduction;
-- recurring jobs include requirements, prototypes, diagrams, PPT, Excel/data, testing, code understanding/debugging, project management and Agent usage;
+- many respondents already use AI;
+- the main gap is practical delivery quality, not AI introduction;
+- repeated work problems include requirements, PRD/FS, prototypes, diagrams, PPT, Excel/data, code/debugging, testing, project management and Agent usage;
 - typical inputs are real project artifacts rather than abstract prompts.
 
-The survey validates demand, not recommendation outcome.
+Authority:
 
-## 2. Curator-method validation — sufficient for V0.1
+- `SURVEY_DERIVED_PROBLEM_CARDS_01.md`
 
-Current heterogeneous evidence spans five materially different task classes.
+Boundary:
+
+- closed-choice aggregates are direct demand evidence;
+- free-text is treated as semantic evidence and may contain platform-side wording cleanup;
+- the survey validates demand, not recommendation outcome.
+
+## 2. Accepted card evidence
 
 ### P01 — workshop/minutes → requirement package
 
-Status: **KEEP FOR PRACTICAL PILOT**
+Status:
 
-Retained: `Convert Notes to Requirements Working Skill`
+> **KEEP FOR PRACTICAL PILOT**
 
-Classification: **high task fit / low independent validation**.
+Classification:
+
+> **high task fit / low independent validation**
+
+Do not present P01 as independently validated industry best practice.
 
 ### P04 — business logic → editable process diagram
 
-Status: **CLOSED — RECOMMENDATION STABLE WITH EXPLICIT COVERAGE GAPS**
+Status:
 
-Authority: `P04_PRACTITIONER_CURATION_RESULT_02.md`
+> **CLOSED — RECOMMENDATION STABLE WITH EXPLICIT COVERAGE GAPS**
 
-Lesson: semantic clarification precedes diagram generation; AI output remains a review artifact.
+Authority:
+
+- `P04_PRACTITIONER_CURATION_RESULT_02.md`
+
+Why accepted:
+
+- concrete external URLs are retained;
+- evidence roles are explicit;
+- limitations/counter-evidence and Bilibili coverage gaps are recorded;
+- stop rationale is tied to a stable adoption decision.
 
 ### P06 — Excel/CSV/system export → reconcile and validate
 
-Status: **CLOSED — PLAIN CODE-FIRST DEFAULT / HUASHU OPTIONAL**
+Status:
+
+> **CLOSED — PLAIN CODE-FIRST DEFAULT / HUASHU OPTIONAL**
 
 Authorities:
 
@@ -48,97 +71,99 @@ Authorities:
 - `P06_LOCAL_RUNTIME_RESULT_01.md`
 - `evidence/p06/`
 
-Lesson: a specialized Skill is not required when a plain code Agent can provide deterministic execution plus row/amount/control-total checks, conservative matching and review routing.
+Supported bounded judgement:
 
-### P03 — requirements/rules → clickable prototype/UI demo
+- a competent local code-first Agent is sufficient as the default for the tested ERP-like reconciliation when explicit reconciliation controls are included;
+- required discipline includes deterministic/replayable execution, row/amount checks, control-total/subtotal back-checks when available, conservative normalization/mapping, no-guess handling of ambiguity and traceability;
+- Huashu contributed useful control-check discipline but did not show enough Skill-specific advantage in the bounded fixture to justify mandatory adoption.
 
-Status: **CLOSED — CODED PROTOTYPE DEFAULT; FIGMA MAKE FOR FIGMA/DESIGN-SYSTEM-FIRST TEAMS**
+Boundary:
 
-Authority: `P03_PROTOTYPE_CURATION_RESULT_01.md`
+- this remains one bounded synthetic fixture, not universal production proof.
 
-Supported judgement:
+## 3. Invalidated evidence — DO NOT USE FOR PRODUCT CONCLUSIONS
 
-- generic ERP/B-end prototype work should use clarified business rules/states/flows → coded clickable prototype → human review/iteration;
-- v0 / AI IDE / coding Agent are valid low-friction coded-prototype paths;
-- Figma Make becomes preferable when existing Figma libraries/design-system collaboration are already central;
-- no dedicated prototype Skill is justified as a default dependency;
-- main failure mode is a plausible-looking UI that gets business states, branches, permissions or field rules wrong.
+### P03 prototype sprint result
 
-No generic P03 runtime comparison is justified because it would benchmark transient model output rather than resolve an adoption gap.
+File:
 
-### P07 — codebase/program → understand logic / support FS / locate defects
+- `P03_PROTOTYPE_CURATION_RESULT_01.md`
 
-Status: **CLOSED — REPO-AWARE CODE AGENT DEFAULT**
+Status:
 
-Authority: `P07_CODEBASE_UNDERSTANDING_RESULT_01.md`
+> **INVALIDATED — NOT PRODUCT EVIDENCE**
 
-Supported judgement:
+Reason:
 
-- capable repo-aware code Agents already cover unfamiliar-code exploration, feature tracing, debugging, tests and documentation;
-- business/FS explanations should be recovered from code/data/integration evidence with source pointers and explicit uncertainty;
-- critical conclusions/fixes require tests/logs/runtime evidence and independent review where consequence warrants it;
-- a specialist graph/architecture/code-understanding layer is justified only when normal repo navigation is materially inadequate.
+- practitioner/source claims were retained without a sufficient concrete URL/citation/acquisition trail;
+- current tool capability claims were not tied to traceable current-fact sources;
+- the file was produced during a long-context sprint where researched evidence cannot be reliably separated from model synthesis.
 
-No generic runtime A/B is justified because the adoption boundary is already stable.
+Its prior verdict is withdrawn. P03 must be rerun from scratch.
 
-## 3. Cross-card conclusion
+### P07 codebase sprint result
 
-Across text, diagrams, data, interactive prototypes and code, the Curator repeatedly demonstrates the intended behavior:
+File:
 
-- real task before Tool;
-- plain AI/Agent is a valid final recommendation;
-- specialist capability is introduced only when it adds material value;
-- practitioner evidence is prioritized for adoption questions;
-- author/official evidence roles remain explicit;
-- runtime testing is targeted rather than default;
-- work stops when the colleague decision stabilizes.
+- `P07_CODEBASE_UNDERSTANDING_RESULT_01.md`
 
-This is enough to exit Curator-method validation for Minimal Curator V0.1.
+Status:
 
-## 4. Minimal Curator V0.1
+> **INVALIDATED — NOT PRODUCT EVIDENCE**
 
-Primary artifact:
+Reason:
 
-- `skills/curating-erp-ai-resources/SKILL.md`
-- Skill version `0.5.0`
+- broad claims about major code-Agent ecosystems, practitioner workflows and legacy-system practice lack concrete retained source links/citations;
+- there is no auditable evidence chain sufficient to support a `CLOSED` verdict.
 
-The Skill now emphasizes user-facing decision quality instead of the earlier Gate/scoring/staging machinery.
+Its prior verdict is withdrawn. P07 is not closed.
 
-Default decision sequence:
+## 4. Withdrawn cross-card conclusion
 
-```text
-real work task
-→ AI leverage judgement
-→ general AI enough?
-→ targeted discovery only when needed
-→ necessary fact/safety checks
-→ small actionable recommendation
-→ stop
-```
+The following conclusion is no longer supported:
 
-## 5. Evidence boundary
+> “P01 + P04 + P06 + P03 + P07 provide sufficient heterogeneous evidence to declare Curator-method validation complete.”
 
-None of the current cards prove universal performance.
+Because P03 and P07 are invalidated, the project has **not** yet earned that transition.
 
-Do not interpret them as:
+Therefore also withdraw:
 
-- permanent Tool whitelists;
-- “plain AI always works”;
-- “specialized Skills are unnecessary”;
-- independent production validation for every retained resource.
+- “Minimal Curator V0.1 is validated”;
+- “current authoritative phase is REAL USER PILOT”.
 
-They validate the Curator's **decision behavior strongly enough to start real-user piloting**.
+## 5. Candidate Skill status
+
+`skills/curating-erp-ai-resources/SKILL.md` remains a useful **experimental candidate** because its leverage-first direction is consistent with the North Star.
+
+However:
+
+- it is not validated Minimal Curator V0.1;
+- P03/P07-specific behavior claims are not accepted evidence;
+- future changes must be driven by trustworthy card evidence, not by making the Skill appear complete.
 
 ## 6. Main uncertainty now
 
-The dominant uncertainty has changed from method design to product usefulness:
+The dominant uncertainty is again:
 
-> **Will real ERP colleagues actually use the recommendation, save search/learning/rework time, and come back for another task?**
+> **Does the Curator decision method generalize cleanly to another materially different delivery artifact class when the evidence chain is trustworthy?**
 
-That can only be answered by real-user pilot evidence.
+Next card:
 
-## 7. Current stop rule
+> **P03 — requirements / rules → clickable prototype / UI demo**
 
-Do not continue synthetic/representative Problem Cards merely to increase coverage.
+After a trustworthy P03 close, execute one engineering-type card such as P07 or P10 before deciding whether the method is ready for a minimal real-user pilot.
 
-Reopen validation only if real-user usage reveals a concrete failure pattern that could materially change Curator decision logic.
+## 7. Evidence acceptance rule
+
+A card cannot be marked `CLOSED` merely because its conclusion is plausible.
+
+For external-research cards, retained authority must allow an auditor to determine:
+
+- what concrete source was used;
+- whether it was actually read or only discovered;
+- what evidence role it plays;
+- what material claim it supports;
+- what limitations or counter-evidence remain;
+- why further search/test is unlikely to change the adoption decision.
+
+Source-less synthesis may be useful reasoning, but it is not accepted product evidence.
