@@ -117,9 +117,17 @@ Local Agent 仅在推荐真正依赖本地 repo/runtime、企业 ERP 环境、�
 
 不能明确回答“会”，默认不加。
 
-## 8. Next
+## 8. Current next
 
-1. 完成 0.8.0 simplification PR + Project Contract；
-2. 用既有真实问题做 bounded regression，验证“删规则但不丢关键行为”；
-3. 合并后继续 controlled real-user use；
-4. 只有新的真实使用缺陷才触发下一版。
+> **用 0.8.0 继续 controlled real-user use；不再为了内部完整性继续润色 Skill。**
+
+新的真实反馈出现时，Cloud 立即：
+
+```text
+classify actual user behavior
+→ decide whether it is a product defect, coverage gap or one-off preference
+→ make the smallest correction only if evidence justifies it
+→ update Evidence Status
+```
+
+如果没有新的真实使用证据，不用 synthetic case、benchmark 或额外规则替代当前产品里程碑。
