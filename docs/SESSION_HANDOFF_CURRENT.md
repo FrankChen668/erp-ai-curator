@@ -23,30 +23,60 @@ ERP AI Curator 是**真实 ERP / 企业信息化工作问题的 AI 实践与现�
 
 核心问题：
 
-> **当前 AI / 工具链是否已经够用？如果不够，什么已经存在的实践、Tool / Skill / MCP / 方法 / 教程最值得在当前任务和约束下优先学习/采用？**
+> **当前 AI / 工具链是否已经够用？如果不够，什么已经存在的实践、Tool / Skill / MCP / 方法 / 教程最值得在当前任务和约束下优先学习/采用？如果用户明确要找最佳实践/教程，就替他真正完成 practitioner/resource 筛选。**
 
 默认不是：工具目录、执行 SOP、用户测试协议、资源数据库或工具实验室。
 
 ## 3. 当前 Skill
 
 - `skills/curating-erp-ai-resources/SKILL.md`
-- version: **0.7.0**
+- version: **0.7.1**
 - release class: **CONTROLLED USER TRIAL**
 - user-use value: **UNVALIDATED**
 
-关键 runtime 边界：
+0.7.1 保留：
 
 - 真实 baseline first；
 - capability gap + adoption cost 决定 A/B/C；
 - `信息不足 != C`；
-- practitioner-first，但 author self-practice 不冒充独立验证；
+- practitioner-first，author self-practice 不冒充独立验证；
 - 默认“当前任务下优先推荐”，不滥用“最佳/唯一/已验证”；
-- 0 资源合法，默认最多 1 个主资源；
 - C 不自动让用户测试工具；
 - runtime/local test 只在 decision-changing 时做；
 - Curator != execution coach / test coordinator。
 
-## 4. Curation Pack 01 — CLOSED
+新增真实缺陷修正：
+
+> **`A = 不新增 Tool/Skill` ≠ `A = 不需要找最佳实践/教程`。**
+
+当用户明确请求最佳实践/教程/实战资源：
+
+- practitioner discovery 是任务本身；
+- 中文泛 ERP / ToB / 产品经理/顾问语境优先检查 Bilibili、公众号、小红书及相关 practitioner 生态；
+- official/standard 主要用于事实/能力/标准核验；
+- 输出优先给 1–3 个真正值得看的实操资源和优先级，再做 synthesis；
+- official-only + 模型自写教程不是合格完成。
+
+Runtime reference：`references/practitioner-discovery.md`。
+
+## 4. 触发 0.7.1 的真实受控试用缺陷
+
+用户明确要求：
+
+> “使用这个 skill 给我找下做流程图的最佳实践”
+
+0.7.0 的实际答案：
+
+- 判 A；
+- 引用 OMG / Camunda / Microsoft / ASQ；
+- 自己总结 8 条画图规则和 Prompt；
+- 没有筛出用户期待的 B站/公众号/小红书/产品经理/ToB AI 实战资源。
+
+Cloud 随后用公开 Web 即发现多个强匹配 Bilibili practitioner/tutorial 候选，因此失败不是内容稀缺，而是 runtime discovery routing 不够可执行。
+
+这是一条真实 Controlled User Trial defect，不是 synthetic card。
+
+## 5. Curation Pack 01 — CLOSED
 
 Authority：`docs/validation/CURATION_PACK_01_ADVERSARIAL_REVIEW.md`。
 
@@ -55,58 +85,32 @@ Authority：`docs/validation/CURATION_PACK_01_ADVERSARIAL_REVIEW.md`。
 - Case 003 — 周报/PPT 汇总：A；
 - Case 004 — SAP Bug / system evidence access：A → conditional B。
 
-结论：
+Pack 不重新打开。0.7.1 由真实用户反馈触发。
 
-> **STOP INTERNAL PACK EXPANSION. MOVE TO CONTROLLED REAL-USER USE.**
-
-这四条都是 REAL_USER_ORIGIN，不是用户采用证据。
-
-## 5. 当前发布裁决
-
-Authority：`docs/validation/RELEASE_READINESS_ADVERSARIAL_20260830.md`。
+## 6. 当前发布裁决
 
 > **CONTROLLED USER TRIAL GO / BROAD RELEASE NO**
 
 试用入口：`docs/USER_TRIAL_GUIDE_V1.md`。
 
-不要再把“能投用户试用”写成“产品目标已经验证完成”。
-
-## 6. 两个目标层级
-
-### 已完成
-
-- 方法/Skill/Harness 的 pre-user 构建；
-- 0.7.0 的受控试用准备；
-- A/B/system-access 基本区分度；
-- 用户试用入口。
-
-### 未完成
-
-North Star 用户结果：
-
-- 是否比普通 AI/自搜索省判断成本；
-- 是否少选错工具；
-- 是否降低配置/返工；
-- 是否更可信；
-- 用户是否愿意再次使用。
-
-这些只能由 REAL_USER_USE 证明。
+不要把“能投用户试用”写成“产品目标已经验证完成”。
 
 ## 7. 当前下一步
 
-> **把 0.7.0 给少量真实 ERP/企业信息化用户自然使用。**
+当前 immediate action：
 
-用户不需要执行项目测试协议，也不要求长问卷。
+1. 完成 0.7.1 practitioner discovery patch；
+2. 同一个流程图 Prompt 做 bounded regression；
+3. Project Contract / PR adversarial review 通过后合并；
+4. 继续 controlled real-user use。
 
-只记录自然出现的：采用/修改/拒绝/忽略 + 原因 + 漏项/收益。
-
-如果真实反馈暴露明确缺陷，Cloud 继续做窄修正；否则不继续内部润色 Skill。
+原宿主如果随后重新运行同一 Prompt，结果是额外 cross-host/runtime evidence，不应成为 Cloud 合并窄修正的前置阻塞。
 
 ## 8. Cloud / Local / Owner
 
-Cloud 能做就继续直接做，包括：真实反馈证据审查、当前 Web/GitHub 核验、窄缺陷修正、GitHub authority 维护。
+Cloud 能做就继续直接做，包括：真实反馈证据审查、当前 Web/GitHub practitioner discovery、窄缺陷修正、GitHub authority 维护。
 
-Local Agent 只在真实决策依赖本地 repo/runtime/ERP 环境/受保护 evidence 时接力。
+Local Agent 只在真实决策依赖本地 repo/runtime/ERP 环境/受保护 evidence，或必须验证某个宿主真实 Skill/reference 路由行为时接力。
 
 Owner 当前只有一个潜在明确裁决项：**如果要声明 public/open-source release complete，需要选择 repository license。** Agent 不擅自选择许可证。
 
@@ -118,6 +122,7 @@ Owner 当前只有一个潜在明确裁决项：**如果要声明 public/open-so
 - synthetic benchmark loop；
 - 更多 pre-user Curation Card；
 - resource DB / auto refresh；
+- creator/UP 主排行榜；
 - source-adapter framework as default architecture；
 - multi-Agent orchestration；
 - user tool-test protocol；
