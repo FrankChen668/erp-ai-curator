@@ -15,6 +15,13 @@ ROOT = Path(__file__).resolve().parents[1]
 SKILL_DIR = ROOT / "skills" / "curating-erp-ai-resources"
 SKILL = SKILL_DIR / "SKILL.md"
 
+CURATION_CASES = [
+    ROOT / "docs" / "curation-cases" / "CASE_001_ERP_OPERATING_MANUAL.md",
+    ROOT / "docs" / "curation-cases" / "CASE_002_ORACLE_EBS_DEVELOPMENT.md",
+    ROOT / "docs" / "curation-cases" / "CASE_003_WEEKLY_REPORT_CONSOLIDATION.md",
+    ROOT / "docs" / "curation-cases" / "CASE_004_SAP_BUG_DIAGNOSIS_SYSTEM_ACCESS.md",
+]
+
 REQUIRED = [
     ROOT / "docs" / "PROJECT_MAP.md",
     ROOT / "docs" / "PROJECT_NORTH_STAR.md",
@@ -22,14 +29,16 @@ REQUIRED = [
     ROOT / "docs" / "CURRENT_EXECUTION_PLAN_V3.md",
     ROOT / "docs" / "validation" / "EVIDENCE_STATUS.md",
     ROOT / "docs" / "REAL_USER_PILOT_V1.md",
+    ROOT / "docs" / "USER_TRIAL_GUIDE_V1.md",
     ROOT / "docs" / "SESSION_HANDOFF_CURRENT.md",
     ROOT / "docs" / "PROJECT_CALIBRATION_20260830.md",
+    ROOT / "docs" / "validation" / "CURATION_PACK_01_ADVERSARIAL_REVIEW.md",
+    ROOT / "docs" / "validation" / "RELEASE_READINESS_ADVERSARIAL_20260830.md",
     SKILL,
     SKILL_DIR / "references" / "adoption-consistency.md",
     SKILL_DIR / "references" / "decision-boundaries.md",
     SKILL_DIR / "references" / "evidence-and-safety.md",
-    ROOT / "docs" / "curation-cases" / "CASE_001_ERP_OPERATING_MANUAL.md",
-    ROOT / "docs" / "curation-cases" / "CASE_002_ORACLE_EBS_DEVELOPMENT.md",
+    *CURATION_CASES,
 ]
 
 CURRENT_DOCS = [
@@ -37,6 +46,7 @@ CURRENT_DOCS = [
     ROOT / "docs" / "CURRENT_EXECUTION_PLAN_V3.md",
     ROOT / "docs" / "SESSION_HANDOFF_CURRENT.md",
     ROOT / "docs" / "validation" / "EVIDENCE_STATUS.md",
+    ROOT / "docs" / "USER_TRIAL_GUIDE_V1.md",
 ]
 
 OLD_PILOT_CASES = [
@@ -84,7 +94,7 @@ check(not (SKILL_DIR / "README.md").exists(), "runtime Skill package must not co
 for old in OLD_PILOT_CASES:
     check(not old.exists(), f"legacy Pilot case path still exists: {old.relative_to(ROOT)}")
 
-for case in REQUIRED[-2:]:
+for case in CURATION_CASES:
     if case.is_file():
         body = case.read_text(encoding="utf-8")
         check("NOT USER-USE EVIDENCE" in body, f"curation case lacks explicit evidence boundary: {case.relative_to(ROOT)}")
@@ -103,6 +113,12 @@ readme = ROOT / "README.md"
 if readme.is_file():
     readme_text = readme.read_text(encoding="utf-8")
     check("version: `0.6.0`" not in readme_text, "README contains known stale Skill version 0.6.0")
+    check("CONTROLLED USER TRIAL" in readme_text.upper(), "README missing controlled-user-trial release boundary")
+
+release_review = ROOT / "docs" / "validation" / "RELEASE_READINESS_ADVERSARIAL_20260830.md"
+if release_review.is_file():
+    release_text = release_review.read_text(encoding="utf-8").upper()
+    check("CONTROLLED USER TRIAL GO / BROAD RELEASE NO" in release_text, "release readiness verdict drifted")
 
 if errors:
     print("PROJECT CONTRACT: FAIL")
@@ -114,5 +130,7 @@ print("PROJECT CONTRACT: PASS")
 print(f"- skill: {skill_name or 'unknown'}")
 print(f"- version: {version or 'unknown'}")
 print(f"- required files: {len(REQUIRED)}")
+print(f"- curation cases: {len(CURATION_CASES)}")
 print("- curation/user-use evidence lanes: explicit")
+print("- release boundary: controlled trial only")
 print("- runtime Skill README: absent")
