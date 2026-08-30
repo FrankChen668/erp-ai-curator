@@ -1,28 +1,30 @@
 # ERP AI Curator — Minimal Curator V0.1
 
-当前 Skill 版本：`0.6.2`
+当前 Skill 版本：`0.6.3`
 
 定位：
 
-> 面对真实 ERP / 企业信息化工作任务，先判断普通 AI 是否已经够用；只有存在明确能力缺口且收益超过采用成本时，才推荐少量 Tool / Skill / MCP / 方法 / 教程。
+> 面对真实 ERP / 企业信息化工作任务，先判断普通 AI 是否已经够用；如果不够，优先从互联网上已经存在的实操经验、Tool / Skill / MCP / 方法 / 教程中筛选最值得学习和采用的最佳实践。
 
-## V0.6.2 做了什么
+## V0.6.3 做了什么
 
-这是一次**Harness 一致性补丁**，不是方法论扩张：
+这是一次**产品边界 Harness 修正**，不是方法论扩张：
 
-- 保留 0.6.1 的四个核心原则、A/B/C、General-AI-first、capability-gap、evidence-grounded 和 decision-changing runtime；
-- 不新增 SAP/Oracle/ERP 场景答案；
-- 增加一个按需 `adoption-consistency.md`：只有当 Agent 已识别具体能力缺口、却仍准备输出“无需专门资源 / 继续普通 AI / 先低成本试验”时才读取；
-- 要求 Agent 明确解释为什么该能力缺口尚不足以跨过采用成本，避免从“反过度工具化”滑向“under-tooling”；
-- 不新增评分、Gate、强制资源推荐或新一轮内部 benchmark。
-
-0.6.1 的隔离边界回归发现 Case 5/38 存在 under-tooling，但没有证明永久领域规则缺失。0.6.2 因此只提升**执行可见性与一致性**，不把案例答案写回 Skill。
+- 保留 0.6.2 的 A/B/C、General-AI-first、capability-gap、evidence-grounded 和 adoption-consistency；
+- 明确 Curator 的默认产物是“最佳实践 / 现成资源采用建议”，不是完整执行 SOP；
+- 优先输出 practitioner 实操 / 复盘 / 失败经验，再核验原始 Tool / Skill / repo 和当前官方事实；
+- 明确真实用户后续采用/修改/拒绝用于验证 Curator，但不把用户变成工具测试员；
+- 不新增 SAP/Oracle/ERP 场景答案、评分、Gate、强制 runtime 或工具目录。
 
 ## 当前阶段
 
 Minimal Curator V0.1 仍是 **real-user pilot candidate**。
 
-下一份有价值的产品证据仍然来自真实 ERP / 企业信息化同事在真实任务上的实际采用、修改、拒绝和结果，而不是继续内部刷题。
+当前产品问题不是“能否指导用户按步骤测试工具”，而是：
+
+> **能否针对真实 ERP 工作问题，从高噪声互联网资源中压缩出少量真正值得学习/采用的最佳实践，并且明显优于用户自己漫无目的地搜索？**
+
+真实用户后续是否采用这些建议，仍用于验证产品价值。
 
 ## 当前可分发 Skill 结构
 
