@@ -22,142 +22,119 @@ Authority:
 
 The survey validates demand, not solution outcome.
 
-## 2. Current source-strategy position
+## 2. Source-strategy position
 
-Supported direction:
-
-> **For practical delivery questions, practitioner guides/reviews/cases should normally be the first discovery lane; original Tool/Skill and official docs are supporting verification layers.**
+For practical delivery questions, practitioner guides/reviews/cases should normally be the first discovery lane; original Tool/Skill and official docs are supporting verification layers.
 
 This is practical-value-first, not independent-third-party-at-all-costs.
 
-An author/maintainer/original repository can still be the best primary learning resource when it contains the strongest workflow, examples and failure guidance, but its evidence role must be labeled honestly.
+Do not use platform access failure, popularity metrics, source counts or author self-tests as substitutes for evidence quality.
 
-Authority:
-
-- `docs/SOURCE_STRATEGY_V3.md`
-- `docs/CREATOR_PRIOR_STRATEGY_V3.md`
-
-## 3. Current web/platform evidence
-
-Observed in current cloud research:
-
-- ordinary public Web can surface useful Chinese and international practitioner material without treating any platform as a quota;
-- direct Bilibili page/transcript acquisition can still intermittently hit anti-bot limits, so discovery and full-content access must be distinguished;
-- WeChat Search → Reader remains a qualified path when a concrete article needs full text;
-- Xiaohongshu remains an acquisition/indexing coverage gap; do not infer content scarcity from access difficulty.
-
-Adapter failure/status must not be used as a proxy for platform value.
-
-## 4. Existing upstream ecosystems discovered
-
-Current evidence shows that ERP AI Curator can reuse existing ecosystems rather than rebuild them, including:
-
-- Chinese AI Product Manager Skill libraries;
-- broader PM Agent Skill libraries;
-- WorkBuddy community practical bluebooks;
-- practitioner creator series;
-- task-specific GitHub Skills and workflow repositories.
-
-These are feeder pools, not final recommendations by themselves.
-
-## 5. P01
+## 3. P01
 
 Status: **KEEP FOR PRACTICAL PILOT**
 
-Main retained resource:
+Retained:
 
 - `Convert Notes to Requirements Working Skill`
 
 Classification:
 
-> high task fit / low independent validation
+> **high task fit / low independent validation**
 
-Useful practical method; not an independently validated industry standard.
+## 4. P04 — CLOSED
 
-## 6. P04 technical/implementation evidence
+Status:
 
-Retained implementation anchors remain:
-
-- `Castaldo-Solutions/process-builder` — strong enterprise-process method/implementation; author self-practice;
-- official `jgraph/drawio-mcp` — implementation/current-fact anchor;
-- Anttu draw.io MCP article — optional independent technical operation/troubleshooting companion.
-
-The previously prepared `P04B` runtime pilot remains:
-
-> **DEFERRED / escalation only**
-
-Do not rerun technical/static/runtime work unless a later real adoption decision exposes a new material unresolved risk.
-
-## 7. P04 practitioner delta — CLOSED
-
-Status: **CLOSE P04 — RECOMMENDATION STABLE WITH EXPLICIT COVERAGE GAPS**
+> **CLOSE P04 — RECOMMENDATION STABLE WITH EXPLICIT COVERAGE GAPS**
 
 Authority:
 
 - `P04_PRACTITIONER_CURATION_RESULT_02.md`
 
-Retained practitioner evidence includes:
+P04 demonstrated the desired behavior: practitioner-first search, targeted evidence delta, evidence-role discipline, explicit remaining coverage gap, then stop once the recommendation was stable.
 
-- `冰冰酱 — 从一张白纸到交付PRD：我的全自动 AI 产品工作流` — independent practitioner workflow/judgement evidence with real semantic correction and rework;
-- `健彬的产品Live / 北沐而川 — 3分钟绘制流程图！这个AI+绘图工具的神仙组合` — independent practitioner-style operational guide for text → XML → Draw.io → manual adjustment.
+Do not rerun P04 technical/runtime work unless later real adoption exposes a new material risk.
 
-Remaining Bilibili full-content gaps are explicit but no longer decision-blocking.
+## 5. P06 data reconciliation — CLOSED
 
-P04 demonstrated the desired stopping behavior: targeted delta, evidence-role discipline, explicit coverage gap, then stop once recommendation is stable.
+Status:
 
-## 8. P06 data reconciliation — ACTIVE
+> **PLAIN CODE-FIRST DEFAULT / HUASHU OPTIONAL**
 
-Status: **CLOUD CURATION DONE / ONE BOUNDED LOCAL RUNTIME DELTA JUSTIFIED**
-
-Authority / task envelope:
+Authorities:
 
 - `DELIVERY_P06_DATA_RECONCILIATION.md`
+- `P06_LOCAL_RUNTIME_RESULT_01.md`
+- `evidence/p06/`
 
-Current cloud evidence:
+### Final supported judgement
 
-- independent practitioner experience shows recurring multi-file reconciliation becomes unreliable when treated as free-form chat; stable procedure, deterministic execution, explicit validation and human-review routing materially improve repeatability;
-- current spreadsheet-native AI can now inspect/update workbooks directly and is a legitimate low-friction option, so P06 must not assume dedicated Skills are always necessary;
-- `alchaincyf/huashu-excel` is the strongest currently discovered packaged audit-oriented spreadsheet method, inspected at commit `9348581a87cc03ed8d0b30706631088e922c6027`;
-- its strongest current evidence is author-created method + implementation + author-run pressure testing, not independent ERP field validation.
+For ordinary ERP Excel/CSV/system-export reconciliation, a competent local code-first Agent is sufficient as the default implementation path **if** the workflow includes explicit reconciliation controls.
 
-Current decision gap:
+Required method discipline:
 
-> **Does Huashu-Excel materially improve ERP-style multi-file reconciliation over a competent plain code-first local Agent enough to justify the adoption overhead?**
+- deterministic/replayable transformation and comparison;
+- explicit source/target row-count and amount checks;
+- back-check source control totals/subtotals when available rather than simply excluding them;
+- conservative key normalization and explicit mapping;
+- ambiguous/non-unique matches routed to review instead of guessed;
+- exceptions and source-row traceability preserved.
 
-Only this runtime comparison is currently justified. Local broad Web discovery, benchmark-framework construction and global Skill installation are out of scope.
+Current spreadsheet-native AI remains a legitimate lower-friction option for one-off lower-risk workbook work.
 
-## 9. Runtime-testing policy
+`alchaincyf/huashu-excel` remains useful as an optional audit/checklist method for recurring or high-consequence reconciliation, but current evidence does not justify mandatory adoption.
 
-Do not use a technical test ladder as a mandatory pipeline for every resource.
+### Runtime evidence
 
-Local runtime test is justified only when it can plausibly change an adoption decision, for example:
+The bounded local A/B used the same synthetic ERP-like input in isolated contexts and hidden ground truth.
 
-- credible practical evidence remains insufficient or contradictory;
-- install/permission/privacy risk matters and static review cannot resolve it;
-- exact reproducibility is essential;
-- a candidate may become a repeated internal standard.
+Independent verification found:
 
-P06 meets this threshold narrowly because a new self-authored Skill is competing with an already-capable plain code-first workflow on a correctness-sensitive task.
+- both baseline and with-Skill matched all 9 expected record-level statuses;
+- both produced the same reconciliation CSV;
+- baseline omitted a source control-total back-check;
+- Huashu exposed a legacy `TOTAL` difference of 10;
+- the pinned Huashu scripts initially failed to classify three `SUBTOTAL WHxx` rows correctly, requiring manual reclassification;
+- Windows default console encoding also required a UTF-8 adjustment.
 
-## 10. Main remaining uncertainties
+Therefore the material lesson is not “Huashu has no value”. It is:
 
-Immediate:
+> **the valuable audit discipline is portable into plain code-first execution and the bounded evidence does not show enough Skill-specific advantage to justify adding Huashu as a required dependency.**
 
-- P06: whether Huashu-Excel produces a material accuracy/auditability/rework advantage over plain code-first Agent execution on the same ERP-like reconciliation fixture.
+### Evidence boundary
 
-Product-level:
+This is one synthetic bounded fixture, not independent ERP production validation of either method.
 
-- whether practitioner-first curation remains stable across additional heterogeneous Problem Cards;
+Do not generalize it into:
+
+- “Huashu never helps”;
+- “plain Agent always succeeds”;
+- “all Excel work should use Python”.
+
+Reopen only if real-user adoption shows a materially different workload, scale, audit requirement or failure pattern.
+
+## 6. Runtime-testing policy
+
+Runtime testing remains exceptional.
+
+P06 justified one bounded runtime delta because a new self-authored Skill was competing with an already-capable plain code-first workflow on a correctness-sensitive task and the result could change adoption advice.
+
+The test is now complete. Do not expand it into a benchmark suite.
+
+## 7. Main remaining uncertainties
+
+Product-level uncertainties now matter more than P06 technical uncertainty:
+
+- whether practitioner-first curation remains stable on another heterogeneous job such as P03 prototype generation;
 - whether curated packages are genuinely useful to colleagues on real material;
 - which feeder ecosystems deserve recurring discovery prior;
-- whether a minimal production Curator Skill is eventually worth packaging.
+- whether a minimal user-facing Curator product is worth packaging after a few heterogeneous cards.
 
-## 11. Main risk now
+## 8. Main risk now
 
-The dominant risk is not insufficient technical validation.
+The dominant risk is:
 
-It is:
+> **continuing to accumulate validation artifacts instead of proving that Curator recommendations generalize across different real jobs and are useful to colleagues.**
 
-> **doing extra research/tests that do not change the colleague's adoption decision, or recommending a specialized Skill when plain deterministic Agent work is already enough.**
-
-P06 should therefore stop immediately once the bounded local comparison stabilizes that decision.
+Next planned controlled card is P03. After P03 and one engineering-type card, reassess whether to shift from research/validation toward a minimal user-facing Curator.
