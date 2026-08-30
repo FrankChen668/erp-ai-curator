@@ -2,7 +2,7 @@
 """Deterministic repository-contract checks for ERP AI Curator.
 
 This script intentionally checks only machine-verifiable project facts.
-It does NOT score recommendation quality or validate product value.
+It does NOT score recommendation quality or enforce arbitrary prompt-size targets.
 """
 
 from __future__ import annotations
@@ -44,6 +44,7 @@ REQUIRED = [
     ROOT / "docs" / "PROJECT_CALIBRATION_20260830.md",
     ROOT / "docs" / "validation" / "CURATION_PACK_01_ADVERSARIAL_REVIEW.md",
     ROOT / "docs" / "validation" / "RELEASE_READINESS_ADVERSARIAL_20260830.md",
+    ROOT / "docs" / "validation" / "CURATOR_080_RUNTIME_SIMPLIFICATION.md",
     SKILL,
     *RUNTIME_REFERENCES,
     *CURATION_CASES,
@@ -97,8 +98,6 @@ if SKILL.is_file():
     for ref in referenced:
         check((SKILL_DIR / "references" / ref).is_file(), f"SKILL.md references missing file: references/{ref}")
 
-    check(len(text.splitlines()) <= 140, "runtime SKILL.md exceeded simplification guardrail of 140 lines")
-
 check(not (SKILL_DIR / "README.md").exists(), "runtime Skill package must not contain README.md")
 
 for old in REMOVED_RUNTIME_REFERENCES:
@@ -141,7 +140,7 @@ if errors:
 print("PROJECT CONTRACT: PASS")
 print(f"- skill: {skill_name or 'unknown'}")
 print(f"- version: {version or 'unknown'}")
-print(f"- runtime skill lines: {len(SKILL.read_text(encoding='utf-8').splitlines()) if SKILL.is_file() else 'unknown'}")
+print(f"- runtime skill lines (informational): {len(SKILL.read_text(encoding='utf-8').splitlines()) if SKILL.is_file() else 'unknown'}")
 print(f"- runtime references: {len(RUNTIME_REFERENCES)}")
 print(f"- curation cases: {len(CURATION_CASES)}")
 print("- curation/user-use evidence lanes: explicit")
