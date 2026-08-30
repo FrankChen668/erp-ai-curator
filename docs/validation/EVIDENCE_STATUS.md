@@ -4,6 +4,7 @@ Date: 2026-08-30
 
 > Current execution authority: `docs/CURRENT_EXECUTION_PLAN_V3.md`.
 > Rebase audit: `docs/REBASE_AUDIT_20260830.md`.
+> Cross-card reassessment: `docs/validation/CROSS_CARD_METHOD_REASSESSMENT_20260830.md`.
 
 ## 1. Demand evidence — accepted
 
@@ -28,35 +29,23 @@ Boundary:
 - free-text is semantic evidence and may contain platform-side wording cleanup;
 - the survey validates demand, not recommendation outcome.
 
-## 2. Accepted card evidence
+## 2. Accepted task evidence
 
 ### P01 — workshop/minutes → requirement package
 
-Status:
-
-> **KEEP FOR PRACTICAL PILOT**
-
-Classification:
-
-> **high task fit / low independent validation**
+> **KEEP FOR PRACTICAL PILOT — high task fit / low independent validation**
 
 Do not present P01 as independently validated industry best practice.
 
 ### P04 — business logic → editable process diagram
 
-Status:
+> **CLOSED — recommendation stable with explicit coverage gaps**
 
-> **CLOSED — RECOMMENDATION STABLE WITH EXPLICIT COVERAGE GAPS**
-
-Authority:
-
-- `P04_PRACTITIONER_CURATION_RESULT_02.md`
+Authority: `P04_PRACTITIONER_CURATION_RESULT_02.md`.
 
 ### P06 — Excel/CSV/system export → reconcile and validate
 
-Status:
-
-> **CLOSED — PLAIN CODE-FIRST DEFAULT / HUASHU OPTIONAL**
+> **CLOSED — plain code-first default / Huashu optional**
 
 Authorities:
 
@@ -64,129 +53,91 @@ Authorities:
 - `P06_LOCAL_RUNTIME_RESULT_01.md`
 - `evidence/p06/`
 
-Supported bounded judgement:
+Bounded evidence: plain deterministic code matched the Skill on record-level outcomes in the synthetic fixture; Huashu added one useful control-total discipline but not enough Skill-specific gain for mandatory adoption.
 
-- a competent local code-first Agent is sufficient as the default for the tested ERP-like reconciliation when explicit reconciliation controls are included;
-- required discipline includes deterministic/replayable execution, row/amount checks, control-total/subtotal back-checks when available, conservative normalization/mapping, no-guess handling of ambiguity and traceability;
-- Huashu contributed useful control-check discipline but did not show enough Skill-specific advantage in the bounded fixture to justify mandatory adoption.
+### P03 — requirements/rules → clickable prototype
 
-Boundary: this remains one bounded synthetic fixture, not universal production proof.
+> **CLOSED — spec-first code prototype default; Figma Make conditional upgrade**
 
-### P03 — requirements/rules → clickable prototype / UI demo
-
-Status:
-
-> **CLOSED — SPEC-FIRST CODE PROTOTYPE DEFAULT; FIGMA MAKE CONDITIONAL UPGRADE**
-
-Authority:
-
-- `P03_PROTOTYPE_CURATION_RESULT_02.md`
-
-Supported judgement:
-
-- turn roles, permissions, fields, validation, states, transitions and exception paths into a bounded interaction contract before generating UI;
-- a competent code-capable Agent is the default for a reviewable local prototype when the goal is requirement clarification;
-- Figma Make is a conditional upgrade when Figma/design-system/shared review context matters;
-- hosted builders are conditional when hosted app behavior/state/sharing justify their cloud/platform constraints;
-- inspected prototype Skills solve adjacent transformations but are not mandatory.
-
-Evidence boundary: no independent ERP-specific benchmark proves generated prototype business correctness; human rule/exception review remains required.
+Authority: `P03_PROTOTYPE_CURATION_RESULT_02.md`.
 
 ### P07 — codebase/program → understand logic / reverse FS / defect hypotheses
 
-Status:
+> **CLOSED — traceable read-only repo exploration default; conditional LSP/semantic or ERP-native MCP upgrade**
 
-> **CLOSED — TRACEABLE READ-ONLY REPO EXPLORATION DEFAULT; CONDITIONAL LSP/SEMANTIC OR ERP-NATIVE MCP UPGRADE**
+Authority: `P07_CODEBASE_UNDERSTANDING_RESULT_02.md`.
+
+## 3. Invalidated evidence remains invalid
+
+- `P03_PROTOTYPE_CURATION_RESULT_01.md` — **INVALIDATED / NOT PRODUCT EVIDENCE**.
+- `P07_CODEBASE_UNDERSTANDING_RESULT_01.md` — **INVALIDATED / NOT PRODUCT EVIDENCE**.
+
+Only Result 02 is authoritative for P03/P07. The clean reruns do not rehabilitate unsupported old reports.
+
+## 4. Cross-card method conclusion — accepted for pilot readiness
 
 Authority:
 
-- `P07_CODEBASE_UNDERSTANDING_RESULT_02.md`
+- `CROSS_CARD_METHOD_REASSESSMENT_20260830.md`
 
-Supported judgement:
+Status:
 
-- for ordinary local Git repositories, start with one concrete question and a scoped read-only repo-aware Agent workflow;
-- build understanding hierarchically: global structure → relevant flow/modules → detailed code/test/log evidence;
-- distinguish observed code fact, inference and business-confirmation-required unknowns;
-- code can evidence implemented behavior but does not automatically prove business intent;
-- introduce LSP/symbol/semantic tooling only when text search/cross-symbol navigation is a demonstrated bottleneck;
-- Serena is a conditional semantic-navigation trial, not a mandatory default; independent evidence is mixed;
-- CodeGraph is task-relevant but currently has insufficient independent evidence for default adoption;
-- when authoritative code/metadata/tests live outside the local filesystem, a system-native connector can materially change the task; current SAP ADT MCP / ABAP tooling is the clearest example;
-- live SAP write/activation capability increases the need for read-only/least-privilege exploration rather than increasing Agent autonomy;
-- no synthetic runtime A/B was justified without a representative real legacy/system-native repository.
+> **METHOD READY FOR REAL-USER PILOT — PRODUCT OUTCOME NOT YET VALIDATED**
 
-Evidence boundary:
+The heterogeneous trustworthy cards repeatedly support a minimal recurring method:
 
-- no controlled ERP benchmark compares native repo-aware Agents with Serena/CodeGraph on the same real legacy estate;
-- reverse-generated FS must preserve source traceability and explicitly flag inferred/unknown business meaning;
-- defects and performance claims remain hypotheses until verified by tests/logs/static analysis/runtime/metrics as appropriate.
+1. start from the real job, artifacts, deliverable and material constraints;
+2. treat ordinary AI/existing Agent as the baseline;
+3. discover specialized capability only for a concrete bottleneck;
+4. when external adoption evidence is needed, prioritize practitioner workflow/failure evidence, then original implementation, then decision-changing current official facts;
+5. ground generated work in source/project/system evidence and expose unknowns;
+6. run local/runtime tests only when their result can change the recommendation;
+7. stop when the colleague’s next action is stable.
 
-## 3. Invalidated evidence — DO NOT USE FOR PRODUCT CONCLUSIONS
+No trusted card requires a contradictory permanent method.
 
-### P03 prototype sprint result
+## 5. Minimal Curator status
 
-- `P03_PROTOTYPE_CURATION_RESULT_01.md` — **INVALIDATED / NOT PRODUCT EVIDENCE**.
+`skills/curating-erp-ai-resources/SKILL.md` is now:
 
-Only Result 02 is authoritative.
+> **Minimal Curator V0.1 — real-user pilot candidate**
 
-### P07 codebase sprint result
+This promotion means **method readiness**, not product validation.
 
-- `P07_CODEBASE_UNDERSTANDING_RESULT_01.md` — **INVALIDATED / NOT PRODUCT EVIDENCE**.
+The Skill was deliberately kept generic: card-specific P03/P04/P06/P07 recommendations remain in validation documents rather than being accumulated as permanent scenario rules.
 
-Only Result 02 is authoritative. The clean rerun does not rehabilitate the unsupported prior report.
+## 6. Current dominant uncertainty
 
-## 4. Cross-card conclusion — reassessment is now due
+The main uncertainty is no longer whether the Curator can produce plausible decisions on another internal card.
 
-The earlier “validation complete / Minimal Curator V0.1 / REAL USER PILOT” claim remains withdrawn **until a fresh cross-card reassessment is performed**.
+It is:
 
-What has changed:
+> **Will real ERP / enterprise-information-system colleagues act on the recommendation, and does it materially reduce wrong-tool selection, search/setup effort or avoidable downstream rework?**
 
-- P03 now has a trustworthy rerun;
-- P07 now has a trustworthy engineering-type rerun;
-- the corrected evidence discipline has therefore been exercised across prototype, diagram, data and engineering/code artifact classes.
+Authority for the next evidence phase:
 
-What has not yet been decided:
+- `docs/REAL_USER_PILOT_V1.md`
 
-> **Whether this heterogeneous evidence is now sufficient to package a minimal user-facing Curator and enter a bounded real-user adoption pilot.**
+## 7. Next accepted evidence
 
-That is the immediate next product decision. Do not add another validation card by default before making it.
+Prefer:
 
-## 5. Candidate Skill status
+- a real colleague’s real task;
+- recommendation actually given by Minimal Curator V0.1;
+- what the colleague actually tried/rejected/changed;
+- concrete artifact/result or failure reason;
+- observed search/setup/rework/adoption effect;
+- missed constraints or unsafe/wrong recommendation if any.
 
-`skills/curating-erp-ai-resources/SKILL.md` remains an **experimental candidate** pending the cross-card reassessment.
+Do **not** substitute:
 
-Repeated trustworthy evidence now supports several directions already present in it:
+- another invented card;
+- another smoke/readiness test;
+- owner/agent opinion that the output “looks good”;
+- more resource collection without user action.
 
-- start from the real task rather than a tool category;
-- ask whether ordinary AI/Agent is already enough before searching for specialized capability;
-- upgrade only for a concrete capability/bottleneck;
-- separate practitioner evidence, original implementation/current facts and limitations/counter-evidence;
-- do not require runtime testing when it cannot change the adoption decision.
+## 8. Evidence acceptance rule remains
 
-Do not yet rename it “validated Minimal Curator V0.1” until the cross-card reassessment checks whether the Skill faithfully encodes the recurring method without card-specific overfitting.
+External claims must remain traceable to concrete acquired evidence. Search snippets are discovery only. Author self-tests are not independent validation. Runtime evidence is bounded to what was actually tested.
 
-## 6. Main uncertainty now
-
-> **Is the recurring Curator method sufficiently stable and minimal to expose to real colleagues, or are there still contradictions/overfitting in the candidate Skill that must be corrected first?**
-
-Immediate next action:
-
-1. reread P01/P04/P06/P03/P07 trustworthy evidence and the candidate Skill;
-2. extract only recurring decision rules across heterogeneous cards;
-3. adversarially test for contradictions, card-specific rules and hidden framework creep;
-4. decide whether to enter a bounded REAL_USER pilot or perform one narrowly scoped correction first.
-
-## 7. Evidence acceptance rule
-
-A card cannot be marked `CLOSED` merely because its conclusion is plausible.
-
-For external-research cards, retained authority must allow an auditor to determine:
-
-- what concrete source was used;
-- whether it was actually read or only discovered;
-- what evidence role it plays;
-- what material claim it supports;
-- what limitations or counter-evidence remain;
-- why further search/test is unlikely to change the adoption decision.
-
-Source-less synthesis may be useful reasoning, but it is not accepted product evidence.
+During the real-user phase, synthetic/internal testing is justified only to fix a defect exposed by real use or remove a concrete pilot blocker.
