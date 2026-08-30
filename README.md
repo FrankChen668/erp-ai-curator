@@ -8,7 +8,7 @@
 
 ## 想直接试用
 
-当前版本：**0.8.0 — Controlled User Trial**。
+当前版本：**0.8.1 — Controlled User Trial**。
 
 - 试用指南：`docs/USER_TRIAL_GUIDE_V1.md`
 - Skill：`skills/curating-erp-ai-resources/`
@@ -17,7 +17,13 @@
 
 > **CONTROLLED USER TRIAL GO / BROAD RELEASE NO**
 
-0.8.0 的核心变化不是增加能力，而是**删除 runtime 复杂度**：
+0.8.0 完成 runtime simplification；0.8.1 只修复一条由真实 Codex Desktop 日志直接证明的执行缺陷：
+
+- AI/Agent 工作方式请求不能在搜索时退化成纯领域“最佳实践”；
+- 明确找教程/实践时，必须真正调查 practitioner/creator 候选；
+- 如果宿主搜索策略、访问或 coverage 阻止 practitioner evidence，应明确 `coverage/policy gap`，不能用官网替代后声称 curation 完成。
+
+Runtime 仍保持简洁：
 
 ```text
 理解真实任务
@@ -27,14 +33,10 @@
 → 选少量最值得看的/用的并停止
 ```
 
-Runtime 不再要求 Agent 先执行 A/B/C 分类、adoption-consistency 或 decision-boundary 框架。
-
 只保留两个按需 reference：
 
 - `references/practitioner-discovery.md`
 - `references/evidence-and-safety.md`
-
-如果用户当前工具已经够用，直接劝退新增能力；如果用户明确要找最佳实践/教程，即使无需新增工具，也仍然完成 practitioner curation。
 
 ## 项目维护者从这里开始
 
@@ -49,7 +51,7 @@ Runtime 不再要求 Agent 先执行 A/B/C 分类、adoption-consistency 或 dec
 
 > **Curator 是否能比普通 AI / 用户自己搜索更稳定地找到高价值 practitioner 实践、减少噪声和错选，并让真实用户愿意再次使用？**
 
-这只能由真实用户自然使用验证，不能靠继续堆 Skill 规则或内部 benchmark 自证。
+0.8.1 修正的是已观察到的 runtime 行为，不证明产品价值已经验证。
 
 ## 当前不做
 

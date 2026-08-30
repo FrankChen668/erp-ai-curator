@@ -2,7 +2,7 @@
 
 Date: 2026-08-30
 Status: **CONTROLLED TRIAL ENTRYPOINT**
-Skill: `curating-erp-ai-resources` `0.8.0`
+Skill: `curating-erp-ai-resources` `0.8.1`
 
 ## 1. 这是什么
 
@@ -31,7 +31,7 @@ curating-erp-ai-resources/
 
 整体导入，不要只复制 `SKILL.md` 丢掉 references。
 
-0.8.0 仍处于受控试用阶段，不声明所有 Agent Skills 宿主都已验证兼容。
+0.8.1 仍处于受控试用阶段，不声明所有 Agent Skills 宿主都已验证兼容。
 
 ## 4. 用户怎么问
 
@@ -55,6 +55,10 @@ curating-erp-ai-resources/
 4. 如果只能看一个，先看哪个；
 5. 作者自实践、营销、版本、权限或 coverage gap 等重要边界。
 
+如果原问题明确是“**用 AI/Agent/Tool 改善某项工作**”，最终资源搜索不应退化成纯领域知识搜索。例如“用 AI 提升画流程图”不能只返回 BPMN/Visio/流程图规范。
+
+如果宿主的搜索策略、平台访问或权限阻止读取 practitioner 内容，应明确 `coverage/policy gap`，而不是用官网替代后声称已经完成最佳实践 curation。
+
 如果问**要不要新增能力**，应该直接知道：
 
 - 现有工具已经够，不要再装；或
@@ -67,9 +71,9 @@ curating-erp-ai-resources/
 
 完整的实践 curation 通常需要可用 Web/search/fetch。
 
-中文 ERP / ToB / 产品/项目语境会优先关注 Bilibili、公众号、小红书、知乎/人人都是产品经理/掘金/CSDN/独立博客，以及相关 GitHub 项目。
+中文 ERP / ToB / 产品/项目语境会优先关注 Bilibili、公众号、小红书、知乎/人人都是产品经理/掘金/CSDN/独立博客，以及相关 GitHub 项目，但没有固定平台配额。
 
-如果只能发现标题/摘要而读不到正文或字幕，应明确 `coverage gap`。只有已有批准的 read-only source adapter 能实质补足证据时才按需使用，不为了覆盖率自动安装第三方组件。
+如果只能发现标题/摘要而读不到正文或字幕，应明确 `coverage/policy gap`。只有已有批准的 read-only source adapter 能实质补足证据时才按需使用，不为了覆盖率自动安装第三方组件。
 
 ## 7. 企业安全边界
 
@@ -86,9 +90,9 @@ curating-erp-ai-resources/
 自然反馈最有价值，例如：
 
 - 推荐资源是不是你真正想看的；
-- 是否少搜了很多东西；
+- 是否少搜了很多东西或少选错工具；
 - 是否推荐了多余工具；
-- 是否漏掉环境/权限/版本约束；
+- 是否漏掉真实环境/权限/版本约束；
 - 下次是否还愿意把类似问题交给 Curator。
 
 ## 9. 当前发布边界

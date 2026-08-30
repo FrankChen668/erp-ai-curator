@@ -13,6 +13,8 @@ industry / work context × task × AI
 specific capability × tutorial / case / review / failure
 ```
 
+If the original request is specifically about **using AI/Agent/Tool to improve a task**, keep that dimension alive in the discovery batch. Include at least one high-signal query that combines AI/tool with the user's role/industry/artifact. A query batch that drops AI/Agent/Tool entirely and searches only the domain topic is intent drift.
+
 For Chinese ERP / ToB / product / project / consultant work, useful discovery pools often include:
 
 - Bilibili;
@@ -21,7 +23,7 @@ For Chinese ERP / ToB / product / project / consultant work, useful discovery po
 - Zhihu / 人人都是产品经理 / 掘金 / CSDN / practitioner blogs;
 - GitHub repos/examples connected to the practitioner or tool.
 
-Do not search every platform by quota. Use the pools that are likely to contain the missing practical evidence.
+Do not search every platform by quota. Use the pools most likely to contain the missing practical evidence.
 
 ## What deserves inspection
 
@@ -36,6 +38,8 @@ Popularity is only a discovery hint. Prefer content that shows several of these:
 
 For Bilibili/Xiaohongshu, saves, coins and substantive comments can help decide what to inspect first; they do not prove quality.
 
+When search results already contain plausible practitioner/creator candidates, open the strongest one or few before spending the answer budget on official standards or feature pages. Do not leave practitioner candidates at snippet level and then synthesize from official sources alone.
+
 ## How to use sources
 
 Practitioner content answers **how people actually work**.
@@ -46,7 +50,7 @@ Official sources answer **current facts** such as version, compatibility, instal
 
 If several creators repeat the same upstream demo, treat them as one evidence family unless a creator adds a new real input, failure case, constraint or better reproducible workflow.
 
-If the original content cannot be read because of login, dynamic rendering or anti-bot limits, say `coverage gap`. Do not silently replace inaccessible practitioner evidence with official documentation and call the search complete.
+If the original content cannot be read because of login, dynamic rendering, anti-bot limits, host source policy or search-tool restrictions, say `coverage/policy gap`. Do not silently replace inaccessible practitioner evidence with official documentation and call the search complete.
 
 Use an already approved read-only source adapter only when it can materially fill that gap. Do not auto-install platform adapters for coverage.
 

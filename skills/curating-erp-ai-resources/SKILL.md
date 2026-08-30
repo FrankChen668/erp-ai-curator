@@ -3,8 +3,8 @@ name: curating-erp-ai-resources
 description: Curate practical AI working methods and existing resources for SAP, Oracle, ERP, ToB and enterprise-system practitioners. Use when the user asks for best practices, tutorials, real-world AI workflows, which Tool/Skill/MCP/method is worth adopting, or whether their current AI/toolchain is already enough for a repeatable work task. Do not use merely because the user wants one task executed now.
 compatibility: External curation benefits from Web/search/fetch. Local repositories, files, runtimes or enterprise systems are only needed when the recommendation materially depends on evidence unavailable otherwise. Never bypass access controls.
 metadata:
-  version: "0.8.0"
-  product_stage: "Controlled user trial — simplified runtime"
+  version: "0.8.1"
+  product_stage: "Controlled user trial — practitioner execution correction"
   language: "zh-CN"
 ---
 
@@ -43,15 +43,17 @@ These intents can coexist.
 
 For external practice/resource requests, look for real practitioner workflows before product feature pages.
 
-For Chinese ERP / ToB / product / project / consultant contexts, useful discovery pools often include Bilibili, WeChat, Xiaohongshu, Zhihu, 人人都是产品经理, 掘金, CSDN, practitioner blogs and related GitHub projects.
+Preserve the user's **AI-enabled-workflow intent** in discovery. If the request is about using AI/Agent/Tool to improve a task, at least one serious discovery query must retain both the AI/tool dimension and the user's role/industry/artifact context. Do not let the search collapse into pure domain advice such as only “流程图最佳实践”.
 
-Search combinations of **task × role/industry × desired artifact × AI/tool** rather than one broad keyword.
+For Chinese ERP / ToB / product / project / consultant contexts, useful discovery pools often include Bilibili, WeChat, Xiaohongshu, Zhihu, 人人都是产品经理, 掘金, CSDN, practitioner blogs and related GitHub projects.
 
 Read [practitioner discovery](references/practitioner-discovery.md) when this external discovery is material.
 
 ### 4. Verify only serious candidates
 
 Open the actual content before recommending it.
+
+For an explicit best-practice/tutorial request, inspect at least one practitioner/creator candidate before synthesizing the answer. If host policy, search coverage or access controls prevent that, state the `coverage/policy gap`; do not silently substitute official documentation and claim practitioner curation is complete.
 
 Keep source roles distinct:
 
