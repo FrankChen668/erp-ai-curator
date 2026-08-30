@@ -32,13 +32,18 @@ Curator 不是工具目录、资源数据库、执行 SOP 生成器或工具认�
 - release class: **CONTROLLED USER TRIAL**
 - product value: **UNVALIDATED**
 
-0.8.0 完成 runtime simplification；0.8.1 修正 query intent preservation 和 practitioner candidate investigation。
+0.8.0 完成 runtime simplification：移出 A/B/C 强制分类、adoption-consistency、decision-boundaries、多套固定输出和重复自检。
 
-0.8.2 只修本轮真实结果暴露的 candidate selection：
+0.8.1 不恢复这些框架，只增加两条实际日志支持的执行要求：
 
-1. **audience/ecosystem fit**：用户语言、地区、职业生态明确时，同质量优先该生态 practitioner；跨语言资源只有明显更强或本地存在真实 coverage gap 时再上位；
-2. **artifact fit**：候选必须真实支持用户所需交付物，不能用 SVG-only 能力替代 editable draw.io 等不同 artifact；
-3. **no incidental install**：用户只是找最佳实践/教程时，不因为搜索中出现 Tool/Skill 就顺手推荐安装；只有它直接解决当前工作流的具体缺口时才推荐。
+1. **query intent preservation**：如果用户在问“用 AI/Agent/Tool 改善某工作”，practitioner discovery 至少保留一条 `AI/tool × role/industry/artifact` 高信号 query；
+2. **candidate investigation**：明确找最佳实践/教程时，返回前实际打开至少一个 practitioner/creator 候选；若宿主策略/coverage/access 阻止，则明确 `coverage/policy gap`。
+
+0.8.2 再增加三条由新鲜 0.8.1 结果直接支持的 candidate-selection 边界：
+
+3. **audience/ecosystem fit**：用户语言、地区、职业生态明确时，同质量优先该生态 practitioner；跨语言资源只有明显更强或本地存在真实 coverage gap 时再上位；
+4. **artifact fit**：候选必须真实支持用户所需交付物，不能把 SVG-only 当成 editable draw.io 等价能力；
+5. **no incidental install**：用户只是找最佳实践/教程时，不因为搜索中出现 Tool/Skill 就顺手推荐安装；只有它直接解决当前工作流的具体缺口时才推荐。
 
 Runtime references 仍只有：
 
@@ -47,27 +52,27 @@ Runtime references 仍只有：
 
 Authority：`docs/validation/CURATOR_082_CANDIDATE_SELECTION_PATCH.md`。
 
-## 3. Triggering evidence for 0.8.2
+## 3. Why 0.8.2
 
-在全新 0.8.1 使用结果中，Agent 已不再只给官网，而是找到 practitioner 内容，但最终优先推荐了日文 Qiita 实践，并附带 `html-svg-diagrams` Skill 安装建议。
+新鲜 0.8.1 结果已经能找到 practitioner 内容，但最终优先推荐了日文 Qiita 实践，并附带 `html-svg-diagrams` Skill 安装建议。
 
-这说明 0.8.1 已改善 discovery，但 candidate selection 仍有三个问题：
+这证明 discovery 有改善，但 candidate selection 仍有三个问题：
 
 - 用户/项目明确面向中文泛 ERP / ToB / 产品经理生态，却没有优先筛同生态内容；
 - 前面总结的是 editable draw.io XML，后面推荐的 Skill 核心输出是 SVG，交付物能力不一致；
 - 用户没有要求新增 Tool/Skill，却出现安装命令，属于 over-tooling 风险。
 
-这次不把“禁止日本/海外来源”写进 Skill，也不增加评分表或语言配额。
+这次不把“禁止日本/海外来源”写进 Skill，也不增加评分表、语言配额或新 reference。
 
 ## 4. Host/Harness risks kept outside the Skill
 
-仍保持此前边界：
+此前日志暴露的三类宿主风险仍保持在 Skill 外：
 
 - Codex Web policy 可能存在 `technical questions → primary sources only` 冲突；
-- Graph Engineering Skill collision；
-- Browser/Chrome 是否需要 source-acquisition fallback 未验证。
+- Graph Engineering Skill 被“多步骤任务”错误触发，属于 Skill collision / over-triggering；
+- Browser/Chrome 能力存在但是否需要 source-acquisition fallback 未验证。
 
-这些不通过 Curator runtime 规则解决。
+不要用 Curator 规则掩盖宿主问题。
 
 ## 5. Curation Pack 01 — closed
 
@@ -78,7 +83,7 @@ Pack：
 - Case 001 — ERP 操作手册：历史 B；
 - Case 002 — Oracle EBS AI 开发：历史 B；
 - Case 003 — 多顾问周报/PPT 汇总：历史 A；
-- Case 004 — SAP Bug 诊断/system evidence access：历史 A → conditional B。
+- Case 004 — SAP Bug 诊断/系统 evidence access：历史 A → conditional B。
 
 旧标签保留为历史分析证据，不定义 0.8.2 runtime。
 
@@ -86,7 +91,20 @@ Pack：
 
 受控试用入口：`docs/USER_TRIAL_GUIDE_V1.md`。
 
-允许真实用户自然使用；不要求固定 benchmark、工具测试协议、长问卷或继续制造 Case。
+允许：
+
+- 少量真实 ERP/企业信息化用户；
+- 用户用自己的自然问题；
+- 已知/批准的 Agent Skills 宿主；
+- 自然接受、修改、拒绝或忽略建议；
+- 记录真正会改变产品判断的反馈。
+
+不要求：
+
+- 固定 benchmark；
+- 用户跑工具测试协议；
+- 长问卷或评分；
+- 为了覆盖类别继续制造 Case。
 
 ## 7. 当前最重要的未验证目标
 
@@ -103,9 +121,22 @@ Pack：
 
 ## 8. Cloud / Local Agent 边界
 
-Cloud owns：真实反馈证据审查、Web/GitHub practitioner discovery、窄缺陷修正、GitHub authority/Harness 维护。
+Cloud owns：
 
-Local Agent 仅在本地 repo/runtime、企业 ERP 环境、受保护 evidence 或具体宿主行为验证真正需要时接力。
+- 对自然真实反馈做证据审查；
+- 当前 Web/GitHub practitioner discovery 与事实核验；
+- 窄缺陷修正；
+- GitHub authority/Harness 维护。
+
+Local Agent 只在真实决策依赖以下内容时接力：
+
+- 本地项目文件/repo/runtime；
+- 企业 ERP 环境；
+- 当前系统元数据/日志/权限；
+- Cloud 无法获得且会改变结论的受保护 evidence；
+- 需要在某个具体宿主中验证 Skill/reference/Web 行为。
+
+Agent 可用性本身不是派活理由。
 
 ## 9. Release boundary
 
@@ -120,13 +151,24 @@ Local Agent 仅在本地 repo/runtime、企业 ERP 环境、受保护 evidence �
 - 全宿主兼容声明；
 - public/open-source release completion。
 
-公开/open-source 发布还需要 Owner 明确 repository license。
+公开/open-source 发布还需要 Owner 明确 repository license；Agent 不擅自选择。
 
 ## 10. Anti-drift
 
-真实用户未暴露必要性前，不新增 taxonomy、scoring/Gate、resource database、creator ranking、source-adapter framework、multi-Agent orchestration 或 user test protocol。
+真实用户未暴露必要性前，不新增：
 
-尤其不要把 0.8.2 继续扩成“中文优先评分模型”。
+- synthetic validation loop；
+- fixed scenario taxonomy；
+- scoring/Gate；
+- resource database/refresh；
+- mandatory runtime benchmark；
+- multi-Agent orchestration；
+- creator ranking；
+- source-adapter framework as default architecture；
+- card-specific permanent rules；
+- user test protocol as Curator default output。
+
+尤其不要把 0.8.2 扩成“中文优先评分模型”或语言/平台配额。
 
 ## 11. 下一步
 
