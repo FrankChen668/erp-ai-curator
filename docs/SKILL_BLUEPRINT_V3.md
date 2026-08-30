@@ -10,11 +10,13 @@ Skill 负责稳定执行一个判断：
 
 > **面对当前泛 ERP / 企业信息化任务，最合适的 AI 工作方式是什么？是否真的需要引入专门能力？**
 
-随着来源采编测试推进，它还出现了一个有限的第二职责：
+当外部资源确实有价值时，它还负责：
 
-> **当外部资源发现确实需要某个平台专门读取能力时，判断是否应调用已经安装且已批准的来源 Skill / MCP，并把获取到的证据重新交回 Curator 判断。**
+> **优先从已经存在的第三方实操、测评、攻略、Skill/Tool 生态中找到少量真正值得学习和采用的内容，并用原始实现与官方当前事实做必要核验。**
 
-因此它更接近一个 **bounded orchestration / curator Skill**，而不是任意发现、安装和执行第三方 Skill 的“万能元 Skill”。
+只有当普通 Web 无法获得会影响判断的关键平台原文时，才判断是否调用已经安装、已批准的来源 Skill / MCP。
+
+因此它是一个 **bounded curator / orchestration Skill**，不是资源数据库、教程生产器、万能元 Skill 或自动测试实验室。
 
 ## 2. Trigger
 
@@ -41,14 +43,16 @@ Skill 负责稳定执行一个判断：
 主 Skill 只需要这条链：
 
 ```text
-1. Understand the real work outcome and hard constraints
+1. Understand the real work outcome, input artifacts and hard constraints
 2. Run the AI leverage test against the user's current stack
 3. Choose Mode A / B / C
-4. If Mode B needs discovery, search narrowly
-5. If normal Web/GitHub cannot acquire needed evidence, route to an approved installed source adapter when useful
-6. Compare only serious candidates
-7. Verify volatile facts only when needed
-8. Return an actionable working recommendation
+4. If Mode B needs discovery, search for practitioner evidence first
+5. Inspect the original Skill / Tool / method behind serious candidates
+6. Verify only volatile/native facts against current official/original sources
+7. If important practitioner content is discoverable but not readable, route to an approved source adapter when worthwhile
+8. Compare only serious candidates and stop when the recommendation is stable
+9. Run a local/runtime test only when a material uncertainty remains
+10. Return an actionable working recommendation
 ```
 
 第 1 步的 hard constraints 只抓真正会决定方案可用性的条件，例如：
@@ -186,7 +190,7 @@ Mode C 必须包含：
 
 可以直接：
 
-`确认约束 → 定向发现 → 阅读原始材料 → 比较 → 推荐`
+`确认约束 → 找第三方实操/测评 → 核对原始 Skill/Tool → 必要官方事实核验 → 推荐`
 
 但“用户说要 Skill”仍然只是一个 solution hypothesis，不是强制 Mode B。
 
@@ -196,19 +200,100 @@ Mode C 必须包含：
 
 Fast path 的意思是减少流程，不是无条件接受用户预设解法。
 
-## 8. Search strategy
+## 8. Search strategy — practitioner first
 
-只有 Mode B 需要外部发现时：
+只有 Mode B 需要外部发现时，默认从用户采用价值而不是官网目录出发。
 
-- 搜索问题写成“能力缺口”，不是宽泛场景；
-- 优先找能直接证明产出的原始 repo / demo / tutorial；
-- GitHub / community / practitioner / official 都可竞争；
-- 官方不是默认 Top 1；
-- high-volatility claim 才重点回官方核验；
-- 历史 Starter Pack 只作为先验，不作为答案；
-- 结论稳定就停。
+### 8.1 Default evidence order
 
-当普通 Web/GitHub 已足够时，不因为已经安装了平台适配器就额外调用它们。
+```text
+Third-party practical guide / review / case
+→ Original Skill / Tool / repo / method
+→ Current official/original fact anchor when needed
+```
+
+第三方来源优先回答：
+
+- 别人具体怎么用；
+- 输入材料是什么；
+- 步骤 / Prompt / Workflow 是什么；
+- 产出什么；
+- 返工和失败点在哪里；
+- 对什么角色/场景真正省时间。
+
+原始实现负责确认：
+
+- 具体能力；
+- 真正输入输出；
+- 是否存在可编辑/可执行 artifact；
+- 安装与依赖边界。
+
+官方/当前原始来源重点确认：
+
+- 版本；
+- 安装方式；
+- 兼容；
+- 价格；
+- 隐私 / 安全政策；
+- 许可证；
+- 当前原生能力。
+
+### 8.2 Discovery sources
+
+可以优先搜索：
+
+- Bilibili / YouTube；
+- 微信公众号；
+- 小红书；
+- 知乎、掘金、CSDN、人人都是产品经理等；
+- AI 产品经理 / 企业咨询 / Agent 实践作者；
+- GitHub 上的 PM / BA / Agent / Skill 集合；
+- WorkBuddy / Codex / Claude Code 等现成教程、社区手册和蓝皮书。
+
+这不是平台配额。
+
+某一来源已经提供完整、高质量实操证据后，不需要为了“覆盖”再机械搜索其他平台。
+
+### 8.3 Creator prior
+
+历史上已经反复产出优质内容的作者可以提高搜索优先级。
+
+但：
+
+- 作者名气不是推荐证据；
+- 粉丝 / 收藏 / 点赞 / 播放 / Stars 只是 discovery signal；
+- 必须实际读取当前具体内容；
+- 如果隐藏作者名和互动数据后内容不值得推荐，则淘汰。
+
+详细规则：`docs/CREATOR_PRIOR_STRATEGY_V3.md`。
+
+### 8.4 Existing ecosystems are feeders, not competitors
+
+如果已经存在 PM Skill 库、Agent 教程库、WorkBuddy 实战蓝皮书、作者系列教程等，优先把它们当作**上游候选池**。
+
+Curator 不重新建设同一套内容，而是完成：
+
+`真实 ERP 问题 → 从现有生态筛选 → 核验 → 少量推荐`
+
+只有现有生态明显缺失时才补 `Curator synthesis`，并明确标注。
+
+### 8.5 Platform access is separate from platform value
+
+必须区分：
+
+- 能不能搜到；
+- 能不能完整读取；
+- 读取后内容质量如何。
+
+普通 Web 能发现 B站/公众号/小红书候选时先用于 discovery；只有完整正文/字幕对最终判断有价值且普通路径拿不到时，才考虑来源 Adapter。
+
+若仍无法读取，记录 Coverage gap，不推断该平台内容质量。
+
+### 8.6 Search stop
+
+历史 Starter Pack 只作为先验，不作为答案。
+
+结论稳定就停；不以链接数量、平台数量、官网数量作为成果。
 
 ## 9. Source-adapter orchestration
 
@@ -227,13 +312,23 @@ Fast path 的意思是减少流程，不是无条件接受用户预设解法。
 
 不要把产品逻辑绑定到具体仓库名。
 
-### 9.2 Runtime 不安装、不更新
+### 9.2 Invocation condition
+
+来源 Adapter 只在同时满足时调用：
+
+1. 某个平台实践内容可能实质改变推荐或降低学习成本；
+2. 普通 Web / 现有路径只能发现候选但无法获得足够原文/字幕；
+3. 已有批准、已安装、权限边界明确的 Adapter 能补这个具体缺口。
+
+“已经安装”不是调用理由，“这个平台理论上有内容”也不是调用理由。
+
+### 9.3 Runtime 不安装、不更新
 
 普通资源采编任务中：
 
 - 可以检测已安装能力；
 - 可以按需调用；
-- 缺失时优先降级到普通 Web/GitHub；
+- 缺失时优先降级到普通 Web；
 - 仍然缺证据时明确 Coverage gap。
 
 默认禁止：
@@ -244,7 +339,7 @@ Fast path 的意思是减少流程，不是无条件接受用户预设解法。
 
 安装和更新是单独的维护任务。
 
-### 9.3 安装 / 更新 / 调用契约
+### 9.4 安装 / 更新 / 调用契约
 
 详细规则放在：
 
@@ -265,23 +360,44 @@ Fast path 的意思是减少流程，不是无条件接受用户预设解法。
 - failure / fallback；
 - remove / deprecate。
 
-## 10. Candidate comparison
+## 10. Runtime validation is an exception
+
+不要为每一个候选建立固定：
+
+`static review → install → runtime → artifact → cleanup`
+
+本地/实机验证只在以下情况触发：
+
+- 高质量第三方实操证据不足；
+- 不同第三方测评给出互相冲突的关键结论；
+- 安装、权限、隐私、安全或企业环境风险较高；
+- 准备把某个可执行方案作为内部长期标准推荐；
+- 某个关键能力直接影响推荐，但文档/第三方证据无法确认。
+
+否则，第三方实操 + 原始实现 + 必要官方事实已经足够进入推荐。
+
+## 11. Candidate comparison
 
 不做分数表。
 
 只问：
 
 1. 能否解决完整任务？
-2. 用户实际会得到什么？
-3. 相比用户**当前 AI + 当前工具链**，它的增量价值是什么？
-4. 启动 / 安装 / 迁移 / 学习成本是否值得？
-5. 是否符合数据、源码、企业环境和权限边界？
-6. 当前是否可用？
-7. 什么情况下不要用它？
+2. 第三方实操/测评实际证明了什么？
+3. 用户实际会得到什么？
+4. 相比用户**当前 AI + 当前工具链**，增量价值是什么？
+5. 启动 / 安装 / 迁移 / 学习成本是否值得？
+6. 是否符合数据、源码、企业环境和权限边界？
+7. 当前事实是否仍成立？
+8. 什么情况下不要用它？
 
-如果第 3 条说不清，默认不推荐专门方案。
+如果第 4 条说不清，默认不推荐专门方案。
 
-## 11. Output contract
+另外做一次环境偏置检查：
+
+> 当前研究 Agent / 平台是否因为自己更容易使用某类方案，而漏掉了对普通顾问更低摩擦的浏览器、SaaS、社区教程或其他现成路径？
+
+## 12. Output contract
 
 ### Mode A
 
@@ -293,15 +409,21 @@ Fast path 的意思是减少流程，不是无条件接受用户预设解法。
 
 ### Mode B
 
+默认从用户采用顺序呈现：
+
 ```text
-判断：值得引入专门能力
-主推荐：...
+判断：值得采用这个方案
+先看/先学：最值得的第三方实操攻略或经验（如果存在）
+主资源：对应 Skill / Tool / 方法
 为什么：...
-能得到什么：...
 怎么开始：...
-重要限制：...
-原始链接：...
+实际能得到什么：...
+重要坑 / 限制：...
+官方/原始事实：只附必要的当前核验
+链接：...
 ```
+
+如果没有强第三方实操资源，可以直接推荐原始 Skill/Tool，但必须说明 `practitioner evidence gap`，不要自动自己写一整套教程冒充外部经验。
 
 只有存在明显不同的适用条件时才给第二推荐。
 
@@ -313,7 +435,7 @@ Fast path 的意思是减少流程，不是无条件接受用户预设解法。
 升级条件：如果出现 X，再考虑 Y 类方案
 ```
 
-## 12. Proposed skill structure
+## 13. Proposed skill structure
 
 如果未来实现，第一版建议仍然很小：
 
@@ -334,6 +456,7 @@ skills/erp-ai-curator/
 - trigger / non-trigger；
 - 主流程；
 - A/B/C；
+- practitioner-first discovery 原则；
 - 何时读取 references；
 - 来源适配器的最小调用原则；
 - 输出契约。
@@ -346,9 +469,18 @@ skills/erp-ai-curator/
 
 只在 Mode B 需要搜索时加载。
 
+必须包含：
+
+- practitioner-first evidence order；
+- feeder ecosystem reuse；
+- creator prior；
+- environment-bias check；
+- runtime-test exception；
+- stop condition。
+
 ### source-adapter-routing.md
 
-只在普通 Web/GitHub 无法稳定取得所需来源证据时加载。
+只在普通 Web 无法稳定取得**会影响推荐的实践来源证据**时加载。
 
 负责：
 
@@ -367,15 +499,15 @@ skills/erp-ai-curator/
 
 第一版仍默认 **0 custom scripts**。
 
-只有当真实 Pilot 反复证明“检查已安装 adapter / pin / 可用状态”容易出错时，才考虑一个 deterministic `adapter-doctor`。不要提前造 package manager 或 updater。
+只有当真实使用反复证明“检查已安装 adapter / pin / 可用状态”容易出错时，才考虑一个 deterministic `adapter-doctor`。不要提前造 package manager 或 updater。
 
-## 13. Explicit non-goals
+## 14. Explicit non-goals
 
 第一版不要：
 
 - 场景百科；
 - “SAP 资源区 / Oracle 资源区 / Java ERP 资源区”；
-- 资源数据库；
+- 大型资源数据库；
 - 固定检索站点清单；
 - 星标阈值；
 - 100 分评分；
@@ -385,14 +517,18 @@ skills/erp-ai-curator/
 - automatic refresh crawler；
 - 自动 Skill 商店；
 - 运行时自动安装第三方依赖；
-- 自动跟随第三方 `latest`。
+- 自动跟随第三方 `latest`；
+- 每个候选都强制 runtime / artifact test；
+- 自建另一个 PM Skills / WorkBuddy / Codex 教程库；
+- 因当前 acquisition 工具受限而把 B站/微信/小红书等平台判成低价值；
+- 将 Curator synthesis 包装成第三方最佳实践。
 
-## 14. Skill 是否值得存在仍需证伪
+## 15. Skill 是否值得存在仍需证伪
 
 V3 只是一个更合理的工作模型，不代表一定要封装成 Skill。
 
-现在还多了一项需要验证的价值假设：
+未来 Skill 的价值假设应变成：
 
-> **普通 AI 是否能稳定判断何时需要来源适配器、正确组合多个已安装 Skill/MCP，并在调用后回到统一的 Curator 证据判断，而不是平台各自为政？**
+> **普通 AI 是否能稳定从真实工作问题出发，优先发现互联网已有的优质实操经验，正确核验对应 Tool/Skill 与当前事实，并在必要时组合来源适配器，而不陷入官网重力、平台配额、环境偏置、重复测试和重复造轮子？**
 
-如果普通模型自然就能稳定完成，或者来源适配器只是增加链接数量而不提升推荐质量，不继续为了形式增加架构。
+如果普通模型自然就能稳定完成，就保留为工作方法，不为了形式增加架构。
