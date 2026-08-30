@@ -1,107 +1,60 @@
-# 证据与安全边界
+# Evidence and Safety
 
-只在外部来源、第三方可执行资源、产品能力声明或 runtime/local test 会影响采用决策时读取。
+Read this when a recommendation depends on external claims, executable third-party resources, system access or volatile product facts.
 
-## 1. 来源角色必须分清
+## Evidence roles
 
-正式推荐中的关键外部来源，至少区分：
+Keep these distinct:
 
-- `independent practitioner`：独立用户的真实实操、复盘或失败经验；
-- `author self-practice`：作者/厂商自己的演示或自测；
-- `implementation`：原始 Skill / Tool / repo / 方法实现；
-- `official fact`：当前版本、兼容、价格、权限、隐私、edition 等官方事实；
-- `curator synthesis`：基于已取得材料做出的综合判断。
+- **independent practitioner** — real user workflow/review/failure experience;
+- **author self-practice** — creator/vendor/maintainer demonstrating their own approach;
+- **implementation** — original Tool/Skill/repo/method;
+- **official fact** — current version, compatibility, price, permission, privacy, license, standard semantics;
+- **Curator synthesis** — our conclusion from acquired evidence.
 
-作者自述可以证明“作者怎么做/实现能做到什么”，不能自动写成独立用户验证。没有可追溯来源的推理只能叫 `curator synthesis`。
+Author self-practice can show how something works; it is not independent proof that it is objectively better.
 
-## 2. 实际读到什么就只声称什么
+Search snippets, titles and engagement metadata are discovery only. Important claims should trace to content actually opened/read.
 
-- 完整读到正文/字幕/README/源码：可以使用其中实际获得的信息；
-- 只看到标题、搜索摘要或元数据：只能用于 discovery；
-- 内容受登录、付费墙、CAPTCHA、反爬或权限限制：记录 `coverage gap`；
-- 当前读不到某个平台，不等于平台没有高价值内容。
+## Recommendation language
 
-验证方式：重要外部结论应能回到具体 URL/文件及实际取得的内容。
+Default to task-relative wording such as:
 
-## 3. “最佳/唯一/已验证”是高证据词
+- current best fit for this task;
+- most worth looking at first;
+- strongest direct practice currently found.
 
-Curator 默认做的是**当前任务和约束下的优先推荐**，不是全球排行榜。
+Use “best / unique / validated / industry standard” only when the acquired evidence truly supports that scope.
 
-写出以下词前必须有与词义匹配的覆盖证据：
+## Current facts
 
-- 最佳 / 最强 / 唯一；
-- 已验证；
-- 全面领先；
-- 行业标准 / 普遍最佳实践。
+Verify only facts that can change the recommendation, for example:
 
-如果证据只是一个作者自实践、少量社区讨论或当前候选集合，改写为：
+- current maintenance and target platform/version;
+- required input/output;
+- install/account requirements;
+- local vs cloud/data egress;
+- permissions and write actions;
+- price/license.
 
-- 当前最值得优先借鉴；
-- 当前找到的直接实践；
-- 在已取得证据和当前约束下更合适；
-- Curator synthesis。
+Do not turn the answer into an official feature catalogue.
 
-## 4. 当前官方事实只核验会改变采用判断的部分
+## Executable resources and system access
 
-常见需要核验：
+Before recommending installation/execution of a Skill, MCP, plugin or script, check proportionately:
 
-- 工具/项目是否仍维护；
-- 目标输入输出是否仍支持；
-- 平台、edition、版本范围；
-- 安装与账号要求；
-- 数据是否离开本地；
-- 权限与写操作；
-- 价格或许可变化。
+- install/dependencies;
+- credentials/accounts;
+- filesystem, shell, browser, network or enterprise-system permissions;
+- write/destructive actions and data egress;
+- license and current maintenance.
 
-不要因为官方文档容易获得，就把回答变成产品功能目录。
+For understanding/diagnosis, prefer read-only and the minimum access needed. A capability being able to write does not justify granting write access.
 
-## 5. 产品能力声明的对抗性检查
+Use runtime/local testing only when the result could materially change the recommendation and static evidence is insufficient.
 
-高风险声明重点检查：
+## Business truth boundary
 
-- 第三方描述的是标准产品能力，还是自定义扩展；
-- 一个 edition/平台的能力是否被错误泛化到全部版本；
-- fork 是否被误当成 upstream；
-- 厂商案例数字是否被写成独立客观事实；
-- 多个平台内容是否只是复读同一个上游 Demo/Benchmark；
-- 稳定的方法洞见与会过时的版本/操作步骤是否被混写。
+AI-generated diagrams, documents, code explanations and workflows are proposals, not ERP/system truth.
 
-若关键声明与可信当前事实冲突，不能用“总体感觉不错”补救。
-
-## 6. 第三方可执行资源
-
-**作用域**：准备建议安装或执行 Skill / MCP / plugin / script。
-
-**动作**：至少检查安装方式、依赖、账号/凭证、文件系统/Shell/浏览器/网络权限、写操作、数据外发、license 和维护状态。
-
-**例外**：资源仅作为阅读材料、不执行代码时，不需要完整 runtime 安全审计，但仍需正确描述来源和限制。
-
-**验证**：会改变采用判断的关键风险必须能回到 README、源码、manifest、官方文档或实际最小验证。
-
-权限越强，越要限制到任务真正需要的最小范围。“能够写入”不等于理解/诊断任务时应该写入。
-
-## 7. Runtime / local test
-
-只在测试结果可能改变推荐时做，例如：
-
-- 关键实践证据冲突；
-- 权限、隐私或安全风险静态无法判断；
-- 精确本地复现是采用前提；
-- 准备把能力作为内部长期标准；
-- 两种方案的真实差异无法通过现有证据判断。
-
-否则停止，不要为了“更严谨”或为了收集 Pilot 数据增加实验。
-
-## 8. 业务真相边界
-
-AI 生成的图、表、原型、文档、代码解释和工作流都是**待复核产物**，不是自动成立的业务事实。
-
-关键结论应优先与以下来源对照：
-
-- 用户原始材料；
-- 项目文档和业务规则；
-- 代码、配置、测试、日志；
-- 业务系统/ERP 元数据；
-- 可信外部原始事实。
-
-事实、推断和待确认项不要混写。
+When important, ground conclusions in the user's real materials, project docs, code/config/tests/logs, ERP metadata or trustworthy original facts. Keep facts, inference and unknowns separate.
