@@ -1,6 +1,6 @@
 ---
 name: curating-erp-ai-resources
-description: Curate practitioner best practices, tutorials, real-world AI workflows, cases, and learning resources for SAP, Oracle, ERP, ToB, product, project, and enterprise-system work. Use when the user asks how others do a repeatable task, wants high-quality tutorials/cases/resources, or asks for the best practice to learn first. Do not use to decide whether to install, add, choose, or compare Tool/Skill/MCP capabilities; use advising-erp-ai-capabilities for that. Do not use merely because the user wants one task executed now.
+description: Curate practitioner AI-enabled best practices, tutorials, real-world workflows, cases, and learning resources for SAP, Oracle, ERP, ToB, product, project, and enterprise-system work. Use when the user asks how others use AI/Agents/tools to do a repeatable task better, wants high-quality practical tutorials/cases/resources, or invokes this ERP AI curator to find the best practice to learn first. Do not use to decide whether to install, add, choose, or compare Tool/Skill/MCP capabilities; use advising-erp-ai-capabilities for that. Do not use merely because the user wants one task executed now.
 compatibility: External curation benefits from Web/search/fetch. Never bypass access controls.
 metadata:
   version: "0.9.0"
@@ -12,7 +12,7 @@ metadata:
 
 ## Goal
 
-For a real ERP / ToB work task, find the **few practitioner practices or resources most worth learning first**.
+For a real ERP / ToB work task, find the **few practitioner AI-enabled practices or resources most worth learning first**.
 
 Do the discovery, filtering, inspection, and selection work for the user. Do not replace curation with a model-authored tutorial, tool directory, or install recommendation.
 
@@ -31,13 +31,15 @@ Do not force a questionnaire. If a missing fact does not block useful curation, 
 
 ### 2. Discover practitioner practice, not generic domain knowledge
 
+This is an **AI work-practice Curator**. Unless the user explicitly asks for domain-only guidance, discovery should look for how practitioners use AI/Agents/tools to improve the task even when the user's shorthand prompt only says “最佳实践”.
+
 Search for real workflows, tutorials, cases, reviews, failures, and reusable examples before product feature pages.
 
-If the user's problem is about **using AI/Agent/Tool to improve a task**, keep that dimension in the search. Use combinations such as:
+Keep the AI-enabled-workflow dimension in the search. Use combinations such as:
 
 `task/artifact × AI/tool × role/industry`
 
-Do not let “AI 提升流程图” collapse into only “流程图/BPMN 最佳实践”.
+Do not let “用这个 Skill 找流程图最佳实践” collapse into only “流程图/BPMN 最佳实践”.
 
 For Chinese ERP / ToB / product / project / consultant contexts, useful pools often include Bilibili, WeChat, Xiaohongshu, Zhihu, 人人都是产品经理, 掘金, CSDN, practitioner blogs, and related GitHub projects.
 
