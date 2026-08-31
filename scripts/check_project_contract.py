@@ -12,8 +12,10 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-SKILL_DIR = ROOT / "skills" / "curating-erp-ai-resources"
-SKILL = SKILL_DIR / "SKILL.md"
+PRACTICE_SKILL_DIR = ROOT / "skills" / "curating-erp-ai-resources"
+ADVISOR_SKILL_DIR = ROOT / "skills" / "advising-erp-ai-capabilities"
+RUNTIME_SKILL_DIRS = [PRACTICE_SKILL_DIR, ADVISOR_SKILL_DIR]
+RUNTIME_SKILLS = [path / "SKILL.md" for path in RUNTIME_SKILL_DIRS]
 
 CURATION_CASES = [
     ROOT / "docs" / "curation-cases" / "CASE_001_ERP_OPERATING_MANUAL.md",
@@ -23,13 +25,17 @@ CURATION_CASES = [
 ]
 
 RUNTIME_REFERENCES = [
-    SKILL_DIR / "references" / "practitioner-discovery.md",
-    SKILL_DIR / "references" / "evidence-and-safety.md",
+    PRACTICE_SKILL_DIR / "references" / "practitioner-discovery.md",
+    ADVISOR_SKILL_DIR / "references" / "evidence-and-safety.md",
 ]
 
-REMOVED_RUNTIME_REFERENCES = [
-    SKILL_DIR / "references" / "adoption-consistency.md",
-    SKILL_DIR / "references" / "decision-boundaries.md",
+REMOVED_OR_MISPLACED_RUNTIME_FILES = [
+    PRACTICE_SKILL_DIR / "README.md",
+    ADVISOR_SKILL_DIR / "README.md",
+    PRACTICE_SKILL_DIR / "references" / "evidence-and-safety.md",
+    ADVISOR_SKILL_DIR / "references" / "practitioner-discovery.md",
+    PRACTICE_SKILL_DIR / "references" / "adoption-consistency.md",
+    PRACTICE_SKILL_DIR / "references" / "decision-boundaries.md",
 ]
 
 REQUIRED = [
@@ -45,7 +51,8 @@ REQUIRED = [
     ROOT / "docs" / "validation" / "CURATION_PACK_01_ADVERSARIAL_REVIEW.md",
     ROOT / "docs" / "validation" / "RELEASE_READINESS_ADVERSARIAL_20260830.md",
     ROOT / "docs" / "validation" / "CURATOR_080_RUNTIME_SIMPLIFICATION.md",
-    SKILL,
+    ROOT / "docs" / "validation" / "CURATOR_090_RUNTIME_RESPONSIBILITY_SPLIT.md",
+    *RUNTIME_SKILLS,
     *RUNTIME_REFERENCES,
     *CURATION_CASES,
 ]
@@ -64,8 +71,7 @@ OLD_PILOT_CASES = [
 ]
 
 errors: list[str] = []
-skill_name = ""
-version = ""
+versions: set[str] = set()
 
 
 def check(condition: bool, message: str) -> None:
@@ -76,32 +82,38 @@ def check(condition: bool, message: str) -> None:
 for path in REQUIRED:
     check(path.is_file(), f"missing required file: {path.relative_to(ROOT)}")
 
-if SKILL.is_file():
-    text = SKILL.read_text(encoding="utf-8")
+for skill_dir in RUNTIME_SKILL_DIRS:
+    skill = skill_dir / "SKILL.md"
+    if not skill.is_file():
+        continue
+
+    text = skill.read_text(encoding="utf-8")
     name_match = re.search(r"(?m)^name:\s*([^\n]+)$", text)
     version_match = re.search(r'(?m)^\s*version:\s*"?([^"\n]+)"?\s*$', text)
-    check(bool(name_match), "SKILL.md missing frontmatter name")
-    check(bool(version_match), "SKILL.md missing metadata.version")
+    check(bool(name_match), f"{skill.relative_to(ROOT)} missing frontmatter name")
+    check(bool(version_match), f"{skill.relative_to(ROOT)} missing metadata.version")
 
     if name_match:
         skill_name = name_match.group(1).strip().strip("\"'")
-        check(skill_name == SKILL_DIR.name, f"skill name {skill_name!r} != directory {SKILL_DIR.name!r}")
+        check(skill_name == skill_dir.name, f"skill name {skill_name!r} != directory {skill_dir.name!r}")
 
     if version_match:
-        version = version_match.group(1).strip()
-        for path in CURRENT_DOCS:
-            if path.is_file():
-                doc = path.read_text(encoding="utf-8")
-                check(version in doc, f"current Skill version {version} missing from {path.relative_to(ROOT)}")
+        versions.add(version_match.group(1).strip())
 
     referenced = set(re.findall(r"\(references/([^\)]+\.md)\)", text))
     for ref in referenced:
-        check((SKILL_DIR / "references" / ref).is_file(), f"SKILL.md references missing file: references/{ref}")
+        check((skill_dir / "references" / ref).is_file(), f"{skill.relative_to(ROOT)} references missing file: references/{ref}")
 
-check(not (SKILL_DIR / "README.md").exists(), "runtime Skill package must not contain README.md")
+check(len(versions) == 1, f"runtime Skill versions must match, found: {sorted(versions)}")
+version = next(iter(versions), "")
+if version:
+    for path in CURRENT_DOCS:
+        if path.is_file():
+            doc = path.read_text(encoding="utf-8")
+            check(version in doc, f"current runtime version {version} missing from {path.relative_to(ROOT)}")
 
-for old in REMOVED_RUNTIME_REFERENCES:
-    check(not old.exists(), f"removed runtime reference reappeared: {old.relative_to(ROOT)}")
+for path in REMOVED_OR_MISPLACED_RUNTIME_FILES:
+    check(not path.exists(), f"removed/misplaced runtime file exists: {path.relative_to(ROOT)}")
 
 for old in OLD_PILOT_CASES:
     check(not old.exists(), f"legacy Pilot case path still exists: {old.relative_to(ROOT)}")
@@ -125,6 +137,8 @@ readme = ROOT / "README.md"
 if readme.is_file():
     readme_text = readme.read_text(encoding="utf-8")
     check("CONTROLLED USER TRIAL" in readme_text.upper(), "README missing controlled-user-trial release boundary")
+    check("curating-erp-ai-resources" in readme_text, "README missing Practice Curator entry")
+    check("advising-erp-ai-capabilities" in readme_text, "README missing Capability Advisor entry")
 
 release_review = ROOT / "docs" / "validation" / "RELEASE_READINESS_ADVERSARIAL_20260830.md"
 if release_review.is_file():
@@ -138,9 +152,10 @@ if errors:
     sys.exit(1)
 
 print("PROJECT CONTRACT: PASS")
-print(f"- skill: {skill_name or 'unknown'}")
-print(f"- version: {version or 'unknown'}")
-print(f"- runtime skill lines (informational): {len(SKILL.read_text(encoding='utf-8').splitlines()) if SKILL.is_file() else 'unknown'}")
+print(f"- runtime version: {version or 'unknown'}")
+print(f"- runtime skills: {len(RUNTIME_SKILLS)}")
+for skill in RUNTIME_SKILLS:
+    print(f"  - {skill.parent.name}: {len(skill.read_text(encoding='utf-8').splitlines())} lines")
 print(f"- runtime references: {len(RUNTIME_REFERENCES)}")
 print(f"- curation cases: {len(CURATION_CASES)}")
 print("- curation/user-use evidence lanes: explicit")

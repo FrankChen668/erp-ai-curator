@@ -1,42 +1,34 @@
 # ERP AI Curator
 
-面向 **SAP / Oracle / ERP / ToB / 企业信息化从业者** 的 AI 实践 Curator。
+面向 **SAP / Oracle / ERP / ToB / 企业信息化从业者** 的 AI 工作方式 Curator。
 
-> **面对一个真实工作任务，帮用户找到最值得学习/采用的现成 AI 实践与资源，并判断是否真的需要新增 Tool / Skill / MCP / 工作流。**
+> **面对真实工作任务，帮用户找到真正值得学习的现成 AI 实践；当用户明确要做能力选型时，再判断当前工具是否够用、是否值得新增 Tool / Skill / MCP / 工作流。**
 
 项目不是 AI 工具大全、教程百科、资源数据库或工具实验室。
 
 ## 想直接试用
 
-当前版本：**0.8.2 — Controlled User Trial**。
+当前 Runtime 版本：**0.9.0 — Controlled User Trial**。
 
 - 试用指南：`docs/USER_TRIAL_GUIDE_V1.md`
-- Skill：`skills/curating-erp-ai-resources/`
+- Practice Curator：`skills/curating-erp-ai-resources/`
+- Capability Advisor：`skills/advising-erp-ai-capabilities/`
 
 当前发布边界：
 
 > **CONTROLLED USER TRIAL GO / BROAD RELEASE NO**
 
-0.8.0 完成 runtime simplification；0.8.1 修正 practitioner discovery 执行；0.8.2 只修 candidate selection：
-
-- 候选优先看**受众/职业生态匹配 + 交付物能力匹配**，不是全球知名度或新奇程度；
-- 中文 ERP/ToB/产品经理语境下，同质量时优先同语境 practitioner；海外资源只有明显更强或本地覆盖不足时才上位；
-- “最佳实践/教程”请求本身不构成安装 Tool/Skill 的理由；推荐能力必须真的匹配用户所需交付物。
-
-Runtime 仍保持简洁：
+0.9.0 的核心不是增加规则，而是**拆开两个长期互相污染的 Runtime 职责**：
 
 ```text
-理解真实任务
-→ 判断用户是在找实践、做采用选择，或两者都有
-→ practitioner-first discovery
-→ 核验 serious candidates
-→ 选少量最值得看的/用的并停止
+找最佳实践 / 教程 / 案例
+→ curating-erp-ai-resources
+
+判断现有工具够不够 / 要不要新增 Tool、Skill、MCP
+→ advising-erp-ai-capabilities
 ```
 
-只保留两个按需 reference：
-
-- `references/practitioner-discovery.md`
-- `references/evidence-and-safety.md`
+原因：连续真实运行中，“最佳实践”请求即使已经加入 no-install guardrail，仍然多次退化成 Skill 搜索和安装建议。0.9.0 把边界前移到 Skill description/trigger 层，而不是继续在同一个 Skill body 里补规则。
 
 ## 项目维护者从这里开始
 
@@ -45,18 +37,19 @@ Runtime 仍保持简洁：
 - `docs/OWNER_EXECUTION_RULES.md` — Cloud / Local / Owner 执行边界
 - `docs/CURRENT_EXECUTION_PLAN_V3.md` — 当前阶段
 - `docs/validation/EVIDENCE_STATUS.md` — 证据状态
-- `skills/curating-erp-ai-resources/SKILL.md` — 当前 runtime Skill
+- `docs/validation/CURATOR_090_RUNTIME_RESPONSIBILITY_SPLIT.md` — 0.9.0 架构裁决
 
 ## 当前最重要的未验证问题
 
-> **Curator 是否能比普通 AI / 用户自己搜索更稳定地找到高价值 practitioner 实践、减少噪声和错选，并让真实用户愿意再次使用？**
+> **Curator 是否能比普通 AI / 用户自己搜索更稳定地找到高价值 practitioner 实践，并在能力选型时减少错装/错选，且这个差异足以让真实用户再次使用？**
 
-0.8.2 修正的是已观察到的 candidate-selection 行为，不证明产品价值已经验证。
+0.9.0 是 Runtime 架构修正，不是产品价值证明。
 
 ## 当前不做
 
 真实使用未证明必要前，不建设：
 
+- 第三个 Router Skill；
 - 大型资源数据库 / 自动 Refresh；
 - 固定场景 taxonomy；
 - 统一评分 / Gate；
