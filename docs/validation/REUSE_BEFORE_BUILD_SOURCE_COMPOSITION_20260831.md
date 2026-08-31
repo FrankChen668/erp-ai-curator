@@ -1,7 +1,7 @@
 # Reuse-Before-Build Source Composition Decision
 
 Date: 2026-08-31
-Status: **CURRENT ARCHITECTURE CORRECTION — MATURE SKILL COMPOSITION FIRST**
+Status: **CURRENT ARCHITECTURE HYPOTHESIS — MATURE SKILL COMPOSITION FIRST / EFFECTIVENESS UNRESOLVED**
 
 ## 1. Trigger
 
@@ -12,7 +12,7 @@ The P0–P4 source-acquisition work proved a real Chinese-platform coverage gap,
 - WeChat showed one positive task and one metadata-only / anti-spider task;
 - Bilibili already had useful normal-Web discovery plus partial anonymous enrichment.
 
-The product does not need to own platform acquisition implementations.
+The product should not default to owning platform acquisition implementations.
 
 ## 2. First-principles correction
 
@@ -22,7 +22,7 @@ It should ask:
 
 > What evidence is missing, and is there already a mature installed Skill that can acquire it?
 
-The default order becomes:
+The working order is:
 
 ```text
 Curator
@@ -32,7 +32,7 @@ Curator
   → Curator independently evaluates the returned evidence
 ```
 
-**Reuse before build.** Do not build, fork, package-manage or maintain one provider per platform unless repeated live evidence proves no mature composition can solve the gap.
+**Reuse before build.** Do not build, fork, package-manage or maintain one provider per platform unless repeated live evidence proves no mature composition can solve the gap and the product value justifies the ownership cost.
 
 ## 3. Primary mature composition candidates
 
@@ -41,10 +41,9 @@ Curator
 Observed 2026-08-31:
 
 - Agent Skill, MIT;
-- current reviewed main: `1a8a04c3c347defbcdbb8da26d7cf1a531426b1f`;
+- reviewed main: `1a8a04c3c347defbcdbb8da26d7cf1a531426b1f`;
 - covers Weibo, Xiaohongshu, Bilibili, Zhihu, Douyin, WeChat, Baidu and Toutiao;
 - supports source selection, recency windows, compact/JSON/Markdown output and diagnostics;
-- has public project evidence of a substantial user/community footprint and automated tests;
 - most sources have fallback paths; optional credentials/crawler modes improve coverage.
 
 Role in Curator:
@@ -58,8 +57,7 @@ Its engagement/recency/relevance scoring is a discovery hint. Curator must not i
 Observed 2026-08-31:
 
 - MIT;
-- current reviewed main: `33eef84a55b1919396a80e7a55650a07bb83f590`;
-- large active community;
+- reviewed main: `33eef84a55b1919396a80e7a55650a07bb83f590`;
 - supports normal search/fetch plus CDP access to the user's existing Chrome/Edge browser;
 - explicitly targets dynamic/login-state sites including Xiaohongshu and WeChat;
 - avoids requiring a separate platform-specific browser runtime.
@@ -77,7 +75,7 @@ Read-only Curator use means no publish, upload, comment, like, favorite, follow,
 Do not:
 
 - create an ERP-owned Xiaohongshu/WeChat/Bilibili crawler;
-- fork a third-party source project merely to make the pilot pass;
+- fork a third-party source project merely to make a pilot pass;
 - build a permanent source-adapter registry/framework;
 - install three platform MCPs because three platforms exist;
 - make platform coverage a quota;
@@ -87,43 +85,67 @@ Do not:
 
 ## 5. Relationship to P0–P4 evidence
 
-P0–P4 remain valid evidence. Their architectural meaning changes:
+P0–P4 remain valid evidence:
 
 - P0 proves normal broad Web can miss Chinese practitioner ecosystems;
 - P1/P4 prove a source can improve recall while original-content reliability varies;
 - P2 proves some platform evidence can be obtained cheaply without full credential setup;
 - P3 proves provider setup cost itself can outweigh potential source value.
 
-Those findings argue for **composition and substitution**, not ERP-owned adapter engineering.
+These findings support **reuse-before-build and asymmetric acquisition**, but they do not prove the current mature-Skill combination is sufficient.
 
-## 6. Qualification strategy from here
+## 6. P5 interpretation — OPEN / INCONCLUSIVE
 
-The next test is black-box Skill composition, not provider implementation qualification.
+Owner-reported P5 summary indicates:
 
-### Stage 1 — `last30days-cn`
+- `last30days-cn` added five Bilibili candidates;
+- those candidates did not become inspectable original evidence in that run;
+- Xiaohongshu / Zhihu / WeChat showed no effective gain;
+- `web-access` was blocked because Chrome CDP was not enabled and therefore was not actually exercised;
+- Local Agent proposed `CONDITIONAL`, discovery-only use.
 
-Use the current flowchart or requirements task as a normal Curator request and invoke the mature Skill only to expand Chinese-platform candidate recall.
+This is partial evidence only.
 
-Success means it supplies serious new candidates/provenance with low setup cost.
+It does not prove composition succeeds, because the run did not demonstrate a recommendation-changing inspected evidence delta.
 
-### Stage 2 — `web-access` only if needed
+It also does not prove composition fails, because the intended two-layer path was incomplete:
 
-If one of the strongest candidates cannot be read through normal host Web/Browser, use `web-access` against the user's existing browser in read-only mode.
+```text
+discovery candidate
+→ original-page reading fallback
+→ Curator judgement
+```
 
-Success means it reads enough original content for Curator judgement without platform-specific runtime engineering.
+The original-page reading fallback was not exercised.
 
-Stop if Stage 1 already provides enough evidence.
+Owner explicitly challenged the stronger interpretation that P5 justifies closing or abandoning the Source Acquisition problem. That stronger interpretation is withdrawn as a project conclusion.
 
-## 7. Promotion condition
+Current status:
 
-Only after composition works in the target host should Runtime gain a small routing rule such as:
+> **MATURE-SKILL COMPOSITION EFFECTIVENESS — INCONCLUSIVE / OPEN.**
 
-> When normal Web materially misses Chinese practitioner evidence, use an already-installed mature Chinese-platform research Skill for candidate discovery. For a serious dynamic/login-state source that cannot otherwise be inspected, use an already-installed browser-access Skill read-only. Return all evidence to Curator judgement; do not install or update Skills during a normal curation request.
+Authority: `docs/validation/SOURCE_COMPOSITION_UNCERTAINTY_20260831.md`.
 
-Do not hard-code repository names into the core product logic unless host routing requires a maintained reference.
+## 7. Promotion / rejection condition
+
+Do not promote the mature composition into Runtime until it demonstrates, in a material task:
+
+- serious new practitioner candidates normal Web missed;
+- sufficient original content for Curator judgement;
+- a meaningful change in candidate pool, ranking, rejection reason, confidence or coverage understanding;
+- proportionate setup/security/maintenance cost.
+
+Do not reject the composition strategy from a run where the reading layer was not exercised.
+
+Do not hard-code repository names into core product logic unless host routing eventually requires a maintained reference.
 
 ## 8. Current decision
 
-> **STOP SOURCE-ADAPTER ENGINEERING. TEST MATURE SKILL COMPOSITION.**
+> **REUSE BEFORE BUILD REMAINS THE WORKING ARCHITECTURE PRINCIPLE. THE EFFECTIVENESS OF THE CURRENT MATURE-SKILL COMBINATION REMAINS UNRESOLVED.**
 
-Runtime 0.9.1 remains frozen during this test.
+Therefore:
+
+- do not resume platform-by-platform engineering by default;
+- do not claim mature Skill composition has solved source acquisition;
+- do not claim mature Skill composition has failed or that source acquisition should be abandoned;
+- keep Runtime 0.9.1 frozen until evidence materially resolves the question.
