@@ -35,7 +35,7 @@ ERP AI Curator 是**一个产品、两个 Runtime 职责**，面向真实 ERP / 
 
 默认不是：工具目录、执行 SOP、用户测试协议、资源数据库、社媒爬虫平台或工具实验室。
 
-## 3. Current Runtime — 0.9.1 FROZEN
+## 3. Current Runtime — 0.9.2 FROZEN
 
 ### Practice Curator
 
@@ -45,7 +45,10 @@ ERP AI Curator 是**一个产品、两个 Runtime 职责**，面向真实 ERP / 
 - historical project evidence = lead only；
 - final external resources 本次重新打开；
 - fast-changing AI workflow 考虑 currentness/freshness；
-- broad search 漏掉明显 practitioner 生态时做 selective targeted recall；
+- 中文 practitioner serious candidates 只集中在单一可访问池、或其余候选主要为官方/厂商/GitHub/英文时，对最可能改变排序的 1–2 个额外 pool 做 selective targeted recall；
+- 不建立平台配额，零召回/不可访问是 coverage fact；
+- direct task/artifact fit 优先于邻近 SAP/ERP/tool 标签；
+- official docs 默认作为 capability verification，不为凑 Top 3 与 practitioner practice 并列；
 - 不主动做 Tool/Skill/MCP adoption。
 
 ### Capability Advisor
@@ -56,9 +59,9 @@ ERP AI Curator 是**一个产品、两个 Runtime 职责**，面向真实 ERP / 
 - concrete capability gap；
 - minimum useful upgrade or explicit no-upgrade。
 
-两 Skill metadata.version 都是 `0.9.1`。
+两 Skill metadata.version 都是 `0.9.2`。Capability Advisor 行为未因 0.9.2 改变。
 
-**当前不要修改 Runtime。** Draft PR #74 只是行为保持型规则清理候选，在冻结解除前不合并。
+**当前 Runtime 重新冻结。** 仅在真实任务或可复现 execution log 暴露 decision-changing defect 时做最窄修正。
 
 ## 4. 上一阶段已证明什么
 
