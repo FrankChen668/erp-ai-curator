@@ -21,9 +21,9 @@ Status: **CURRENT NAVIGATION AUTHORITY**
 
 ### Runtime
 
-当前版本：**0.9.1 / FROZEN**。
+当前版本：**0.9.2 / FROZEN**。
 
-- Practice Curator：fresh external discovery、historical evidence lead-only、final resource fresh inspection、selective targeted recall、无默认 Tool/Skill/MCP adoption。
+- Practice Curator：fresh external discovery、historical evidence lead-only、final resource fresh inspection、candidate-pool concentration recall correction、task/artifact fit anti-dilution、无默认 Tool/Skill/MCP adoption。
 - Capability Advisor：current baseline → concrete gap → minimum useful upgrade or explicit no-upgrade。
 
 ### Release
@@ -78,6 +78,10 @@ P5 未完成 `discovery → original-page reading → Curator judgement` 全链�
 
 真实同事/问卷/Owner 的真实问题，由 Curator 完成搜索、筛选和推荐。
 
+当前 controlled-trial case：
+
+- [Case 005 — Workshop / 会议材料 → 可评审需求包](curation-cases/CASE_005_WORKSHOP_TO_REQUIREMENT_PACKAGE.md)
+
 历史 Pack 01：
 
 - [Case 001 — ERP 操作手册](curation-cases/CASE_001_ERP_OPERATING_MANUAL.md)
@@ -85,7 +89,7 @@ P5 未完成 `discovery → original-page reading → Curator judgement` 全链�
 - [Case 003 — 多顾问周报汇总](curation-cases/CASE_003_WEEKLY_REPORT_CONSOLIDATION.md)
 - [Case 004 — SAP Bug 诊断/系统访问](curation-cases/CASE_004_SAP_BUG_DIAGNOSIS_SYSTEM_ACCESS.md)
 
-这些是历史项目 evidence，不定义当前用户的候选池或当前资源排序。
+这些是 Lane A / 历史项目 evidence，不定义未来用户的候选池或当前资源排序，也不证明用户采用。
 
 ### Lane B — REAL_USER_USE VALIDATION
 
@@ -95,6 +99,7 @@ P5 未完成 `discovery → original-page reading → Curator judgement` 全链�
 
 ## 6. 当前 Runtime 设计依据
 
+- [0.9.2 Ecosystem Recall / Task-Fit Correction](validation/CURATOR_092_ECOSYSTEM_RECALL_TASK_FIT.md)
 - [0.9.1 Fresh Curation / Evidence Isolation](validation/CURATOR_091_FRESH_CURATION_EVIDENCE_ISOLATION.md)
 - [0.9.0 Runtime Responsibility Split](validation/CURATOR_090_RUNTIME_RESPONSIBILITY_SPLIT.md)
 - [0.8.2 Candidate Selection Patch](validation/CURATOR_082_CANDIDATE_SELECTION_PATCH.md)
