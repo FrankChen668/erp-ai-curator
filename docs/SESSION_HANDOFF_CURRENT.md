@@ -1,9 +1,9 @@
 # ERP AI Curator — Current Session Handoff
 
 Date: 2026-08-31
-Status: **CURRENT / SOURCE ACQUISITION PILOT**
+Status: **CURRENT / CONTROLLED REAL-USER USE + SOURCE-COMPOSITION QUESTION OPEN**
 
-> 新会话先读 `docs/PROJECT_MAP.md`。不要从历史聊天、P04 或旧 validation 恢复当前推荐；历史 evidence 只能用于理解项目演化或提供 search lead。
+> 新会话先读 `docs/PROJECT_MAP.md`。不要从历史聊天、旧 validation、P04 或已关闭 Pilot 恢复当前推荐；历史 evidence 只能用于理解项目演化或提供 search lead。
 
 ## 1. 最小读取顺序
 
@@ -15,16 +15,19 @@ docs/PROJECT_MAP.md
 → docs/validation/EVIDENCE_STATUS.md
 ```
 
-当前具体执行再读：
+当前如涉及 source composition，再读：
 
-- `docs/validation/SOURCE_ACQUISITION_PILOT_20260831.md`
-- `docs/local-agent/SOURCE_ACQUISITION_PILOT_TASK.md`
-- `docs/SOURCE_ADAPTER_ARCHITECTURE_V3.md`
-- `docs/SOURCE_ADAPTER_LIFECYCLE_V3.md`
+- `docs/validation/REUSE_BEFORE_BUILD_SOURCE_COMPOSITION_20260831.md`
+- `docs/validation/SOURCE_COMPOSITION_UNCERTAINTY_20260831.md`
+
+真实用户试用读：
+
+- `docs/USER_TRIAL_GUIDE_V1.md`
+- `docs/REAL_USER_PILOT_V1.md`
 
 ## 2. 当前产品
 
-ERP AI Curator 是**一个产品**，面向真实 ERP / ToB / 企业信息化工作问题。
+ERP AI Curator 是**一个产品、两个 Runtime 职责**，面向真实 ERP / ToB / 企业信息化工作问题。
 
 核心用户结果：
 
@@ -42,7 +45,7 @@ ERP AI Curator 是**一个产品**，面向真实 ERP / ToB / 企业信息化工
 - historical project evidence = lead only；
 - final external resources 本次重新打开；
 - fast-changing AI workflow 考虑 currentness/freshness；
-- broad search 漏掉明显 practitioner 生态时做 targeted recall；
+- broad search 漏掉明显 practitioner 生态时做 selective targeted recall；
 - 不主动做 Tool/Skill/MCP adoption。
 
 ### Capability Advisor
@@ -55,70 +58,68 @@ ERP AI Curator 是**一个产品**，面向真实 ERP / ToB / 企业信息化工
 
 两 Skill metadata.version 都是 `0.9.1`。
 
-**Pilot 期间不要继续改 Runtime。**
+**当前不要修改 Runtime。** Draft PR #74 只是行为保持型规则清理候选，在冻结解除前不合并。
 
-## 4. 为什么当前重点上移到 Source Acquisition
+## 4. 上一阶段已证明什么
 
-Repeated real runs across more than one Agent host show the same remaining pattern:
+P0–P4 source-acquisition investigation 已关闭。
 
-- broad Web Search 可以返回官方文档、GitHub、CSDN、普通博客和少量 practitioner 内容；
-- 小红书、公众号、Bilibili、知乎等中文 practitioner 池经常没有进入候选；
-- 0.9.0 diagnostic 明确没有做这些平台的 targeted discovery；
-- 另一 Agent 在 2026-08-31 的独立 broad-search 运行也出现类似缺失。
+已支持：
 
-这意味着剩余问题不能继续只解释成“某个宿主没听 Skill”。
+- broad Web 对中文 practitioner 生态存在真实 recall/acquisition 缺口；
+- targeted normal Web 是最低成本 fallback，但不是完整解法；
+- WeChat provider 一次正向、一次 metadata-only，当前 `PILOT / UNSTABLE`；
+- Bilibili provider `CONDITIONAL`；
+- `xpzouying/xiaohongshu-mcp` provider 因权限面、工具链、浏览器运行时和维护成本被 `REMOVED`；
+- provider qualification 与平台内容价值必须分开。
 
-当前最强假设是：
+这批证据不验证产品价值，也不证明应该长期维护一套平台 Adapter 架构。
 
-> **ordinary broad Web discovery / indexing / original-content acquisition 对中文 practitioner 生态存在重复、物质性的覆盖缺口。**
+## 5. 当前架构方向
 
-这不证明每个平台都需要 Adapter，也不证明社媒内容天然更好。
+工作原则：
 
-## 5. Current Pilot
+> **REUSE BEFORE BUILD**
 
-Authority：`docs/validation/SOURCE_ACQUISITION_PILOT_20260831.md`。
-
-顺序：
+优先顺序：
 
 ```text
-P0 targeted normal Web
-→ P1 WeChat lightweight discovery
-→ P2 Bilibili search/transcript
-→ P3 Xiaohongshu isolated read-only
+Curator
+→ normal Web / GitHub
+→ 当中文 source recall 物质性不足时，优先复用成熟外部 research Skill
+→ 严肃候选需要动态/login-state 原文时，再用成熟 browser-access fallback
+→ Curator 独立判断证据
 ```
 
-Zhihu normal-Web-first，暂不引入专用 Adapter。
+不要恢复 one-provider-per-platform 工程，也不要建设 adapter registry/framework。
 
-### P0
+## 6. 当前未决问题
 
-先证明显式 `site:` / source-qualified targeted search 是否已经足够。
+P5 mature-Skill composition 只得到部分证据：
 
-### P1
+- discovery 层增加了 Bilibili candidates；
+- 原文读取 fallback 因 Chrome CDP 未启用而没有实际执行；
+- 因此 `discovery → original reading → Curator judgement` 没有端到端完成。
 
-WeChat candidate：`zjp1997720/wechat-article-search`。低成本 discovery-only 优先验证。
+当前结论：
 
-### P2
+> **MATURE-SKILL COMPOSITION EFFECTIVENESS — INCONCLUSIVE / OPEN**
 
-Bilibili candidate：`XZXZZX-Ai/bilibili-mcp`。只用 search / metadata / transcript；凭据本地保存。
+不能从 P5 推导“已解决”，也不能推导“已失败/应放弃 Source Acquisition”。
 
-### P3
+进一步证据只在真实 ERP/ToB 任务中、且能改变候选/排序/置信度/coverage 判断时才收集；不要再为填矩阵跑 synthetic platform test。
 
-Xiaohongshu candidate：`xpzouying/xiaohongshu-mcp`。最高 acquisition value potential，也有最高 login/browser/write-surface 风险；仅在 P0–P2 不能稳定决策时进入，且只允许 read-only qualification。
+## 7. 当前真正里程碑
 
-## 6. Pilot 判断标准
+> **REAL_USER_USE product value validation**
 
-Adapter 不是因为“能搜到内容”就合格。
+尚未证明：Curator 比普通 AI / 用户自搜索更省判断成本、更少错选、更当前、更可信，并且这个差异足以让真实用户继续使用。
 
-必须证明：
+当前发布边界：
 
-1. normal Web 难以可靠获得的 practitioner evidence 被获取；
-2. 能读到足以判断的原始内容/provenance；
-3. materially 改变 candidate pool、ranking、rejection reason、confidence 或 coverage boundary；
-4. 安全/凭据/维护成本合理。
+> **CONTROLLED USER TRIAL GO / BROAD RELEASE NO**
 
-否则保持 CONDITIONAL / REMOVED，不进入长期 Runtime。
-
-## 7. Adversarial boundary
+## 8. Adversarial boundary
 
 不要重新引入：
 
@@ -127,34 +128,25 @@ Adapter 不是因为“能搜到内容”就合格。
 - crawler/resource DB/auto-refresh；
 - creator ranking；
 - third Router Skill；
-- custom adapter framework before simple composition fails；
+- per-platform adapter engineering；
+- custom adapter framework before mature composition is disproven；
 - auto-install/update inside ordinary user requests；
-- publish/comment/like/favorite/follow/message 等社媒写动作。
-
-## 8. Current release
-
-> **CONTROLLED USER TRIAL GO / BROAD RELEASE NO**
-
-另外允许：**staged local source-acquisition pilot**。
-
-产品价值、全宿主兼容、长期 Adapter 架构均未验证。
+- publish/comment/like/favorite/follow/message 等社媒写动作；
+- 用 Lane A / synthetic evidence 冒充 REAL_USER_USE。
 
 ## 9. Next actor
 
-### Local Agent
-
-执行：`docs/local-agent/SOURCE_ACQUISITION_PILOT_TASK.md`。
-
-继续到真正需要 Owner 本地登录/QR/credential/client restart，或出现安全阻塞，或后续阶段已不再 decision-changing 时才停。
-
 ### Cloud
 
-收到 P0/P1/P2/P3 结果或本地 branch/commit 后：
+- 继续真实任务的 Curator / Capability Advisor 使用与证据审查；
+- 收到自然 REAL_USER_USE 反馈时更新 evidence authority；
+- 仅在真实任务出现 decision-changing source gap 时，审查 mature-Skill composition 的端到端证据；
+- 维护 GitHub 当前 authority 一致性。
 
-- 审查 source acquisition 是否真的改变推荐；
-- 决定 adapter status：APPROVED / CONDITIONAL / PILOT / REMOVED；
-- 只有证据证明需要时才修改 Runtime routing 或 permanent architecture。
+### Local Agent
+
+只在下一份 decision-changing evidence 需要本地 runtime、Chrome/CDP、企业环境、受保护源或本地仓库能力时接力。不要为了“有 Agent 可用”制造任务。
 
 ### Owner
 
-只处理无法由 Agent 完成的本地登录/QR/credential/restart 动作，以及未来 repository license 这种真正 Owner 决策。
+只处理 Agent 无法替代的真实产品/业务裁决、登录/credential/restart、本地账户动作，以及未来 repository license 等 Owner 决策。
