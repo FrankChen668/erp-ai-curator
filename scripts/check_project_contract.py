@@ -33,6 +33,7 @@ REMOVED_OR_MISPLACED_RUNTIME_FILES = [
     PRACTICE_SKILL_DIR / "README.md",
     ADVISOR_SKILL_DIR / "README.md",
     PRACTICE_SKILL_DIR / "references" / "evidence-and-safety.md",
+    ADVISOR_SKILL_DIR / "references" / "practitioner-discovery.md",
     PRACTICE_SKILL_DIR / "references" / "adoption-consistency.md",
     PRACTICE_SKILL_DIR / "references" / "decision-boundaries.md",
 ]
@@ -50,6 +51,7 @@ REQUIRED = [
     ROOT / "docs" / "validation" / "CURATION_PACK_01_ADVERSARIAL_REVIEW.md",
     ROOT / "docs" / "validation" / "RELEASE_READINESS_ADVERSARIAL_20260830.md",
     ROOT / "docs" / "validation" / "CURATOR_080_RUNTIME_SIMPLIFICATION.md",
+    ROOT / "docs" / "validation" / "CURATOR_090_RUNTIME_RESPONSIBILITY_SPLIT.md",
     *RUNTIME_SKILLS,
     *RUNTIME_REFERENCES,
     *CURATION_CASES,
@@ -135,6 +137,8 @@ readme = ROOT / "README.md"
 if readme.is_file():
     readme_text = readme.read_text(encoding="utf-8")
     check("CONTROLLED USER TRIAL" in readme_text.upper(), "README missing controlled-user-trial release boundary")
+    check("curating-erp-ai-resources" in readme_text, "README missing Practice Curator entry")
+    check("advising-erp-ai-capabilities" in readme_text, "README missing Capability Advisor entry")
 
 release_review = ROOT / "docs" / "validation" / "RELEASE_READINESS_ADVERSARIAL_20260830.md"
 if release_review.is_file():
