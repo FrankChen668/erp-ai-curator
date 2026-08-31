@@ -3,8 +3,8 @@ name: curating-erp-ai-resources
 description: Curate practitioner AI-enabled best practices, tutorials, real-world workflows, cases, and learning resources for SAP, Oracle, ERP, ToB, product, project, and enterprise-system work. Use when the user asks how others use AI/Agents/tools to do a repeatable task better, wants high-quality practical tutorials/cases/resources, or invokes this ERP AI curator to find the best practice to learn first. Do not use to decide whether to install, add, choose, or compare Tool/Skill/MCP capabilities; use advising-erp-ai-capabilities for that. Do not use merely because the user wants one task executed now.
 compatibility: External curation benefits from Web/search/fetch. Never bypass access controls.
 metadata:
-  version: "0.9.1"
-  product_stage: "Controlled user trial — fresh curation / evidence isolation"
+  version: "0.9.2"
+  product_stage: "Controlled user trial — ecosystem recall / task-fit correction"
   language: "zh-CN"
 ---
 
@@ -43,7 +43,9 @@ Do not let “用这个 Skill 找流程图最佳实践” collapse into only “
 
 For Chinese ERP / ToB / product / project / consultant contexts, useful pools often include Bilibili, WeChat, Xiaohongshu, Zhihu, 人人都是产品经理, 掘金, CSDN, practitioner blogs, and related GitHub projects.
 
-If broad Web search misses the user's obvious practitioner ecosystem or returns mostly official/implementation/global sources, do a targeted discovery pass on the one or few most likely practitioner pools before concluding. This is a recall fallback, not a platform quota.
+Use targeted recall as a **candidate-pool correction**, not a platform quota. Before concluding, look at the serious candidate pool. If a Chinese practitioner task has only one accessible Chinese practitioner pool represented, or the remaining serious candidates are mostly official/vendor/implementation/global sources, do one targeted pass against the 1–2 additional practitioner pools most likely to change the ranking. Stop when the pool is strong enough; do not search platforms mechanically.
+
+A zero-recall or inaccessible platform is a coverage fact, not a reason to install a platform adapter by default. When that missing pool could plausibly change the ranking, state the `coverage/policy gap` rather than implying the platform has no useful content.
 
 For fast-changing AI tools/workflows, actively include recent/current material and inspect publication/update dates or maintenance state when they can change the recommendation. **Best is not the same as newest**; an older resource may still lead when its direct practice evidence is stronger, but recency cannot be ignored by default.
 
@@ -65,6 +67,8 @@ Keep source roles distinct:
 - official current fact;
 - Curator synthesis.
 
+Official documentation is usually **capability verification**, not practitioner-practice evidence. Do not use official docs merely to fill a Top 1–3 list when stronger practitioner evidence exists.
+
 Search snippets, titles, likes, saves, plays, installs, and stars are discovery hints, not proof of quality.
 
 Internal project validation/history is not a user-facing external source for normal curation. Only surface it when the user explicitly asks about this project's own evidence or history.
@@ -84,9 +88,11 @@ When the user's language, region, or professional ecosystem is clear, prefer com
 
 Do not treat adjacent deliverables as equivalent. Editable draw.io is not the same as SVG/PNG; PPTX is not image-only slides; BPMN model is not a generic flowchart image.
 
+Do not let a nearby task outrank the actual task merely because it carries a stronger ERP/SAP/tool label. A technical architecture diagram, for example, is not automatically a top business-process resource. Keep adjacent-task material as specialist/secondary evidence unless it contributes a decision-changing method that direct-task candidates do not provide.
+
 ### 5. Compress and stop
 
-Normally return **1–3** clearly different resources.
+Normally return **1–3** clearly different resources. Do not force three when one or two practitioner resources plus a separate official capability check is stronger.
 
 The user should know:
 
@@ -115,4 +121,6 @@ A practitioner resource may demonstrate a Tool/Skill, but do not turn that into 
 - Never promote a cross-language resource without a real fit advantage when comparable local evidence exists.
 - Never treat author self-practice as independent validation.
 - Never turn popularity metadata into a quality score or platform quota.
+- Never force platform diversity when it does not improve the candidate pool.
+- Never let an adjacent task or official capability page displace a more direct practitioner resource without a concrete fit advantage.
 - Never call something “best / latest / unique / validated” beyond the evidence actually acquired.
