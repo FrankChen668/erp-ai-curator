@@ -143,3 +143,38 @@ The task requires exercising targeted recall when Chinese practitioner ecosystem
 - **Zhihu:** No dedicated adapter in the first pilot. Monitor in final comparison.
 
 No final Curator recommendation is produced at this stage, per Runbook.
+
+## 6. Current local pilot run (this checkout)
+
+This appendix records the current execution on branch `validation/source-acquisition-pilot-local` after syncing `origin/main` to `fc85219`. It is separate from the earlier P0 record above. The current run did not use historical P04 or validation URLs as candidate sources.
+
+### 6.1 Actual Web/Search queries, in execution order
+
+Broad discovery:
+
+1. `AI draw.io 可编辑 业务流程图 最佳实践 产品经理 ERP`
+2. `Claude Code draw.io 流程图 业务流程 实战 顾问`
+3. `AI XML draw.io 可编辑 流程图 需求文档 工作流`
+
+Targeted discovery:
+
+4. `site:bilibili.com AI draw.io 流程图 产品经理 ERP`
+5. `site:zhihu.com AI draw.io 流程图 产品经理 ERP`
+6. `site:mp.weixin.qq.com AI draw.io 流程图 产品经理 ERP`
+7. `site:xiaohongshu.com AI draw.io 流程图 产品经理 ERP`
+
+### 6.2 Main candidates returned
+
+- Broad results included official draw.io guidance on XML/editability, AI models, generation/validation, query best practice, and requirements flows; also GitHub and Chinese technical/blog results. No Bilibili, WeChat, Xiaohongshu, or Zhihu candidate was returned in the broad result set.
+- Bilibili targeted results included `Draw.io - 你可能不知道的「白嫖级」图表绘制神器` ([opus](https://www.bilibili.com/opus/1046765383567015973/)), `这个 AI 画图技能，居然能从一张图学会你的审美？ drawio-skill重磅更新` ([video](https://www.bilibili.com/video/BV12moMBrELB/)), `〖Cursor+draw.io〗AI轻松生成专业流程图！` ([video](https://www.bilibili.com/video/BV1yFgCzBEgq/)), and `一分钟绘制论文技术路线图，Gemini+draw.io导出精美矢量图` ([video](https://www.bilibili.com/video/BV1qfwNzNEZh)).
+- Zhihu targeted results included `有哪些AI绘图工具能直接把文字生成流程图？效果怎么样？` ([answer](https://www.zhihu.com/question/1969107184987136487/answer/2040151275715684185)) and `产品基础 | 流程图规范和方法` ([article](https://zhuanlan.zhihu.com/p/539171802)), plus additional Zhihu articles on AI draw.io and flowchart tooling.
+- The WeChat targeted query returned no useful candidate.
+- The Xiaohongshu targeted query returned no useful candidate.
+
+### 6.3 Open/read facts and visible limitations
+
+- Successfully opened/read the Note article `Claude Codeとdraw.ioで業務フローを作ってみた` ([Note](https://note.com/harapeco_hanako/n/n9d106d68f335)), dated 2026-02-21. It describes actor/swimlane structure, an editable `.drawio` output, manual refinement, and that actual meeting use had not yet been tested.
+- Successfully opened/read the Zhihu answer listed above. It describes a PRD/Mermaid-to-canvas workflow, manual arrangement, collaboration, and correction of a missing `审核中` state.
+- Attempted direct opens of the Bilibili videos `BV12moMBrELB` and `BV1yFgCzBEgq`; both returned `412 Precondition Failed`.
+- Attempted to open the Zhihu article `p/539171802`; it returned `400 Timeout fetching`.
+- Therefore, for this current P0 run: Bilibili was `WEB_DISCOVER_ONLY`; Zhihu was `WEB_DISCOVER_AND_READ` for one candidate but had one failed article open; WeChat and Xiaohongshu were `WEB_NO_USEFUL_RECALL`.

@@ -181,3 +181,28 @@ Rationale: The adapter meets all four success criteria:
 2. Original-content provenance is sufficient to inspect the practice (full article text readable via WebFetch after URL resolution).
 3. The acquired evidence changes material decisions: new candidate pool, new perspectives (product manager, process management, tool builder), fresh content.
 4. Acquisition cost/security/maintenance remains proportionate (no credentials, low maintenance, single dependency).
+
+## 7. Current local pilot execution appendix
+
+The preceding sections are a previously committed P1 record. This appendix records the current execution on `validation/source-acquisition-pilot-local` after the `origin/main` fast-forward to `fc85219`; it is not a rerun of the preceding search record and does not overwrite it.
+
+### 7.1 Actual current keyword searches, in execution order
+
+1. `AI draw.io 流程图` (`-n 5`)
+2. `可编辑 流程图 draw.io` (`-n 5`)
+3. `业务流程图 AI 产品经理` (`-n 5`)
+
+The first keyword search was then repeated with `-r` for URL resolution; this was URL-resolution verification, not a fourth keyword search.
+
+### 7.2 Current candidates and read results
+
+- Each of the three searches returned five results, for 15 returned candidates in this execution.
+- The first query returned, among others, `实用工具系列:AI生成draw.io流程图完全教程` (2026-02-27), `告别手动画流程图!AI 一句话生成,直接拿到 draw.io 源文件` (2026-08-18), `【保姆级教程】Next AI Draw.io 帮你轻松搞定专业图表` (2026-03-15), `我做了一个 draw.io AI 侧边栏:边聊边画流程图` (2026-08-20), and `用AI画业务流程图draw.io` (2026-08-28).
+- The second query mainly returned draw.io tool introduction/download candidates; the third returned AI product-management and business-process candidates, including `【AI产品入门实践】二:AI 生成业务化 PRD + 流程图`.
+- URL resolution succeeded for all five articles in the repeated first-query sample (`成功 5, 失败 0`); signed query parameters were transient and are intentionally omitted from this committed record.
+- The host Web opener could not open two current-run resolved URLs and returned `cannot be opened (non-retryable error)`.
+- The read-only public-article reader successfully read two current-run originals: `实用工具系列：AI生成draw.io流程图完全教程` (农机智行, 2026-02-27, `ok=true`, `verification_page=false`) and `用AI画业务流程图draw.io` (产品经理一二AI学习, 2026-08-28, `ok=true`, `verification_page=false`).
+
+### 7.3 Current-run interpretation
+
+The current adapter-plus-reader execution produced inspectable WeChat practitioner material that the current P0 targeted normal-Web query did not return. The current-run proposed status is `PILOT`; this appendix does not change or retroactively reinterpret the preceding committed P1 record.
