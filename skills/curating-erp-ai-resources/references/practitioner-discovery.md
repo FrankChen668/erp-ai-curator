@@ -4,6 +4,8 @@ Read this only when the user wants best practices, tutorials, real workflows, pr
 
 ## What to search
 
+This reference belongs to an **AI work-practice Curator**. Unless the user explicitly asks for domain-only guidance, keep AI/Agent/tool-enabled work in the discovery scope even when the shorthand request only says “最佳实践”.
+
 Build a few targeted queries from the actual task:
 
 ```text
@@ -13,7 +15,7 @@ industry / work context × task × AI
 specific workflow × tutorial / case / review / failure
 ```
 
-If the original request is about **using AI/Agent/Tool to improve a task**, keep that dimension alive. A query batch that drops AI/Agent/Tool entirely and searches only the domain topic is intent drift.
+A query batch that drops AI/Agent/Tool entirely and searches only the domain topic is intent drift.
 
 For Chinese ERP / ToB / product / project / consultant work, useful discovery pools often include:
 
