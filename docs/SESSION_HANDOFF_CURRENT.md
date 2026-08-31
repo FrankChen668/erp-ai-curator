@@ -1,9 +1,9 @@
 # ERP AI Curator — Current Session Handoff
 
 Date: 2026-08-31
-Status: **CURRENT / CONTROLLED REAL-USER USE**
+Status: **CURRENT / SOURCE ACQUISITION PILOT**
 
-> 新会话不要从历史聊天或旧 validation 文档恢复当前用户推荐。先读 `docs/PROJECT_MAP.md`；历史 evidence 只能用于理解项目演化，不能直接替代当次 fresh curation。
+> 新会话先读 `docs/PROJECT_MAP.md`。不要从历史聊天、P04 或旧 validation 恢复当前推荐；历史 evidence 只能用于理解项目演化或提供 search lead。
 
 ## 1. 最小读取顺序
 
@@ -15,7 +15,12 @@ docs/PROJECT_MAP.md
 → docs/validation/EVIDENCE_STATUS.md
 ```
 
-只有具体任务需要时再读 Runtime Skills、Trial Guide、Real User Use Validation 或历史材料。
+当前具体执行再读：
+
+- `docs/validation/SOURCE_ACQUISITION_PILOT_20260831.md`
+- `docs/local-agent/SOURCE_ACQUISITION_PILOT_TASK.md`
+- `docs/SOURCE_ADAPTER_ARCHITECTURE_V3.md`
+- `docs/SOURCE_ADAPTER_LIFECYCLE_V3.md`
 
 ## 2. 当前产品
 
@@ -23,111 +28,133 @@ ERP AI Curator 是**一个产品**，面向真实 ERP / ToB / 企业信息化工
 
 核心用户结果：
 
-> **真正需要找实践时，替用户筛出当前值得学的 practitioner workflow；真正需要做能力选型时，判断当前工具是否够用、是否存在值得采用成本的能力缺口。**
+> **找实践时替用户筛出当前值得学的 practitioner workflow；做能力选型时判断现有工具是否够、是否存在值得采用成本的能力缺口。**
 
-默认不是：工具目录、执行 SOP、用户测试协议、资源数据库或工具实验室。
+默认不是：工具目录、执行 SOP、用户测试协议、资源数据库、社媒爬虫平台或工具实验室。
 
-## 3. Current Runtime — 0.9.1
+## 3. Current Runtime — 0.9.1 FROZEN
 
 ### Practice Curator
 
 `skills/curating-erp-ai-resources/`
 
-- best practices / tutorials / real workflows / cases / practitioner resources；
-- 正常外部策展先做当前 fresh discovery；
-- 项目 validation/history/prior packs 只能作为 lead，不能决定当前排名；
-- 最终外部资源本次重新打开；
-- AI 工作流快速变化时检查当前/近期候选；
-- 宽搜明显漏掉用户 practitioner 生态时做有选择的 targeted recall；
-- 不主动做 Tool/Skill/MCP adoption；
-- reference：`practitioner-discovery.md`。
+- fresh external discovery；
+- historical project evidence = lead only；
+- final external resources 本次重新打开；
+- fast-changing AI workflow 考虑 currentness/freshness；
+- broad search 漏掉明显 practitioner 生态时做 targeted recall；
+- 不主动做 Tool/Skill/MCP adoption。
 
 ### Capability Advisor
 
 `skills/advising-erp-ai-capabilities/`
 
-- current toolchain enough?；
-- add/install/choose/compare Tool/Skill/MCP/plugin/Agent/workflow?；
-- concrete capability gap → minimum useful upgrade or explicit no-upgrade；
-- reference：`evidence-and-safety.md`。
+- current baseline；
+- concrete capability gap；
+- minimum useful upgrade or explicit no-upgrade。
 
-两个 Skill metadata.version 都是 `0.9.1`。
+两 Skill metadata.version 都是 `0.9.1`。
 
-Authorities：
+**Pilot 期间不要继续改 Runtime。**
 
-- `docs/validation/CURATOR_090_RUNTIME_RESPONSIBILITY_SPLIT.md`
-- `docs/validation/CURATOR_091_FRESH_CURATION_EVIDENCE_ISOLATION.md`
+## 4. 为什么当前重点上移到 Source Acquisition
 
-## 4. Why 0.9.1
+Repeated real runs across more than one Agent host show the same remaining pattern:
 
-0.9.0 已初步修复 practice-only 请求被 Tool/Skill 选型吸走的问题，但随后本地日志证明新的“较好答案”仍被历史 P04 validation 强烈影响：
+- broad Web Search 可以返回官方文档、GitHub、CSDN、普通博客和少量 practitioner 内容；
+- 小红书、公众号、Bilibili、知乎等中文 practitioner 池经常没有进入候选；
+- 0.9.0 diagnostic 明确没有做这些平台的 targeted discovery；
+- 另一 Agent 在 2026-08-31 的独立 broad-search 运行也出现类似缺失。
 
-- 只有一批 4 个 broad Web query；
-- 没有定向搜索 Bilibili/公众号/小红书/知乎；
-- 最终两篇人人都是产品经理资源由本地 `rg` 从历史 P04 文件找到，再直接打开；
-- `Castaldo-Solutions/process-builder` 也来自历史 P04，而且本次没有重新打开；
-- 最终用户回答展示了内部 P04 validation 链接；
-- 本次没有真实 Web 访问失败来解释这些缺口。
+这意味着剩余问题不能继续只解释成“某个宿主没听 Skill”。
 
-因此当前根因是：**historical-evidence contamination + freshness gap + broad-search recall bias**。
+当前最强假设是：
 
-Cloud 定向 sanity search 同日立即发现新的 2026-07 Bilibili drawio-skill 更新内容、2026-06 供应链/WMS 产品经理 CodeX→Draw.io 实践等候选。它们未必一定排进 Top 3，但足以证明 serious candidate pool 不是历史 P04 可以静态封闭的。
+> **ordinary broad Web discovery / indexing / original-content acquisition 对中文 practitioner 生态存在重复、物质性的覆盖缺口。**
 
-## 5. Adversarial boundary
+这不证明每个平台都需要 Adapter，也不证明社媒内容天然更好。
 
-不要把 0.9.1 扩成：
+## 5. Current Pilot
 
+Authority：`docs/validation/SOURCE_ACQUISITION_PILOT_20260831.md`。
+
+顺序：
+
+```text
+P0 targeted normal Web
+→ P1 WeChat lightweight discovery
+→ P2 Bilibili search/transcript
+→ P3 Xiaohongshu isolated read-only
+```
+
+Zhihu normal-Web-first，暂不引入专用 Adapter。
+
+### P0
+
+先证明显式 `site:` / source-qualified targeted search 是否已经足够。
+
+### P1
+
+WeChat candidate：`zjp1997720/wechat-article-search`。低成本 discovery-only 优先验证。
+
+### P2
+
+Bilibili candidate：`XZXZZX-Ai/bilibili-mcp`。只用 search / metadata / transcript；凭据本地保存。
+
+### P3
+
+Xiaohongshu candidate：`xpzouying/xiaohongshu-mcp`。最高 acquisition value potential，也有最高 login/browser/write-surface 风险；仅在 P0–P2 不能稳定决策时进入，且只允许 read-only qualification。
+
+## 6. Pilot 判断标准
+
+Adapter 不是因为“能搜到内容”就合格。
+
+必须证明：
+
+1. normal Web 难以可靠获得的 practitioner evidence 被获取；
+2. 能读到足以判断的原始内容/provenance；
+3. materially 改变 candidate pool、ranking、rejection reason、confidence 或 coverage boundary；
+4. 安全/凭据/维护成本合理。
+
+否则保持 CONDITIONAL / REMOVED，不进入长期 Runtime。
+
+## 7. Adversarial boundary
+
+不要重新引入：
+
+- platform quota；
 - newest-wins；
-- B站/公众号/小红书/知乎固定平台配额；
-- resource DB / auto refresh；
-- 第三个 Router Skill；
-- A/B/C runtime taxonomy；
-- scoring/Gate/creator ranking；
-- Browser/Graph Engineering/host-policy workaround as Curator rules。
+- crawler/resource DB/auto-refresh；
+- creator ranking；
+- third Router Skill；
+- custom adapter framework before simple composition fails；
+- auto-install/update inside ordinary user requests；
+- publish/comment/like/favorite/follow/message 等社媒写动作。
 
-Best ≠ newest；但旧资源不能因为“以前入选过”就自动继续获胜。
-
-## 6. Historical evidence
-
-Curation Pack / P04 等历史研究保持有效的项目研究价值。
-
-新边界：
-
-> **历史项目结论不能作为普通用户当前 external curation 的独立外部证据或默认排序。**
-
-可复用：作者名、关键词、URL lead、已知风险提示。  
-不可直接复用：当前 Top 3 排序、当前性结论、未重新打开的外部资源、面向用户的内部 validation 链接。
-
-## 7. Current release
+## 8. Current release
 
 > **CONTROLLED USER TRIAL GO / BROAD RELEASE NO**
 
-试用入口：`docs/USER_TRIAL_GUIDE_V1.md`。
+另外允许：**staged local source-acquisition pilot**。
 
-产品价值仍未验证。
+产品价值、全宿主兼容、长期 Adapter 架构均未验证。
 
-## 8. Next
+## 9. Next actor
 
-0.9.1 合并后继续自然 controlled use。
+### Local Agent
 
-最重要的 practice-only 观察仍是：
+执行：`docs/local-agent/SOURCE_ACQUISITION_PILOT_TASK.md`。
 
-> `给我找下做流程图的最佳实践`
+继续到真正需要 Owner 本地登录/QR/credential/client restart，或出现安全阻塞，或后续阶段已不再 decision-changing 时才停。
 
-期望：
+### Cloud
 
-- 当前 external discovery 先发生；
-- 宽搜漏掉明显中文 practitioner 生态时有 targeted recall；
-- final resources 全部本次打开；
-- freshness/current applicability 被考虑；
-- 不向普通用户展示内部 validation 文件。
+收到 P0/P1/P2/P3 结果或本地 branch/commit 后：
 
-失败时先取 search/open/source 日志，不继续根据答案表面加规则。
+- 审查 source acquisition 是否真的改变推荐；
+- 决定 adapter status：APPROVED / CONDITIONAL / PILOT / REMOVED；
+- 只有证据证明需要时才修改 Runtime routing 或 permanent architecture。
 
-## 9. Cloud / Local / Owner
+### Owner
 
-Cloud 能做就继续直接做，包括真实反馈证据审查、Web/GitHub discovery、窄缺陷修正和 authority/Harness 维护。
-
-Local Agent 只在本地 repo/runtime/ERP 环境/受保护 evidence 或具体宿主 trigger/load/search 行为验证真正需要时接力。
-
-Owner 当前唯一潜在明确裁决项仍是 repository license（仅当要声明 public/open-source release complete 时）。
+只处理无法由 Agent 完成的本地登录/QR/credential/restart 动作，以及未来 repository license 这种真正 Owner 决策。
