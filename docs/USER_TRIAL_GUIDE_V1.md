@@ -2,7 +2,7 @@
 
 Date: 2026-08-31
 Status: **CONTROLLED TRIAL ENTRYPOINT**
-Runtime: `0.9.1`
+Runtime: `0.9.2`
 
 ## 1. 这是什么
 
@@ -27,7 +27,7 @@ skills/
         └── evidence-and-safety.md
 ```
 
-两者整体导入。0.9.1 仍处于受控试用阶段，不声明所有 Agent Skills 宿主都已验证兼容。
+两者整体导入。0.9.2 仍处于受控试用阶段，不声明所有 Agent Skills 宿主都已验证兼容。
 
 ## 3. 谁适合用
 
@@ -72,19 +72,22 @@ skills/
 6. 当 AI 工作流/工具变化较快时，资源日期、版本或当前适用性的关键边界；
 7. 作者自实践、营销、语言/生态差异、权限或 coverage gap 等重要边界。
 
-### 0.9.1 的 fresh curation 边界
+### 0.9.2 的 fresh curation 边界
 
 正常用户请求应该基于**本次外部搜索和本次实际打开的资源**成立：
 
 - 不能因为项目仓库昨天已经有一个 P04/历史验证结果，就直接沿用旧 Top 3；
 - 历史项目文档中的作者名、URL、关键词可以作为搜索线索，但最终资源要在本次重新打开核验；
 - AI/Agent/Skill/Tool 工作流变化较快时，要主动看近期候选；**最新不等于最好**，但不能默认忽略 freshness；
-- 宽泛 Web 搜索明显漏掉用户的中文 practitioner 生态时，可以对最可能改变答案的少量平台做定向补搜；不要求每次覆盖所有平台；
+- 中文 practitioner 任务如果 serious candidates 只来自一个中文 practitioner pool，或者其余候选主要是官方/厂商/GitHub/英文来源，应对最可能改变排序的 1–2 个额外 practitioner pool 做定向补搜；这不是平台配额；
+- 某个平台零召回/读不到不代表平台没有优质内容，必要时应明确 `coverage/policy gap`；
 - 普通用户回答不应把项目内部 validation 文档当外部实践依据展示，除非用户明确问项目内部证据。
 
 如果用户语言、地区或职业生态明确，同等质量下优先匹配该生态的 practitioner；海外资源可以推荐，但需要有明显增量价值或本地存在真实 coverage gap。
 
-如果目标交付物有明确格式，例如 editable draw.io、PPTX、Word、BPMN、Visio、Markdown 或代码，推荐资源必须真正匹配该 artifact。
+如果目标交付物有明确格式，例如 editable draw.io、PPTX、Word、BPMN、Visio、Markdown 或代码，推荐资源必须真正匹配该 artifact。邻近任务不能仅因 SAP/ERP/tool 标签更强就挤进 Top 推荐。
+
+官方文档通常用于核验当前能力/格式/兼容性，不需要为了凑满 3 个资源与 practitioner 实践并列。
 
 ## 6. 做能力选择时应该得到什么
 
@@ -104,7 +107,7 @@ skills/
 
 中文 ERP / ToB / 产品/项目语境会优先关注 Bilibili、公众号、小红书、知乎/人人都是产品经理/掘金/CSDN/独立博客，以及相关 GitHub 实践，但没有固定平台配额。
 
-如果宽搜没有出现这些最可能的 practitioner 池，也不能直接等价为“这些平台没有好内容”；应按任务相关性选择性补做 targeted discovery。
+如果宽搜没有出现这些最可能的 practitioner 池，或者候选过度集中在单一中文平台，也不能直接等价为“其它平台没有好内容”；应按任务相关性选择性补做 targeted discovery。
 
 如果只能发现标题/摘要而读不到正文或字幕，应明确 `coverage/policy gap`。只有已有批准的 read-only source adapter 能实质补足证据时才按需使用。
 
