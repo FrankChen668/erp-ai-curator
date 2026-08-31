@@ -1,6 +1,6 @@
 # Owner Execution Rules
 
-Date: 2026-08-30
+Date: 2026-08-31
 Status: **ACTIVE OWNER INSTRUCTION**
 
 This file records durable execution instructions from the Owner. It governs how Cloud/ChatGPT should advance this repository across sessions unless the Owner explicitly changes it.
@@ -44,3 +44,21 @@ Cloud remains responsible for product judgement, adversarial review, evidence ac
 ## 4. Anti-drift
 
 This rule does not override the North Star. “Continue executing” means continue the **highest-value current milestone**, not manufacture tasks, benchmarks, frameworks, cards, or Agent work merely to stay busy.
+
+## 5. Evidence-promotion discipline
+
+The project may leave a question **OPEN / INCONCLUSIVE** when the decision-changing evidence chain is incomplete. Closing a task is not a reason to force a stronger conclusion.
+
+Core rule:
+
+> **Claim scope must not exceed evidence scope.**
+
+Apply it as follows:
+
+- one real task may support a narrow task-scoped positive or negative claim; it does not automatically justify a provider-wide, Runtime-wide, cross-task, permanent-dependency, or product-value conclusion;
+- a generalized or stable promotion needs evidence broad enough for the generalization being claimed, rather than an arbitrary fixed number of task families;
+- decisive safety, permission, operability, compatibility, or disproportionate-cost evidence may justify rejecting/removing a provider in the tested environment without first manufacturing more task runs; that decision must not be rewritten as “the platform has no useful content”;
+- partial discovery, metadata, search snippets, historical project evidence, or an unexecuted fallback cannot be promoted into end-to-end acquisition/readability/recommendation evidence;
+- Local Agent may report observed facts, failures, bounded evidence status, and a proposed interpretation. Final evidence acceptance and any project-wide promotion remain Cloud responsibility unless an explicit Owner decision is required.
+
+Do not create extra synthetic tests merely to upgrade an evidence label. Collect more evidence only when it can materially change a current product, Runtime, architecture, or release decision.
