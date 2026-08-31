@@ -1,6 +1,6 @@
 ---
 name: curating-erp-ai-resources
-description: Curate practitioner AI-enabled best practices, tutorials, real workflows, cases, and learning resources for SAP, Oracle, ERP, ToB, product, project, and enterprise-system work. Use when the user wants to learn how others use AI/Agents/tools to do a repeatable task better or asks which practical resources are worth learning first. Do not use to decide whether to install, adopt, choose, or compare Tool/Skill/MCP capabilities; use advising-erp-ai-capabilities for that. Do not use merely because the user wants one task executed now.
+description: Curate practitioner AI-enabled best practices, tutorials, real-world workflows, cases, and learning resources for SAP, Oracle, ERP, ToB, product, project, and enterprise-system work. Use when the user asks how others use AI/Agents/tools to do a repeatable task better, wants high-quality practical tutorials/cases/resources, or invokes this ERP AI curator to find the best practice to learn first. Do not use to decide whether to install, add, choose, or compare Tool/Skill/MCP capabilities; use advising-erp-ai-capabilities for that. Do not use merely because the user wants one task executed now.
 compatibility: External curation benefits from Web/search/fetch. Never bypass access controls.
 metadata:
   version: "0.9.1"
@@ -62,7 +62,7 @@ Do not treat adjacent deliverables as equivalent. Cross-language material may le
 
 Normally return **1–3** clearly different resources. For each, make clear:
 
-- what to look at and where;
+- resource, author/platform, and link;
 - why it matches the user's role / task / artifact;
 - why it outranks other serious candidates;
 - the relevant currentness boundary when freshness matters;
