@@ -33,9 +33,16 @@ For Chinese ERP / ToB / product / project / consultant work, useful discovery po
 - Zhihu / 人人都是产品经理 / 掘金 / CSDN / practitioner blogs;
 - GitHub repos/examples connected to the practitioner workflow.
 
-Do not search every platform by quota. But if broad Web results are concentrated in official docs, global English sources, GitHub implementations, or one easy-to-index platform while missing the user's obvious practitioner ecosystem, run targeted site/platform queries against the one or few pools most likely to change the answer.
+Do not search every platform by quota. Instead inspect the **serious candidate pool** before stopping.
 
-This targeted pass is a **recall correction**, not a diversity target.
+Run one targeted recall correction against the 1–2 additional practitioner pools most likely to change the answer when either condition is true:
+
+- a Chinese practitioner task has serious candidates from only one accessible Chinese practitioner pool; or
+- the rest of the serious candidates are dominated by official docs, vendor content, implementation repos, or global/English sources.
+
+This is a **candidate-pool concentration trigger**, not a diversity target. If the existing pool already contains several direct, inspectable, task-matched practitioner candidates, stop.
+
+A platform returning zero useful results or being inaccessible does not prove it lacks useful practitioner content. If that missing pool could plausibly change the final ranking, label a `coverage/policy gap`; do not install or build a platform adapter merely to complete coverage.
 
 ## Freshness
 
@@ -77,13 +84,15 @@ If the user's language, region, or professional ecosystem is clear, prefer pract
 
 Check the actual deliverable. Editable draw.io is not equivalent to SVG/PNG unless the workflow preserves editability; apply the same rule to PPTX, Word, BPMN, Visio, Markdown, code, or other required artifacts.
 
+Do not let an adjacent task outrank the actual task merely because it has a stronger SAP/ERP/tool label. For example, an SAP BTP architecture-diagram workflow is not automatically a top resource for a business-process-flow request. Keep adjacent-task material secondary unless it contributes a decision-changing method absent from direct-task candidates.
+
 ## Source roles
 
 Practitioner content answers **how people actually work**.
 
 Original repos/tools can confirm **what a demonstrated workflow really uses or produces**.
 
-Official sources answer only the current facts needed to understand a practice, such as format semantics, version, compatibility, or standard behavior.
+Official sources answer only the current facts needed to understand a practice, such as format semantics, version, compatibility, or standard behavior. Official docs are usually capability verification, not practitioner practice; do not use them simply to fill a Top 1–3 list.
 
 Internal project validation/history answers **what this project previously concluded**. It is not independent current practitioner evidence and should not be surfaced as an external recommendation source unless the user explicitly asks about project history.
 
@@ -101,6 +110,8 @@ For explicit tutorial/best-practice requests, normally keep 1–3 resources and 
 - which one to start with;
 - when freshness matters, the publication/update/currentness boundary;
 - any material author/promotion/language/access boundary.
+
+Do not force three resources. One or two strong practitioner resources plus a separately labeled official capability check is better than mixing source roles to fill a list.
 
 Then add only the short synthesis needed to connect the resources.
 
