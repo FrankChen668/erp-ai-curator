@@ -13,12 +13,12 @@ Cloud/ChatGPT continues every useful cloud-executable next step. It stops only f
 
 > **面对真实 ERP / ToB / 企业信息化工作任务，帮用户找到真正值得学习的现成 AI 实践；当用户明确做能力选型时，再判断当前工具链是否够用、是否值得新增能力。**
 
-Product remains one Curator. Runtime 0.9.0 uses two single-responsibility Skills:
+Product remains one Curator. Runtime 0.9.1 uses two single-responsibility Skills:
 
 ```text
 Practice intent
 → curating-erp-ai-resources
-→ practitioner discovery / inspection / selection
+→ fresh practitioner discovery / inspection / selection
 
 Capability intent
 → advising-erp-ai-capabilities
@@ -27,7 +27,7 @@ Capability intent
 
 Curator 不是工具目录、资源数据库、执行 SOP 生成器或工具认证实验室。
 
-## 2. Current Runtime — 0.9.0
+## 2. Current Runtime — 0.9.1
 
 ### Practice Curator
 
@@ -35,11 +35,16 @@ Curator 不是工具目录、资源数据库、执行 SOP 生成器或工具认�
 
 负责：最佳实践、教程、真实 workflow/case、值得先学的 practitioner 资源。
 
-默认不做：Tool/Skill/MCP 安装/采用判断。
+当前关键边界：
 
-Reference：
+- 本次外部策展先做 fresh discovery；
+- 项目 validation/history/prior packs 只能作为线索，不能决定当前候选排序；
+- 最终外部资源本次重新打开核验；
+- AI 工作流快速变化时检查近期候选/发布日期/当前适用性；
+- 宽搜漏掉明显用户生态时做定向 recall correction，不做平台配额；
+- 普通用户答案不展示内部 validation 作为外部依据。
 
-- `references/practitioner-discovery.md`
+Reference：`references/practitioner-discovery.md`。
 
 ### Capability Advisor
 
@@ -49,44 +54,47 @@ Reference：
 
 默认不做：泛最佳实践/教程资源策展。
 
-Reference：
-
-- `references/evidence-and-safety.md`
+Reference：`references/evidence-and-safety.md`。
 
 Release class: **CONTROLLED USER TRIAL**  
 Product value: **UNVALIDATED**
 
-Authority：`docs/validation/CURATOR_090_RUNTIME_RESPONSIBILITY_SPLIT.md`。
+Authorities：
 
-## 3. Why 0.9.0
+- `docs/validation/CURATOR_090_RUNTIME_RESPONSIBILITY_SPLIT.md`
+- `docs/validation/CURATOR_091_FRESH_CURATION_EVIDENCE_ISOLATION.md`
 
-同一句真实自然请求：
+## 3. Why 0.9.1
 
-> “使用这个 skill 给我找下做流程图的最佳实践”
+0.9.0 成功改善了最严重的职责串台：新的流程图最佳实践回答不再直接变成 Skill 安装建议。
 
-连续版本表现：
+但本地执行日志证明新的答案并不是一次充分独立的 fresh curation：
 
-- 0.7.x：官网/规范 + 模型自写教程；
-- 0.8.1：找到 practitioner，但又推荐 SVG Skill + 安装命令；
-- 0.8.2：即使已经写入 no-incidental-install guardrail，仍直接推荐 `mermaid-visualizer`、installs/Stars、安全审计和安装命令。
+- 本次只有一批 4 个宽泛 Web query；
+- 没有针对 Bilibili/公众号/小红书/知乎做定向发现；
+- 最终两篇人人都是产品经理文章来自本地 `rg` 找到的历史 `P04_PRACTITIONER_CURATION_RESULT_02.md`，不是本次 Web Search；
+- `Castaldo-Solutions/process-builder` 同样来自历史 P04，并且本次没有重新打开；
+- 最终答案还把内部 P04 validation 文件直接展示给用户；
+- 当前运行没有实际 Web 访问失败可以解释这些缺口。
 
-这说明问题不再是“Skill body 少一条规则”，而是原 description 同时承载实践策展和能力选型，导致强 Tool/Skill/MCP 语义污染 practice-only 请求。
+这暴露的核心问题是：**历史证据污染当前策展 + freshness 缺失 + 宽搜 recall 偏差**，而不是“必须补齐某几个平台”。
 
-因此 0.9.0 把边界前移到 Skill metadata/description 层，不再继续 0.8.x patch-on-patch。
+Cloud 在 2026-08-31 做定向 sanity search 时，立即发现本地当前候选池没有包含的近期内容，包括 2026-07 Bilibili drawio-skill 更新实战、2026-06 供应链/WMS 产品经理 CodeX→Draw.io 泳道图实战。这不证明它们一定更优，但证明 fresh discovery 可能改变 serious candidate pool，不能由旧 P04 直接继承“recommendation stable”。
 
 ## 4. Adversarial constraints
 
-0.9.0 明确不做：
+0.9.1 明确不做：
 
+- newest-wins；
+- B站/公众号/小红书/知乎固定配额；
+- 大型资源数据库或自动 Refresh；
 - 第三个 Router Skill；
 - A/B/C runtime taxonomy；
-- language/platform quota；
-- creator scoring/ranking；
-- Tool marketplace scan as default；
+- scoring/Gate/creator ranking；
 - Browser/Graph Engineering/host-policy workaround；
-- duplicated broad references across both Skills。
+- 每次把所有平台都搜一遍。
 
-两 Skill 是**运行职责拆分**，不是两个产品。
+Best ≠ newest。旧资源可以继续排第一，但必须经本次 fresh evidence 与当前候选重新成立。
 
 ## 5. Host/Harness risks remain separate
 
@@ -98,16 +106,15 @@ Authority：`docs/validation/CURATOR_090_RUNTIME_RESPONSIBILITY_SPLIT.md`。
 
 这些没有足够证据成为 Curator Runtime 规则。
 
-## 6. Curation Pack 01 — closed
+## 6. Curation Pack 01 / P04 historical evidence
 
-Authority: `docs/validation/CURATION_PACK_01_ADVERSARIAL_REVIEW.md`.
+历史 Curation Pack 与 P04 研究仍保留用于产品研究、回归和方法分析。
 
-- Case 001 — ERP 操作手册：历史 B；
-- Case 002 — Oracle EBS 开发：历史 B；
-- Case 003 — 多顾问周报/PPT 汇总：历史 A；
-- Case 004 — SAP Bug/system evidence access：历史 A → conditional B。
+重要新边界：
 
-旧标签仅是历史分析证据，不定义 0.9.0 Runtime。
+> **历史项目证据不能成为普通用户当次外部策展的默认候选源或当前排名依据。**
+
+若历史文件提供一个有用 URL/作者名，只能作为 lead；正常用户请求仍需当前外部重新发现/打开/核验。
 
 ## 7. Current milestone — Controlled REAL_USER_USE
 
@@ -117,7 +124,7 @@ Authority: `docs/validation/CURATION_PACK_01_ADVERSARIAL_REVIEW.md`.
 
 当前最重要的未验证目标：
 
-> **Curator 是否能持续比普通 AI/自搜索更高信任、更低噪声地找到值得学的实践，并在能力选型时减少错装/错选，且这个差异足以让真实用户再次使用？**
+> **Curator 是否能持续比普通 AI/自搜索更高信任、更低噪声地找到当前仍适用、真正值得学的实践，并在能力选型时减少错装/错选，且这个差异足以让真实用户再次使用？**
 
 ## 8. Cloud / Local Agent boundary
 
@@ -154,7 +161,7 @@ Agent 可用性本身不是派活理由。
 - synthetic validation loop；
 - fixed scenario taxonomy；
 - scoring/Gate；
-- resource database/refresh；
+- resource database/auto refresh；
 - mandatory runtime benchmark；
 - 第三个 Router Skill；
 - multi-Agent orchestration；
@@ -165,18 +172,18 @@ Agent 可用性本身不是派活理由。
 
 ## 11. Next
 
-0.9.0 合并后继续自然 controlled use。
+0.9.1 合并后继续自然 controlled use。
 
-最高价值观察仍是原始 practice-only 请求：
+最高价值仍是同一个原始 practice-only 请求：
 
 > “使用这个 skill 给我找下做流程图的最佳实践”
 
-预期：只触发 Practice Curator，并输出 practitioner practice/resources，而不是 Skill 安装建议。
+观察：
 
-另外自然观察一个明确 capability 请求，例如：
+- 是否先做本次 fresh external discovery，而不是从 P04/history 继承候选；
+- 宽搜漏掉中文 practitioner 生态时是否出现有选择的 targeted recall；
+- 最终每个外部资源是否都在本次重新打开；
+- 是否考虑近期/当前适用性，而不是默认沿用历史排序；
+- 最终用户回答是否不再出现内部 validation 链接。
 
-> “我现在 ChatGPT + draw.io 已经够了吗，要不要装专门 Skill？”
-
-预期：由 Capability Advisor 先确认具体 gap，可以合法得出“不需要新增”。
-
-如果仍失败，优先取宿主 trigger/load/search 证据，不再根据最终答案继续加 Runtime 规则。
+如果仍失败，优先取实际 search/open/source 日志，再决定下一步；不根据最终答案继续盲加规则。
