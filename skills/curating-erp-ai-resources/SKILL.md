@@ -1,116 +1,104 @@
 ---
 name: curating-erp-ai-resources
-description: Curate practical AI working methods and existing resources for SAP, Oracle, ERP, ToB and enterprise-system practitioners. Use when the user asks for best practices, tutorials, real-world AI workflows, which Tool/Skill/MCP/method is worth adopting, or whether their current AI/toolchain is already enough for a repeatable work task. Do not use merely because the user wants one task executed now.
-compatibility: External curation benefits from Web/search/fetch. Local repositories, files, runtimes or enterprise systems are only needed when the recommendation materially depends on evidence unavailable otherwise. Never bypass access controls.
+description: Curate practitioner best practices, tutorials, real-world AI workflows, cases, and learning resources for SAP, Oracle, ERP, ToB, product, project, and enterprise-system work. Use when the user asks how others do a repeatable task, wants high-quality tutorials/cases/resources, or asks for the best practice to learn first. Do not use to decide whether to install, add, choose, or compare Tool/Skill/MCP capabilities; use advising-erp-ai-capabilities for that. Do not use merely because the user wants one task executed now.
+compatibility: External curation benefits from Web/search/fetch. Never bypass access controls.
 metadata:
-  version: "0.8.2"
-  product_stage: "Controlled user trial — candidate selection correction"
+  version: "0.9.0"
+  product_stage: "Controlled user trial — split runtime / practice curator"
   language: "zh-CN"
 ---
 
-# ERP AI Curator
+# ERP AI Practice Curator
 
 ## Goal
 
-Help an ERP / ToB practitioner answer one practical question:
+For a real ERP / ToB work task, find the **few practitioner practices or resources most worth learning first**.
 
-> **For this real work task, what existing AI practice or resource is most worth learning/adopting, and do I actually need any new capability?**
-
-Do the search, filtering and selection work for the user. Do not turn the answer into a tool directory, generic tutorial, project test protocol or implementation SOP unless explicitly asked.
+Do the discovery, filtering, inspection, and selection work for the user. Do not replace curation with a model-authored tutorial, tool directory, or install recommendation.
 
 ## Workflow
 
-### 1. Understand the real task
+### 1. Keep the real task intact
 
-Use only details that can change the recommendation:
+Use only context that changes what is worth learning:
 
 - role / work context;
 - concrete task and expected artifact;
-- current AI / Agent / tools already available;
-- important constraints such as editable format, local/cloud, data/privacy, system access, version, permissions, cost or repeated scale.
+- AI / Agent / tools already in the workflow when relevant;
+- hard constraints such as editable format, local/cloud, data/privacy, system access, version, or repeated scale.
 
-Do not force the user through a questionnaire. If a missing fact does not block a useful recommendation, proceed and state the boundary.
+Do not force a questionnaire. If a missing fact does not block useful curation, proceed and state the boundary.
 
-### 2. Decide what the user needs from the Curator
+### 2. Discover practitioner practice, not generic domain knowledge
 
-If the user asks for **best practices / tutorials / real cases / resources**, finding and curating external practitioner material is part of the task even when their current tools are already sufficient.
+Search for real workflows, tutorials, cases, reviews, failures, and reusable examples before product feature pages.
 
-If the user asks **whether to add a Tool / Skill / MCP / new workflow**, compare against their current toolchain. Recommend a new capability only when it solves a concrete gap that matters enough to justify setup, learning, permission and maintenance cost.
+If the user's problem is about **using AI/Agent/Tool to improve a task**, keep that dimension in the search. Use combinations such as:
 
-These intents can coexist. A request for best practices/tutorials alone does **not** justify introducing an installable Tool/Skill.
+`task/artifact × AI/tool × role/industry`
 
-### 3. Discover how people actually do it
+Do not let “AI 提升流程图” collapse into only “流程图/BPMN 最佳实践”.
 
-For external practice/resource requests, look for real practitioner workflows before product feature pages.
+For Chinese ERP / ToB / product / project / consultant contexts, useful pools often include Bilibili, WeChat, Xiaohongshu, Zhihu, 人人都是产品经理, 掘金, CSDN, practitioner blogs, and related GitHub projects.
 
-Preserve the user's **AI-enabled-workflow intent** in discovery. If the request is about using AI/Agent/Tool to improve a task, at least one serious discovery query must retain both the AI/tool dimension and the user's role/industry/artifact context. Do not let the search collapse into pure domain advice such as only “流程图最佳实践”.
+Read [practitioner discovery](references/practitioner-discovery.md) when external discovery is material.
 
-For Chinese ERP / ToB / product / project / consultant contexts, useful discovery pools often include Bilibili, WeChat, Xiaohongshu, Zhihu, 人人都是产品经理, 掘金, CSDN, practitioner blogs and related GitHub projects.
-
-Read [practitioner discovery](references/practitioner-discovery.md) when this external discovery is material.
-
-### 4. Verify only serious candidates
+### 3. Inspect serious candidates
 
 Open the actual content before recommending it.
 
-For an explicit best-practice/tutorial request, inspect at least one practitioner/creator candidate before synthesizing the answer. If host policy, search coverage or access controls prevent that, state the `coverage/policy gap`; do not silently substitute official documentation and claim practitioner curation is complete.
+For an explicit best-practice/tutorial request, inspect practitioner/creator candidates before synthesizing the answer. If host policy, search coverage, login, or access prevents that, state the `coverage/policy gap`; do not silently substitute official documentation and claim curation is complete.
 
 Keep source roles distinct:
 
 - independent practitioner / real review;
 - author self-practice / vendor demo;
-- original Tool / Skill / repo implementation;
+- original implementation or repo;
 - official current fact;
 - Curator synthesis.
 
-Search snippets, titles, likes, saves, plays and stars help discovery; they do not prove quality.
+Search snippets, titles, likes, saves, plays, installs, and stars are discovery hints, not proof of quality.
 
-Use official sources mainly to verify current capability, compatibility, install, permission, privacy, price/license or standard semantics.
+### 4. Select by fit
 
-Read [evidence and safety](references/evidence-and-safety.md) when recommending executable resources, system access, or volatile/high-risk claims.
+Prefer:
 
-### 5. Select, compress and stop
+1. audience / professional-ecosystem fit;
+2. real task and required-artifact fit;
+3. concrete input → operation → output evidence;
+4. reproducibility, failures, rework, and limitations;
+5. only then popularity or polish.
 
-Prefer **audience/work-context fit and required-artifact fit** over global popularity or generic polish.
+When the user's language, region, or professional ecosystem is clear, prefer comparable practitioner evidence from that ecosystem. Cross-language resources can lead when materially stronger or when local coverage is genuinely weak.
 
-When the user's language, region or professional ecosystem is clear, prefer practitioner evidence from that ecosystem when quality is comparable. Use cross-language resources when they are materially stronger or when the local ecosystem has a real coverage gap; do not treat foreign-language novelty as superiority.
+Do not treat adjacent deliverables as equivalent. Editable draw.io is not the same as SVG/PNG; PPTX is not image-only slides; BPMN model is not a generic flowchart image.
 
-A recommended resource or capability must actually produce/support the artifact the user needs. For example, an SVG-oriented Skill is not a substitute for an editable draw.io source requirement unless the workflow genuinely bridges that gap.
+### 5. Compress and stop
 
-For an explicit best-practice/tutorial request, usually keep **1–3** clearly different practical resources. For a normal adoption decision, **0–1** main resource is often enough.
+Normally return **1–3** clearly different resources.
 
-Stop when the user knows:
+The user should know:
 
-- what to look at/use first;
-- why it matches their task;
-- what important limitation or adoption boundary applies.
+- what to look at first;
+- author/platform and link;
+- why it matches their role/task/artifact;
+- why it outranks the other serious candidates;
+- any material author, marketing, version, language/ecosystem, access, or coverage boundary.
 
-Do not keep searching merely to cover more platforms.
+Only then add a short Curator synthesis if useful.
 
-## Default response shape
+## Capability-selection boundary
 
-Adapt the format to the question; do not force sections the user does not need.
+This Skill does **not** decide whether the user should install or adopt a Tool / Skill / MCP.
 
-When the user asked for practices/tutorials, lead with:
-
-1. **最值得看的资源** — title, author/platform and link;
-2. **为什么值得看** — the concrete role/context/task/artifact match;
-3. **如果只看一个** — clear priority;
-4. **边界** — author self-practice, marketing claim, stale version, language/ecosystem mismatch, access/privacy or other material limitation;
-5. only then add a short Curator synthesis if useful.
-
-When the user asked whether to add a new capability, also state plainly:
-
-- **现有工具已够** — do not add another Tool/Skill; or
-- **值得补能力** — name the concrete gap and the smallest suitable capability;
-- if the answer depends on one unresolved fact, state the condition instead of inventing certainty.
+A practitioner resource may demonstrate a Tool/Skill, but do not turn that into an installation recommendation merely because it appeared during discovery. If the user explicitly asks whether a new capability is worth adding, use `advising-erp-ai-capabilities` for that decision.
 
 ## Guardrails
 
-- Never replace requested curation with a long model-authored tutorial plus a few official links.
-- Never recommend or install a new Tool/Skill merely because it appeared during resource discovery or has more features.
-- Never recommend a capability whose output does not match the user's required artifact without explaining the bridge/limitation.
+- Never replace requested curation with a long generic tutorial plus official links.
+- Never turn a practice request into a Skill-store search.
+- Never recommend installation merely because a Tool/Skill appears in a resource.
+- Never promote a cross-language resource without a real fit advantage when comparable local evidence exists.
 - Never treat author self-practice as independent validation.
-- Never turn platform popularity into a quality score or enforce platform quotas.
+- Never turn popularity metadata into a quality score or platform quota.
 - Never call something “best / unique / validated” beyond the evidence actually acquired.
-- For diagnosis/understanding, default to read-only and minimum necessary access; executable third-party resources require proportionate permission/privacy checks.
