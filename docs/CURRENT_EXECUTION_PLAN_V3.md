@@ -1,7 +1,7 @@
 # ERP AI Curator — Current Execution Plan
 
 Date: 2026-08-31
-Status: **CURRENT — REUSE-BEFORE-BUILD COMPOSITION PILOT / CONTROLLED REAL-USER USE**
+Status: **CURRENT — REUSE-BEFORE-BUILD / SOURCE COMPOSITION EFFECTIVENESS INCONCLUSIVE / CONTROLLED REAL-USER USE**
 
 > Navigation authority: `docs/PROJECT_MAP.md`. Product authority: `docs/PROJECT_NORTH_STAR.md`.
 
@@ -112,13 +112,13 @@ Authorities:
 - `docs/validation/source-acquisition-pilot/P4_WECHAT_CROSS_TASK_RESULT.md`
 - `docs/validation/source-acquisition-pilot/CLOUD_ADVERSARIAL_REVIEW_20260831.md`
 
-## 4. Architecture correction — REUSE BEFORE BUILD
+## 4. Architecture direction — REUSE BEFORE BUILD
 
 The previous per-platform Adapter direction was becoming an engineering trap.
 
 The Curator's job is not to maintain WeChat/Bilibili/Xiaohongshu acquisition implementations.
 
-Current architecture hypothesis:
+Working architecture hypothesis:
 
 ```text
 Curator
@@ -130,15 +130,14 @@ Curator
 
 Authority:
 
-`docs/validation/REUSE_BEFORE_BUILD_SOURCE_COMPOSITION_20260831.md`
+- `docs/validation/REUSE_BEFORE_BUILD_SOURCE_COMPOSITION_20260831.md`
+- `docs/validation/SOURCE_COMPOSITION_UNCERTAINTY_20260831.md`
 
 ## 5. Mature Skill candidates under qualification
 
 ### Cross-platform discovery
 
-Candidate:
-
-`Jesseovo/last30days-skill-cn`
+Candidate: `Jesseovo/last30days-skill-cn`
 
 Role:
 
@@ -150,9 +149,7 @@ Its relevance/recency/engagement ranking is discovery-only and must not determin
 
 ### Dynamic/original-page reading fallback
 
-Candidate:
-
-`eze-is/web-access`
+Candidate: `eze-is/web-access`
 
 Role:
 
@@ -165,27 +162,33 @@ Boundary:
 - `web-access` is fallback, not global network owner;
 - Curator usage is read-only: no publish/upload/comment/like/favorite/follow/message/account mutation.
 
-## 6. Next milestone — composition pilot
+## 6. P5 interpretation — INCONCLUSIVE / OWNER-DISPUTED
 
-Local execution authority:
+Owner-reported P5 summary says:
 
-`docs/local-agent/MATURE_SOURCE_SKILL_COMPOSITION_PILOT.md`
+- Candidate A added five Bilibili candidates but did not convert them into inspectable original evidence;
+- Xiaohongshu / Zhihu / WeChat showed no effective gain in that run;
+- Candidate B was blocked because Chrome CDP was not enabled and therefore was not exercised;
+- Local Agent proposed `CONDITIONAL`, discovery-only use.
 
-Test sequence:
+This evidence does **not** currently justify either extreme conclusion:
 
-```text
-1. normal Web baseline already exists
-2. run mature cross-platform research Skill as candidate-discovery expansion
-3. compare serious new leads versus Web-only
-4. only if a serious candidate cannot be inspected, test mature browser-access fallback
-5. stop; do not patch/fork/build source implementations
-```
+- mature-Skill composition is proven sufficient; or
+- mature-Skill composition is proven insufficient and Source Acquisition should be closed.
 
-Success means:
+The earlier informal Cloud inference leaning toward the second conclusion is withdrawn as a project conclusion after Owner challenge.
 
-> mature Skills provide materially better Chinese-platform evidence coverage at lower ownership and maintenance cost than the P0–P4 per-platform adapter path.
+Current status:
 
-## 7. Explicit stop rules
+> **MATURE-SKILL COMPOSITION EFFECTIVENESS — OPEN / INCONCLUSIVE.**
+
+Reason:
+
+> the intended chain `discovery → original-page reading → Curator judgement` was not completed end to end because the reading fallback was not actually tested.
+
+Authority: `docs/validation/SOURCE_COMPOSITION_UNCERTAINTY_20260831.md`.
+
+## 7. Explicit boundaries while unresolved
 
 Do not:
 
@@ -196,8 +199,11 @@ Do not:
 - create a custom adapter package manager/framework;
 - let external Skill ranking replace Curator judgement;
 - let a browser Skill replace host-native Web/Browser by default;
-- patch Runtime 0.9.1 before composition behavior is proven;
+- patch Runtime 0.9.1 based on the reported P5 result;
+- declare Source Acquisition solved or abandoned from P5 alone;
 - run more synthetic platform tests simply to fill evidence slots.
+
+Further source-composition evidence should be collected only when it can materially resolve the open question, preferably in a real ERP/ToB task where both discovery and original inspection can affect the final recommendation.
 
 ## 8. Real-user value remains the real milestone
 
@@ -207,7 +213,7 @@ The core unresolved question is still:
 
 > **Does Curator consistently give real ERP/ToB users a more useful, current, trustworthy and lower-noise answer than ordinary AI/self-search, enough that they act on it or return?**
 
-Source composition is only enabling infrastructure. It is not product-value validation.
+Source composition is enabling infrastructure. Its current effectiveness is unresolved and it is not product-value validation.
 
 Authority: `docs/REAL_USER_PILOT_V1.md`.
 
@@ -216,12 +222,13 @@ Authority: `docs/REAL_USER_PILOT_V1.md`.
 ### GO
 
 - controlled user trial;
-- bounded mature-Skill composition qualification.
+- bounded source-composition evidence when decision-changing.
 
 ### HOLD
 
 - organization-wide mandatory standard;
 - product-value-validated claim;
-- permanent source adapter framework;
+- permanent source adapter/framework claim;
+- mature-Skill composition solved/failed claim;
 - all-host compatibility claim;
 - public/open-source release completion without explicit repository license decision.
