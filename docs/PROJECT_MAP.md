@@ -62,7 +62,7 @@ Status: **CURRENT NAVIGATION AUTHORITY**
 
 ### Build / readiness milestone — complete for controlled trial
 
-- Runtime **0.9.1** 已完成职责拆分后的 fresh-c​​uration / evidence-isolation 修正；
+- Runtime **0.9.1** 已完成职责拆分后的 fresh-curation / evidence-isolation 修正；
 - Curation Pack 01 已提供历史异构任务证据；
 - 用户试用入口已具备；
 - 可以继续真实用户使用，不再通过内部扩规则证明产品成熟。
