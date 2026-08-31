@@ -2,7 +2,7 @@
 
 Date: 2026-08-31
 Status: **OPEN FOR NATURAL REAL-USER FEEDBACK**
-Runtime: `0.9.1`
+Runtime: `0.9.2`
 
 > 本文件只定义真实用户使用后的产品价值证据。真实问卷问题本身、Cloud 对真实问题做出的 Curator 推荐，不等于用户已经使用了产品。
 
@@ -69,7 +69,7 @@ role / project context
 - 哪一个先看；
 - 重要的 freshness、作者自实践/营销、语言/生态、权限或 coverage 边界。
 
-正常 external curation 必须基于本次 fresh discovery 与本次实际检查的外部资源成立；历史项目 evidence 只能作为 lead。
+正常 external curation 必须基于本次 fresh discovery 与本次实际检查的外部资源成立；历史项目 evidence 只能作为 lead。0.9.2 进一步要求在中文 practitioner 候选明显过度集中时做最小 targeted recall correction，并防止邻近但不同的交付物稀释 Top 推荐。
 
 ### 做能力选择 — Capability Advisor
 
@@ -128,6 +128,8 @@ role / project context
 - 推荐仍像工具目录；
 - practitioner 证据缺失却强写“最佳”；
 - 历史项目推荐污染当前候选；
+- 中文 practitioner 候选明显过度集中却过早停止召回；
+- 邻近任务/交付物因为 SAP/ERP/tool 标签更强而挤掉直接匹配资源；
 - 现有 AI 明显够用仍强推工具；
 - 明确 capability gap 却一律退回普通 AI；
 - 推荐资源与真实 artifact/environment 不匹配；
