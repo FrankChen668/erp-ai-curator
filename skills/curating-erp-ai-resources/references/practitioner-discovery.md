@@ -1,6 +1,6 @@
 # Practitioner Discovery
 
-Read this only when the user explicitly wants best practices, tutorials, real workflows or practitioner resources, or when real-use evidence materially affects an adoption decision.
+Read this only when the user wants best practices, tutorials, real workflows, practitioner cases, or learning resources.
 
 ## What to search
 
@@ -10,10 +10,10 @@ Build a few targeted queries from the actual task:
 task / artifact × AI or tool
 role × task × AI
 industry / work context × task × AI
-specific capability × tutorial / case / review / failure
+specific workflow × tutorial / case / review / failure
 ```
 
-If the original request is specifically about **using AI/Agent/Tool to improve a task**, keep that dimension alive in the discovery batch. Include at least one high-signal query that combines AI/tool with the user's role/industry/artifact. A query batch that drops AI/Agent/Tool entirely and searches only the domain topic is intent drift.
+If the original request is about **using AI/Agent/Tool to improve a task**, keep that dimension alive. A query batch that drops AI/Agent/Tool entirely and searches only the domain topic is intent drift.
 
 For Chinese ERP / ToB / product / project / consultant work, useful discovery pools often include:
 
@@ -21,9 +21,9 @@ For Chinese ERP / ToB / product / project / consultant work, useful discovery po
 - WeChat public accounts;
 - Xiaohongshu;
 - Zhihu / 人人都是产品经理 / 掘金 / CSDN / practitioner blogs;
-- GitHub repos/examples connected to the practitioner or tool.
+- GitHub repos/examples connected to the practitioner workflow.
 
-Do not search every platform by quota. Use the pools most likely to contain the missing practical evidence.
+Do not search every platform by quota. Use the pools most likely to contain high-signal practical evidence.
 
 ## What deserves inspection
 
@@ -32,37 +32,33 @@ Popularity is only a discovery hint. Prefer content that shows several of these:
 - a role/work context close to the user;
 - concrete input → operation → output;
 - the artifact the user actually needs, especially editable deliverables;
-- reusable prompts, commands, templates or workflow steps;
-- failures, rework, limitations or long-term usage experience;
-- a current and reproducible tool/workflow.
+- real screenshots/examples/templates/prompts/commands/workflow steps;
+- failures, rework, limitations, or long-term usage experience;
+- a current and reproducible workflow.
 
-For Bilibili/Xiaohongshu, saves, coins and substantive comments can help decide what to inspect first; they do not prove quality.
+For Bilibili/Xiaohongshu, saves, coins, and substantive comments can help decide what to inspect first; they do not prove quality.
 
-When search results already contain plausible practitioner/creator candidates, open the strongest one or few before spending the answer budget on official standards or feature pages. Do not leave practitioner candidates at snippet level and then synthesize from official sources alone.
+When search results contain plausible practitioner/creator candidates, open the strongest one or few before spending answer budget on official standards or product pages.
 
 ## How to choose among inspected candidates
 
-Prefer **audience/work-context fit + required-artifact fit** before generic polish, global popularity or novelty.
+Prefer **audience/work-context fit + required-artifact fit + direct practice evidence** before generic polish, global popularity, or novelty.
 
-If the user's language, region or professional ecosystem is clear, prefer practitioner evidence from that ecosystem when quality is comparable. Cross-language material is valuable when it is materially stronger or when the local ecosystem has a real coverage gap; do not promote it merely because it looks more authoritative or novel.
+If the user's language, region, or professional ecosystem is clear, prefer practitioner evidence from that ecosystem when quality is comparable. Cross-language material is valuable when materially stronger or when local coverage has a real gap.
 
-Check the actual deliverable. If the user needs an editable draw.io source, a resource that only generates SVG/PNG is not an equivalent match unless it includes a credible editable bridge. Apply the same rule to PPTX, Word, BPMN, Visio, Markdown, code or other required artifacts.
+Check the actual deliverable. Editable draw.io is not equivalent to SVG/PNG unless the workflow preserves editability; apply the same rule to PPTX, Word, BPMN, Visio, Markdown, code, or other required artifacts.
 
-A tutorial/best-practice request does not itself justify recommending an installable Tool/Skill. Only introduce one when it is integral to the selected practice and directly solves a concrete gap in the user's current workflow.
-
-## How to use sources
+## Source roles
 
 Practitioner content answers **how people actually work**.
 
-Original repos/tools answer **what is really implemented**.
+Original repos/tools can confirm **what a demonstrated workflow really uses or produces**.
 
-Official sources answer **current facts** such as version, compatibility, install, price, privacy, permission and standard semantics.
+Official sources answer only the current facts needed to understand a practice, such as format semantics, version, compatibility, or standard behavior.
 
-If several creators repeat the same upstream demo, treat them as one evidence family unless a creator adds a new real input, failure case, constraint or better reproducible workflow.
+If several creators repeat the same upstream demo, treat them as one evidence family unless someone adds a new real input, failure case, constraint, or more reproducible workflow.
 
-If the original content cannot be read because of login, dynamic rendering, anti-bot limits, host source policy or search-tool restrictions, say `coverage/policy gap`. Do not silently replace inaccessible practitioner evidence with official documentation and call the search complete.
-
-Use an already approved read-only source adapter only when it can materially fill that gap. Do not auto-install platform adapters for coverage.
+If original content cannot be read because of login, dynamic rendering, anti-bot limits, host source policy, or search-tool restrictions, say `coverage/policy gap`. Do not silently replace inaccessible practitioner evidence with official documentation and call the curation complete.
 
 ## Output discipline
 
@@ -70,10 +66,13 @@ For explicit tutorial/best-practice requests, normally keep 1–3 resources and 
 
 - what it is and where to open it;
 - why it matches this user's role/context/task/artifact;
+- why it outranks other serious candidates;
 - which one to start with;
 - any material author/promotion/version/language/access boundary.
 
 Then add only the short synthesis needed to connect the resources.
+
+Do not convert a resource that happens to use a Tool/Skill into an install recommendation. Capability adoption is a separate decision handled by `advising-erp-ai-capabilities`.
 
 Final check:
 
