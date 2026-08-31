@@ -1,7 +1,7 @@
 # ERP AI Curator — Current Execution Plan
 
 Date: 2026-08-31
-Status: **CURRENT — SOURCE ACQUISITION PILOT / CONTROLLED REAL-USER USE**
+Status: **CURRENT — SOURCE ACQUISITION P0–P3 CLOSED / CONTROLLED REAL-USER USE**
 
 > Navigation authority: `docs/PROJECT_MAP.md`. Product authority: `docs/PROJECT_NORTH_STAR.md`.
 
@@ -27,7 +27,7 @@ Capability intent
 
 Curator 不是工具目录、资源数据库、执行 SOP 生成器或工具认证实验室。
 
-## 2. Current Runtime — 0.9.1 FROZEN DURING PILOT
+## 2. Current Runtime — 0.9.1 FROZEN
 
 ### Practice Curator
 
@@ -64,65 +64,91 @@ Authorities：
 - `docs/validation/CURATOR_090_RUNTIME_RESPONSIBILITY_SPLIT.md`
 - `docs/validation/CURATOR_091_FRESH_CURATION_EVIDENCE_ISOLATION.md`
 
-## 3. New cross-host evidence — source acquisition is now the dominant bottleneck
+## 3. Cross-host finding — source acquisition is a real bottleneck
 
-After 0.9.1, the remaining issue is no longer well explained by one host or one Skill wording failure.
+After 0.9.1, repeated host evidence shows the remaining issue is not well explained by one host or one Skill wording failure.
 
 Observed across more than one Agent host:
 
-- broad Web queries repeatedly return official docs, GitHub, CSDN/general blogs and a limited subset of practitioner pages;
-- Xiaohongshu / WeChat public-account / Bilibili / Zhihu practitioner pools are often absent unless specifically targeted or already known;
-- one fresh 0.9.0 log contained no targeted Bilibili/WeChat/Xiaohongshu/Zhihu discovery;
-- a separate Agent run on 2026-08-31 showed the same broad-search pattern and similarly did not surface Xiaohongshu/WeChat/Zhihu material.
-
-This repeated behavior is sufficient to activate the previously conditional Source Adapter hypothesis.
+- broad Web repeatedly favors official docs, GitHub, CSDN/general blogs and only a subset of practitioner pages;
+- Bilibili / WeChat / Xiaohongshu / Zhihu practitioner pools are often absent unless specifically targeted or otherwise known;
+- targeted `site:` queries recover some Bilibili/Zhihu content but normal Web still has weak/zero recall for WeChat and Xiaohongshu;
+- source-specific acquisition can materially improve evidence, but provider cost varies sharply.
 
 Important boundary:
 
-> This does **not** prove every platform needs an adapter, or that social-platform content is better. It proves ordinary broad Web discovery may have a repeated material recall/acquisition gap for the practitioner ecosystems this product depends on.
+> This does **not** prove every platform needs an adapter, or that social-platform content is better. It proves ordinary broad Web can have a repeated material recall/acquisition gap for practitioner ecosystems this product depends on.
 
-Authority: `docs/validation/SOURCE_ACQUISITION_PILOT_20260831.md`.
+Authorities:
 
-## 4. Current milestone — staged Source Acquisition Pilot
+- `docs/validation/SOURCE_ACQUISITION_PILOT_20260831.md`
+- `docs/validation/source-acquisition-pilot/CLOUD_ADVERSARIAL_REVIEW_20260831.md`
 
-Do not patch Runtime 0.9.1 during this pilot.
+## 4. P0–P3 Source Acquisition Pilot — CLOSED
 
-Pilot order:
+Runtime 0.9.1 was not patched during qualification.
 
-```text
-P0 targeted normal-Web baseline
-→ P1 WeChat lightweight discovery qualification
-→ P2 Bilibili search/transcript qualification
-→ P3 Xiaohongshu isolated read-only qualification
-```
+### P0 — targeted normal Web
 
-### P0 — targeted Web baseline
+Status: **KEEP AS BASELINE / LOWEST-COST FALLBACK**
 
-First determine whether explicit source-qualified queries can recover useful candidates without any new dependency.
+Result:
 
-This distinguishes search-intent failure from index/acquisition failure.
+- useful recall correction;
+- Bilibili/Zhihu can sometimes be discovered/read;
+- insufficient for WeChat/Xiaohongshu coverage.
 
 ### P1 — WeChat
 
-Pilot candidate: `zjp1997720/wechat-article-search`.
+Provider: `zjp1997720/wechat-article-search`.
 
-Reason to start early: narrow search-only purpose, MIT, no API key, relatively low operational cost.
+Cloud status: **PILOT — STRONG POSITIVE**
+
+Result:
+
+- credentialless discovery;
+- new current-run practitioner candidates absent from P0;
+- original public-account content was readable through the tested read path;
+- materially improved candidate/evidence pool for the flowchart task.
+
+Not yet `APPROVED` because repeatability across a second materially different ERP/ToB task and dependency/security closure are still missing.
 
 ### P2 — Bilibili
 
-Pilot candidate: `XZXZZX-Ai/bilibili-mcp`.
+Provider: `XZXZZX-Ai/bilibili-mcp`.
 
-Scope: search / metadata / transcript only. Credentials remain local. Optional ASR is not required for first qualification.
+Cloud status: **CONDITIONAL**
+
+Result:
+
+- known-BVID metadata/comments/chapters work without credentials;
+- search/transcript require Owner-local credentials;
+- targeted Web already discovers some Bilibili candidates;
+- do not configure credentials merely to complete the matrix.
 
 ### P3 — Xiaohongshu
 
-Pilot candidate: `xpzouying/xiaohongshu-mcp`.
+Provider tested: `xpzouying/xiaohongshu-mcp`.
 
-This addresses the hardest current discovery gap but has the highest login/browser/permission maintenance cost, so it is isolated after P0–P2. Use search/read only and a low-risk/test account where practical.
+Provider status: **REMOVED**
+
+Reason:
+
+- broad read/write MCP surface with no demonstrated practical read-only allowlist;
+- exact-pin qualification required temporary Go build tooling on a host without Go;
+- first-run additionally required a large custom browser runtime;
+- browser acquisition timed out before QR/login/search/detail;
+- operational/supply-chain/permission cost is disproportionate for the current Curator architecture.
+
+Critical boundary:
+
+> Provider `REMOVED` does **not** mean Xiaohongshu lacks useful content. Platform status remains **coverage gap / unqualified**.
+
+Do not seek a replacement Xiaohongshu provider merely to complete platform coverage. Revisit only if a live task makes the missing source materially decision-changing and a substantially simpler enforceably read-only provider exists.
 
 Zhihu remains normal-Web-first; no adapter is justified yet.
 
-## 5. Pilot success condition
+## 5. Adapter promotion success condition
 
 An adapter is only justified if it does more than increase link count.
 
@@ -131,9 +157,10 @@ It must:
 1. acquire practitioner evidence normal Web could not reliably acquire;
 2. expose enough original content/provenance for Curator judgement;
 3. materially change candidate pool, ranking, rejection reason, confidence, or an explicit coverage boundary;
-4. keep security/credential/maintenance cost proportionate.
+4. keep security/credential/maintenance cost proportionate;
+5. show repeatable value beyond a single favorable task before permanent promotion.
 
-If it only produces more low-quality links, do not promote it.
+If it only produces more low-quality links or creates disproportionate operating complexity, do not promote it.
 
 ## 6. Source adapter architecture boundary
 
@@ -144,16 +171,34 @@ Existing design remains the basis:
 
 Curator owns task/evidence judgement. Adapters only own source-specific discovery/read acquisition.
 
-Runtime use is separate from adapter maintenance:
+Current evidence supports an asymmetric strategy:
 
-- normal curation may use an already-qualified installed adapter when it fills a concrete evidence gap;
+```text
+normal broad Web
+→ targeted normal-Web recall when an obvious ecosystem is missing
+→ qualified low-cost read-only source capability only when it can change the decision
+→ Curator independently evaluates acquired evidence
+```
+
+Current provider posture:
+
+```text
+WeChat        → PILOT / strong positive
+Bilibili      → CONDITIONAL / anonymous enrichment by default
+Xiaohongshu   → tested provider REMOVED; platform coverage gap remains
+Zhihu         → normal-Web-first
+```
+
+Runtime use remains separate from adapter maintenance:
+
 - normal curation does not silently install/update third-party executable dependencies;
 - credentials/cookies stay local and never enter prompts or Git history;
-- read-only research operations are the default.
+- read-only research operations are the default;
+- provider qualification may reject a provider even when platform coverage would be useful.
 
 ## 7. Adversarial constraints
 
-Current pilot explicitly does **not** add:
+Current work explicitly does **not** add:
 
 - newest-wins；
 - platform quotas；
@@ -163,8 +208,9 @@ Current pilot explicitly does **not** add:
 - creator ranking；
 - third Router Skill；
 - A/B/C runtime taxonomy；
-- custom adapter framework before simple composition is tested；
-- auto-install/update inside normal curation tasks。
+- permanent multi-adapter framework before repeatability is proven；
+- auto-install/update inside normal curation tasks；
+- replacement-provider hunting merely to fill an empty platform slot。
 
 ## 8. Curation Pack / historical evidence boundary
 
@@ -179,24 +225,24 @@ Cloud owns：
 - current architecture/adversarial review；
 - candidate repo/current-state/security surface review；
 - GitHub authority/Harness maintenance；
-- final judgement on whether pilot evidence justifies promotion。
+- final judgement on adapter promotion/removal。
 
-Local Agent owns only the environment-dependent qualification work：
+Local Agent owns environment-dependent qualification work only when Cloud has already selected a bounded test：
 
-- P0 actual target-host search behavior；
-- installing/qualifying approved pilot adapters；
+- target-host search behavior；
+- installing/qualifying an explicitly approved pilot adapter；
 - client/MCP configuration；
-- read-only smoke tests；
+- bounded read-only smoke tests；
 - exact search/open/tool logs。
 
-Owner/manual action should occur only for unavoidable local credential/QR login/client restart steps. The Agent must never ask the Owner to audit package files manually.
+Owner/manual action should occur only for unavoidable local credential/QR login/client restart steps. Local qualification must not mutate the host development environment merely to make a provider test pass.
 
 ## 10. Release boundary
 
 ### GO
 
 - controlled user trial；
-- staged local source-acquisition pilot。
+- bounded source-acquisition qualification when decision-changing。
 
 ### HOLD
 
@@ -208,14 +254,23 @@ Owner/manual action should occur only for unavoidable local credential/QR login/
 
 ## 11. Next
 
-Highest-value next action is the local Source Acquisition Pilot in:
+Highest-value next evidence is **not another platform qualification**.
 
-`docs/validation/SOURCE_ACQUISITION_PILOT_20260831.md`
+Next step:
 
-Do **not** rerun the same prompt repeatedly without collecting source-acquisition evidence.
+> Run the WeChat PILOT on one materially different real ERP/ToB task and compare it against normal/targeted Web.
 
-The next decision is not “does the answer mention Xiaohongshu?” It is:
+Required decision question:
 
-> **Can targeted normal Web or a minimal read-only source adapter obtain serious practitioner evidence that ordinary broad Web misses, and does that evidence materially improve the Curator recommendation?**
+> **Does WeChat acquisition again add serious, inspectable practitioner evidence that materially changes the candidate pool, ranking, rejection reason or confidence?**
 
-Only after that result should Runtime, adapter routing, or product architecture change again.
+Also close the reported dependency vulnerability enough to judge practical pilot safety.
+
+Do not:
+
+- rerun the same flowchart task merely to collect more links;
+- configure Bilibili credentials without a live decision-changing need;
+- search for another Xiaohongshu provider merely to complete coverage;
+- patch Runtime 0.9.1 before the second-task source-acquisition evidence exists.
+
+Only after the second-task WeChat result should Cloud decide whether a compact `source-adapter-routing` reference is justified.
