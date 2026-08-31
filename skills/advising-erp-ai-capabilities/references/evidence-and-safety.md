@@ -1,60 +1,48 @@
 # Evidence and Safety
 
-Read this when a capability recommendation depends on external claims, executable third-party resources, system access, or volatile product facts.
+Read this when an adoption recommendation depends on executable third-party resources, system access, volatile external claims, or meaningful permission/privacy risk.
 
 ## Evidence roles
 
 Keep these distinct:
 
-- **independent practitioner** — real user adoption/review/failure experience;
+- **independent practitioner** — real adoption, review, or failure experience;
 - **author self-practice** — creator/vendor/maintainer demonstrating their own approach;
 - **implementation** — original Tool/Skill/MCP/repo;
 - **official fact** — current version, compatibility, price, permission, privacy, license, or standard semantics;
 - **Advisor synthesis** — the adoption conclusion from acquired evidence.
 
-Author self-practice can show how something works; it is not independent proof that it is objectively better.
+Author self-practice can show how something works; it is not independent proof that it is objectively better. Search snippets, titles, installs, stars, and engagement metadata are discovery hints only.
 
-Search snippets, titles, installs, stars, and engagement metadata are discovery only. Important claims should trace to content actually opened/read.
+## Claim calibration
 
-## Recommendation language
+Trace decision-changing claims to content actually opened/read.
 
-Default to task-relative wording such as:
+Prefer task-relative language such as:
 
 - current best fit for this concrete gap;
 - smallest capability worth adding;
 - strongest direct candidate currently found.
 
-Use “best / unique / validated / industry standard” only when the acquired evidence truly supports that scope.
+Use “best / unique / validated / industry standard” only when the acquired evidence supports that scope.
 
-## Current facts
+## Executable-resource checks
 
-Verify only facts that can change the adoption decision, for example:
+Before recommending installation or execution of a Skill, MCP, plugin, script, or integration, check proportionately:
 
-- current maintenance and target platform/version;
-- required input/output and artifact format;
-- install/runtime/account requirements;
-- local vs cloud/data egress;
-- permissions and write actions;
-- price/license.
-
-Do not turn the answer into an official feature catalogue.
-
-## Executable resources and system access
-
-Before recommending installation/execution of a Skill, MCP, plugin, or script, check proportionately:
-
-- install/dependencies;
-- credentials/accounts;
+- install/runtime dependencies;
+- accounts, credentials, and secret handling;
 - filesystem, shell, browser, network, or enterprise-system permissions;
 - write/destructive actions and data egress;
-- license and current maintenance.
+- maintenance/current compatibility;
+- price/license when material.
 
-For understanding/diagnosis, prefer read-only and minimum necessary access. A capability being able to write does not justify granting write access.
+For understanding and diagnosis, prefer read-only and minimum necessary access. A capability being able to write does not justify granting write access.
 
-Use runtime/local testing only when the result could materially change the recommendation and static evidence is insufficient.
+Use runtime/local testing only when static evidence is insufficient and the result could materially change the recommendation.
 
-## Business truth boundary
+## Business-truth boundary
 
 AI-generated diagrams, documents, code explanations, and workflows are proposals, not ERP/system truth.
 
-When important, ground conclusions in the user's real materials, project docs, code/config/tests/logs, ERP metadata, or trustworthy original facts. Keep facts, inference, and unknowns separate.
+When the decision depends on real system behavior, ground it in the user's actual materials, project docs, code/config/tests/logs, ERP metadata, or trustworthy original facts. Keep fact, inference, and unknowns separate.
