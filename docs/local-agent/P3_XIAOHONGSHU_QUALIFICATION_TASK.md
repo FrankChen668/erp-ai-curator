@@ -47,11 +47,13 @@ The newer commit is documentation-only relative to the preceding functional comm
 - Do not modify either Runtime `SKILL.md`.
 - Do not build a router/orchestrator.
 - Do not install or enable unrelated social-platform tools.
+- This task is governed by this Runbook. Do not invoke unrelated project Skills such as `graph-engineering`, generic coding-guideline Skills, or other orchestration Skills merely because the task has multiple steps or contains source/build inspection. If the host auto-loads one, record it as a host Skill-collision fact and do not let it broaden the task.
 - Do not publish, comment, reply, like, favorite, follow, message, upload, delete, edit or mutate account content.
 - Do not paste cookies, tokens, QR payloads, browser profile files or passwords into chat, Markdown or Git.
 - Do not use customer/project files as test content.
 - Use only public content and a low-risk/test account where practical.
 - Do not claim Xiaohongshu is useful merely because search returns more results.
+- Do not install system-wide language runtimes, SDKs, package managers or build toolchains for this pilot. Do not use `winget`, Chocolatey, Scoop, MSI installers or equivalent to add Go or mutate machine-wide/user-wide `PATH`, registry or developer configuration.
 
 ## Phase A — pre-login supply-chain / capability inspection
 
@@ -76,7 +78,19 @@ If inspection reveals a material security/supply-chain concern that makes read-o
 
 Install/configure only the pinned candidate in a temporary or isolated local pilot environment.
 
-Proceed autonomously through all steps that do not require account authentication.
+Proceed autonomously through all steps that do not require account authentication **and do not mutate the host development environment**.
+
+### Build/runtime dependency boundary
+
+If the pinned candidate requires a build/runtime tool that is not already available locally (for example Go):
+
+1. do **not** install it system-wide or through a system package manager merely to complete the pilot;
+2. first determine whether a prebuilt artifact has provenance that matches the exact reviewed source/tag/commit. A release binary from a different tag or commit is not an automatic substitute for the pinned candidate;
+3. if source build remains necessary, an official portable toolchain may be extracted entirely under a temporary pilot directory only when its provenance/checksum is verifiable, it requires no admin rights and no persistent PATH/registry/profile changes, and the extra setup remains proportionate to this qualification;
+4. keep all toolchain caches/build outputs under temporary or disposable locations where practical;
+5. if an exact-provenance artifact or proportionate isolated toolchain path is not available, stop and record this as an operational/supply-chain qualification cost. Do not silently widen the machine setup.
+
+The existence of an upstream prebuilt release does not by itself prove it corresponds to the pinned commit under review.
 
 At the exact point where Xiaohongshu QR/login/manual authentication is required:
 
@@ -185,6 +199,7 @@ Stop only when:
 - Owner-local QR/login/restart action is required;
 - security/supply-chain inspection blocks continuation;
 - the adapter cannot expose the needed read path;
+- a missing dependency cannot be satisfied through a proportionate isolated path without host mutation;
 - or P3 evidence is complete.
 
 When stopping for Owner login, do not summarize the whole project. Give only the exact local action needed and wait.
