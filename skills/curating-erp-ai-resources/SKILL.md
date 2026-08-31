@@ -25,9 +25,18 @@ Use only context that changes what is worth learning:
 - role / work context;
 - concrete task and expected artifact;
 - AI / Agent / tools already in the workflow when relevant;
-- hard constraints such as editable format, local/cloud, data/privacy, system access, version, or repeated scale.
+- hard constraints such as editable format, local/cloud, data/privacy, system access, version, repeated scale, or an explicitly required source/platform.
 
 Do not force a questionnaire. If a missing fact does not block useful curation, proceed and state the boundary.
+
+Treat source/platform wording by intent strength:
+
+- wording such as “去小红书上找 / 只看知乎 / 从公众号里找” is a **hard source constraint**;
+- wording such as “最好有小红书 / 优先知乎 / 有的话看看公众号” is a **source preference**.
+
+If a hard source constraint cannot be completed because search, login, dynamic rendering, anti-bot, host policy, or access prevents inspecting the requested source, do not silently replace the task with off-source material or claim the requested curation is complete. State the `coverage/policy gap`. Off-source material may be added only as clearly labeled supplementary reference, not as fulfillment of the original source-constrained request.
+
+If the source wording is only a preference, fallback to stronger inspectable evidence is allowed when the preference cannot be satisfied, but the boundary should be explicit.
 
 ### 2. Run fresh practitioner discovery
 
@@ -64,10 +73,10 @@ Keep source roles distinct:
 - independent practitioner / real review;
 - author self-practice / vendor demo;
 - original implementation or repo;
-- official current fact;
+- official current fact / standard / product-specific constraint;
 - Curator synthesis.
 
-Official documentation is usually **capability verification**, not practitioner-practice evidence. Do not use official docs merely to fill a Top 1–3 list when stronger practitioner evidence exists.
+Official documentation is usually **capability or constraint verification**, not practitioner-practice evidence. Do not use official docs merely to fill a Top 1–3 list when stronger practitioner evidence exists. But for standards, product-specific UI rules, version facts, compatibility, or a niche domain where no inspectable practitioner evidence exists, official material may be the strongest available domain-specific anchor; label that role explicitly rather than presenting it as practitioner practice.
 
 Search snippets, titles, likes, saves, plays, installs, and stars are discovery hints, not proof of quality.
 
@@ -123,4 +132,5 @@ A practitioner resource may demonstrate a Tool/Skill, but do not turn that into 
 - Never turn popularity metadata into a quality score or platform quota.
 - Never force platform diversity when it does not improve the candidate pool.
 - Never let an adjacent task or official capability page displace a more direct practitioner resource without a concrete fit advantage.
+- Never silently substitute a hard source/platform constraint with another source and call the original request complete.
 - Never call something “best / latest / unique / validated” beyond the evidence actually acquired.
