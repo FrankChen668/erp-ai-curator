@@ -10,109 +10,70 @@ metadata:
 
 # ERP AI Practice Curator
 
-## Goal
+## Responsibility
 
 For a real ERP / ToB work task, find the **few practitioner AI-enabled practices or resources most worth learning first**.
 
-Do the discovery, filtering, inspection, and selection work for the user. Do not replace curation with a model-authored tutorial, tool directory, install recommendation, or a replay of this project's old curation results.
+This Skill curates external practice evidence. It does not decide whether the user should adopt a new Tool / Skill / MCP / plugin / Agent / model / integration.
 
-## Workflow
+## Operating contract
 
-### 1. Keep the real task intact
+### 1. Anchor to the real task
 
-Use only context that changes what is worth learning:
+Use only context that can change what is worth learning:
 
 - role / work context;
 - concrete task and expected artifact;
-- AI / Agent / tools already in the workflow when relevant;
-- hard constraints such as editable format, local/cloud, data/privacy, system access, version, or repeated scale.
+- current AI / Agent / tools when relevant;
+- hard constraints such as editable format, local/cloud, privacy, system access, version, or repeated scale.
 
-Do not force a questionnaire. If a missing fact does not block useful curation, proceed and state the boundary.
+Do not force a questionnaire. If an unknown does not block a useful ranking, proceed and state the boundary.
 
-### 2. Run fresh practitioner discovery
+### 2. Discover fresh practice evidence
 
-This is an **AI work-practice Curator**. Unless the user explicitly asks for domain-only guidance, discovery should look for how practitioners use AI/Agents/tools to improve the task even when the user's shorthand prompt only says “最佳实践”.
+For normal external curation, discovery must be **current in this run** and must preserve the AI / Agent / tool-enabled work dimension. Project history, archived links, old recommendation packs, and validation files may supply search leads only; they do not determine the current candidate pool or ranking.
 
-For a normal external curation request, start from **current external discovery in this run**. Project validation files, prior curation results, archived links, old recommendation packs, and local repo notes may suggest search terms, but they must not substitute for current discovery or determine the current ranking.
+If broad search misses the user's obvious practitioner ecosystem, run a targeted recall pass on the one or few sources most likely to change the answer. When the workflow is version-sensitive, include recent/current material and inspect currentness where it can affect the recommendation.
 
-Search for real workflows, tutorials, cases, reviews, failures, and reusable examples before product feature pages. Keep the AI-enabled-workflow dimension in the search, for example:
-
-`task/artifact × AI/tool × role/industry`
-
-Do not let “用这个 Skill 找流程图最佳实践” collapse into only “流程图/BPMN 最佳实践”.
-
-For Chinese ERP / ToB / product / project / consultant contexts, useful pools often include Bilibili, WeChat, Xiaohongshu, Zhihu, 人人都是产品经理, 掘金, CSDN, practitioner blogs, and related GitHub projects.
-
-If broad Web search misses the user's obvious practitioner ecosystem or returns mostly official/implementation/global sources, do a targeted discovery pass on the one or few most likely practitioner pools before concluding. This is a recall fallback, not a platform quota.
-
-For fast-changing AI tools/workflows, actively include recent/current material and inspect publication/update dates or maintenance state when they can change the recommendation. **Best is not the same as newest**; an older resource may still lead when its direct practice evidence is stronger, but recency cannot be ignored by default.
+Exception: if the user explicitly asks to reuse a prior curated pack, it may be reused without fresh discovery, but do not imply current verification unless the external content is reopened now.
 
 Read [practitioner discovery](references/practitioner-discovery.md) when external discovery is material.
 
-### 3. Inspect serious candidates freshly
+### 3. Inspect before recommending
 
-Open the actual external content before recommending it.
+Open/read serious practitioner or creator candidates before synthesizing the answer. Every final external recommendation must be inspected in the current run unless the user explicitly requested reuse of a prior curated pack.
 
-Every recommended external resource should be opened/read in the current run unless the user explicitly asks to reuse a prior curated pack. A URL or judgement copied from project validation/history is a lead, not current verification.
+If login, host policy, dynamic rendering, search coverage, or access controls prevent inspection, state the `coverage/policy gap`. Do not silently substitute official documentation or internal history and claim curation is complete.
 
-For an explicit best-practice/tutorial request, inspect practitioner/creator candidates before synthesizing the answer. If host policy, search coverage, login, or access prevents that, state the `coverage/policy gap`; do not silently substitute official documentation and claim curation is complete.
+### 4. Rank by fit and direct evidence
 
-Keep source roles distinct:
-
-- independent practitioner / real review;
-- author self-practice / vendor demo;
-- original implementation or repo;
-- official current fact;
-- Curator synthesis.
-
-Search snippets, titles, likes, saves, plays, installs, and stars are discovery hints, not proof of quality.
-
-Internal project validation/history is not a user-facing external source for normal curation. Only surface it when the user explicitly asks about this project's own evidence or history.
-
-### 4. Select by fit and current evidence
-
-Prefer:
+Prefer, in order:
 
 1. audience / professional-ecosystem fit;
 2. real task and required-artifact fit;
 3. concrete input → operation → output evidence;
 4. reproducibility, failures, rework, and limitations;
-5. freshness/current applicability when the workflow is version-sensitive;
+5. current applicability when material;
 6. only then popularity or polish.
 
-When the user's language, region, or professional ecosystem is clear, prefer comparable practitioner evidence from that ecosystem. Cross-language resources can lead when materially stronger or when local coverage is genuinely weak.
+Do not treat adjacent deliverables as equivalent. Cross-language material may lead when materially stronger or when comparable local evidence is genuinely weak.
 
-Do not treat adjacent deliverables as equivalent. Editable draw.io is not the same as SVG/PNG; PPTX is not image-only slides; BPMN model is not a generic flowchart image.
+### 5. Compress and explain
 
-### 5. Compress and stop
+Normally return **1–3** clearly different resources. For each, make clear:
 
-Normally return **1–3** clearly different resources.
+- resource, author/platform, and link;
+- why it matches the user's role / task / artifact;
+- why it outranks other serious candidates;
+- the relevant currentness boundary when freshness matters;
+- any material author, promotion, language/ecosystem, access, or coverage boundary.
 
-The user should know:
+Say which one to start with. Add only the short Curator synthesis needed to connect the evidence.
 
-- what to look at first;
-- author/platform and link;
-- why it matches their role/task/artifact;
-- why it outranks the other serious candidates;
-- when freshness matters, the relevant publication/update/currentness boundary;
-- any material author, marketing, language/ecosystem, access, or coverage boundary.
+## Prohibited drift
 
-Only then add a short Curator synthesis if useful.
-
-## Capability-selection boundary
-
-This Skill does **not** decide whether the user should install or adopt a Tool / Skill / MCP.
-
-A practitioner resource may demonstrate a Tool/Skill, but do not turn that into an installation recommendation merely because it appeared during discovery. If the user explicitly asks whether a new capability is worth adding, use `advising-erp-ai-capabilities` for that decision.
-
-## Guardrails
-
-- Never replace requested curation with a long generic tutorial plus official links.
-- Never turn a practice request into a Skill-store search.
-- Never recommend installation merely because a Tool/Skill appears in a resource.
-- Never reuse a historical project recommendation as if it were a fresh current search result.
-- Never recommend an external resource that was not actually inspected in the current run, unless the user explicitly asked to reuse prior curation.
-- Never promote a cross-language resource without a real fit advantage when comparable local evidence exists.
-- Never treat author self-practice as independent validation.
-- Never turn popularity metadata into a quality score or platform quota.
-- Never call something “best / latest / unique / validated” beyond the evidence actually acquired.
+- Do not replace requested curation with a model-authored generic tutorial or official-link dump.
+- Do not turn a practice request into a Tool/Skill marketplace or installation recommendation.
+- Do not present project history or validation as current external evidence.
+- Do not treat popularity metadata as quality proof or create platform quotas.
+- Do not call something “best / latest / unique / validated” beyond the evidence actually acquired.

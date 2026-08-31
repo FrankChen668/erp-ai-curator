@@ -1,20 +1,10 @@
 # Practitioner Discovery
 
-Read this only when the user wants best practices, tutorials, real workflows, practitioner cases, or learning resources.
+Read this when external practitioner discovery is material to the curation request.
 
-## Start fresh
+## Query construction
 
-Normal external curation starts with a fresh search for the current request.
-
-Project validation files, old Curation Pack results, local repo notes, bookmarks, and previous recommendation lists are **historical leads**, not current external evidence. They may contribute names or search terms, but they must not decide today's candidate pool or ranking by themselves.
-
-If an old project document points to a promising resource, rediscover/open the external resource in the current run before recommending it. If it cannot be reopened, label the coverage gap instead of treating the historical judgement as fresh verification.
-
-## What to search
-
-This reference belongs to an **AI work-practice Curator**. Unless the user explicitly asks for domain-only guidance, keep AI/Agent/tool-enabled work in the discovery scope even when the shorthand request only says “最佳实践”.
-
-Build a few targeted queries from the actual task:
+Keep the **AI-enabled work-practice** dimension in scope unless the user explicitly asks for domain-only guidance. Build a small set of queries from the real task, for example:
 
 ```text
 task / artifact × AI or tool
@@ -23,91 +13,72 @@ industry / work context × task × AI
 specific workflow × tutorial / case / review / failure
 ```
 
-A query batch that drops AI/Agent/Tool entirely and searches only the domain topic is intent drift.
+A query batch that drops AI / Agent / Tool entirely and searches only the domain topic is intent drift.
 
-For Chinese ERP / ToB / product / project / consultant work, useful discovery pools often include:
+## Recall correction
 
-- Bilibili;
-- WeChat public accounts;
-- Xiaohongshu;
-- Zhihu / 人人都是产品经理 / 掘金 / CSDN / practitioner blogs;
-- GitHub repos/examples connected to the practitioner workflow.
+For Chinese ERP / ToB / product / project / consultant work, useful practitioner pools can include Bilibili, WeChat public accounts, Xiaohongshu, Zhihu, 人人都是产品经理, 掘金, CSDN, practitioner blogs, and GitHub workflows/examples.
 
-Do not search every platform by quota. But if broad Web results are concentrated in official docs, global English sources, GitHub implementations, or one easy-to-index platform while missing the user's obvious practitioner ecosystem, run targeted site/platform queries against the one or few pools most likely to change the answer.
+Do not search platforms by quota. Use broad Web first. If results are concentrated in official docs, generic global sources, GitHub implementations, or one easy-to-index platform while the user's obvious practitioner ecosystem is missing, run targeted `site:` or source-qualified searches against the one or few pools most likely to change the candidate set.
 
-This targeted pass is a **recall correction**, not a diversity target.
+This is a **recall correction**, not a diversity target.
 
-## Freshness
+## Freshness and currentness
 
-AI work practices, Agents, Skills, MCPs, model capabilities, and tool workflows can change quickly.
+AI workflows, Agents, Skills, MCPs, models, and tool behavior can change quickly.
 
-When freshness can change the recommendation:
+When currentness can change the recommendation:
 
-- actively search for recent/current practitioner material, not only evergreen keywords;
+- actively include recent/current practitioner material;
 - inspect publication/update dates when available;
 - check whether the demonstrated workflow/tool/version still exists and is usable;
-- compare newer evidence with older high-quality practice rather than automatically replacing it.
+- compare newer evidence with older high-quality practice instead of using newest-wins.
 
-**Newest is not automatically best.** A durable older workflow can remain the strongest recommendation when its task fit, real evidence, and reproducibility are better. But an older source should not win simply because it was already present in project history.
+An older resource may still lead when its task fit, direct evidence, and reproducibility are stronger. Do not use “latest/current” language unless the acquired evidence supports that scope.
 
-Do not use “latest/current” language unless the search actually covered recent material sufficiently to support it.
+## Candidate inspection
 
-## What deserves inspection
+Popularity is a discovery hint only. Inspect candidates that show several of these:
 
-Popularity is only a discovery hint. Prefer content that shows several of these:
-
-- a role/work context close to the user;
+- role/work context close to the user;
 - concrete input → operation → output;
 - the artifact the user actually needs, especially editable deliverables;
-- real screenshots/examples/templates/prompts/commands/workflow steps;
+- screenshots, examples, templates, prompts, commands, or workflow steps;
 - failures, rework, limitations, or long-term usage experience;
 - a current and reproducible workflow.
 
-For Bilibili/Xiaohongshu, saves, coins, and substantive comments can help decide what to inspect first; they do not prove quality.
+For Bilibili/Xiaohongshu, saves, coins, comments, likes, or plays can help decide what to inspect first; they do not prove quality.
 
-When search results contain plausible practitioner/creator candidates, open the strongest one or few before spending answer budget on official standards or product pages.
+When plausible practitioner/creator candidates exist, inspect the strongest ones before spending answer budget on official product pages.
 
-Every resource that appears in the final recommendation should have been inspected in the current run unless the user explicitly requested reuse of a prior curated pack.
+## Evidence roles
 
-## How to choose among inspected candidates
+Keep source roles distinct:
 
-Prefer **audience/work-context fit + required-artifact fit + direct practice evidence + current applicability** before generic polish, global popularity, or novelty.
+- **independent practitioner** — real adoption, review, or failure experience;
+- **author self-practice / vendor demo** — shows how the author's own approach works, not independent superiority;
+- **implementation** — original repo/tool/workflow that confirms what is actually used or produced;
+- **official fact** — current version, compatibility, format, or standard fact needed to interpret the practice;
+- **Curator synthesis** — the conclusion drawn from acquired evidence.
 
-If the user's language, region, or professional ecosystem is clear, prefer practitioner evidence from that ecosystem when quality is comparable. Cross-language material is valuable when materially stronger or when local coverage has a real gap.
+If several creators repeat the same upstream demo, treat them as one evidence family unless someone adds new real inputs, failure cases, constraints, or a more reproducible workflow.
 
-Check the actual deliverable. Editable draw.io is not equivalent to SVG/PNG unless the workflow preserves editability; apply the same rule to PPTX, Word, BPMN, Visio, Markdown, code, or other required artifacts.
+## Selection checks
 
-## Source roles
+Prefer audience/ecosystem fit, required-artifact fit, direct practice evidence, and current applicability before generic polish or popularity.
 
-Practitioner content answers **how people actually work**.
+When the user's language, region, or professional ecosystem is clear, prefer comparable evidence from that ecosystem. Cross-language material should lead only when materially stronger or when local coverage has a real gap.
 
-Original repos/tools can confirm **what a demonstrated workflow really uses or produces**.
+Check the actual deliverable: editable draw.io is not equivalent to SVG/PNG; PPTX is not image-only slides; a BPMN model is not a generic flowchart image. Apply the same rule to Word, Visio, Markdown, code, or other required artifacts.
 
-Official sources answer only the current facts needed to understand a practice, such as format semantics, version, compatibility, or standard behavior.
+## Access and provenance gaps
 
-Internal project validation/history answers **what this project previously concluded**. It is not independent current practitioner evidence and should not be surfaced as an external recommendation source unless the user explicitly asks about project history.
+Search snippets, titles, engagement counts, and internal project history are not substitutes for opened original content.
 
-If several creators repeat the same upstream demo, treat them as one evidence family unless someone adds a new real input, failure case, constraint, or more reproducible workflow.
-
-If original content cannot be read because of login, dynamic rendering, anti-bot limits, host source policy, or search-tool restrictions, say `coverage/policy gap`. Do not silently replace inaccessible practitioner evidence with official documentation or internal historical judgement and call the curation complete.
-
-## Output discipline
-
-For explicit tutorial/best-practice requests, normally keep 1–3 resources and say:
-
-- what it is and where to open it;
-- why it matches this user's role/context/task/artifact;
-- why it outranks other serious candidates;
-- which one to start with;
-- when freshness matters, the publication/update/currentness boundary;
-- any material author/promotion/language/access boundary.
-
-Then add only the short synthesis needed to connect the resources.
-
-Do not convert a resource that happens to use a Tool/Skill into an install recommendation. Capability adoption is a separate decision handled by `advising-erp-ai-capabilities`.
+If original content cannot be read because of login, dynamic rendering, anti-bot limits, host policy, or search-tool restrictions, state `coverage/policy gap`. Do not convert inaccessible leads into fully verified recommendations.
 
 Final check:
 
-> If my own explanation and all internal project files disappeared, would the freshly inspected external resources still justify what I am recommending now?
+> If my own explanation and all internal project files disappeared, would the freshly inspected external resources still justify the recommendation?
 
-If not, the curation is probably not finished.
+If not, the curation is not finished.

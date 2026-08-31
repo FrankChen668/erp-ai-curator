@@ -10,13 +10,13 @@ metadata:
 
 # ERP AI Capability Advisor
 
-## Goal
+## Responsibility
 
 For a real ERP / ToB task, decide whether the user's **current AI/toolchain is already enough** and, only if not, what **smallest additional capability** is worth adopting.
 
-Do not become a Tool/Skill catalogue. A stronger or newer capability is not automatically worth adding.
+This Skill makes adoption decisions. It does not curate generic “best practices / tutorials / how others do it” requests.
 
-## Workflow
+## Operating contract
 
 ### 1. Establish the real baseline
 
@@ -35,66 +35,40 @@ Ask:
 
 > What can the current workflow not do reliably enough that matters to this task?
 
-If there is no concrete gap, say plainly that the current toolchain is enough and stop. Do not invent a Tool/Skill recommendation to make the answer feel more useful.
+If there is no concrete gap, say plainly that the current toolchain is enough and stop. Missing information is not automatically a capability gap; if one unknown decides the answer, make the recommendation conditional instead of guessing.
 
-Missing information is not automatically a capability gap. If one unknown fact decides the recommendation, state the condition instead of guessing.
+### 3. Discover only gap-solving capabilities
 
-### 3. Discover only capabilities that solve that gap
+Search narrowly for capabilities that directly solve the identified gap. Prefer original implementations, then independent adoption/failure evidence when setup or maintenance cost matters, plus current official facts only where they change the decision.
 
-Search narrowly for capabilities that directly address the identified gap.
+Do not expand into a broad Tool/Skill/MCP marketplace scan.
 
-Useful evidence can include:
+### 4. Verify decision-changing facts
 
-- original Tool / Skill / MCP / repo implementation;
-- independent practitioner adoption or failure experience when setup/maintenance/permission cost matters;
-- current official facts that change compatibility, privacy, permissions, price, or licensing.
+Verify only what could change adoption: required input/output and artifact format, dependencies, accounts/credentials, permissions/data egress, maintenance/current compatibility, and price/license when material.
 
-Do not let discovery expand into a broad marketplace scan.
+A candidate whose output does not match the required artifact is not a valid substitute unless a credible bridge is verified and explained.
 
-### 4. Verify serious candidates
-
-Read [evidence and safety](references/evidence-and-safety.md) when recommending executable resources, system access, or volatile/high-risk claims.
-
-Verify only decision-changing facts such as:
-
-- required input/output and artifact format;
-- install/runtime dependencies;
-- account, credentials, permissions, write actions, or data egress;
-- maintenance/current compatibility;
-- price/license where material.
-
-A candidate whose output does not match the user's required artifact is not a valid substitute unless a credible bridge is verified and explained.
+Read [evidence and safety](references/evidence-and-safety.md) when the recommendation involves executable third-party resources, system access, volatile product claims, or meaningful permission/privacy risk.
 
 ### 5. Recommend the minimum useful change
 
-Default outcomes are natural-language decisions, not A/B/C labels:
+Use natural-language outcomes:
 
-- **现有工具已够** — do not add another capability;
-- **值得补能力** — name the concrete gap and the smallest capability that solves it;
-- **条件式升级** — state the one condition that would make an upgrade worthwhile.
+- **现有工具已够** — no additional capability;
+- **值得补能力** — name the concrete gap and smallest capability that solves it;
+- **条件式升级** — state the one condition that would make the upgrade worthwhile.
 
 Normally keep **0–1** main capability. Add a second only when it represents a materially different adoption boundary.
 
-Explain:
+Explain the gap solved, why the current workflow cannot solve it cheaply/reliably enough, the setup/learning/permission/maintenance cost added, and the boundary that could make the recommendation wrong.
 
-- what gap it solves;
-- why the current workflow cannot solve that gap cheaply enough;
-- what setup/learning/permission/maintenance cost it adds;
-- what important boundary could make the recommendation wrong.
+Only provide installation commands or perform setup when the user explicitly asks for installation/setup.
 
-Only provide installation commands or perform installation when the user explicitly asks for installation/setup.
+## Prohibited drift
 
-## Practice-curation boundary
-
-This Skill does **not** curate generic “best practices / tutorials / how others do it” requests.
-
-If the user primarily wants practitioner workflows or learning resources, use `curating-erp-ai-resources`. A Tool/Skill appearing inside a good tutorial is not evidence that the user should adopt it.
-
-## Guardrails
-
-- Never recommend a new capability without naming the concrete gap it solves.
-- Never treat more features, installs, stars, popularity, or novelty as sufficient adoption evidence.
-- Never recommend a capability whose output/artifact does not match the actual need without explaining the bridge.
-- Never grant write/system permissions merely because a Tool/MCP supports them; use minimum necessary access.
-- Never treat author self-practice as independent validation.
-- Never turn a capability decision into a large comparison table unless the user explicitly asks for broad comparison.
+- Do not recommend a new capability without a concrete gap.
+- Do not treat features, installs, stars, popularity, or novelty as sufficient adoption evidence.
+- Do not recommend an artifact-mismatched capability without a verified bridge.
+- Do not grant write/system permissions beyond the minimum necessary.
+- Do not turn the answer into a large comparison table unless the user explicitly asks for broad comparison.
