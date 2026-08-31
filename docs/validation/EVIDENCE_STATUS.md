@@ -32,7 +32,7 @@ Boundary: **the survey validates demand and real problem provenance; it does not
 - **P03 — requirements/rules → clickable prototype**: closed; spec-first code prototype default; Figma Make conditional. Authority: `P03_PROTOTYPE_CURATION_RESULT_02.md`.
 - **P07 — codebase/program understanding**: closed; traceable read-only repo exploration default; conditional semantic/LSP or ERP-native access. Authority: `P07_CODEBASE_UNDERSTANDING_RESULT_02.md`.
 
-Important 0.9.1 boundary: a historical task result such as P04 remains valid as **project research evidence at the time it was produced**; it does not automatically define a future user's current candidate pool or ranking.
+Important current boundary: a historical task result such as P04 remains valid as **project research evidence at the time it was produced**; it does not automatically define a future user's current candidate pool or ranking.
 
 Invalidated evidence remains invalid:
 
@@ -150,19 +150,46 @@ Directly supported facts:
 
 This supports three defect classes:
 
-1. **historical-evidence contamination** — previous project recommendation influenced the current candidate pool/ranking;
-2. **freshness gap** — fast-moving AI practice was not explicitly challenged against recent/current alternatives;
-3. **broad-search recall bias** — obvious Chinese practitioner pools were missed without a targeted recall correction.
-
-A same-day Cloud targeted sanity search immediately surfaced recent candidates absent from the Local Agent's current pool, including a 2026-07 Bilibili drawio-skill update and a 2026-06 supply-chain/WMS product-manager CodeX→Draw.io workflow. This proves only that fresh discovery could materially change the serious candidate pool; it does not prove those candidates should rank first.
+1. **historical-evidence contamination**;
+2. **freshness gap**;
+3. **broad-search recall bias**.
 
 Authority: `CURATOR_091_FRESH_CURATION_EVIDENCE_ISOLATION.md`.
 
-## 11. Current Runtime — 0.9.1
+## 11. Runtime 0.9.1 — accepted fresh-curation correction
+
+0.9.1 required:
+
+- normal external curation starts with fresh current discovery;
+- project history/prior validation is lead-only;
+- every final external recommendation is reopened/read in the current run unless reuse is explicitly requested;
+- fast-changing AI workflows include current/recent evidence checks;
+- broad Web recall that misses the user's obvious practitioner ecosystem gets a targeted correction;
+- internal validation/history stays out of normal user-facing recommendation evidence;
+- no default Tool/Skill/MCP adoption decision.
+
+Authority: `CURATOR_091_FRESH_CURATION_EVIDENCE_ISOLATION.md`.
+
+## 12. Fresh flowchart rerun — accepted 0.9.2 recall/task-fit defect evidence
+
+A later fresh flowchart answer was materially better than the 0.7–0.9.0 failures: it returned a Chinese Bilibili practice, a SAP BTP draw.io implementation, and official draw.io documentation without collapsing into install advice.
+
+Adversarial review still found two decision-changing residual defects:
+
+1. **premature candidate-pool convergence** — the Chinese practitioner set effectively stopped after one visible pool, while Zhihu/Xiaohongshu and other likely pools were absent;
+2. **task-fit dilution** — an adjacent SAP BTP architecture-diagram implementation was promoted into the Top set for a business-process-flow task, and official documentation was treated as a peer recommendation rather than capability verification.
+
+Same-day targeted current Web discovery surfaced 2026 Zhihu practitioner-style Mermaid/editable-flowchart candidates that were closer to the actual business/process-flow artifact and could change ranking. Targeted Xiaohongshu discovery still returned no inspectable current result through normal Web.
+
+This supports a narrow Runtime correction. It does **not** support a platform quota or a new Xiaohongshu adapter.
+
+Authority: `CURATOR_092_ECOSYSTEM_RECALL_TASK_FIT.md`.
+
+## 13. Current Runtime — 0.9.2
 
 Release class:
 
-> **CONTROLLED USER TRIAL — USER-USE VALUE UNVALIDATED / version 0.9.1**
+> **CONTROLLED USER TRIAL — USER-USE VALUE UNVALIDATED / version 0.9.2**
 
 ### Practice Curator
 
@@ -172,9 +199,13 @@ Current invariants:
 
 - normal external curation starts with fresh current discovery;
 - project history/prior validation is lead-only, not current external evidence;
-- every final external recommendation is reopened/read in the current run unless the user explicitly requests reuse;
+- every final external recommendation is reopened/read in the current run unless reuse is explicitly requested;
 - fast-changing AI workflows include current/recent evidence checks;
-- broad Web recall that misses the user's obvious practitioner ecosystem gets a targeted correction on the one/few pools most likely to change the answer;
+- targeted recall is triggered not only by an obvious broad-search miss but also when a Chinese practitioner candidate pool is concentrated in one accessible pool and the rest is mainly official/vendor/implementation/global evidence;
+- targeted recall checks only the 1–2 additional pools most likely to change ranking and remains non-quota;
+- zero-recall/inaccessible platforms are coverage facts, not evidence to install adapters by default;
+- direct task/artifact fit outranks nearby SAP/ERP/tool branding;
+- official docs normally verify capability rather than filling practitioner Top recommendations;
 - internal validation/history is not surfaced as user-facing external evidence unless explicitly requested;
 - no default Tool/Skill/MCP adoption decision.
 
@@ -184,17 +215,17 @@ Reference: `practitioner-discovery.md`.
 
 `skills/advising-erp-ai-capabilities/`
 
-Behavior remains the 0.9.0 responsibility split: current baseline → concrete gap → minimum useful capability or explicit no-upgrade.
+Behavior remains the 0.9.0 responsibility split: current baseline → concrete gap → minimum useful capability or explicit no-upgrade. Its package version is aligned to 0.9.2; behavior is unchanged.
 
 Reference: `evidence-and-safety.md`.
 
-0.9.1 does **not** introduce newest-wins, platform quotas, resource DB/auto-refresh, a third Router Skill, A/B/C runtime taxonomy, scoring/Gate, creator ranking, or host-policy workaround.
+0.9.2 does **not** introduce newest-wins, platform quotas, resource DB/auto-refresh, a third Router Skill, A/B/C runtime taxonomy, scoring/Gate, creator ranking, or host-policy workaround.
 
-Authority: `CURATOR_091_FRESH_CURATION_EVIDENCE_ISOLATION.md`.
+Authority: `CURATOR_092_ECOSYSTEM_RECALL_TASK_FIT.md`.
 
-This is a runtime correction, not product-value evidence and not proof that the Local Agent host behavior is fixed.
+This is a runtime correction, not product-value evidence and not proof that every Agent host behaves correctly.
 
-## 12. Closed internal evidence remains bounded
+## 14. Closed internal evidence remains bounded
 
 ### 0.6.1 boundary regression
 
@@ -208,7 +239,7 @@ Authority: `CURATION_PACK_01_ADVERSARIAL_REVIEW.md`.
 
 Historical case labels remain evidence records only and do not define current Runtime behavior or current external resource ranking.
 
-## 13. Release readiness
+## 15. Release readiness
 
 Current verdict remains:
 
@@ -216,7 +247,7 @@ Current verdict remains:
 
 The public repository currently has no `LICENSE` file; public/open-source release completion requires explicit Owner licensing choice.
 
-## 14. REAL_USER_USE VALIDATION — active Lane B
+## 16. REAL_USER_USE VALIDATION — active Lane B
 
 Authority: `docs/REAL_USER_PILOT_V1.md`.
 
@@ -226,17 +257,16 @@ Current dominant uncertainty:
 
 > **Does Curator consistently provide a higher-trust, lower-noise, more current and useful result than ordinary AI/self-search, and is that difference valuable enough that real users return?**
 
-Highest-value next evidence after 0.9.1:
+Highest-value next evidence after 0.9.2:
 
-- practice-only request starts from current external discovery rather than internal project history;
-- broad search recall gaps are corrected selectively, without platform quotas;
+- real-user practice requests preserve fresh discovery and evidence isolation;
+- concentrated Chinese practitioner candidate pools receive selective recall correction without platform quotas;
+- direct task/artifact fit beats adjacent ERP/SAP branding;
 - every final external recommendation is freshly inspected;
-- freshness/current applicability is considered where material;
-- internal validation files stay out of normal user-facing recommendation evidence;
-- explicit capability request still starts from current baseline/concrete gap and can conclude no-upgrade.
+- explicit capability requests still start from current baseline/concrete gap and can conclude no-upgrade.
 
 Do not substitute more pre-user cards, synthetic benchmark loops, Owner/Agent opinion, user tool-test protocols or internal validator success for product evidence.
 
-## 15. Evidence acceptance rule
+## 17. Evidence acceptance rule
 
 External claims must remain traceable to acquired current evidence. Search snippets are discovery only. Historical project curation is lead/history evidence, not independent current practitioner evidence. Author self-practice is not independent validation. Runtime evidence is bounded to what was actually tested. Stable practice insight must be separated from version-coupled/current facts.

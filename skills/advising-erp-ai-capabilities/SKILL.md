@@ -3,7 +3,7 @@ name: advising-erp-ai-capabilities
 description: Decide whether an SAP, Oracle, ERP, ToB, product, project, or enterprise-system practitioner should add, install, choose, or compare an AI capability such as a Tool, Skill, MCP, plugin, Agent, model, integration, or new workflow. Use when the user explicitly asks whether their current toolchain is enough, whether a new capability is worth adopting, which capability to choose, or what the smallest useful upgrade is. Do not use for generic best-practice/tutorial/resource curation; use curating-erp-ai-resources for that. Do not use merely because a practitioner resource mentions a Tool/Skill.
 compatibility: External adoption advice benefits from Web/search/fetch. Local repositories, runtimes, or enterprise systems are only needed when the decision materially depends on evidence unavailable otherwise. Never bypass access controls.
 metadata:
-  version: "0.9.1"
+  version: "0.9.2"
   product_stage: "Controlled user trial — split runtime / capability advisor"
   language: "zh-CN"
 ---
