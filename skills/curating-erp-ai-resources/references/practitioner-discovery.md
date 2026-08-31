@@ -10,6 +10,21 @@ Project validation files, old Curation Pack results, local repo notes, bookmarks
 
 If an old project document points to a promising resource, rediscover/open the external resource in the current run before recommending it. If it cannot be reopened, label the coverage gap instead of treating the historical judgement as fresh verification.
 
+## Keep explicit source intent intact
+
+A named platform/source can be either a hard constraint or a preference.
+
+Treat wording such as “去小红书上找 / 只看知乎 / 从公众号里找” as a **hard source constraint**. Treat wording such as “最好有小红书 / 优先知乎 / 有的话看看公众号” as a **source preference**.
+
+For a hard source constraint, the requested source is part of the task definition. If search, login, dynamic rendering, anti-bot limits, host policy, or access prevents inspecting that source after a reasonable targeted attempt:
+
+- state the `coverage/policy gap`;
+- do not claim the source-constrained curation is complete;
+- do not silently replace the task with a generic cross-platform answer;
+- off-source material may be offered only as clearly labeled supplementary reference.
+
+For a source preference, fallback to stronger inspectable evidence is allowed when the preferred source is unavailable, but say so explicitly.
+
 ## What to search
 
 This reference belongs to an **AI work-practice Curator**. Unless the user explicitly asks for domain-only guidance, keep AI/Agent/tool-enabled work in the discovery scope even when the shorthand request only says “最佳实践”.
@@ -92,7 +107,9 @@ Practitioner content answers **how people actually work**.
 
 Original repos/tools can confirm **what a demonstrated workflow really uses or produces**.
 
-Official sources answer only the current facts needed to understand a practice, such as format semantics, version, compatibility, or standard behavior. Official docs are usually capability verification, not practitioner practice; do not use them simply to fill a Top 1–3 list.
+Official sources answer current facts and product-specific constraints such as format semantics, version, compatibility, UI standards, or supported behavior. They are usually capability/constraint verification rather than practitioner practice and should not be used simply to fill a Top 1–3 list.
+
+For a standards/constraint question, or a niche product-specific task where no inspectable practitioner evidence exists, official material may still be the strongest available domain-specific anchor. Label it explicitly as official constraint/verification rather than practitioner practice.
 
 Internal project validation/history answers **what this project previously concluded**. It is not independent current practitioner evidence and should not be surfaced as an external recommendation source unless the user explicitly asks about project history.
 
