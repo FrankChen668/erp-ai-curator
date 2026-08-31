@@ -52,6 +52,7 @@ REQUIRED = [
     ROOT / "docs" / "validation" / "RELEASE_READINESS_ADVERSARIAL_20260830.md",
     ROOT / "docs" / "validation" / "CURATOR_080_RUNTIME_SIMPLIFICATION.md",
     ROOT / "docs" / "validation" / "CURATOR_090_RUNTIME_RESPONSIBILITY_SPLIT.md",
+    ROOT / "docs" / "validation" / "CURATOR_091_FRESH_CURATION_EVIDENCE_ISOLATION.md",
     *RUNTIME_SKILLS,
     *RUNTIME_REFERENCES,
     *CURATION_CASES,

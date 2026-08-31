@@ -8,7 +8,7 @@
 
 ## 想直接试用
 
-当前 Runtime 版本：**0.9.0 — Controlled User Trial**。
+当前 Runtime 版本：**0.9.1 — Controlled User Trial**。
 
 - 试用指南：`docs/USER_TRIAL_GUIDE_V1.md`
 - Practice Curator：`skills/curating-erp-ai-resources/`
@@ -18,7 +18,7 @@
 
 > **CONTROLLED USER TRIAL GO / BROAD RELEASE NO**
 
-0.9.0 的核心不是增加规则，而是**拆开两个长期互相污染的 Runtime 职责**：
+0.9.0 把两个长期互相污染的 Runtime 职责拆开：
 
 ```text
 找最佳实践 / 教程 / 案例
@@ -28,7 +28,13 @@
 → advising-erp-ai-capabilities
 ```
 
-原因：连续真实运行中，“最佳实践”请求即使已经加入 no-install guardrail，仍然多次退化成 Skill 搜索和安装建议。0.9.0 把边界前移到 Skill description/trigger 层，而不是继续在同一个 Skill body 里补规则。
+0.9.1 继续修 Practice Curator 的真实执行缺陷，但不增加新框架：
+
+- 正常外部策展必须做**本次 fresh discovery**，不能直接沿用仓库中的历史验证包/旧推荐排序；
+- 历史项目证据只能作为搜索线索，最终推荐资源必须在本次重新打开核验；
+- 对快速变化的 AI 工作流主动检查近期候选和当前适用性；
+- 宽泛搜索明显漏掉用户职业/语言生态时，对最可能改变答案的 1–3 个 practitioner pool 做定向补搜，而不是做平台配额；
+- 普通用户回答不把项目内部 validation 文档当外部推荐依据展示。
 
 ## 项目维护者从这里开始
 
@@ -37,13 +43,14 @@
 - `docs/OWNER_EXECUTION_RULES.md` — Cloud / Local / Owner 执行边界
 - `docs/CURRENT_EXECUTION_PLAN_V3.md` — 当前阶段
 - `docs/validation/EVIDENCE_STATUS.md` — 证据状态
-- `docs/validation/CURATOR_090_RUNTIME_RESPONSIBILITY_SPLIT.md` — 0.9.0 架构裁决
+- `docs/validation/CURATOR_090_RUNTIME_RESPONSIBILITY_SPLIT.md` — 0.9.0 Runtime 职责拆分
+- `docs/validation/CURATOR_091_FRESH_CURATION_EVIDENCE_ISOLATION.md` — 0.9.1 fresh curation / evidence isolation
 
 ## 当前最重要的未验证问题
 
-> **Curator 是否能比普通 AI / 用户自己搜索更稳定地找到高价值 practitioner 实践，并在能力选型时减少错装/错选，且这个差异足以让真实用户再次使用？**
+> **Curator 是否能比普通 AI / 用户自己搜索更稳定地找到高价值、当前仍适用的 practitioner 实践，并在能力选型时减少错装/错选，且这个差异足以让真实用户再次使用？**
 
-0.9.0 是 Runtime 架构修正，不是产品价值证明。
+0.9.1 是真实执行缺陷修正，不是产品价值证明。
 
 ## 当前不做
 
