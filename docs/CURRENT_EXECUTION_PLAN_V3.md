@@ -27,7 +27,7 @@ Capability intent
 
 Curator is not a crawler, source database, tool marketplace or adapter framework.
 
-## 2. Runtime — 0.9.1 FROZEN
+## 2. Runtime — 0.9.2 FROZEN
 
 Practice Curator continues to require:
 
@@ -35,8 +35,10 @@ Practice Curator continues to require:
 - history/validation as lead-only evidence;
 - fresh inspection of final external recommendations;
 - current-applicability/freshness checks when material;
-- selective targeted recall correction when broad Web misses the user's obvious ecosystem;
+- targeted recall correction when broad Web or a concentrated candidate pool under-represents the user's practitioner ecosystem;
 - no platform quota;
+- task/artifact fit outranks nearby SAP/ERP/tool branding;
+- official capability pages do not fill practitioner Top recommendations by default;
 - no default Tool/Skill/MCP adoption decision.
 
 Capability Advisor remains:
@@ -45,8 +47,9 @@ Capability Advisor remains:
 
 Authorities:
 
-- `docs/validation/CURATOR_090_RUNTIME_RESPONSIBILITY_SPLIT.md`
+- `docs/validation/CURATOR_092_ECOSYSTEM_RECALL_TASK_FIT.md`
 - `docs/validation/CURATOR_091_FRESH_CURATION_EVIDENCE_ISOLATION.md`
+- `docs/validation/CURATOR_090_RUNTIME_RESPONSIBILITY_SPLIT.md`
 
 Release class: **CONTROLLED USER TRIAL**  
 Product value: **UNVALIDATED**
@@ -199,7 +202,7 @@ Do not:
 - create a custom adapter package manager/framework;
 - let external Skill ranking replace Curator judgement;
 - let a browser Skill replace host-native Web/Browser by default;
-- patch Runtime 0.9.1 based on the reported P5 result;
+- patch the current Runtime based on the reported P5 result alone;
 - declare Source Acquisition solved or abandoned from P5 alone;
 - run more synthetic platform tests simply to fill evidence slots.
 
