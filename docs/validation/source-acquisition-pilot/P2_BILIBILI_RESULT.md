@@ -88,6 +88,17 @@ Practitioner-relevant comment evidence (paraphrased, non-attributing):
 
 The adapter's own `next_steps_zh` for all three credential-gated tools consistently directs running `bilibili-mcp config` then `bilibili-mcp check`, and explicitly warns not to paste Cookie values into MCP client config files.
 
+## Capability classification summary
+
+| Capability | Anonymous (no credential) | Requires credential | Verified this run | Not verified this run |
+|---|---|---|---|---|
+| Video metadata (title/duration/pubdate) | Yes | — | Yes — 3 BVIDs | Stats/author fields absent without credentials |
+| Video chapters | Yes | — | Yes — 1 BVID (empty list) | Remaining 2 BVIDs not tested for chapters |
+| Video comments | Yes | — | Yes — 3 BVIDs, brief mode | Detailed mode / replies not tested |
+| Video search | — | Yes (COOKIE_EXPIRED) | Verified as credential-gated | No search results obtained |
+| Video info (subtitle/transcript summary) | — | Yes (COOKIE_EXPIRED) | Verified as credential-gated | No subtitle/transcript content obtained |
+| Video transcript (full text) | — | Yes (COOKIE_EXPIRED) | Verified as credential-gated | No transcript text obtained |
+
 ## Evidence assessment
 
 What the no-credential run added beyond P0:
