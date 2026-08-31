@@ -20,7 +20,10 @@ Status: **CURRENT NAVIGATION AUTHORITY**
 ## 2. 当前阶段辅助文档
 
 - [Controlled User Trial Guide](USER_TRIAL_GUIDE_V1.md) — **真实试用用户/管理员入口**。
-- [0.9.1 Fresh Curation / Evidence Isolation](validation/CURATOR_091_FRESH_CURATION_EVIDENCE_ISOLATION.md) — **当前最新 Runtime 窄修正；处理 historical-evidence contamination、freshness 和 broad-search recall bias。**
+- [Source Acquisition Pilot 2026-08-31](validation/SOURCE_ACQUISITION_PILOT_20260831.md) — **当前执行重点；验证普通 Web 的中文 practitioner 覆盖缺口以及最小 read-only source adapter 是否真正改变推荐。**
+- [Source Adapter Architecture V3](SOURCE_ADAPTER_ARCHITECTURE_V3.md) — 当前 Pilot 的 acquisition-layer 架构基础；Curator 判断层 + 可选 source adapters。
+- [Source Adapter Lifecycle V3](SOURCE_ADAPTER_LIFECYCLE_V3.md) — adapter 安装/更新/调用/凭据/read-only 生命周期边界。
+- [0.9.1 Fresh Curation / Evidence Isolation](validation/CURATOR_091_FRESH_CURATION_EVIDENCE_ISOLATION.md) — Runtime fresh curation / historical evidence isolation 修正。
 - [0.9.0 Runtime Responsibility Split](validation/CURATOR_090_RUNTIME_RESPONSIBILITY_SPLIT.md) — 一个产品、两个单职责 Skill 的架构裁决。
 - [0.8.2 Candidate Selection Patch](validation/CURATOR_082_CANDIDATE_SELECTION_PATCH.md) — audience/artifact fit 与 incidental install 历史修正。
 - [0.8.1 Practitioner Execution Patch](validation/CURATOR_081_PRACTITIONER_EXECUTION_PATCH.md) — query intent / practitioner candidate investigation 历史修正。
@@ -56,16 +59,40 @@ Status: **CURRENT NAVIGATION AUTHORITY**
 - 输出：现有工具已够 / 最小值得补的能力 / 条件式升级；
 - 不承担泛最佳实践资源策展。
 
-没有第三个 Router Skill。
+Runtime **0.9.1 在 Source Acquisition Pilot 期间冻结**。不要因为某个平台没被搜到继续给 Skill 加规则。
 
-## 4. 两个“完成”不能混淆
+## 4. 当前 source acquisition 层
+
+Repeated cross-host evidence now supports a real acquisition hypothesis:
+
+> 普通 broad Web Search 对小红书、公众号、Bilibili 等中文 practitioner 生态的发现/读取覆盖可能不足，且这个缺口会直接限制 Curator 的候选池。
+
+当前 Pilot 顺序：
+
+```text
+P0 targeted normal Web
+→ P1 WeChat lightweight discovery
+→ P2 Bilibili search/transcript
+→ P3 Xiaohongshu isolated read-only
+```
+
+不是每次都查询所有平台，也不是把平台覆盖当质量评分。
+
+Adapter 是否进入长期架构，只看它是否：
+
+1. 获得 normal Web 难以获得的 serious practitioner evidence；
+2. 获得足够原始内容与 provenance；
+3. 实质改变候选池/排序/拒绝理由/置信度/coverage boundary；
+4. 成本和安全风险可接受。
+
+## 5. 两个“完成”不能混淆
 
 ### Build / readiness milestone — complete for controlled trial
 
 - Runtime **0.9.1** 已完成职责拆分后的 fresh-curation / evidence-isolation 修正；
-- Curation Pack 01 已提供历史异构任务证据；
+- Source Acquisition Pilot 已因跨宿主重复缺口被正式激活；
 - 用户试用入口已具备；
-- 可以继续真实用户使用，不再通过内部扩规则证明产品成熟。
+- 可以继续 controlled use，但不通过继续堆 Skill 规则证明成熟。
 
 ### North Star outcome milestone — not validated
 
@@ -73,7 +100,7 @@ Status: **CURRENT NAVIGATION AUTHORITY**
 
 这些只能由 `REAL_USER_USE` 证据验证。
 
-## 5. 两条证据 Lane
+## 6. 两条证据 Lane
 
 ### Lane A — REAL_USER_ORIGIN CURATION
 
@@ -94,37 +121,43 @@ Pack 01 历史 Case：
 
 不要为了获得 Lane B 证据，把用户变成替项目跑测试的人。
 
-## 6. 当前发布层级
+## 7. 当前发布层级
 
 ### GO — controlled user trial
 
 可以把 Runtime 0.9.1 给少量真实 ERP/ToB/企业信息化用户，在已知/批准的 Agent Skills 宿主里自然使用。
 
+### GO — staged local source-acquisition pilot
+
+可以在本地受控环境里对已审查候选做 read-only qualification；安装/凭据配置与普通用户 curation 分离。
+
 ### HOLD — organization-wide standard
 
-在重复 REAL_USER_USE 证据和宿主兼容性出现前，不定义为部门统一标准。
+在重复 REAL_USER_USE 证据和宿主/adapter 兼容性出现前，不定义为部门统一标准。
 
 ### HOLD — public/open-source release claim
 
 仓库当前没有 `LICENSE` 文件。公开/开源发布前，Owner 需要明确许可方式。
 
-## 7. 历史/条件性设计 — 不作为当前执行入口
+## 8. 历史/条件性设计
 
 - `PROJECT_WORKFLOW.md` — SUPERSEDED；
 - `SKILL_BLUEPRINT_V3.md` — SUPERSEDED；
 - `AI_LEVERAGE_MODEL_V3.md` — 分析/历史判断模型；
-- `SOURCE_ADAPTER_ARCHITECTURE_V3.md` / `SOURCE_ADAPTER_LIFECYCLE_V3.md` — 条件性来源获取设计；
 - `phase-01-skill-research/` — 优秀 Skill 研究证据；
 - `validation/` 已关闭/失效材料 — 仅按 `EVIDENCE_STATUS.md` 指定 authority 使用；
 - `archive/` 与旧 fixture — 历史材料。
 
+`SOURCE_ADAPTER_ARCHITECTURE_V3.md` / `SOURCE_ADAPTER_LIFECYCLE_V3.md` 不再只是抽象备选设计：它们现在作为受控 Pilot 的架构/生命周期依据，但尚未成为永久 Runtime 依赖。
+
 历史文件中的 `CURRENT`、`NEXT`、`PASS` 与本 Map 或 Current Plan 冲突时，一律视为历史语境。
 
-## 8. Skill / Harness 设计原则
+## 9. Skill / Harness 设计原则
 
 - Agent Skills progressive disclosure；
 - description/name 是主要触发层，避免一个 description 承担互相冲突的默认职责；
 - current external curation 与 historical project evidence 分离；
+- source acquisition failure 与 source quality judgement 分离；
 - OpenAI/Anthropic Skill Creator：只加入真正需要的程序性知识，保持职责清晰；
 - Harness Engineering：给 Agent 地图，不给越来越长的补丁说明；确定性事实才机械约束。
 
@@ -135,7 +168,7 @@ Pack 01 历史 Case：
 - https://github.com/anthropics/skills/blob/main/skills/skill-creator/SKILL.md
 - https://openai.com/index/harness-engineering/
 
-## 9. 新会话读取顺序
+## 10. 新会话读取顺序
 
 ```text
 PROJECT_MAP
@@ -145,4 +178,4 @@ PROJECT_MAP
 → EVIDENCE_STATUS
 ```
 
-只有具体任务需要时再读 Runtime Skill、Trial Guide、Real User Use Validation 或历史材料。历史项目 evidence 不得自动替代当前用户 external discovery。
+只有具体任务需要时再读 Runtime Skill、Trial Guide、Real User Use Validation、Source Acquisition Pilot 或历史材料。历史项目 evidence 不得自动替代当前用户 external discovery。

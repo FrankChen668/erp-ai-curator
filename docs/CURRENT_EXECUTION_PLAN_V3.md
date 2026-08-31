@@ -1,7 +1,7 @@
 # ERP AI Curator — Current Execution Plan
 
 Date: 2026-08-31
-Status: **CURRENT — CONTROLLED REAL-USER USE**
+Status: **CURRENT — SOURCE ACQUISITION PILOT / CONTROLLED REAL-USER USE**
 
 > Navigation authority: `docs/PROJECT_MAP.md`. Product authority: `docs/PROJECT_NORTH_STAR.md`.
 
@@ -27,7 +27,7 @@ Capability intent
 
 Curator 不是工具目录、资源数据库、执行 SOP 生成器或工具认证实验室。
 
-## 2. Current Runtime — 0.9.1
+## 2. Current Runtime — 0.9.1 FROZEN DURING PILOT
 
 ### Practice Curator
 
@@ -64,126 +64,158 @@ Authorities：
 - `docs/validation/CURATOR_090_RUNTIME_RESPONSIBILITY_SPLIT.md`
 - `docs/validation/CURATOR_091_FRESH_CURATION_EVIDENCE_ISOLATION.md`
 
-## 3. Why 0.9.1
+## 3. New cross-host evidence — source acquisition is now the dominant bottleneck
 
-0.9.0 成功改善了最严重的职责串台：新的流程图最佳实践回答不再直接变成 Skill 安装建议。
+After 0.9.1, the remaining issue is no longer well explained by one host or one Skill wording failure.
 
-但本地执行日志证明新的答案并不是一次充分独立的 fresh curation：
+Observed across more than one Agent host:
 
-- 本次只有一批 4 个宽泛 Web query；
-- 没有针对 Bilibili/公众号/小红书/知乎做定向发现；
-- 最终两篇人人都是产品经理文章来自本地 `rg` 找到的历史 `P04_PRACTITIONER_CURATION_RESULT_02.md`，不是本次 Web Search；
-- `Castaldo-Solutions/process-builder` 同样来自历史 P04，并且本次没有重新打开；
-- 最终答案还把内部 P04 validation 文件直接展示给用户；
-- 当前运行没有实际 Web 访问失败可以解释这些缺口。
+- broad Web queries repeatedly return official docs, GitHub, CSDN/general blogs and a limited subset of practitioner pages;
+- Xiaohongshu / WeChat public-account / Bilibili / Zhihu practitioner pools are often absent unless specifically targeted or already known;
+- one fresh 0.9.0 log contained no targeted Bilibili/WeChat/Xiaohongshu/Zhihu discovery;
+- a separate Agent run on 2026-08-31 showed the same broad-search pattern and similarly did not surface Xiaohongshu/WeChat/Zhihu material.
 
-这暴露的核心问题是：**历史证据污染当前策展 + freshness 缺失 + 宽搜 recall 偏差**，而不是“必须补齐某几个平台”。
+This repeated behavior is sufficient to activate the previously conditional Source Adapter hypothesis.
 
-Cloud 在 2026-08-31 做定向 sanity search 时，立即发现本地当前候选池没有包含的近期内容，包括 2026-07 Bilibili drawio-skill 更新实战、2026-06 供应链/WMS 产品经理 CodeX→Draw.io 泳道图实战。这不证明它们一定更优，但证明 fresh discovery 可能改变 serious candidate pool，不能由旧 P04 直接继承“recommendation stable”。
+Important boundary:
 
-## 4. Adversarial constraints
+> This does **not** prove every platform needs an adapter, or that social-platform content is better. It proves ordinary broad Web discovery may have a repeated material recall/acquisition gap for the practitioner ecosystems this product depends on.
 
-0.9.1 明确不做：
+Authority: `docs/validation/SOURCE_ACQUISITION_PILOT_20260831.md`.
+
+## 4. Current milestone — staged Source Acquisition Pilot
+
+Do not patch Runtime 0.9.1 during this pilot.
+
+Pilot order:
+
+```text
+P0 targeted normal-Web baseline
+→ P1 WeChat lightweight discovery qualification
+→ P2 Bilibili search/transcript qualification
+→ P3 Xiaohongshu isolated read-only qualification
+```
+
+### P0 — targeted Web baseline
+
+First determine whether explicit source-qualified queries can recover useful candidates without any new dependency.
+
+This distinguishes search-intent failure from index/acquisition failure.
+
+### P1 — WeChat
+
+Pilot candidate: `zjp1997720/wechat-article-search`.
+
+Reason to start early: narrow search-only purpose, MIT, no API key, relatively low operational cost.
+
+### P2 — Bilibili
+
+Pilot candidate: `XZXZZX-Ai/bilibili-mcp`.
+
+Scope: search / metadata / transcript only. Credentials remain local. Optional ASR is not required for first qualification.
+
+### P3 — Xiaohongshu
+
+Pilot candidate: `xpzouying/xiaohongshu-mcp`.
+
+This addresses the hardest current discovery gap but has the highest login/browser/permission maintenance cost, so it is isolated after P0–P2. Use search/read only and a low-risk/test account where practical.
+
+Zhihu remains normal-Web-first; no adapter is justified yet.
+
+## 5. Pilot success condition
+
+An adapter is only justified if it does more than increase link count.
+
+It must:
+
+1. acquire practitioner evidence normal Web could not reliably acquire;
+2. expose enough original content/provenance for Curator judgement;
+3. materially change candidate pool, ranking, rejection reason, confidence, or an explicit coverage boundary;
+4. keep security/credential/maintenance cost proportionate.
+
+If it only produces more low-quality links, do not promote it.
+
+## 6. Source adapter architecture boundary
+
+Existing design remains the basis:
+
+- `docs/SOURCE_ADAPTER_ARCHITECTURE_V3.md`
+- `docs/SOURCE_ADAPTER_LIFECYCLE_V3.md`
+
+Curator owns task/evidence judgement. Adapters only own source-specific discovery/read acquisition.
+
+Runtime use is separate from adapter maintenance:
+
+- normal curation may use an already-qualified installed adapter when it fills a concrete evidence gap;
+- normal curation does not silently install/update third-party executable dependencies;
+- credentials/cookies stay local and never enter prompts or Git history;
+- read-only research operations are the default.
+
+## 7. Adversarial constraints
+
+Current pilot explicitly does **not** add:
 
 - newest-wins；
-- B站/公众号/小红书/知乎固定配额；
-- 大型资源数据库或自动 Refresh；
-- 第三个 Router Skill；
+- platform quotas；
+- “B站 + 小红书 + 公众号 + 知乎” mandatory coverage；
+- resource DB / auto-refresh；
+- crawler pipeline；
+- creator ranking；
+- third Router Skill；
 - A/B/C runtime taxonomy；
-- scoring/Gate/creator ranking；
-- Browser/Graph Engineering/host-policy workaround；
-- 每次把所有平台都搜一遍。
+- custom adapter framework before simple composition is tested；
+- auto-install/update inside normal curation tasks。
 
-Best ≠ newest。旧资源可以继续排第一，但必须经本次 fresh evidence 与当前候选重新成立。
+## 8. Curation Pack / historical evidence boundary
 
-## 5. Host/Harness risks remain separate
+Historical Curation Pack, P04 and validation documents remain project research evidence.
 
-此前真实日志仍暴露：
+They may provide a lead or known-risk hint, but they do not define the current candidate pool, current ranking or current source availability.
 
-- Codex Web policy 可能存在 `technical questions → primary sources only` 冲突；
-- Graph Engineering Skill collision / over-triggering；
-- Browser/Chrome 是否需要 source-acquisition fallback 未验证。
-
-这些没有足够证据成为 Curator Runtime 规则。
-
-## 6. Curation Pack 01 / P04 historical evidence
-
-历史 Curation Pack 与 P04 研究仍保留用于产品研究、回归和方法分析。
-
-重要新边界：
-
-> **历史项目证据不能成为普通用户当次外部策展的默认候选源或当前排名依据。**
-
-若历史文件提供一个有用 URL/作者名，只能作为 lead；正常用户请求仍需当前外部重新发现/打开/核验。
-
-## 7. Current milestone — Controlled REAL_USER_USE
-
-受控试用入口：`docs/USER_TRIAL_GUIDE_V1.md`。
-
-允许真实 ERP/企业信息化用户用自然问题使用；不要求固定 benchmark、工具测试协议、长问卷或为了覆盖类别继续制造 Case。
-
-当前最重要的未验证目标：
-
-> **Curator 是否能持续比普通 AI/自搜索更高信任、更低噪声地找到当前仍适用、真正值得学的实践，并在能力选型时减少错装/错选，且这个差异足以让真实用户再次使用？**
-
-## 8. Cloud / Local Agent boundary
+## 9. Cloud / Local Agent boundary
 
 Cloud owns：
 
-- 自然真实反馈的证据审查；
-- 当前 Web/GitHub practitioner discovery 与事实核验；
-- 窄缺陷修正；
-- GitHub authority/Harness 维护。
+- current architecture/adversarial review；
+- candidate repo/current-state/security surface review；
+- GitHub authority/Harness maintenance；
+- final judgement on whether pilot evidence justifies promotion。
 
-Local Agent 只在真实决策依赖本地 repo/runtime、企业 ERP 环境、受保护 evidence，或必须验证具体宿主 Skill trigger/reference/Web 行为时接力。
+Local Agent owns only the environment-dependent qualification work：
 
-Agent 可用性本身不是派活理由。
+- P0 actual target-host search behavior；
+- installing/qualifying approved pilot adapters；
+- client/MCP configuration；
+- read-only smoke tests；
+- exact search/open/tool logs。
 
-## 9. Release boundary
+Owner/manual action should occur only for unavoidable local credential/QR login/client restart steps. The Agent must never ask the Owner to audit package files manually.
+
+## 10. Release boundary
 
 ### GO
 
-- controlled user trial。
+- controlled user trial；
+- staged local source-acquisition pilot。
 
 ### HOLD
 
 - organization-wide mandatory standard；
-- “产品价值已验证”声明；
-- 全宿主兼容声明；
-- public/open-source release completion。
-
-公开/open-source 发布仍需要 Owner 明确 repository license。
-
-## 10. Anti-drift
-
-真实用户未暴露必要性前，不新增：
-
-- synthetic validation loop；
-- fixed scenario taxonomy；
-- scoring/Gate；
-- resource database/auto refresh；
-- mandatory runtime benchmark；
-- 第三个 Router Skill；
-- multi-Agent orchestration；
-- creator ranking；
-- source-adapter framework as default architecture；
-- card-specific permanent rules；
-- user test protocol as default output。
+- “product value validated” claim；
+- all-host compatibility claim；
+- permanent source-adapter architecture；
+- public/open-source release completion without an explicit repository license decision。
 
 ## 11. Next
 
-0.9.1 合并后继续自然 controlled use。
+Highest-value next action is the local Source Acquisition Pilot in:
 
-最高价值仍是同一个原始 practice-only 请求：
+`docs/validation/SOURCE_ACQUISITION_PILOT_20260831.md`
 
-> “使用这个 skill 给我找下做流程图的最佳实践”
+Do **not** rerun the same prompt repeatedly without collecting source-acquisition evidence.
 
-观察：
+The next decision is not “does the answer mention Xiaohongshu?” It is:
 
-- 是否先做本次 fresh external discovery，而不是从 P04/history 继承候选；
-- 宽搜漏掉中文 practitioner 生态时是否出现有选择的 targeted recall；
-- 最终每个外部资源是否都在本次重新打开；
-- 是否考虑近期/当前适用性，而不是默认沿用历史排序；
-- 最终用户回答是否不再出现内部 validation 链接。
+> **Can targeted normal Web or a minimal read-only source adapter obtain serious practitioner evidence that ordinary broad Web misses, and does that evidence materially improve the Curator recommendation?**
 
-如果仍失败，优先取实际 search/open/source 日志，再决定下一步；不根据最终答案继续盲加规则。
+Only after that result should Runtime, adapter routing, or product architecture change again.
